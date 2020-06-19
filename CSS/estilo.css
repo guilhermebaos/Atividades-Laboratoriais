@@ -97,25 +97,6 @@ ul.navbar li a {
 ul.navbar li:hover {
     background-color: rgba(128, 128, 128, 0.8);
 }
-ul.navbar li.dropdown div.dropdown {
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    display: inline-block;
-}
-ul.navbar li.dropdown div.dropdown p {
-    margin: 0px;
-    padding: 0px;
-}
-ul.navbar li.dropdown div.dropdown a {
-    display: none;
-    position: relative;
-    margin-top: 10px;
-}
-ul.navbar li.dropdown div.dropdown a.show {
-    display: block;
-}
-
 
 footer {
     text-align: center;
