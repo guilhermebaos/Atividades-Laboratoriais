@@ -83,18 +83,37 @@ ul.navbar {
     border-radius: 5px;
 }
 ul.navbar li {
-    float: left;
-}
-ul.navbar li a {
     display: block;
+    float: left;
+    padding: 14px 16px;
     color: white;
     text-align: center;
-    text-decoration: none;
-    padding: 14px 16px;
     transition: background-color 0.2s;
 }
-ul.navbar li a:hover {
+ul.navbar li a {
+    color: white;
+    text-decoration: none;
+}
+ul.navbar li:hover {
     background-color: rgba(128, 128, 128, 0.8);
+}
+ul.navbar li.dropdown div.dropdown {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    display: inline-block;
+}
+ul.navbar li.dropdown div.dropdown p {
+    margin: 0px;
+    padding: 0px;
+}
+ul.navbar li.dropdown div.dropdown a {
+    display: none;
+    position: relative;
+    margin-top: 10px;
+}
+ul.navbar li.dropdown div.dropdown a.show {
+    display: block;
 }
 
 
