@@ -1,4 +1,4 @@
-avoid = ['/navbar.html', '/footer.html']
+avoid = ['/Layout/navbar.html', '/Layout/footer.html']
 
 function redirect() {
     if (avoid.includes(window.location.pathname)){
