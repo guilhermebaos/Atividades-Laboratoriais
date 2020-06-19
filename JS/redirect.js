@@ -1,7 +1,6 @@
-avoid = ['/navbar.html']
+avoid = ['/navbar.html', '/footer.html']
 
 function redirect() {
-    alert(window.location.pathname)
     if (avoid.includes(window.location.pathname)){
         window.location.pathname = '/index.html'
     }
