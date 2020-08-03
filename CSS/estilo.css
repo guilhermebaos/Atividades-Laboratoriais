@@ -35,6 +35,19 @@ p.explicar {
     font-style: italic;
 }
 
+h1.disciplina {
+    margin-bottom: 0px;
+}
+
+h2.ano {
+    margin-top: 0px;
+}
+
+h3.unidade {
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
 div {
     text-align: center;
     padding: 5px;
@@ -46,6 +59,10 @@ div.graf {
 div.header {
     margin: 0px;
     padding: 0px;
+}
+div.lista-AL {
+    margin-top: 50px;
+    text-align: left;
 }
 
 table {
@@ -85,17 +102,18 @@ ul.navbar {
 ul.navbar li {
     display: block;
     float: left;
-    padding: 14px 16px;
     color: white;
+    padding: 10px 6px;
     text-align: center;
     transition: background-color 0.2s;
 }
 ul.navbar li a {
     color: white;
+    padding: 10px 6px;
     text-decoration: none;
 }
 ul.navbar li:hover {
-    background-color: rgba(128, 128, 128, 0.8);
+    background-color: rgba(128, 128, 128, 0.7);
 }
 
 footer {
