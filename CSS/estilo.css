@@ -1,6 +1,8 @@
 body {
     background: rgba(51, 139, 240, 0.3);
-    font: normal 14pt Calibri;
+    font-size: 13pt;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    /*font-family: "Comic Sans MS", cursive, sans-serif;*/
 }
 
 header {
@@ -19,15 +21,10 @@ main {
 
 a {
     text-decoration: none;
+    color: rgb(0, 0, 200);
 }
 a:hover {
     text-decoration: underline;
-}
-a.a-1 {
-    color: blue;
-}
-a.a-2 {
-    color: rgb(209, 164, 95);
 }
 
 p.explicar {
@@ -35,6 +32,9 @@ p.explicar {
     font-style: italic;
 }
 
+h1 {
+    font-weight: 500;
+}
 h1.disciplina {
     margin-bottom: 0px;
 }
@@ -67,12 +67,23 @@ div.lista-AL {
 
 table {
     padding: 0px;
+    border-collapse: collapse;
 }
-table.centered {
+table.centrada {
     margin: auto;
     width: fit-content;
 }
-table.centered tr td.slider-label {
+
+
+tr.menu td {
+    padding: 10px 15px 0px 15px;
+    border-bottom: 1px solid #ddd;
+}
+tr.menu td:hover {
+    cursor: pointer;
+}
+
+td.slider-label {
     text-align: right;
 }
 td p {
