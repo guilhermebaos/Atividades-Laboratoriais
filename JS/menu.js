@@ -5,9 +5,9 @@ function carregar(ficheiro) {
     if (pronto == false) {
         var alvo = document.getElementById('alvo')
 
-        var tdTeoria = document.getElementById('teoria')
-        var tdMaterial = document.getElementById('material')
-        var tdProcedimento = document.getElementById('procedimento')
+        var liTeoria = document.getElementById('teoria')
+        var liMaterial = document.getElementById('material')
+        var liProcedimento = document.getElementById('procedimento')
     }
     if (aberto != ficheiro) {
         alvo.setAttribute('incluir', ficheiro)
@@ -18,14 +18,14 @@ function carregar(ficheiro) {
         aberto = ''
     }
 
-    tdTeoria.style.textDecoration = ''
-    tdMaterial.style.textDecoration = ''
-    tdProcedimento.style.textDecoration = ''
+    liTeoria.style.textDecoration = ''
+    liMaterial.style.textDecoration = ''
+    liProcedimento.style.textDecoration = ''
     if (aberto == 'teoria.html') {
-        tdTeoria.style.textDecoration = 'underline'
+        liTeoria.style.textDecoration = 'underline'
     } else if (aberto == 'material.html') {
-        tdMaterial.style.textDecoration = 'underline'
+        liMaterial.style.textDecoration = 'underline'
     } else if (aberto == 'procedimento.html') {
-        tdProcedimento.style.textDecoration = 'underline'
+        liProcedimento.style.textDecoration = 'underline'
     }
 }

@@ -111,8 +111,7 @@ ul.navbar {
     border-radius: 5px;
 }
 ul.navbar li {
-    display: block;
-    float: left;
+    display: inline-block;
     color: white;
     padding: 10px 6px;
     text-align: center;
@@ -125,6 +124,21 @@ ul.navbar li a {
 }
 ul.navbar li:hover {
     background-color: rgba(128, 128, 128, 0.7);
+}
+
+ul.menu {
+    margin: auto;
+    padding: 0px;
+    width: fit-content;
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+}
+ul.menu li {
+    padding: 10px 15px 0px 15px;
+    display: inline-block;
+}
+ul.menu li:hover {
+    cursor: pointer;
 }
 
 footer {
