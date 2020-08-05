@@ -15,7 +15,7 @@ main {
     background: white;
     border-radius: 10px;
     margin: auto;
-    padding: 15px;
+    padding: 15px 25px 15px 25px;
     width: 75vw;
     max-width: 1000px;
 }
@@ -38,6 +38,9 @@ p.contas {
 
 u.simples {
     text-decoration: underline dotted gray;
+}
+i.ex {
+    font-size: 90%;
 }
 
 h1 {
@@ -78,6 +81,9 @@ div.header {
 div.lista-AL {
     margin-top: 50px;
     text-align: left;
+}
+div#alvo {
+    align-content: center;
 }
 
 table {
@@ -153,6 +159,14 @@ ul.menu li {
 }
 ul.menu li:hover {
     cursor: pointer;
+}
+
+ul.material {
+    display: table;
+    margin: auto;
+    padding: 0px;
+    text-align: left;
+    list-style-position: inside;
 }
 
 footer {
