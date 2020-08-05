@@ -3,6 +3,7 @@ body {
     font-size: 13pt;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     /*font-family: "Comic Sans MS", cursive, sans-serif;*/
+    margin: 0px;
 }
 
 header {
@@ -28,8 +29,15 @@ a:hover {
 }
 
 p.explicar {
-    font-size: 12pt;
+    font-size: 80%;
     font-style: italic;
+}
+p.contas {
+    line-height: 150%;
+}
+
+u.simples {
+    text-decoration: underline dotted gray;
 }
 
 h1 {
@@ -48,6 +56,10 @@ h3.unidade {
     margin-bottom: 0px;
 }
 
+span.nota {
+    font-size: small;
+}
+
 div {
     text-align: center;
     padding: 5px;
@@ -59,6 +71,9 @@ div.graf {
 div.header {
     margin: 0px;
     padding: 0px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0px;
 }
 div.lista-AL {
     margin-top: 50px;
@@ -104,11 +119,10 @@ input.slider:hover{
 
 ul.navbar {
     list-style-type: none;
-    margin: 5px 5px 20px 5px;
+    margin: 0px;
     padding: 0px;
     overflow: hidden;
-    background-color: rgba(128, 128, 128, 0.4);
-    border-radius: 5px;
+    background-color: rgba(128, 128, 128, 1);
 }
 ul.navbar li {
     display: inline-block;
