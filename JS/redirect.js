@@ -1,9 +1,10 @@
-avoid = ['/Layout/navbar.html', '/Layout/footer.html', '/Layout/layout.html']
+evitar = ['/Layout/navbar.html', '/Layout/footer.html', '/Layout/layout.html', '/Layout/menu.html']
 
-function redirect() {
-    if (avoid.includes(window.location.pathname)){
+// Redireciona o utilizador se ele abrir algum dos Layouts
+function redirecionar() {
+    if (evitar.includes(window.location.pathname)){
         window.location.pathname = '/index.html'
     }
 }
 
-window.onload = redirect()
+window.onload = redirecionar()

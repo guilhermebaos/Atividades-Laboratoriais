@@ -1,1 +1,30 @@
-<p>Resultados</p>
+<h3>Resultados</h3>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="JS/curva.js"></script>
+
+<div>
+    <table class="centered">
+        <tr>
+            <td class="slider-label"><label for="ConcTitulante">Concentração do Titulante:</label></td>
+            <td><input type="range" name="ConcTitulante" id="ConcTitulante" class="slider" min="10" max="50" value="10"></td>
+            <td><span id="ConcTitulanteValue">0.100</span>mol/l</td>
+        </tr>
+        <tr>
+            <td class="slider-label"><label for="ConcTitulado">Concentração do Titulado: </label></td>
+            <td><input type="range" name="ConcTitulado" id="ConcTitulado" class="slider" min="10" max="50" value="25"></td>
+            <td><span id="ConcTituladoValue">0.050</span>mol/l</td>
+        </tr>
+        <tr><td><br></td></tr>
+        <tr>
+            <td class="slider-label"><label for="VolTitulante">Volume de Titulante Adicionado de cada vez: </label></td>
+            <td><input type="range" name="VolTitulante" id="VolTitulante" class="slider" min="10" max="20" value="1"></td>
+            <td><span id="VolTitulanteValue">0.1</span>ml</td>
+        </tr>
+        <tr>
+            <td class="slider-label"><label for="VolTitulado">Volume de Titulado na Matraz: </label></td>
+            <td><input type="range" name="VolTitulado" id="VolTitulado" class="slider" min="25" max="75" value="50"></td>
+            <td><span id="VolTituladoValue">50.00</span>ml</td>
+        </tr>
+    </table>
+</div>
+<div id="curva-pH" class="graf"></div>

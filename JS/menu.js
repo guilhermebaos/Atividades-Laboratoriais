@@ -1,11 +1,14 @@
 // Se necessário, fazer de forma a não ter de fazer mais Requests ao Server
 
+// Valores Iniciais das Variaveis
 let pronto = false
 let aberto = 'teoria.html'
 
-var alvo, liTeoria, liMaterial, liProcedimento, liResultados
+// Inicializar Variáveis Globais
+let alvo, liTeoria, liMaterial, liProcedimento, liResultados
 
 function carregar(ficheiro) {
+    // Identificar os Elementos do Menu, após estes carregarem
     if (pronto == false) {
         alvo = document.getElementById('alvo')
 
@@ -16,6 +19,7 @@ function carregar(ficheiro) {
 
         pronto = true
     }
+    // Abrir um novo ficheiro
     if (aberto != ficheiro) {
         alvo.setAttribute('incluir', ficheiro)
         incluirHTML()
