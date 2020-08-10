@@ -89,10 +89,13 @@ div {
     padding: 5px;
 }
 
-div.graf {
-    margin: auto;
-    max-width: 1000px;
+div.graf-container {
     overflow-x: scroll;
+}
+div.graf {
+    position: relative;
+    width: 100%;
+    min-width: 600px;
 }
 
 div.header {
@@ -134,8 +137,6 @@ div.div-slider div.label {
 
 canvas.curva-pH {
     margin: auto;
-    min-height: 400px;
-    min-width: 800px;
 }
 
 
