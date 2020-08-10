@@ -1,5 +1,13 @@
 <h3>Resultados</h3>
 
+<p>
+    Usa os Sliders para alterar os valores Indicados, de forma a poderes ver
+    diferentes resultados experimentais.
+</p>
+<p>
+    Experimenta prever como é que a Curva de pH irá mudar em consequência de uma ou mais alterações!
+</p>
+
 <div class="centrada">
     <div class="div-slider">
         <div><label for="ConcTitulante">Concentração do Titulante:</label></div>
@@ -22,5 +30,9 @@
         <div><span id="VolTituladoValue">50.00</span>ml
         <input type="range" name="VolTitulado" id="VolTitulado" class="slider" min="25" max="75" value="50"></div>
     </div>
+
+    <input type="button" value="fazer-curva-pH" id="fazer-curva-pH" name="fazer-curva-pH" onclick="curva()">
 </div>
-<div id="curva-pH" class="graf"></div>
+<div id="curva-pH" class="graf">
+    <span id="canvasCurva"></span>
+</div>

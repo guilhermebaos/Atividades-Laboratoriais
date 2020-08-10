@@ -91,7 +91,8 @@ div {
 
 div.graf {
     margin: auto;
-    max-width: 100vh;
+    max-width: 1000px;
+    overflow-x: scroll;
 }
 
 div.header {
@@ -128,6 +129,13 @@ div.div-slider div {
 }
 div.div-slider div.label {
     flex: 1 1 0px;
+}
+
+
+canvas.curva-pH {
+    margin: auto;
+    min-height: 400px;
+    min-width: 800px;
 }
 
 

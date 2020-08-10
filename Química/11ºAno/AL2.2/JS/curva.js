@@ -53,6 +53,8 @@ function preparar() {
         let VolTituladoValue = VolTitulado.value * 1
         VolTituladoResp.innerHTML = `${VolTituladoValue.toFixed(2)}`
     }
+
+    curva()
 }
 
 
@@ -153,8 +155,7 @@ function curva() {
     // Criar o canvas on de vai estar a curva
     canvasCurva = document.createElement('canvas')
     canvasCurva.setAttribute('id', 'canvasCurva')
-    canvasCurva.setAttribute('width', '400')
-    canvasCurva.setAttribute('height', '200')
+    canvasCurva.setAttribute('class', 'curva-pH')
     divCurva.appendChild(canvasCurva)
 
     let graCurva = new Chart(canvasCurva, {
