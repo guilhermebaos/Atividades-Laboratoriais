@@ -1,61 +1,58 @@
 // Definir constantes
-let Kw = 1.00e-14
+const Kw = 1.00e-14
 
-// Selecionar Sliders
-let ConcTitulante = document.getElementById('ConcTitulante')
-let ConcTitulado = document.getElementById('ConcTitulado')
+// Inicializar Variáveis Globais
+let preparado = false
 
-let VolTitulante = document.getElementById('VolTitulante')
-let VolTitulado = document.getElementById('VolTitulado')
+let ConcTitulante, ConcTitulado
+let VolTitulante, VolTitulado
 
-// Selecionar os Spans com os Value dos Sliders
-let ConcTitulanteResp = document.getElementById('ConcTitulanteValue')
-let ConcTituladoResp = document.getElementById('ConcTituladoValue')
+let ConcTitulanteResp, ConcTituladoResp
+let VolTitulanteResp, VolTituladoResp
 
-let VolTitulanteResp = document.getElementById('VolTitulanteValue')
-let VolTituladoResp = document.getElementById('VolTituladoValue')
-
-// Selecionar a div onde vai parar a curva
-let divCurva = document.getElementById('curva-pH')
+let divPrep, divCurva
 
 
-// Atualizar os Sliders
-ConcTitulante.oninput = function atualizarConcTitulante() {
-    let ConcTitulanteValue = ConcTitulante.value / 100
+function preparar() {
+    if (preparado) {
+        return
+    }
+    preparado = true
 
-    ConcTitulanteResp.innerHTML = `${ConcTitulanteValue.toFixed(3)}`
+    // Selecionar Sliders
+    ConcTitulante = document.getElementById('ConcTitulante')
+    ConcTitulado = document.getElementById('ConcTitulado')
 
-    let canvasCurva = document.getElementById('canvasCurva')
-    divCurva.removeChild(canvasCurva)
-    curva()
-}
-ConcTitulado.oninput = function atualizarConcTitulado() {
-    let ConcTituladoValue = ConcTitulado.value / 500
+    VolTitulante = document.getElementById('VolTitulante')
+    VolTitulado = document.getElementById('VolTitulado')
 
-    ConcTituladoResp.innerHTML = `${ConcTituladoValue.toFixed(3)}`
+    // Selecionar os Spans com os Value dos Sliders
+    ConcTitulanteResp = document.getElementById('ConcTitulanteValue')
+    ConcTituladoResp = document.getElementById('ConcTituladoValue')
 
-    let canvasCurva = document.getElementById('canvasCurva')
-    divCurva.removeChild(canvasCurva)
-    curva()
-}
+    VolTitulanteResp = document.getElementById('VolTitulanteValue')
+    VolTituladoResp = document.getElementById('VolTituladoValue')
 
-VolTitulante.oninput = function atualizarVolTitulante() {
-    let VolTitulanteValue = VolTitulante.value / 100
+    // Selecionar a div onde vai parar a curva
+    divCurva = document.getElementById('curva-pH')
+    // Atualizar os Sliders
+    ConcTitulante.oninput = function atualizarConcTitulante() {
+        let ConcTitulanteValue = ConcTitulante.value / 100
+        ConcTitulanteResp.innerHTML = `${ConcTitulanteValue.toFixed(3)}`
+    }
+    ConcTitulado.oninput = function atualizarConcTitulado() {
+        let ConcTituladoValue = ConcTitulado.value / 500
+        ConcTituladoResp.innerHTML = `${ConcTituladoValue.toFixed(3)}`
+    }
 
-    VolTitulanteResp.innerHTML = `${VolTitulanteValue.toFixed(2)}`
-
-    let canvasCurva = document.getElementById('canvasCurva')
-    divCurva.removeChild(canvasCurva)
-    curva()
-}
-VolTitulado.oninput = function atualizarVolTitulado() {
-    let VolTituladoValue = VolTitulado.value * 1
-
-    VolTituladoResp.innerHTML = `${VolTituladoValue.toFixed(2)}`
-
-    let canvasCurva = document.getElementById('canvasCurva')
-    divCurva.removeChild(canvasCurva)
-    curva()
+    VolTitulante.oninput = function atualizarVolTitulante() {
+        let VolTitulanteValue = VolTitulante.value / 100
+        VolTitulanteResp.innerHTML = `${VolTitulanteValue.toFixed(2)}`
+    }
+    VolTitulado.oninput = function atualizarVolTitulado() {
+        let VolTituladoValue = VolTitulado.value * 1
+        VolTituladoResp.innerHTML = `${VolTituladoValue.toFixed(2)}`
+    }
 }
 
 
@@ -144,6 +141,11 @@ function pontos() {
 
 
 function curva() {
+    // Remover o Canvas antigo
+    let canvasCurva = document.getElementById('canvasCurva')
+    divCurva.removeChild(canvasCurva)
+
+    // Variáveis da função
     let tudo = pontos()
     let xVolumes = tudo[0]
     let ypH = tudo[1]
@@ -190,5 +192,3 @@ function curva() {
         }
     })
 }
-
-window.onload = curva
