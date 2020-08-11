@@ -3,6 +3,10 @@ const Kw = 1.00e-14
 
 // Inicializar Variáveis Globais
 let preparado = false
+let curvaTitulante = 'HCl'
+
+let TitulanteHCl, TitulanteNaOH
+let TituladoHCl, TituladoNaOH
 
 let ConcTitulante, ConcTitulado
 let VolTitulante, VolTitulado
@@ -18,6 +22,13 @@ function preparar() {
         return
     }
     preparado = true
+    
+    // Selecionar os butões
+    TitulanteHCl = document.getElementById('TitulanteHCl')
+    TitulanteNaOH = document.getElementById('TitulanteNaOH')
+
+    TituladoHCl = document.getElementById('TituladoHCl')
+    TituladoNaOH = document.getElementById('TituladoNaOH')
 
     // Selecionar Sliders
     ConcTitulante = document.getElementById('ConcTitulante')
@@ -58,6 +69,25 @@ function preparar() {
 }
 
 
+// Definir o Titulante e o Titulado, mudando as suas classes para o representar visualmente
+function Titulante(Tit) {
+    curvaTitulante = Tit
+    if (Tit == 'HCl') {
+        TitulanteHCl.className = 'escolha-atual'
+        TituladoNaOH.className = 'escolha-atual'
+
+        TituladoHCl.className = 'escolha'
+        TitulanteNaOH.className = 'escolha'
+    } else if (Tit == 'NaOH') {
+        TitulanteHCl.className = 'escolha'
+        TituladoNaOH.className = 'escolha'
+
+        TituladoHCl.className = 'escolha-atual'
+        TitulanteNaOH.className = 'escolha-atual'
+    }
+}
+
+
 // Obter os Valores de pH para os vários Volumes adicionados de Titulante
 function pontos() {
 
@@ -94,16 +124,28 @@ function pontos() {
 
         nTitulante = volumeTitulante * CTitulante
         nTitulado = volumeTitulado * CTitulado
+        if (curvaTitulante == 'HCl') {
+            if (nTitulante > nTitulado) {           // Gastou o Titulado completamente
+                nH3O = nTitulante - nTitulado       // O Titulante que sobra Ioniza-se completamente
 
-        if (nTitulante > nTitulado) {           // Gastou o Titulado completamente
-            nH3O = nTitulante - nTitulado       // O Titulante que sobra Ioniza-se completamente
-
-        } else if (nTitulado > nTitulante) {    // Gastou o Titulante Todo 
-            nHO = nTitulado - nTitulante        // O Titulado que sobra Ioniza-se completamente
+            } else if (nTitulado > nTitulante) {    // Gastou o Titulante Todo 
+                nHO = nTitulado - nTitulante        // O Titulado que sobra Ioniza-se completamente
         
-        } else {
-            nH3O = nHO = 0
+            } else {
+                nH3O = nHO = 0
+            }
+        } else if (curvaTitulante == 'NaOH') {
+            if (nTitulante > nTitulado) {
+                nHO = nTitulante - nTitulado
+
+            } else if (nTitulado > nTitulante) {
+                nH3O = nTitulado - nTitulante
+
+            } else {
+                nH3O = nHO = 0
+            }
         }
+        
 
         CH3O = nH3O / volumeTotal
         CHO = nHO / volumeTotal
@@ -130,7 +172,7 @@ function pontos() {
         ypH.push(pH.toFixed(2))
 
         // Paramos quando o pH for menor que dois
-        if ((pH < 2 && volumeTitulante >= volumeTitulado) || (volumeTitulante >= 5 * volumeTitulado)) {
+        if ((pH < 2 && volumeTitulante >= volumeTitulado && curvaTitulante == 'HCl') || (pH > 12 && volumeTitulante >= volumeTitulado && curvaTitulante == 'NaOH') || (volumeTitulante >= 5 * volumeTitulado)) {
             break
         } else {
             volumeTotal += volumeAdicional

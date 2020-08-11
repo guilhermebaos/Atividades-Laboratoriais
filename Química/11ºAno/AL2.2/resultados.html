@@ -7,34 +7,53 @@
 <p>
     Experimenta prever como é que a Curva de pH irá mudar em consequência de uma ou mais alterações!
 </p>
-
 <div class="centrada">
-    <div class="div-slider">
+    <div class="div-flex">
+        <div>Titulante:</div>
+        <div><button id="TitulanteHCl" class="escolha-atual" onclick="Titulante('HCl')">HCl</button>
+        <button id="TitulanteNaOH" class="escolha" onclick="Titulante('NaOH')">NaOH</button></div>
+    </div>
+    <div class="div-flex">
+        <div>Titulado:</div>
+        <div><button id="TituladoHCl" class="escolha" onclick="Titulante('NaOH')">HCl</button>
+        <button id="TituladoNaOH" class="escolha-atual" onclick="Titulante('HCl')">NaOH</button></div>
+    </div>
+    <br>
+    <div class="div-flex">
         <div><label for="ConcTitulante">Concentração do Titulante:</label></div>
         <div><span id="ConcTitulanteValue">0.100</span>mol/l
         <input type="range" name="ConcTitulante" id="ConcTitulante" class="slider" min="10" max="50" value="10"></div>
     </div>
-    <div class="div-slider">
+    <div class="div-flex">
         <div><label for="ConcTitulado">Concentração do Titulado: </label></div>
         <div><span id="ConcTituladoValue">0.050</span>mol/l
         <input type="range" name="ConcTitulado" id="ConcTitulado" class="slider" min="10" max="50" value="25"></div>
     </div>
     <br>
-    <div class="div-slider">
+    <div class="div-flex">
         <div><label for="VolTitulante">Volume de Titulante Adicionado de cada vez: </label></div>
         <div><span id="VolTitulanteValue">0.10</span>ml
         <input type="range" name="VolTitulante" id="VolTitulante" class="slider" min="10" max="20" value="1"></div>
     </div>
-    <div class="div-slider">
+    <div class="div-flex">
         <div><label for="VolTitulado">Volume de Titulado na Matraz: </label></div>
         <div><span id="VolTituladoValue">50.00</span>ml
         <input type="range" name="VolTitulado" id="VolTitulado" class="slider" min="25" max="75" value="50"></div>
     </div>
 
-    <input type="button" value="Fazer a Curva de pH" id="fazer-curva-pH" name="fazer-curva-pH" class="submit" onclick="curva()">
+    <button id="fazer-curva-pH" class="submit" onclick="curva()">Fazer a Curva de pH</button>
 </div>
 <div class="graf-container">
     <div id="curva-pH" class="graf">
         <span id="canvasCurva"></span>
     </div>
+</div>
+<div>
+    <p class="explicar">
+        Tanto o Titulante como o Titulado são fortes, para que a reação
+        que ocorre entre eles seja o mais completa possível.
+    </p>
+    <p class="explicar">
+        A experiência é feita a 25ºC.
+    </p>
 </div>
