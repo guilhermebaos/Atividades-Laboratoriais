@@ -1,18 +1,24 @@
 let mostrarExpPronto = false
-let divExpContas
-let divExpContasAberto = false
+let expContasArray = []
+let expContasAberto = 0
+let pos = 0
 
-function mostrarExp() {
+function mostrarExp(num) {
     if (!pronto) {
-        divExpContas = document.getElementById('expContas')
+        expContasArray.push(document.getElementById('exp-contas-1'))
+        expContasArray.push(document.getElementById('exp-contas-2'))
 
         pronto = true
     }
-    if (divExpContasAberto) {
-        divExpContas.style.display = 'none'
-        divExpContasAberto = false
+    if (num == expContasAberto) {
+        expContasArray[num - 1].style.display = 'none'
+        expContasAberto = 0
     } else {
-        divExpContas.style.display = 'initial'
-        divExpContasAberto = true
+        expContasArray[num - 1].style.display = 'initial'
+
+        if (expContasAberto != 0) {
+            expContasArray[expContasAberto - 1].style.display = 'none'
+        }
+        expContasAberto = num
     }
 }
