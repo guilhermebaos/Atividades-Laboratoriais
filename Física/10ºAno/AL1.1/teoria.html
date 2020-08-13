@@ -1,0 +1,31 @@
+<h3>Objetivo</h3>
+<p>
+    Pretende-se relacionar a distância percorrida por um carrinho largado sobre um
+    plano inclinado com a Energia Cinética que tem após percorrer essa distância.
+</p>
+
+<br>
+<h3>Relação Teórica</h3>
+<p>
+    Considerando que apenas atuam no carrinho duas forças, o seu Peso (P) e a Força de Atrito (F<sub>a</sub>),
+    partindo do Teorema do Trabalho-Energia, temos que:
+</p>
+<div class="flex-contas">
+    <div class="contas">
+        <p>
+            <span class="invi">&hArr;</span> &Delta;E<sub>c</sub> &equals; W<sub>F<sub>r</sub></sub> &hArr; <br>
+            &hArr; E<sub>c</sub> &minus; E<sub>c<sub>i</sub></sub> &equals; W<sub>P</sub> &plus; W<sub>F<sub>a</sub></sub> &hArr; <br>
+            &hArr; E<sub>c</sub> &minus; 0<sup class="exp-contas" onclick="mostrarExp()">[1]</sup> &equals; |P| &times; |&Delta;r| &times; cos(&alpha;) &plus; |F<sub>a</sub>| &times; |&Delta;r| &times; cos(180º) &hArr; <br>
+            &hArr; E<sub>c</sub> &equals; m &times; g &times; d<sup class="exp-contas" onclick="mostrarExp()">[2]</sup> &times; sin(90 &minus; &alpha;) &plus; |F<sub>a</sub>| &times; d<sup class="exp-contas" onclick="mostrarExp()">[2]</sup> &times; (&minus;1) &hArr; <br>
+            &hArr; E<sub>c</sub> &equals; (m &times; g &times; sin(&theta;) &minus; |F<sub>a</sub>|) &times; d
+        </p>
+    </div>
+    <div id="expContas" style="display: none;">
+        <p class="ajuda-contas">
+            <sub><sub></sub></sub><br>
+            <sub><sub></sub></sub><br>
+            <sup class="exp-contas" onclick="mostrarExp()">[1]</sup>O Carrinho é abandonado, logo, a sua Energia Cinética inicial é 0.<sub></sub><br>
+            <sup class="exp-contas" onclick="mostrarExp()">[2]</sup>Como o Carrinho se move sempre na mesma direção e sentido, o módulo do seu deslocamento é igual à distância percorrida.<sub></sub>
+        </p>
+    </div>
+</div>

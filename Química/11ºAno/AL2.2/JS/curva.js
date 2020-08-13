@@ -17,7 +17,7 @@ let VolTitulanteResp, VolTituladoResp
 let divPrep, divCurva
 
 
-function preparar() {
+function prepararResultados() {
     if (preparado) {
         return
     }
@@ -227,7 +227,7 @@ function curva() {
                     {
                         scaleLabel: {
                             display: true,
-                            labelString: 'pH da Solução na Matraz'
+                            labelString: 'pH da Solução no Goblé'
                         }
                     }
                 ]
