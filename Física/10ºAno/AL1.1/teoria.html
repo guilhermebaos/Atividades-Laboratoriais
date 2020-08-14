@@ -14,16 +14,16 @@
     <p>
         <span class="invi">&hArr;</span> &Delta;E<sub>c</sub> &equals; W<sub>F<sub>r</sub></sub> &hArr; <br>
         &hArr; E<sub>c</sub> &minus; E<sub>c<sub>i</sub></sub> &equals; W<sub>P</sub> &plus; W<sub>F<sub>a</sub></sub> &hArr; <br>
-        &hArr; E<sub>c</sub> &minus; 0<sup class="exp-contas" onclick="mostrarExp(1)">[1]</sup> &equals; |P| &times; |&Delta;r| &times; cos(&alpha;) &plus; |F<sub>a</sub>| &times; |&Delta;r| &times; cos(180º) &hArr; <br>
-        &hArr; E<sub>c</sub> &equals; m &times; g &times; d<sup class="exp-contas" onclick="mostrarExp(2)">[2]</sup> &times; sin(90 &minus; &alpha;) &plus; |F<sub>a</sub>| &times; d<sup class="exp-contas" onclick="mostrarExp(2)">[2]</sup> &times; (&minus;1) &hArr; <br>
-        &hArr; E<sub>c</sub> &equals; (m &times; g &times; sin(&theta;)<sup class="exp-contas" onclick="mostrarExp(3)">[3]</sup> &minus; |F<sub>a</sub>|) &times; d
+        &hArr; E<sub>c</sub> &minus; 0<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; |P| &times; |&Delta;r| &times; cos(&alpha;) &plus; |F<sub>a</sub>| &times; |&Delta;r| &times; cos(180º) &hArr; <br>
+        &hArr; E<sub>c</sub> &equals; m &times; g &times; d<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &times; sin(90 &minus; &alpha;) &plus; |F<sub>a</sub>| &times; d<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &times; (&minus;1) &hArr; <br>
+        &hArr; E<sub>c</sub> &equals; (m &times; g &times; sin(&theta;)<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &minus; |F<sub>a</sub>|) &times; d
     </p>
 </div>
 <div>
-    <p id="exp-contas-1" style="display: none;"><sup class="exp-contas" onclick="mostrarExp(1)">[1]</sup>O Carrinho é abandonado, logo, a sua Energia Cinética inicial é 0.<br><br></p>
-    <p id="exp-contas-2" style="display: none;"><sup class="exp-contas" onclick="mostrarExp(2)">[2]</sup>Como o Carrinho se move sempre na mesma direção e sentido, o módulo do seu deslocamento é igual à distância percorrida.<br><br></p>
-    <p id="exp-contas-3" style="display: none;"><sup class="exp-contas" onclick="mostrarExp(3)">[3]</sup><br><img id="Rampa-AL1-1" src="Imagens/Rampa_AL1.1.png" alt="Rampa com &alpha; e &theta; identificados"><br>O Vetor Peso será paralelo a AB, o Vetor Deslocamento será paralelo a AC, logo, o ângulo entre eles é &alpha;.
-        <br>Na equação acima, colocamos a Energia Cinética Final em função do ângulo que a Rampa faz com o solo, &theta;, em vez de &alpha;, para a simplificar.<br><br>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>O Carrinho é abandonado, logo, a sua Energia Cinética inicial é 0.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>Como o Carrinho se move sempre na mesma direção e sentido, o módulo do seu deslocamento é igual à distância percorrida.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup><br><img id="Rampa-AL1-1" src="Imagens/Rampa_AL1.1.png" alt="Rampa com &alpha; e &theta; identificados"><br>O Vetor Peso será paralelo a AB, o Vetor Deslocamento será paralelo a AC, logo, o ângulo entre eles é &alpha;.
+        <br>Na equação acima, colocamos a Energia Cinética Final em função do ângulo que o Plano Inclinado faz com o solo, &theta;, em vez de &alpha;, para a simplificar.<br><br>
     </p>
 </div>
 <table class="explicar">
@@ -55,12 +55,12 @@
     <tr>
         <td>&alpha;</td>
         <td>&rarr;</td>
-        <td>Ângulo entre o Peso e o Deslocamento, na Rampa</td>
+        <td>Ângulo entre o Peso e o Deslocamento, no Plano Inclinado</td>
     </tr>
     <tr>
         <td>&theta;</td>
         <td>&rarr;</td>
-        <td>Ângulo que a Rampa faz com o Solo</td>
+        <td>Ângulo que o Plano Inclinado faz com o Solo</td>
     </tr>
     <tr>
         <td>&Delta;r</td>
@@ -70,7 +70,7 @@
     <tr>
         <td>d</td>
         <td>&rarr;</td>
-        <td>Distância percorrida pelo carrinho sobre a Rampa</td>
+        <td>Distância percorrida pelo carrinho sobre o Plano Inclinado</td>
     </tr>
     <tr>
         <td>m</td>
@@ -84,7 +84,7 @@
     </tr>
 </table><br>
 <p>
-    Como podemos ver, o gráfico E<sub>c</sub> = f(d) deverá ser uma reta com declive
+    Como podemos ver, o gráfico <span class="nbsp">E<sub>c</sub> = f(d)</span> deverá ser uma reta com declive
     <span class="nbsp">(m &times; g &times; sin(&theta;) &minus; |F<sub>a</sub>|).</span>
 </p>
 
@@ -109,8 +109,15 @@
     uma célula fotoelétrica e um cronómetro digital.
 </p>
 <p class="m0">
-    A tira irá estar na parte superior do carrinho e irá atravessar a célula fotoelétrica,
+    A tira irá estar na parte superior do carrinho e irá atravessar a <span class="anchor" onclick="mostrarExtra('célula-fotoelétrica')">célula fotoelétrica</span>,
     interrompendo o feixe por um certo intervalo de tempo, medido pelo cronómetro digital.
+</p>
+<p id="célula-fotoelétrica" class="explicar" style="display: none;">
+    <span class="fechar" onclick="mostrarExtra('célula-fotoelétrica')">X</span><br>
+    A célula fotoelétrica emite um feixe na direção de um recetor. A tira opaca irá bloqueá-lo.
+    O cronómetro estará medir o intervalo de tempo desde que o feixe foi interrompido
+    até ao instante em que volta a ser detetado pelo recetor , medindo assim o
+    &Delta;t no qual o carrinho percorre a distância correspondente à largura da tira.
 </p>
 <p class="m0">
     Como sabemos o espaço que o carrinho percorreu num certo intervalo de tempo muito pequeno,
@@ -119,15 +126,15 @@
 <div class="contas">
     <p>
         <span class="invi">&hArr;</span> v &equals; |&Delta;r| &frasl; &Delta;t &hArr; <br>
-        &hArr; v &equals; largura<sub>tira</sub><sup class="exp-contas" onclick="mostrarExp(4)">[4]</sup> &frasl; &Delta;t
+        &hArr; v &equals; largura<sub>tira</sub><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup> &frasl; &Delta;t
     </p>
 </div>
 <div>
-    <p id="exp-contas-4" style="display: none;"><sup class="exp-contas" onclick="mostrarExp(4)">[4]</sup>No intervalo de tempo medido pelo cronómetro o carrinho percorre uma distância igual à largura da tira opaca.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>No intervalo de tempo medido pelo cronómetro o carrinho percorre uma distância igual à largura da tira opaca.<br><br></p>
 </div>
 
 <h4>Medir a Distância Percorrida</h4>
 <p>
-    Podemos usar uma fita métrica, incorporada na Rampa ou junto a ela para medir
+    Podemos usar uma fita métrica, incorporada no Plano Inclinado ou junto a ela para medir
     a distânica percorrida pelo carrinho.
 </p>
