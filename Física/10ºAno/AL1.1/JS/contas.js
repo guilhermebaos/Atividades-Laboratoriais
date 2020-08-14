@@ -7,6 +7,8 @@ function mostrarExp(num) {
     if (!pronto) {
         expContasArray.push(document.getElementById('exp-contas-1'))
         expContasArray.push(document.getElementById('exp-contas-2'))
+        expContasArray.push(document.getElementById('exp-contas-3'))
+        expContasArray.push(document.getElementById('exp-contas-4'))
 
         pronto = true
     }
