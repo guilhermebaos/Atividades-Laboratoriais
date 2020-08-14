@@ -248,6 +248,13 @@ input.slider:hover{
 }
 
 
+button {
+    outline: none;
+}
+button::-moz-focus-inner {
+    border: 0;
+}
+
 button.escolha {
     font-size: 12pt;
     color: white;
