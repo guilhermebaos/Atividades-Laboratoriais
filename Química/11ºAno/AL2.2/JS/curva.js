@@ -2,7 +2,13 @@
 const Kw = 1.00e-14
 
 // Inicializar Variáveis Globais
-let preparado = false
+
+// Usar um Objeto para proteger as variáveis com nomes comuns
+let Q11_AL22 = {
+    preparado: false,
+    divCurva: ''
+}
+
 let curvaTitulante = 'HCl'
 
 let TitulanteHCl, TitulanteNaOH
@@ -14,14 +20,12 @@ let VolTitulante, VolTitulado
 let ConcTitulanteResp, ConcTituladoResp
 let VolTitulanteResp, VolTituladoResp
 
-let divPrep, divCurva
-
 
 function prepararResultados() {
-    if (preparado) {
+    if (Q11_AL22.preparado) {
         return
     }
-    preparado = true
+    Q11_AL22.preparado = true
     
     // Selecionar os butões
     TitulanteHCl = document.getElementById('TitulanteHCl')
@@ -45,7 +49,8 @@ function prepararResultados() {
     VolTituladoResp = document.getElementById('VolTituladoValue')
 
     // Selecionar a div onde vai parar a curva
-    divCurva = document.getElementById('curva-pH')
+    Q11_AL22.divCurva = document.getElementById('curva-pH')
+    
     // Atualizar os Sliders
     ConcTitulante.oninput = function atualizarConcTitulante() {
         let ConcTitulanteValue = ConcTitulante.value / 100
@@ -187,7 +192,7 @@ function pontos() {
 function curva() {
     // Remover o Canvas antigo
     let canvasCurva = document.getElementById('canvasCurva')
-    divCurva.removeChild(canvasCurva)
+    Q11_AL22.divCurva.removeChild(canvasCurva)
 
     // Variáveis da função
     let tudo = pontos()
@@ -198,7 +203,7 @@ function curva() {
     canvasCurva = document.createElement('canvas')
     canvasCurva.setAttribute('id', 'canvasCurva')
     canvasCurva.setAttribute('class', 'curva-pH')
-    divCurva.appendChild(canvasCurva)
+    Q11_AL22.divCurva.appendChild(canvasCurva)
 
     let graCurva = new Chart(canvasCurva, {
         type: 'line',

@@ -1,8 +1,10 @@
 // Se necessário, fazer de forma a não ter de fazer mais Requests ao Server
 
 // Valores Iniciais das Variaveis
-let pronto = false
-let aberto = 'teoria.html'
+let projetoALmenu = {
+    pronto: false,
+    aberto: 'teoria.html'
+}
 
 // Inicializar Variáveis Globais
 let liTeoria, liMaterial, liProcedimento, liResultados
@@ -10,7 +12,7 @@ let divTeoria, divMaterial, divProcedimento, divResultados
 
 function carregar(ficheiro) {
     // Identificar os Elementos do Menu, após estes carregarem
-    if (pronto == false) {
+    if (projetoALmenu.pronto == false) {
         divTeoria = document.getElementById('div-teoria')
         divMaterial = document.getElementById('div-material')
         divProcedimento = document.getElementById('div-procedimento')
@@ -21,11 +23,11 @@ function carregar(ficheiro) {
         liProcedimento = document.getElementById('procedimento')
         liResultados = document.getElementById('resultados')
 
-        pronto = true
+        projetoALmenu.pronto = true
     }
     // Abrir um novo ficheiro
-    if (aberto != ficheiro) {
-        aberto = ficheiro
+    if (projetoALmenu.aberto != ficheiro) {
+        projetoALmenu.aberto = ficheiro
 
         liTeoria.style.textDecoration = ''
         liMaterial.style.textDecoration = ''
@@ -37,16 +39,16 @@ function carregar(ficheiro) {
         divProcedimento.style.display = 'none'
         divResultados.style.display = 'none'
 
-        if (aberto == 'teoria.html') {
+        if (projetoALmenu.aberto == 'teoria.html') {
             liTeoria.style.textDecoration = 'underline'
             divTeoria.style.display = 'initial'
-        } else if (aberto == 'material.html') {
+        } else if (projetoALmenu.aberto == 'material.html') {
             liMaterial.style.textDecoration = 'underline'
             divMaterial.style.display = 'initial'
-        } else if (aberto == 'procedimento.html') {
+        } else if (projetoALmenu.aberto == 'procedimento.html') {
             liProcedimento.style.textDecoration = 'underline'
             divProcedimento.style.display = 'initial'
-        } else if (aberto == 'resultados.html') {
+        } else if (projetoALmenu.aberto == 'resultados.html') {
             liResultados.style.textDecoration = 'underline'
             divResultados.style.display = 'initial'
         }
