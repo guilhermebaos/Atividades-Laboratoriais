@@ -109,6 +109,9 @@ function pontos() {
 
 // Traçar o gráfico Ec = f(d)
 function curva() {
+    // Remover o Canvas antigo
+    let canvasCurva = document.getElementById('canvasCurva')
+    F10_AL11.divCurva.removeChild(canvasCurva)
 
     // Obter e guardar os resultados
     let resultados = pontos()
