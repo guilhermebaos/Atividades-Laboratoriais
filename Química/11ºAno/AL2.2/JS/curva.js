@@ -189,15 +189,16 @@ function pontos() {
 }
 
 
+// Fazer a Curva de pH
 function curva() {
     // Remover o Canvas antigo
     let canvasCurva = document.getElementById('canvasCurva')
     Q11_AL22.divCurva.removeChild(canvasCurva)
 
     // Variáveis da função
-    let tudo = pontos()
-    let xVolumes = tudo[0]
-    let ypH = tudo[1]
+    let resultados = pontos()
+    let xVolumes = resultados[0]
+    let ypH = resultados[1]
 
     // Criar o canvas on de vai estar a curva
     canvasCurva = document.createElement('canvas')
@@ -205,38 +206,60 @@ function curva() {
     canvasCurva.setAttribute('class', 'curva-pH')
     Q11_AL22.divCurva.appendChild(canvasCurva)
 
+    // Criar o Chart Object
     let graCurva = new Chart(canvasCurva, {
         type: 'line',
         data: {
             labels: xVolumes,
-            datasets: [
-                {
-                    data: ypH,
-                    label: 'pH da Solução',
-                    borderColor: 'blue',
-                    fill: false
-                }
-            ]
+            datasets: [{
+                data: ypH,
+                label: 'pH da Solução do Goblé',
+                borderColor: 'blue',
+                fill: false
+            }]
         },
         options: {
             scales: {
-                xAxes: [
-                    {
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Volume Adicionado/ ml'
-                        }
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Volume de Titulante Adicionado/ ml',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
                     }
-                ],
-                yAxes: [
-                    {
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'pH da Solução no Goblé'
-                        }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'pH da Solução do Goblé',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }  
+                }]
+            },
+            legend: {
+                display: false,
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        let tooltipItem = tooltipItems[0]
+
+                        return 'Volume de Titulante Adicionado: ' + tooltipItem.label + 'ml'
+                    },
+                    label: function(tooltipItem, data) {
+                        let value = Number(tooltipItem.value).toFixed(2)
+    
+                        return 'pH da Solução do Goblé: ' + value
                     }
-                ]
+                },
+                custom: function(tooltip) {
+                    if (!tooltip) return
+                    tooltip.displayColors = false
+                },
             }
-        }
+        },
     })
 }
