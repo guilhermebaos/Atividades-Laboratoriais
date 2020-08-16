@@ -126,9 +126,6 @@ sup.exp-contas:hover {
 
 
 div {
-    /*
-    text-align: center;
-    align-content: center;*/
     padding: 5px;
 }
 
@@ -189,6 +186,15 @@ div.contas p {
     text-indent: 0px;
     white-space: nowrap;
     font-family: serif;
+}
+
+div.overflow {
+    overflow-x: auto;
+    margin: 0px;
+    padding: 0px;
+}
+div.overflow p {
+    white-space: nowrap;
 }
 
 
