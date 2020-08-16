@@ -1,5 +1,5 @@
 // Definir Constantes
-const COF = 0.1 // Coeficiente de Fricção entre o carrinho e o Plano
+const COF = 0.1 // Coeficiente de Fricção entre o carrinho e o plano
 const g = 9.80665 // Aceleração Gravitaconal
 
 // Inicializar Variáveis Globais
@@ -65,7 +65,7 @@ function atualizarAtritoMax() {
     let m = massaCarrinho.value / 100
     let theta = angPlanoInclinado.value / 10 * (Math.PI / 180)
 
-    let Fnormal = m * g * Math.cos(theta)
+    let Fnormal = m * g * Math.cos(theta) // A Força normal é igual à componente do peso perpendicular à superfície
     let FaMax = COF * Fnormal
     let FaMaxConvertido = Math.floor(FaMax * 1000)
 
@@ -74,5 +74,4 @@ function atualizarAtritoMax() {
     }
 
     forçaAtrito.max = FaMaxConvertido
-
 }
