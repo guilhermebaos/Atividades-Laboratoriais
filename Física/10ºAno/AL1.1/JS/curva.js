@@ -181,3 +181,5 @@ function curva() {
         },
     })
 }
+
+// Ideia: Permitir variar o COF máximo

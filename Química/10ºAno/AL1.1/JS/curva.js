@@ -107,3 +107,5 @@ function curva() {
     volumeGotaResp.innerHTML = `${volume.toFixed(2)}`
     nGotaResp.innerHTML = `${nTexto}`
 }
+
+// Ideia: Incluir variação da densidade com a temperatura
