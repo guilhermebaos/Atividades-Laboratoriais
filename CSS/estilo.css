@@ -317,8 +317,9 @@ button.submit {
     font-size: 12pt;
     color: white;
     width: fit-content;
+    max-width: 70vw;
     margin: 15px 0px 0px 5px;
-    padding: 5px 20px 5px 20px;
+    padding: 5px 12px 5px 12px;
     background-color: rgba(50, 140, 255, 0.6);
     border-radius: 10px;
     border-color: rgba(0, 120, 255, 0.5);

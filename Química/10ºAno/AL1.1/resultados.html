@@ -16,21 +16,22 @@
         <div><span id="massaCemGotasValue">4000</span>mg
         <input type="range" name="massaCemGotas" id="massaCemGotas" class="slider" min="100" max="600" value="400"></div>
     </div>
-
-    <button id="fazer-curva-Gota" class="submit" onclick="curva()">Calcular as características de uma Gota de Água</button>
+    <button id="fazer-curva-Gota" class="submit" onclick="curva()">Calcular características de uma Gota de Água</button>
     <br><br><br>
-    <table class="resultados">
-        <tr class="vars">
-            <td>Volume/ &micro;l</td>
-            <td>Massa/ mg</td>
-            <td class="fim-tabela">Número de Moléculas</td>
-        </tr>
-        <tr>
-            <td><span id="volumeGotaValue">39.60</span></td>
-            <td><span id="massaGotaValue">40.00</span></td>
-            <td class="fim-tabela"><span id="nGotaValue">1.336 &times; 10<sup>21</sup></span></td>
-        </tr>
-    </table>
+    <div class="overflow" style="max-width: 72vw;">
+        <table class="resultados">
+            <tr class="vars">
+                <td>Volume/ &micro;l</td>
+                <td>Massa/ mg</td>
+                <td class="fim-tabela">Número de Moléculas</td>
+            </tr>
+            <tr>
+                <td><span id="volumeGotaValue">39.60</span></td>
+                <td><span id="massaGotaValue">40.00</span></td>
+                <td class="fim-tabela"><span id="nGotaValue">1.336 &times; 10<sup>21</sup></span></td>
+            </tr>
+        </table>
+    </div>
 </div>
 <div>
     <p class="explicar">
