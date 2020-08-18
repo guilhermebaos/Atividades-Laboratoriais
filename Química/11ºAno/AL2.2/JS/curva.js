@@ -41,7 +41,7 @@ function prepararResultados() {
     VolTitulante = document.getElementById('VolTitulante')
     VolTitulado = document.getElementById('VolTitulado')
 
-    // Selecionar os Spans com os Value dos Sliders
+    // Selecionar os Spans com os Valores dos Sliders
     ConcTitulanteResp = document.getElementById('ConcTitulanteValue')
     ConcTituladoResp = document.getElementById('ConcTituladoValue')
 

@@ -226,14 +226,31 @@ table.explicar {
     font-style: italic;
     text-indent: 0px;
 }
-
 table.explicar tr {
     border-bottom: 1px solid lightgray;
 }
-
 table.explicar tr td {
     padding: 0px 2px 0px 2px;
 }
+
+table.resultados {
+    margin: auto;
+    width: fit-content;
+}
+table.resultados tr.vars {
+    font-weight: bold;
+}
+table.resultados tr {
+    border-bottom: 2px solid lightgray;
+}
+table.resultados tr td {
+    padding: 10px;
+    border-right: 2px solid lightgray;
+}
+table.resultados tr td.fim-tabela {
+    border-right: 0px;
+}
+
 
 
 tr.menu td {
@@ -243,6 +260,7 @@ tr.menu td {
 tr.menu td:hover {
     cursor: pointer;
 }
+
 
 td p {
     height: 10px;

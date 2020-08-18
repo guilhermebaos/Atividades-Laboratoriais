@@ -30,7 +30,7 @@ function prepararResultados() {
     angPlanoInclinado = document.getElementById('angPlanoInclinado')
     forçaAtrito = document.getElementById('forçaAtrito')
     
-    // Selecionar os Spans com os Value dos Sliders
+    // Selecionar os Spans com os Valores dos Sliders
     massaCarrinhoResp = document.getElementById('massaCarrinhoValue')
     angPlanoInclinadoResp = document.getElementById('angPlanoInclinadoValue')
     forçaAtritoResp = document.getElementById('forçaAtritoValue')
