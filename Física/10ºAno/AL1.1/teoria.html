@@ -112,26 +112,44 @@
     A tira irá estar na parte superior do carrinho e irá atravessar a <span class="anchor" onclick="mostrarExtra('célula-fotoelétrica')">célula fotoelétrica</span>,
     interrompendo o feixe por um certo intervalo de tempo, medido pelo cronómetro digital.
 </p>
-<p id="célula-fotoelétrica" class="explicar" style="display: none;">
-    <span class="fechar" onclick="mostrarExtra('célula-fotoelétrica')">X</span><br>
-    A célula fotoelétrica emite um feixe na direção de um recetor. A tira opaca irá bloqueá-lo.
-    O cronómetro irá medir o intervalo de tempo desde que o feixe foi interrompido
-    até ao instante em que volta a ser detetado pelo recetor, medindo assim o
-    &Delta;t no qual a tira percorre uma distância igual à sua largura.
-</p>
+<div id="célula-fotoelétrica" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('célula-fotoelétrica')">X</button>
+    <p>
+        A célula fotoelétrica emite um feixe na direção de um recetor. A tira opaca irá bloqueá-lo.
+        O cronómetro irá medir o intervalo de tempo desde que o feixe foi interrompido
+        até ao instante em que volta a ser detetado pelo recetor, medindo assim o
+        &Delta;t no qual a tira percorre uma distância igual à sua largura.
+    </p><br>
+</div>
 <p class="m0">
     Como sabemos o espaço que o carrinho percorreu num certo intervalo de tempo <u class="simples">muito pequeno</u>,
     podemos calcular o módulo da sua velocidade instantânea (aproximada) da seguinte forma:
 </p>
 <div class="contas">
     <p>
-        <span class="invi">&hArr;</span> v &equals; |&Delta;r| &frasl; &Delta;t &hArr; <br>
-        &hArr; v &equals; largura<sub>tira</sub><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup> &frasl; &Delta;t
+        <span class="invi">&hArr;</span> v &equals; <sup>|&Delta;r|</sup> &frasl; <sub>&Delta;t</sub> &hArr; <br>
+        &hArr; v &equals; <sup>largura<sub>tira</sub></sup><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup> &frasl; <sub>&Delta;t</sub>
     </p>
 </div>
 <div>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>No intervalo de tempo medido pelo cronómetro o carrinho percorre uma distância igual à largura da tira opaca.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>No intervalo de tempo medido pelo
+        cronómetro o carrinho percorre uma distância igual à largura da tira opaca. O 
+        Módulo do Deslocamento é igual à distância percorrida porque o Movimento é
+        Retilíneo e sem inversão de sentido.
+    <br><br></p>
 </div>
+<table class="explicar">
+    <tr>
+        <td>|&Delta;r|</td>
+        <td>&rarr;</td>
+        <td>Módulo do Deslocamento</td>
+    </tr>
+    <tr>
+        <td>&Delta;t</td>
+        <td>&rarr;</td>
+        <td>Intervalo de Tempo medido pela célula</td>
+    </tr>
+</table><br>
 
 <h4>Medir a Distância Percorrida</h4>
 <p>

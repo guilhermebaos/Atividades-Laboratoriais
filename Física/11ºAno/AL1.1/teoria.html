@@ -6,7 +6,7 @@
 <br>
 <h3>Método</h3>
 <p>
-    Para o fazer, vamos abandonar uma bola, de forma a que só atue sobre ela o seu Peso,
+    Para o fazer, vamos abandonar uma esfera, de forma a que só atue sobre ela o seu Peso,
     sendo a Resistência do Ar Desprezável, logo, sabemos que:
 </p>
 <div class="contas">
@@ -15,13 +15,16 @@
         &hArr; m &times; |a|<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; m &times; g<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &hArr; <br>
         &hArr; |a| &equals; g &hArr; <br>
         &hArr; g &equals; |a<sub>média</sub>|<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &hArr; <br>
-        &hArr; g &equals; <sup>|&Delta;v|</sup> &frasl; <sub>&Delta;t</sub>
+        &hArr; g &equals; <sup>|&Delta;v|</sup> &frasl; <sub>&Delta;t</sub> &hArr; <br>
+        &hArr; g &equals; <sup>|v<sub>final</sub> &minus; v<sub>inicial</sub>|</sup> &frasl; <sub>&Delta;t</sub> &hArr; <br>
+        &hArr; g &equals; <sup>|v<sub>final</sub>|<sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup></sup> &frasl; <sub>&Delta;t</sub>
     </p>
 </div>
 <div>
     <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>Segundo a 2ª Lei de Newton: <span class="contas">|F<sub>r</sub>| &equals; m &times; |a|</span><br><br></p>
     <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>Junto à superfície da Terra: <span class="contas">|P| &equals; m &times; g</span>.<br><br></p>
     <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup>Como a variação da aceleração gravítica é desprezável, a aceleração é constante e igual à aceleração média, o que nos permite usar a fórmula: <span class="contas">|a<sub>média</sub>| &equals; <sup>|&Delta;v|</sup> &frasl; <sub>&Delta;t</sub></span><br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>Como a bola é abandonada, a sua velocidade inicial é nula.<br><br></p>
 </div>
 <table class="explicar">
     <tr>
@@ -70,3 +73,83 @@
         <td>Intervalo de tempo no qual a variação da velocidade é &Delta;v</td>
     </tr>
 </table><br>
+
+<p>
+    Logo, apenas precisamos de medir um intervalo de tempo e o módulo da 
+    velocidade da bola após estar em queda livre durante esse intervalo de tempo.
+</p>
+<p>
+    Para tal, iremos usar duas <span class="anchor" onclick="mostrarExtra('célula-fotoelétrica')">células fotoelétricas</span>.
+</p>
+<div id="célula-fotoelétrica" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('célula-fotoelétrica')">X</button>
+    <p>
+        As células fotoelétricas têm um emissor de luz e um recetor de luz, sempre que o feixe
+        deixa de ser recebido, devido à passagem de um objeto, ou volta a ser recebido, após
+        o objeto deixar de o interromper, envia um sinal.
+    </p><br>
+</div>
+
+<br>
+<!--Imagem Necessária para explicitar Montagem-->
+<h4>Medir o Intervalo de Tempo</h4>
+<p>
+    Iremos medir o intervalo de tempo desde que a bola é largada, <span class="anchor" onclick="mostrarExtra('imediatamente-acima')">imediatamente acima</span> da 1ª célula,
+    até passar pela 2ª, usando um cronómetro digital ligado a ambas as células, que
+    recebe um sinal sempre que um dos feixes deixa de ser recebido.
+</p>
+<div id="imediatamente-acima" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('imediatamente-acima')">X</button>
+    <p>
+        A bola deverá ser largada imediatamente acima do feixe emitido pela 1ª célula,
+        de forma a ter uma velocidade aproximadamente nula ao passar por esta, permitindo-nos
+        dizer que v<sub>inicial</sub> é nulo.
+    </p>
+</div>
+
+<br>
+<h4>Medir o Módulo da Velocidade Final</h4>
+<p>
+    Para saber o Módulo da Velocidade da Bola após estar em Queda Livre durante o intervalo
+    de tempo medido acima, temos de saber qual o módulo da sua velocidade de passagem pela
+    célula&nbsp;2.
+</p>
+<p>
+    Como o intervalo de tempo correspondente à passagem é muito pequeno, podemos
+    considerar que a velocidade é aproximadamente constante e igual à velocidade
+    média nesse intervalo, logo:
+</p>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> v &equals; <sup>|&Delta;r|</sup> &frasl; <sub>&Delta;t<sub>2</sub></sub> &hArr; <br>
+        &hArr; v &equals; <sup>diâmetro<sub>esfera</sub></sup><sup class="exp-contas" onclick="mostrarExpContas(5)">[5]</sup> &frasl; <sub>&Delta;t<sub>2</sub></sub>
+    </p>
+</div>
+<div>
+    <p class="m0" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(5)">[5]</sup>Ao passar pela célula 2,
+        deverá percorrer uma distância igual ao seu diâmetro, para isso é necessário que
+        a esfera seja abandonada de forma a que o feixe intersete o seu centro. O 
+        Módulo do Deslocamento é igual à distância percorrida porque o Movimento é
+        Retilíneo e sem inversão de sentido.
+    <br><br></p>
+</div>
+<table class="explicar">
+    <tr>
+        <td>|&Delta;r|</td>
+        <td>&rarr;</td>
+        <td>Módulo do Deslocamento</td>
+    </tr>
+    <tr>
+        <td>&Delta;t<sub>2</sub></td>
+        <td>&rarr;</td>
+        <td>Intervalo de Tempo de Passagem na célula 2</td>
+    </tr>
+</table><br>
+<p>
+    Para medir o Intervalo de Tempo de passagem pela célula 2, iremos ter que abandonar de novo esfera,
+    exatamente da mesma forma, ligando apenas esta célula ao cronómetro.
+</p>
+
+<p>
+    A partir destes dados experimentais, podemos calcular o valor da aceleração gravítica.
+</p>
