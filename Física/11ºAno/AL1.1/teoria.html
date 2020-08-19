@@ -1,140 +1,72 @@
 <h3>Objetivo</h3>
 <p>
-    Pretende-se relacionar a distância percorrida por um carrinho largado sobre um
-    plano inclinado com a Energia Cinética que tem após percorrer essa distância.
+    Determinar o módulo da aceleração gravítica, g.
 </p>
 
 <br>
-<h3>Relação Teórica</h3>
+<h3>Método</h3>
 <p>
-    Considerando que apenas atuam no carrinho duas forças, o seu Peso (P) e a Força de Atrito (F<sub>a</sub>),
-    suposta constante. Partindo do Teorema do Trabalho-Energia, temos que:
+    Para o fazer, vamos abandonar uma bola, de forma a que só atue sobre ela o seu Peso,
+    sendo a Resistência do Ar Desprezável, logo, sabemos que:
 </p>
 <div class="contas">
     <p>
-        <span class="invi">&hArr;</span> &Delta;E<sub>c</sub> &equals; W<sub>F<sub>r</sub></sub> &hArr; <br>
-        &hArr; E<sub>c</sub> &minus; E<sub>c<sub>i</sub></sub> &equals; W<sub>P</sub> &plus; W<sub>F<sub>a</sub></sub> &hArr; <br>
-        &hArr; E<sub>c</sub> &minus; 0<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; |P| &times; |&Delta;r| &times; cos(&alpha;) &plus; |F<sub>a</sub>| &times; |&Delta;r| &times; cos(180º) &hArr; <br>
-        &hArr; E<sub>c</sub> &equals; m &times; g &times; d<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &times; sin(90 &minus; &alpha;) &plus; |F<sub>a</sub>| &times; d<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &times; (&minus;1) &hArr; <br>
-        &hArr; E<sub>c</sub> &equals; (m &times; g &times; sin(&theta;)<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &minus; |F<sub>a</sub>|) &times; d
+        <span class="invi">&hArr;</span> |F<sub>r</sub>| &equals; |P| &hArr; <br>
+        &hArr; m &times; |a|<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; m &times; g<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &hArr; <br>
+        &hArr; |a| &equals; g &hArr; <br>
+        &hArr; g &equals; |a<sub>média</sub>|<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &hArr; <br>
+        &hArr; g &equals; <sup>|&Delta;v|</sup> &frasl; <sub>&Delta;t</sub>
     </p>
 </div>
 <div>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>O Carrinho é abandonado, logo, a sua Energia Cinética inicial é 0.<br><br></p>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>Como o Carrinho se move sempre na mesma direção e sentido, o módulo do seu deslocamento é igual à distância percorrida.<br><br></p>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup><br><img id="Rampa-AL1-1" src="Imagens/Rampa_AL1.1.png" alt="Rampa com &alpha; e &theta; identificados"><br>O Vetor Peso será paralelo a AB, o Vetor Deslocamento será paralelo a AC, logo, o ângulo entre eles é &alpha;.
-        <br>Na equação acima, colocamos a Energia Cinética Final em função do ângulo que o Plano Inclinado faz com o solo, &theta;, em vez de &alpha;, para a simplificar.<br><br>
-    </p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>Segundo a 2ª Lei de Newton: <span class="contas">|F<sub>r</sub>| &equals; m &times; |a|</span><br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>Junto à superfície da Terra: <span class="contas">|P| &equals; m &times; g</span>.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup>Como a variação da aceleração gravítica é desprezável, a aceleração é constante e igual à aceleração média, o que nos permite usar a fórmula: <span class="contas">|a<sub>média</sub>| &equals; <sup>|&Delta;v|</sup> &frasl; <sub>&Delta;t</sub></span><br><br></p>
 </div>
 <table class="explicar">
-    <tr>
-        <td>&Delta;E<sub>c</sub></td>
-        <td>&rarr;</td>
-        <td>Variação da Energia Cinética</td>
-    </tr>
-    <tr>
-        <td>E<sub>c</sub></td>
-        <td>&rarr;</td>
-        <td>Energia Cinética Final</td>
-    </tr>
-    <tr>
-        <td>E<sub>c<sub>i</sub></sub></td>
-        <td>&rarr;</td>
-        <td>Energia Cinética Inicial</td>
-    </tr>
-    <tr>
-        <td>W<sub>X</sub></td>
-        <td>&rarr;</td>
-        <td>Trabalho Realizado pela Força X</td>
-    </tr>
     <tr>
         <td>|X|</td>
         <td>&rarr;</td>
         <td>Módulo do Vetor X</td>
     </tr>
     <tr>
-        <td>&alpha;</td>
+        <td>P</td>
         <td>&rarr;</td>
-        <td>Ângulo entre o Peso e o Deslocamento, no Plano Inclinado</td>
+        <td>Força Peso</td>
     </tr>
     <tr>
-        <td>&theta;</td>
+        <td>F<sub>r</sub></td>
         <td>&rarr;</td>
-        <td>Ângulo que o Plano Inclinado faz com o Solo</td>
-    </tr>
-    <tr>
-        <td>&Delta;r</td>
-        <td>&rarr;</td>
-        <td>Deslocamento do Carrinho</td>
-    </tr>
-    <tr>
-        <td>d</td>
-        <td>&rarr;</td>
-        <td>Distância percorrida pelo carrinho sobre o Plano Inclinado</td>
+        <td>Força Resultante</td>
     </tr>
     <tr>
         <td>m</td>
         <td>&rarr;</td>
-        <td>Massa do Carrinho</td>
+        <td>Massa da Bola</td>
     </tr>
     <tr>
         <td>g</td>
         <td>&rarr;</td>
-        <td>Aceleração Gravítica</td>
+        <td>Módulo da Aceleração gravítica</td>
+    </tr>
+    <tr>
+        <td>a</td>
+        <td>&rarr;</td>
+        <td>Vetor Aceleração (instantânea)</td>
+    </tr>
+    <tr>
+        <td>a<sub>média</sub></td>
+        <td>&rarr;</td>
+        <td>Vetor Aceleração Média</td>
+    </tr>
+    <tr>
+        <td>&Delta;v</td>
+        <td>&rarr;</td>
+        <td>Variação do vetor velocidade num certo intervalo de tempo</td>
+    </tr>
+    <tr>
+        <td>&Delta;t</td>
+        <td>&rarr;</td>
+        <td>Intervalo de tempo no qual a variação da velocidade é &Delta;v</td>
     </tr>
 </table><br>
-<p>
-    Como podemos ver, o gráfico <span class="nbsp">E<sub>c</sub> = f(d)</span> deverá ser uma reta com declive
-    <span class="nbsp">(m &times; g &times; sin(&theta;) &minus; |F<sub>a</sub>|).</span>
-</p>
-
-<br>
-<h3>Método</h3>
-<p>
-    Experimentalmente, iremos ter que medir a Energia Cinética e a Distância percorrida
-    pelo carrinho, de forma a podermos relacioná-las.
-</p>
-<br>
-<h4>Medir a Energia Cinética</h4>
-<p>
-    Iremos medi-la indiretamente. Sabendo que: <span class="nbsp">E<sub>c</sub> &equals; &frac12; &times; m &times; v<sup>2</sup></span>, 
-    podemos calcular a Energia Cinética a partir da massa do Carrinho e do módulo da sua 
-    velocidade instantânea.
-</p>
-<p>
-    <b>Medir a Massa:</b> Para medirmos a massa do Carrinho, iremos usar uma balança.
-</p>
-<p class="m0">
-    <b>Medir a velocidade:</b> Para medirmos a sua velocidade, iremos usar uma tira opaca,
-    uma célula fotoelétrica e um cronómetro digital.
-</p>
-<p class="m0">
-    A tira irá estar na parte superior do carrinho e irá atravessar a <span class="anchor" onclick="mostrarExtra('célula-fotoelétrica')">célula fotoelétrica</span>,
-    interrompendo o feixe por um certo intervalo de tempo, medido pelo cronómetro digital.
-</p>
-<p id="célula-fotoelétrica" class="explicar" style="display: none;">
-    <span class="fechar" onclick="mostrarExtra('célula-fotoelétrica')">X</span><br>
-    A célula fotoelétrica emite um feixe na direção de um recetor. A tira opaca irá bloqueá-lo.
-    O cronómetro irá medir o intervalo de tempo desde que o feixe foi interrompido
-    até ao instante em que volta a ser detetado pelo recetor, medindo assim o
-    &Delta;t no qual a tira percorre uma distância igual à sua largura.
-</p>
-<p class="m0">
-    Como sabemos o espaço que o carrinho percorreu num certo intervalo de tempo <u class="simples">muito pequeno</u>,
-    podemos calcular o módulo da sua velocidade instantânea (aproximada) da seguinte forma:
-</p>
-<div class="contas">
-    <p>
-        <span class="invi">&hArr;</span> v &equals; |&Delta;r| &frasl; &Delta;t &hArr; <br>
-        &hArr; v &equals; largura<sub>tira</sub><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup> &frasl; &Delta;t
-    </p>
-</div>
-<div>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>No intervalo de tempo medido pelo cronómetro o carrinho percorre uma distância igual à largura da tira opaca.<br><br></p>
-</div>
-
-<h4>Medir a Distância Percorrida</h4>
-<p>
-    Podemos usar uma fita métrica, incorporada no Plano Inclinado ou junto a ela para medir
-    a distânica percorrida pelo carrinho.
-</p>

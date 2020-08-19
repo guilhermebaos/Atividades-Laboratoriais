@@ -121,6 +121,11 @@ span.fechar:hover {
     text-decoration: none;
 }
 
+span.contas {
+    white-space: nowrap;
+    font-family: serif;
+}
+
 
 sup.exp-contas {
     text-decoration: none;
