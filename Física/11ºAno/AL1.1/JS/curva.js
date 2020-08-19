@@ -15,8 +15,7 @@ let F11_AL11 = {
     divCurvaExtra: ''
 }
 
-let densidadeMax = 30 // g/cm^3
-let densidadeMin = 1 // g/cm^3
+let areaEsfera = PI * 0.02 ** 2    // m^2
 
 let massaEsfera
 let raioEsfera
@@ -25,6 +24,7 @@ let distCelulas
 let massaEsferaResp
 let raioEsferaResp
 let distCelulasResp
+
 
 function prepararResultados() {
     if (F11_AL11.preparado) {
@@ -58,4 +58,26 @@ function prepararResultados() {
     
         distCelulasResp.innerHTML = `${distCelulasValue.toFixed(0)}`
     }
+}
+
+
+// Calcular a Área de Superfície da Esfera
+function calcularAreaEsfera() {
+    raio = raioEsfera.value / 1000  // m
+    areaEsfera = PI * raio ** 2     // m^2
+}
+
+// Função para calcular a Intensidade da Resistência do Ar
+function intensidadeResistAr(velocidade) {
+    return 0.5 * densidadeAr * CRar * areaEsfera * velocidade ** 2
+}
+
+// Lei v(t)
+function leiVelocidade(v0, a0, tempo) {
+    return v0 + a0 * tempo
+}
+
+// Lei x(t)
+function leiPosicao(x0, v0, a0, tempo){
+    return x0 + v0 * tempo + 0.5 * a0 * (tempo ** 2)
 }
