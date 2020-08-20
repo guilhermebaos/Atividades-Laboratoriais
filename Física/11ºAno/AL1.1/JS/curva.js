@@ -11,6 +11,7 @@ const CRar = 0.5    // Coeficiente de Resistência do ar para uma esfera, aproxi
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let F11_AL11 = {
     preparado: false,
+    resultados: [],
     divCurva_xt: '',
     divCurva_vt: '',
     divCurva_at: '',
@@ -30,6 +31,11 @@ let distCelulas
 let massaEsferaResp
 let raioEsferaResp
 let distCelulasResp
+
+let deltaT_celula2Resp
+let deltaT_quedaResp
+let velocidade_celula2Resp
+let gravidade_experimentalResp
 
 
 function prepararResultados() {
@@ -58,6 +64,12 @@ function prepararResultados() {
     F11_AL11.divCurva_at = document.getElementById('curva-at')
     F11_AL11.divCurva_jt = document.getElementById('curva-jt')
 
+    // Selecionar os Spans da Tabela
+    deltaT_celula2Resp = document.getElementById('deltaT-celula2')
+    deltaT_quedaResp = document.getElementById('deltaT-queda')
+    velocidade_celula2Resp = document.getElementById('velocidade-celula2')
+    gravidade_experimentalResp = document.getElementById('gravidade-experimental')
+
     // Atualizar os Sliders
     massaEsfera.oninput = function atualizarMassaEsfera() {
         let massaEsferaValue = massaEsfera.value / 1
@@ -74,6 +86,8 @@ function prepararResultados() {
     
         distCelulasResp.innerHTML = `${distCelulasValue.toFixed(0)}`
     }
+
+    curva()
 }
 
 
@@ -112,8 +126,41 @@ function leiPosicao(x0, v0, a0, tempo){
 }
 
 
+// Calcular os Valores Relacionados com a Queda da Esfera
+function curva() {
+    F11_AL11.resultados = pontos()
+
+    // Extrair os Resultados
+    let resultados = F11_AL11.resultados
+
+    let tim = resultados[0]
+    let t_f = Number(tim[tim.length - 1]) * 1000
+
+    let vel = resultados[2]
+    let v_f = vel[vel.length - 1]
+
+    let acc = resultados[3]
+    let a_f = acc[acc.length - 1]
+
+    let d = 2 * raioEsfera.value / 1000 // m
+
+    // Fórmula Quadrática com a lei x(t) para determinar o delta t de passagem, com RAr suposta constante
+    let deltaT_celula2Value = (-1 * v_f + (v_f ** 2 + 2 * a_f * d) ** 0.5) / a_f * 1000 // ms
+    let vm = d / deltaT_celula2Value * 1000
+    let gExperimental = vm / t_f * 1000
+
+    deltaT_celula2Resp.innerHTML = `${deltaT_celula2Value.toFixed(2)}`
+    deltaT_quedaResp.innerHTML = `${t_f.toFixed(1)}`
+    velocidade_celula2Resp.innerHTML = `${vm.toFixed(3)}`
+    gravidade_experimentalResp.innerHTML = `${gExperimental.toFixed(3)}`
+
+
+    curvaExtra()
+}
+
+
 // Calcular os Pontos dos vários gráficos
-function pontosExtra() {
+function pontos() {
     // Declarar variáveis e valores iniciais
     let m = massaEsfera.value / 1000
     let h = distCelulas.value / 100
@@ -146,7 +193,7 @@ function pontosExtra() {
         a = Fr / m                          // Calcular o módulo da aceleração
         x = leiPosicao(x, v, a, deltaT)     // Calcular o Xf de acrdo com o Xf e Vf do instante anterior e a aceleração deste
         v = leiVelocidade(v, a, deltaT)     // Calcular o Vf de acordo com o Vf do instante anterior e a aceleração deste
-        j = (a - acc[-1]) / (t - tim[-1])   // Calcular o J usando (y2 - y1) / (x2 - x1), para dois pontos consecutivos
+        j = (a - acc[acc.length - 1]) / (t - tim[tim.length - 1])   // Calcular o J usando (y2 - y1) / (x2 - x1), para dois pontos consecutivos
 
         if (x >= h) {
             break
@@ -179,7 +226,7 @@ function curvaExtra() {
     F11_AL11.divCurva_jt.removeChild(canvasCurva_jt)
 
     // Variáveis das funções
-    let resultados = pontosExtra()
+    let resultados = F11_AL11.resultados
     let tim = resultados[0]
     let pos = resultados[1]
     let vel = resultados[2]
@@ -210,7 +257,7 @@ function curvaExtra() {
             labels: tim,
             datasets: [{
                 data: pos,
-                label: 'Posição da Bola/ m',
+                label: 'Posição da Esfera/ m',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -229,7 +276,7 @@ function curvaExtra() {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Componente Escalar da posição da Bola/ m',
+                        labelString: 'Componente Escalar da posição da Esfera/ m',
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
@@ -265,7 +312,7 @@ function curvaExtra() {
             labels: tim,
             datasets: [{
                 data: vel,
-                label: 'Módulo da Velocidade da Bola/ m/s',
+                label: 'Componente Escalar da Velocidade da Esfera/ m/s',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -284,7 +331,7 @@ function curvaExtra() {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Módulo da Velocidade da Bola/ m/s',
+                        labelString: 'Componente Escalar da Velocidade da Esfera/ m/s',
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
@@ -320,7 +367,7 @@ function curvaExtra() {
             labels: tim,
             datasets: [{
                 data: acc,
-                label: 'Módulo da Aceleração da Bola/ m/s/s',
+                label: 'Componente Escalar da Aceleração da Esfera/ m/s/s',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -339,7 +386,7 @@ function curvaExtra() {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Módulo da Aceleração da Bola/ m/s/s',
+                        labelString: 'Componente Escalar da Aceleração da Esfera/ m/s/s',
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
@@ -375,7 +422,7 @@ function curvaExtra() {
             labels: tim,
             datasets: [{
                 data: jer,
-                label: 'Módulo do Jerk da Bola/ m/s/s/s',
+                label: 'Componente Escalar do Jerk da Esfera/ m/s/s/s',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -394,7 +441,7 @@ function curvaExtra() {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Módulo do Jerk da Bola/ m/s/s/s',
+                        labelString: 'Componente Escalar do Jerk da Esfera/ m/s/s/s',
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'

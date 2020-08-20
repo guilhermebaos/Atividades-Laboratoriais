@@ -25,17 +25,43 @@
     </div>
     <div class="flex-slider">
         <div><label for="distCelulas">Distância entre as Células</label></div>
-        <div><span id="distCelulasValue">30</span>cm
-        <input type="range" name="distCelulas" id="distCelulas" class="slider" min="20" max="90" value="30"></div>
+        <div><span id="distCelulasValue">60</span>cm
+        <input type="range" name="distCelulas" id="distCelulas" class="slider" min="40" max="120" value="60"></div>
     </div>
     <div class="flex-slider">
         <div>Resistência do Ar:</div>
         <div><button id="calcularRAr" class="escolha-atual" onclick="mudarCalcularRAr(true)">Calcular (R<sub>Ar</sub> &NotEqual; 0)</button></div>
         <div><button id="desprezarRAr" class="escolha" onclick="mudarCalcularRAr(false)">Desprezar (R<sub>Ar</sub> &equals; 0)</button></div>
     </div>
+
+    <button id="fazer-curva-Esfera" class="submit" onclick="curva()">Atualizar a Tabela dos Resultados</button>
+    <br><br><br>
+
+    <div class="overflow" style="max-width: 72vw;">
+        <table class="resultados">
+            <tr class="vars">
+                <td>&Delta;t <sub>passagem pela 2ª Célula</sub>/ ms</td>
+                <td>&Delta;t <sub>queda entre as Células</sub>/ ms</td>
+                <td>v <sub>passagem pela 2ª Célula</sub>/ <span class="nbsp">ms<sup>-1</sup></span></td>
+                <td class="fim-tabela">g/ <span class="nbsp">ms<sup>-2</sup></span></td>
+            </tr>
+            <tr>
+                <td><span id="deltaT-celula2"></span></td>
+                <td><span id="deltaT-queda"></span></td>
+                <td><span id="velocidade-celula2"></span></td>
+                <td class="fim-tabela"><span id="gravidade-experimental"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="explicar">
+    <p>
+        A Resistência do Ar foi calculada de forma aproximada usando 0.5 como o Coeficiente
+        de Resistência Aerodinâmica da Esfera.
+    </p>
 </div>
 <p>
-    <span class="anchor" onclick="mostrarExtra('gráficos-extra'); curvaExtra()">Ver Gráficos Extra</span>
+    <span class="anchor" onclick="mostrarExtra('gráficos-extra')">Ver Gráficos Extra - Leis x(t), v(t), a(t) e j(t)</span>
 </p>
 <div id="gráficos-extra" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('gráficos-extra')">X</button>
@@ -47,7 +73,7 @@
     </ul>
     
     <div id="gráfico-extra-xt" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-xt')">X</button><br>
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-xt')">X</button><br><br>
         <div class="graf-container">
             <div id="curva-xt" class="graf">
                 <span id="canvasCurva-xt"></span>
@@ -55,7 +81,7 @@
         </div>
     </div>
     <div id="gráfico-extra-vt" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-vt')">X</button><br>
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-vt')">X</button><br><br>
         <div class="graf-container">
             <div id="curva-vt" class="graf">
                 <span id="canvasCurva-vt"></span>
@@ -63,7 +89,7 @@
         </div>
     </div>
     <div id="gráfico-extra-at" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-at')">X</button><br>
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-at')">X</button><br><br>
         <div class="graf-container">
             <div id="curva-at" class="graf">
                 <span id="canvasCurva-at"></span>
@@ -71,7 +97,7 @@
         </div>
     </div>
     <div id="gráfico-extra-jt" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-jt')">X</button><br>
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-jt')">X</button><br><br>
         <div class="graf-container">
             <div id="curva-jt" class="graf">
                 <span id="canvasCurva-jt"></span>
