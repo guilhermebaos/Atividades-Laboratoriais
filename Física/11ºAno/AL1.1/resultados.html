@@ -28,4 +28,54 @@
         <div><span id="distCelulasValue">30</span>cm
         <input type="range" name="distCelulas" id="distCelulas" class="slider" min="20" max="90" value="30"></div>
     </div>
+    <div class="flex-slider">
+        <div>Resistência do Ar:</div>
+        <div><button id="calcularRAr" class="escolha-atual" onclick="mudarCalcularRAr(true)">Calcular (R<sub>Ar</sub> &NotEqual; 0)</button></div>
+        <div><button id="desprezarRAr" class="escolha" onclick="mudarCalcularRAr(false)">Desprezar (R<sub>Ar</sub> &equals; 0)</button></div>
+    </div>
+</div>
+<p>
+    <span class="anchor" onclick="mostrarExtra('gráficos-extra'); curvaExtra()">Ver Gráficos Extra</span>
+</p>
+<div id="gráficos-extra" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('gráficos-extra')">X</button>
+    <ul>
+        <li><span class="anchor" onclick="mostrarExtra('gráfico-extra-xt')">Ver Gráfico x(t) - Posição-Tempo</span></li>
+        <li><span class="anchor" onclick="mostrarExtra('gráfico-extra-vt')">Ver Gráfico v(t) - Velocidade-Tempo</span></li>
+        <li><span class="anchor" onclick="mostrarExtra('gráfico-extra-at')">Ver Gráfico a(t) - Aceleração-Tempo</span></li>
+        <li><span class="anchor" onclick="mostrarExtra('gráfico-extra-jt')">Ver Gráfico j(t) - Jerk-Tempo</span></li>
+    </ul>
+    
+    <div id="gráfico-extra-xt" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-xt')">X</button><br>
+        <div class="graf-container">
+            <div id="curva-xt" class="graf">
+                <span id="canvasCurva-xt"></span>
+            </div>
+        </div>
+    </div>
+    <div id="gráfico-extra-vt" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-vt')">X</button><br>
+        <div class="graf-container">
+            <div id="curva-vt" class="graf">
+                <span id="canvasCurva-vt"></span>
+            </div>
+        </div>
+    </div>
+    <div id="gráfico-extra-at" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-at')">X</button><br>
+        <div class="graf-container">
+            <div id="curva-at" class="graf">
+                <span id="canvasCurva-at"></span>
+            </div>
+        </div>
+    </div>
+    <div id="gráfico-extra-jt" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-jt')">X</button><br>
+        <div class="graf-container">
+            <div id="curva-jt" class="graf">
+                <span id="canvasCurva-jt"></span>
+            </div>
+        </div>
+    </div>
 </div>

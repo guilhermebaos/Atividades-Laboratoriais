@@ -121,7 +121,6 @@ function curva() {
     // Criar o canvas on de vai estar a curva
     canvasCurva = document.createElement('canvas')
     canvasCurva.setAttribute('id', 'canvasCurva')
-    canvasCurva.setAttribute('class', 'curva-pH')
     F10_AL11.divCurva.appendChild(canvasCurva)
 
     // Criar o Chart Object
