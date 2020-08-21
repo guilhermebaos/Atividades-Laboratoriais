@@ -15,7 +15,6 @@ header {
 
 main {
     background: white;
-    border-radius: 10px;
     margin: auto;
     padding: 10px 20px 10px 20px;
     width: 75vw;
@@ -144,11 +143,12 @@ div.graf {
 }
 
 div.header {
-    margin: 0px;
-    padding: 0px;
+    width: 100%;
+    top: 0px;
     position: sticky;
     position: -webkit-sticky;
-    top: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 div.lista-AL {
@@ -428,5 +428,17 @@ img#Rampa-AL1-1 {
 
 
 footer {
+    width: 100%;
     text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    overflow: hidden;
+    background-color: rgb(128, 128, 128);
+}
+footer a {
+    color: white;
 }
