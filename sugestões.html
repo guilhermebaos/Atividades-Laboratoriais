@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestões/ Erros</title>
+    
+    <link rel="shortcut icon" href="Favicons/favicon.ico" type="image/x-icon">
+
+    <link rel="icon" href="Favicons/favicon.png" sizes="32x32" type="image/png">
+    
+    <link rel="apple-touch-icon-precomposed" href="Favicons/apple-icon-152x152.png" type="image/png" sizes="152x152">
+    <link rel="apple-touch-icon-precomposed" href="Favicons/apple-icon-120x120.png" type="image/png" sizes="120x120">
+    
+    <link rel="stylesheet" href="CSS/estilo.css">
+
+    <script src="JS/w3-Html-Includes.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_atuqEWkIR5Jm0TZxE2QEI");
+        })();
+    </script>
+</head>
+<body>
+    <div incluir="Layout/navbar.html" class="header"></div>
+    
+    <main>
+        <header>
+            <h1>Sugestões ou Erros</h1>
+        </header>
+
+        <section>
+            <p>
+                Podes usar o Modelo abaixo para enviar a tua Sugestão/ Idea ou avisar
+                que detetaste um Erro nalguma das Atividades Laboratoriais!
+            </p><br>
+
+            <form method="GET">
+                <label for="tema">Assunto:</label><br>
+                <select name="tema" id="tema">
+                    <option value="Sugestão ou Ideia">Sugestão/ Ideia</option>
+                    <option value="Erro">Erro</option>
+                </select><br><br>
+                <label for="textoAL">Atividade Laboratorial a que se refere:</label><br>
+                <select name="textoAL" id="textoAL">
+                    <option value="10º Ano - Física - AL1.1">10º Ano - Física - AL1.1</option>
+                    <option value="10º Ano - Química - AL1.1">10º Ano - Química - AL1.1</option>
+                    <option value="11º Ano - Física - AL1.1">11º Ano - Física - AL1.1</option>
+                    <option value="11º Ano - Química - AL2.2">11º Ano - Química - AL2.2</option>
+                </select><br><br>
+                <label for="zona">Zona da AL onde está o erro:</label><br>
+                <select name="zona" id="zona">
+                    <option value="Teoria">Teoria</option>
+                    <option value="Material">Material</option>
+                    <option value="Procedimento">Procedimento</option>
+                    <option value="Resultados">Resultados</option>
+                </select><br><br>
+                <label for="principal">Observações a enviar:</label><br>
+                <textarea type="text" name="principal" id="principal"></textarea>
+                <br><br>
+                <button type="button" class="submit" id="enviar" onclick="enviarEmail()">Enviar!</button>
+            </form>
+        </section>
+    </main>
+
+    <footer incluir="Layout/footer.html"></footer>
+
+    <script>
+        incluirHTML()
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="JS/sugestões.js"></script>
+</body>
+</html>
