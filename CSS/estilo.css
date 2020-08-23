@@ -456,7 +456,8 @@ footer {
     background-color: rgb(128, 128, 128);
 }
 footer p {
-    margin: 10px;
+    margin: 0px;
+    padding: 10px;
 }
 footer a {
     color: white;

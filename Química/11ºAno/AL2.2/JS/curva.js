@@ -1,6 +1,7 @@
 // Definir constantes
 const Kw = 1.00e-14
 
+
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns

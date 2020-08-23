@@ -12,7 +12,7 @@ let divTeoria, divMaterial, divProcedimento, divResultados
 
 function carregar(ficheiro) {
     // Identificar os Elementos do Menu, após estes carregarem
-    if (projetoALmenu.pronto == false) {
+    if (!projetoALmenu.pronto) {
         divTeoria = document.getElementById('div-teoria')
         divMaterial = document.getElementById('div-material')
         divProcedimento = document.getElementById('div-procedimento')
