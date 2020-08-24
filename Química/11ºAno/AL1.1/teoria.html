@@ -1,4 +1,196 @@
 <h3>Objetivo</h3>
 <p>
-    Realizar a Síntese do Ácido Acetilsalicílico e determinar o Rendimento do processo.
+    Realizar a Síntese do Ácido Acetilsalicílico, mais conhecido como Aspirina
+    e determinar o Rendimento do processo.
 </p>
+
+<br>
+<h3>Método</h3>
+
+<p>
+    Para se fazer a síntese deste ácido ir-se-à recorrer à seguinte reação, catalisada
+    pelo <span class="anchor" onclick="mostrarExtra('ácido-sulfúrico')">ácido sulfúrico</span>:
+</p>
+<div id="ácido-sulfúrico" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('ácido-sulfúrico')">X</button>
+    <p>
+        O ácido sulfúrico não será consumido durante a Reação, apenas irá aumentar
+        a velocidade com que esta ocorre.
+    </p><br>
+</div>
+<p>
+    C<sub>7</sub>H<sub>6</sub>O<sub>3</sub> (s) + C<sub>4</sub>H<sub>6</sub>O<sub>3</sub> (l) &rarr; C<sub>9</sub>H<sub>8</sub>O<sub>4</sub> (s) + C<sub>2</sub>H<sub>4</sub>O<sub>2</sub> (l)
+</p>
+<table class="explicar">
+    <tr>
+        <td>C<sub>7</sub>H<sub>6</sub>O<sub>3</sub></td>
+        <td>&rarr;</td>
+        <td>Ácido Salicílico</td>
+    </tr>
+    <tr>
+        <td>C<sub>4</sub>H<sub>6</sub>O<sub>3</sub></td>
+        <td>&rarr;</td>
+        <td>Anidrido Etanoico</td>
+    </tr>
+    <tr>
+        <td>C<sub>9</sub>H<sub>8</sub>O<sub>4</sub></td>
+        <td>&rarr;</td>
+        <td>Ácido Acetilsalicílico</td>
+    </tr>
+    <tr>
+        <td>C<sub>2</sub>H<sub>4</sub>O<sub>2</sub></td>
+        <td>&rarr;</td>
+        <td>Ácido Etanoico</td>
+    </tr>
+</table><br>
+
+<br>
+<h4>Calcular o Rendimento</h4>
+
+<p class="m0">
+    <b>Identificar o Reagente Limitante:</b>
+</p>
+<p class="m0">
+    O Reagente Limitante é o que está em menor proporção estequiométrica, para o 
+    Identificarmos temos que comparar a quantidade química (número de moles) de cada
+    um dos reagentes com o seu coeficiente estequiométrico.
+</p>
+<p>
+    Primeiro calculamos a quantidade química de cada um dos Reagentes:
+</p>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> n(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; <sup>m(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>)<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup></sup> &frasl; <sub>M(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>)</sub> &hArr; <br>
+        &hArr; n(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; <sup>m(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>)</sup> &frasl; <sub>138,13<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup></sub>
+    </p>
+</div>
+<p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>
+    A massa de C<sub>7</sub>H<sub>6</sub>O<sub>3</sub> é nos dada diretamente, pois
+    o reagente está no estado sólido.
+<br><br></p>
+<div class="overflow">
+    <p class="contas" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>
+        M(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 7 &times; M(C) &plus; 6 &times; M(H) &plus; 3 &times; M(O)  &hArr; <br>
+        &hArr; M(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 7 &times; 12,01 &plus; 6 &times; 1,01 &plus; 3 &times; 16,00  &hArr; <br>
+        &hArr; M(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 138,13
+    <br><br></p>
+</div>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> n(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>) &equals; <sup>m(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup></sup> &frasl; <sub>M(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)</sub> &hArr; <br>
+        &hArr; n(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>) &equals; <sup>m(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)</sup> &frasl; <sub>102,10<sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup></sub>
+    </p>
+</div>
+<div class="overflow">
+    <p class="contas" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup>
+        Como C<sub>4</sub>H<sub>6</sub>O<sub>3</sub> é um líquido: <br>
+        <span class="invi">&hArr;</span> m(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>) &equals; &rho;(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>) &times; V(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)
+    <br><br></p>
+    <p class="contas" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>
+        M(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 4 &times; M(C) &plus; 6 &times; M(H) &plus; 3 &times; M(O)  &hArr; <br>
+        &hArr; M(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 4 &times; 12,01 &plus; 6 &times; 1,01 &plus; 3 &times; 16,00  &hArr; <br>
+        &hArr; M(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 102,10
+    <br><br></p>
+</div>
+<table class="explicar">
+    <tr>
+        <td>n(X)</td>
+        <td>&rarr;</td>
+        <td>Quantidade Química de X</td>
+    </tr>
+    <tr>
+        <td>m(X)</td>
+        <td>&rarr;</td>
+        <td>Massa de X</td>
+    </tr>
+    <tr>
+        <td>M(X)</td>
+        <td>&rarr;</td>
+        <td>Massa Molar de X</td>
+    </tr>
+    <tr>
+        <td>&rho;(X)</td>
+        <td>&rarr;</td>
+        <td>Massa Volúmica de X</td>
+    </tr>
+    <tr>
+        <td>V(X)</td>
+        <td>&rarr;</td>
+        <td>Volume de X</td>
+    </tr>
+</table><br><br>
+<p>
+    Depois, comparamos as suas proporções estequiométricas:
+</p>
+<div class="contas">
+    <p class="m0">
+        <span class="invi">&hArr;</span> <sup>n(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>)</sup> &frasl; <sub>1</sub> &equals; n(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>)
+    </p>
+    <p class="m0">
+        <span class="invi">&hArr;</span> <sup>n(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)</sup> &frasl; <sub>1</sub> &equals; n(C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)
+    </p>
+</div><br>
+<table class="explicar">
+    <tr>
+        <td>1</td>
+        <td>&rarr;</td>
+        <td>Coeficiente estequiométrico de ambos os Reagentes</td>
+    </tr>
+</table><br><br>
+<p>
+    Logo, o Reagente com menor quantidade química será o Reagente Limitante
+</p>
+
+<br>
+<p class="m0">
+    <b>Calcular a Quantidade Química Teórica:</b>
+</p>
+<p class="m0">
+    Através da estequiometria podemos calcular a quantidade química, em moles, que
+    iriamos obter de Ácido Acetilsalicílico se o Rendimento fosse de 100%.
+</p>
+<p>
+    Como os coeficientes de ambos os reagentes são iguais ao coeficiente do
+    Ácido Acetilsalicílico:
+</p>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> n(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)<sub>Teórico</sub> &equals; n(Reagente Limitante)
+    </p>
+</div>
+
+<br>
+<p class="m0">
+    <b>Calcular a Quantidade Química Obtida na Prática:</b>
+</p>
+<p class="m0">
+    Após medirmos a massa dos cristais obtidos, podemos calcular a quantidade química
+    obtida da seguinte forma:
+</p>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> n(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)<sub>Obtido</sub> &equals; <sup>m(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)</sup> &frasl; <sub>M(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)</sub>  &hArr; <br>
+        &hArr; n(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>) &equals; <sup>m(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)</sup> &frasl; <sub>180,17<sup class="exp-contas" onclick="mostrarExpContas(5)">[5]</sup></sub>
+    </p>
+</div>
+<div class="overflow">
+    <p class="contas" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(5)">[5]</sup>
+        M(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 9 &times; M(C) &plus; 8 &times; M(H) &plus; 4 &times; M(O) &hArr; <br>
+        &hArr; M(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 9 &times; 12,01 &plus; 8 &times; 1,01 &plus; 4 &times; 16,00 &hArr; <br>
+        &hArr; M(C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>) &equals; 180,17
+    <br><br></p>
+</div>
+
+<br>
+<p class="m0">
+    <b>Calcular o Rendimento:</b>
+</p>
+<p class="m0">
+    Com os valores obtidos anteriormente, o Rendimento em Percentagem (&eta;(&))
+    pode ser calculado da seguinte forma:
+</p>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> &eta;(%) &equals; <sup>n(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)<sub>Obtido</sub></sup> &frasl; <sub>n(C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)<sub>Teórico</sub></sub> &times; 100
+    </p>
+</div>

@@ -19,7 +19,7 @@ main {
     padding: 10px 20px 10px 20px;
     width: 75vw;
     max-width: 1500px;
-    min-height: calc(100vh - 10px - 10px - 40px - 40px);
+    min-height: calc(100vh - 10px - 10px - 40px - 50px);
 }
 
 
@@ -123,7 +123,7 @@ sup sup {
     font-size: 100%;
 }
 
-sup sub {
+sub sup {
     font-size: 100%;
 }
 
@@ -182,6 +182,7 @@ div.flex-slider div.label {
 
 div.contas {
     overflow-x: auto;
+    margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
 }
@@ -445,7 +446,7 @@ img#Rampa-AL1-1 {
 
 footer {
     width: 100%;
-    height: 40px;
+    height: 50px;
     text-align: center;
     margin-top: 0px;
     padding: 0px;
@@ -455,7 +456,7 @@ footer {
 }
 footer p {
     margin: 0px;
-    padding: 10px;
+    padding: 13px;
 }
 footer a {
     color: white;
