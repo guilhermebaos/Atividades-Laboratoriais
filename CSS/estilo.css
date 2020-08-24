@@ -16,9 +16,10 @@ header {
 main {
     background: white;
     margin: auto;
-    padding: 10px 20px 60px 20px;
+    padding: 10px 20px 10px 20px;
     width: 75vw;
     max-width: 1500px;
+    min-height: calc(100vh - 10px - 10px - 40px - 40px);
 }
 
 
@@ -444,12 +445,9 @@ img#Rampa-AL1-1 {
 
 footer {
     width: 100%;
-    height: fit-content;
+    height: 40px;
     text-align: center;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    margin: 0px;
+    margin-top: 0px;
     padding: 0px;
     color: white;
     overflow: hidden;
