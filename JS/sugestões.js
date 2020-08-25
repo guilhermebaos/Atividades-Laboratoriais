@@ -24,6 +24,7 @@ function enviarEmail() {
     // Enviar o Email e dizer no butão o resultado
     emailjs.send(service_id, template_id, templateParams).then(function() {
         btnEnviar.innerHTML = 'Enviado!'
+        setTimeout(function() {window.location = '/Atividades-Laboratoriais/index.html'}, 3000)
     }, function(erro) {
         alert('Problema no envio do Email! Tente mais tarde!')
         console.log(JSON.stringify(erro))
