@@ -132,6 +132,11 @@ div {
     padding: 5px;
 }
 
+div.tabela-container {
+    padding: 0px;
+    max-width: 72vw;
+}
+
 div.graf-container {
     padding: 0px;
     overflow-x: auto;
@@ -198,11 +203,8 @@ div.overflow {
     overflow-x: auto;
     margin: 0px;
     padding: 0px;
-}
-div.overflow p {
     white-space: nowrap;
 }
-
 div.explicar {
     margin: 0px;
 }
@@ -257,11 +259,15 @@ table.explicar tr td {
 }
 
 table.resultados {
+    width: 100%;
     margin: auto;
-    width: fit-content;
+    padding: 0px;
 }
 table.resultados tr.vars {
     font-weight: bold;
+}
+table.resultados tr.vars td {
+    text-align: center;
 }
 table.resultados tr {
     border-bottom: 2px solid lightgray;

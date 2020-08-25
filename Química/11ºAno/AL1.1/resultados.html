@@ -8,8 +8,59 @@
     Experimenta prever as consequências de uma ou mais alterações:
 </p>
 <ul>
-    <li></li>
+    <li>Qual passará a ser o Reagente Limitante?</li>
+    <li>O Rendimento irá aumentar, diminuir ou manter-se constante?</li>
 </ul><br>
 <div class="centrada">
+    <div class="flex-slider">
+        <div><label for="massaReagente1">Massa Ácido Salicílico: </label></div>
+        <div><span id="massaReagente1Value">2.00</span>g
+        <input type="range" name="massaReagente1" id="massaReagente1" class="slider" min="50" max="600" value="200"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="volumeReagente2">Volume Anidrido Etanoico: </label></div>
+        <div><span id="volumeReagente2Value">5.00</span>ml
+        <input type="range" name="volumeReagente2" id="volumeReagente2" class="slider" min="100" max="600" value="500"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="massaProduto">Massa de Ácido Acetilsalícilico Recuperada: </label></div>
+        <div><span id="massaProdutoValue">2.00</span>g
+        <input type="range" name="massaProduto" id="massaProduto" class="slider" min="10" max="258" value="200"></div>
+    </div>
     
+    <button id="fazer-curva-Síntese" class="submit" onclick="curva()">Simular a Reação</button>
+    <br><br><br>
+
+    <div class="overflow tabela-container">
+        <table class="resultados">
+            <tr class="vars">
+                <td colspan="3">Quantidade Química/ mol</td>
+                <td>Reagente Limitante</td>
+                <td class="fim-tabela">Rendimento</td>
+            </tr>
+            <tr>
+                <td><b>Ácido Salicílico (C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>)</b></td>
+                <td><b>Anidrido Etanoico (C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)</b></td>
+                <td><b>Ácido Acetilsalicílico (C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)</b></td>
+                <td rowspan="2"><span id="reagenteLimitanteValue"></span></td>
+                <td rowspan="2" class="fim-tabela"><span id="rendimentoValue"></span></td>
+            </tr>
+            <tr>
+                <td><span id="nC7H6O3Value">0.01448</span></td>
+                <td><span id="nC4H6O3Value">0.05289</span></td>
+                <td class="fim-tabela"><span id="nC9H8O4Value">	0.01110</span></td>
+            </tr>
+        </table>
+    </div>
+</div><br><br>
+<div class="explicar">
+    <p>
+        O Rendimento máximo é de 99%.
+    </p><br>
+    <p>
+        Para que o Rendimento calculado seja mais exato, ao realizar a AL, é
+        necessário que o Reagente Limitante seja o Ácido Salicílico. Se este
+        estiver em excesso, ao fazer a filtração, poderá ficar no papel de filtro
+        juntamente com o Ácido Acetilsalicílico.
+    </p>
 </div>
