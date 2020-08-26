@@ -185,6 +185,20 @@ div.flex-slider div.label {
     flex: 1 1 0px;
 }
 
+div.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 0px;
+}
+div.flex div {
+    flex: 1 1 100px;
+    margin: 5px;
+    padding: 0px;
+}
+
 div.contas {
     overflow-x: auto;
     margin-top: 0px;
@@ -444,9 +458,15 @@ ol.procedimento li {
 }
 
 
-img#Rampa-AL1-1 {
-    height: 120px;
-    width: 175px;
+img {
+    max-width: 100%;
+    height: auto;
+}
+img#Rampa-F10-AL11 {
+    min-width: 100px;
+}
+img#Queda-e-Ressalto-F10-AL12 {
+    min-width: 250px;
 }
 
 
