@@ -8,21 +8,71 @@
     Experimenta prever as consequências de uma ou mais alterações:
 </p>
 <ul>
-    <li></li>
+    <li>Qual será a altura do 1º Ressalto?</li>
+    <li>Quanta Energia Mecânica será dissipada após cada Ressalto?</li>
 </ul><br>
 
 <div class="centrada">
+    <div class="flex-slider">
+        <div><label for="massaBola">Massa da Bola</label></div>
+        <div><span id="massaBolaValue">0.800</span>kg
+        <input type="range" name="massaBola" id="massaBola" class="slider" min="500" max="2000" value="800"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="raioBola">Raio da Bola</label></div>
+        <div><span id="raioBolaValue">4.0</span>cm
+        <input type="range" name="raioBola" id="raioBola" class="slider" min="30" max="90" value="40"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="alturaInicial">Altura Inicial</label></div>
+        <div><span id="alturaInicialValue">100</span>cm
+        <input type="range" name="alturaInicial" id="alturaInicial" class="slider" min="100" max="300" value="100"></div>
+    </div><br>
+    <div class="flex-slider">
+        <div><label for="elasticidade">Elasticidade</label></div>
+        <div><input type="range" name="elasticidade" id="elasticidade" class="slider" min="1" max="90" value="40"></div>
+    </div>
 
-    <button id="fazer-curva-Ec" class="submit" onclick="curva()">Traçar a função E<sub>c</sub> = f(d)</button>
-</div><br>
+    <button id="fazer-curva-Ec" class="submit" onclick="curva()">Traçar a função h = f(t)</button>
+</div><br><br>
 <div class="graf-container">
-    <div id="curva-Ec" class="graf">
+    <div id="curva-xt" class="graf">
         <span id="canvasCurva"></span>
     </div>
-</div>
+</div><br><br>
+<div class="centrada">
+    <div class="overflow" style="max-width: 72vw;">
+        <table id="alturasTabela" class="resultados">
+            <tr class="vars">
+                <td>Altura de Queda/ cm</td>
+                <td class="fim-tabela">Altura de Ressalto/ cm</td>
+            </tr>
+        </table>
+    </div><br><br>
+    <div class="overflow" style="max-width: 72vw;">
+        <table class="resultados">
+            <tr class="vars">
+                <td><sup>h<sub>Ressalto</sub></sup> &frasl; <sub>h<sub>Queda</sub></sub></td>
+                <td class="fim-tabela">Percentagem da Energia Mecânica Dissipada em cada Colisão</td>
+            </tr>
+            <tr>
+                <td><span id="razaoValue"></span></td>
+                <td class="fim-tabela"><span id="EmDissipadaValue"></span></td>
+            </tr>
+        </table>
+    </div>
+</div><br>
 <div class="explicar">
     <p>
-        Como a velocidade da bola é relativamente baixa, a Resistência do Ar é
-        desprezada durante a simulação.
+        A 'Altura da Bola' refere-se à distância do ponto da bola mais próximo do solo
+        ao solo, medida na vertical.
+    </p><br>
+    <p>
+        'Elasticidade' está apenas relacionado com a Energia Mecânica conservada
+        durante a colisão com o solo.
+    </p><br>
+    <p>
+        Como a Resistência do Ar foi desprezada, a massa da bola não irá afetar
+        o seu Movimento.
     </p>
 </div>

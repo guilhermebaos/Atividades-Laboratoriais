@@ -128,6 +128,7 @@ function leiPosicao(x0, v0, a0, tempo){
 
 // Calcular os Valores Relacionados com a Queda da Esfera
 function curva() {
+    // Guardar os Resultados para os Gráficos Extra
     F11_AL11.resultados = pontos()
 
     // Extrair os Resultados

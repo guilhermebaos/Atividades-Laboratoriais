@@ -155,6 +155,7 @@ div.header {
     position: -webkit-sticky;
     margin: 0px;
     padding: 0px;
+    z-index: 10;
 }
 
 div.lista-AL {
@@ -231,6 +232,7 @@ div.explicar p {
 
 canvas {
     margin: auto;
+    z-index: -1;
 }
 
 
@@ -316,12 +318,11 @@ input.slider {
     width: 30vw;
     margin: 0px;
     outline: none;
-    opacity: 70%;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
 input.slider:hover{
-    opacity: 90%;
+    opacity: 100%;
 }
 input.slider::-webkit-slider-thumb {
     cursor: pointer;
@@ -414,7 +415,6 @@ ul.navbar li {
     text-align: center;
     margin: 0px;
     padding: 10px 0px 10px 0px;
-    /*cursor: pointer;*/
     transition: background-color 0.2s;
 }
 ul.navbar li:hover {
