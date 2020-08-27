@@ -7,23 +7,25 @@
 <br>
 <h3>Relação Teórica</h3>
 <p>
-    Apenas irão atuar no carrinho duas forças, o seu Peso (P) e a Força de Atrito (F<sub>a</sub>),
+    Apenas irão atuar no carrinho três forças, o seu Peso (P), a Reação Normal (R<sub>N</sub>) e a Força de Atrito (F<sub>a</sub>),
     suposta constante. Partindo do Teorema do Trabalho-Energia, temos que:
 </p>
 <div class="contas">
     <p>
         <span class="invi">&hArr;</span> &Delta;E<sub>c</sub> &equals; W<sub>F<sub>r</sub></sub> &hArr; <br>
-        &hArr; E<sub>c</sub> &minus; E<sub>c<sub>i</sub></sub> &equals; W<sub>P</sub> &plus; W<sub>F<sub>a</sub></sub> &hArr; <br>
-        &hArr; E<sub>c</sub> &minus; 0<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; |P| &times; |&Delta;r| &times; cos(&alpha;) &plus; |F<sub>a</sub>| &times; |&Delta;r| &times; cos(180º) &hArr; <br>
-        &hArr; E<sub>c</sub> &equals; m &times; g &times; d<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &times; sin(90º &minus; &alpha;) &plus; |F<sub>a</sub>| &times; d<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &times; (&minus;1) &hArr; <br>
-        &hArr; E<sub>c</sub> &equals; (m &times; g &times; sin(&theta;)<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &minus; |F<sub>a</sub>|) &times; d
+        &hArr; E<sub>c</sub> &minus; E<sub>c<sub>i</sub></sub> &equals; W<sub>P</sub> &plus; W<sub>F<sub>a</sub></sub> &plus; W<sub>R<sub>N</sub></sub> &hArr; <br>
+        &hArr; E<sub>c</sub> &minus; 0<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; |P| &times; |&Delta;r| &times; cos(&alpha;) &plus; |F<sub>a</sub>| &times; |&Delta;r| &times; cos(180º) &plus; 0<sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &hArr; <br>
+        &hArr; E<sub>c</sub> &equals; m &times; g &times; d<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &times; sin(90º &minus; &alpha;) &plus; |F<sub>a</sub>| &times; d<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &times; (&minus;1) &hArr; <br>
+        &hArr; E<sub>c</sub> &equals; (m &times; g &times; sin(&theta;)<sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup> &minus; |F<sub>a</sub>|) &times; d
     </p>
 </div>
 <div>
     <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>O Carrinho é abandonado no plano, logo, a sua Energia Cinética inicial é 0.<br><br></p>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>Como o Carrinho se move sempre na mesma direção e sentido, o módulo do seu deslocamento é igual à distância percorrida.<br><br></p>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup><br><img id="Rampa-F10-AL11" src="Imagens/Rampa-F10-AL11.png" alt="Rampa com &alpha;, &theta; e os Pontos A, B e C identificados" width="175" height="120"><br>O Vetor Peso será paralelo a AB, o Vetor Deslocamento será paralelo a AC, logo, o ângulo entre eles é &alpha;.
-        <br>Na equação acima, colocamos a Energia Cinética Final em função do ângulo que o Plano Inclinado faz com o solo, &theta;, para a simplificar, aproveitando o facto que <span class="nbsp">cos(&alpha;) &equals; sin(90º &minus; &alpha;)</span> e <span class="nbsp">90º &minus; &alpha; = &theta;</span>.<br><br>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>A Reação Normal é perpendicular ao deslocamento, logo, o seu trabalho é 0.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup>Como o Carrinho se move sempre na mesma direção e sentido, o módulo do seu deslocamento é igual à distância percorrida.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup><br><img id="Rampa-F10-AL11" src="Imagens/Rampa-F10-AL11.png" alt="Rampa com &alpha;, &theta; e os Pontos A, B e C identificados" width="175" height="120"><br>O Vetor Peso será paralelo a AB, o Vetor Deslocamento será paralelo a AC, logo, o ângulo entre eles é &alpha;.
+        <br>Na equação acima, colocamos a Energia Cinética Final em função do ângulo que o Plano Inclinado faz com o solo, &theta;, para a simplificar, aproveitando o facto que <span class="nbsp">cos(&alpha;) &equals; sin(90º &minus; &alpha;)</span> e <span class="nbsp">90º &minus; &alpha; = &theta;.</span>
+        <br>Logo, a expressão <span class="nbsp">m &times; g &times; sin(&theta;)</span> é igual ao Módulo da Componente do Peso Tangente ao Deslocamento.<br><br>
     </p>
 </div>
 <table class="explicar">
@@ -128,11 +130,11 @@
 <div class="contas">
     <p>
         <span class="invi">&hArr;</span> v &equals; <sup>|&Delta;r|</sup> &frasl; <sub>&Delta;t</sub> &hArr; <br>
-        &hArr; v &equals; <sup>largura<sub>tira</sub></sup><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup> &frasl; <sub>&Delta;t</sub>
+        &hArr; v &equals; <sup>largura<sub>tira</sub></sup><sup class="exp-contas" onclick="mostrarExpContas(5)">[5]</sup> &frasl; <sub>&Delta;t</sub>
     </p>
 </div>
 <div>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>No intervalo de tempo medido pelo
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(5)">[5]</sup>No intervalo de tempo medido pelo
         cronómetro o carrinho percorre uma distância igual à largura da tira opaca. O 
         Módulo do Deslocamento é igual à distância percorrida porque o Movimento é
         Retilíneo e sem inversão de sentido.
