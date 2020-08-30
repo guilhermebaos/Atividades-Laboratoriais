@@ -35,6 +35,7 @@ function prepararResultados() {
     massaCemGotasResp = document.getElementById('massaCemGotasValue')
     volumeCemGotasResp = document.getElementById('volumeCemGotasValue')
 
+    // Selecionar os Spans com os Valores da Tabela
     massaGotaResp = document.getElementById('massaGotaValue')
     volumeGotaResp = document.getElementById('volumeGotaValue')
     nGotaResp = document.getElementById('nGotaValue')

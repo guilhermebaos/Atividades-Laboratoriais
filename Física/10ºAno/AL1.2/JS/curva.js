@@ -42,6 +42,7 @@ function prepararResultados() {
     raioBolaResp = document.getElementById('raioBolaValue')
     alturaInicialResp = document.getElementById('alturaInicialValue')
 
+    // Selecionar os Spans com os Valores da Tabela
     razaoResp = document.getElementById('razaoValue')
     EmDissipadaResp = document.getElementById('EmDissipadaValue')
 

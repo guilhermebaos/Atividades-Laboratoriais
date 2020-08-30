@@ -15,9 +15,10 @@ header {
 
 main {
     background: white;
-    margin: auto;
+    margin-right: calc(10vw - (100vw - 100%) - 20px);
+    margin-left: calc(10vw - 20px);
     padding: 10px 20px 10px 20px;
-    width: 75vw;
+    width: 80vw;
     max-width: 1500px;
     min-height: calc(100vh - 10px - 10px - 40px - 50px);
 }
@@ -171,7 +172,7 @@ div.centrada {
 
 div.flex-slider {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     margin: 5px;
@@ -184,6 +185,9 @@ div.flex-slider div {
 }
 div.flex-slider div.label {
     flex: 1 1 0px;
+}
+div.flex-slider div.btn {
+    min-width: 100px;
 }
 
 div.flex {
@@ -226,7 +230,7 @@ div.explicar {
 div.explicar p {
     font-style: italic;
     text-indent: 10px;
-    margin: 0px;
+    margin: 10px;
 }
 
 
@@ -475,7 +479,7 @@ footer {
     height: 50px;
     text-align: center;
     margin-top: 0px;
-    padding: 0px;
+    padding: 0px 0px 0px calc(50vw - 50%);
     color: white;
     overflow: hidden;
     background-color: rgb(128, 128, 128);

@@ -1,111 +1,66 @@
 // Definir Constantes
-const nAvogrado = 6.02214076e23
 
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
-let Q10_AL11 = {
+let Q10_AL12 = {
     preparado: false,
 }
 
-let densidadeMax = 1.00 // g/cm^3
-let densidadeMin = 0.98 // g/cm^3
+let salArray
+let salEscolhidoPos = 0
+let salEscolhidoNome = 'NaCl'
 
-let massaCemGotas
-
-let massaCemGotasResp
-
-let massaGotaResp
-let volumeGotaResp
-let nGotaResp
+let salEscolhidoResp
+let corChamaResp
 
 
 function prepararResultados() {
-    if (Q10_AL11.preparado) {
+    if (Q10_AL12.preparado) {
         return
     }
-    Q10_AL11.preparado = true
+    Q10_AL12.preparado = true
 
+    // Selecionar os Butões
+    salArray = document.getElementsByName('salChama')
 
-    // Selecionar Sliders
-    massaCemGotas = document.getElementById('massaCemGotas')
-    volumeCemGotas = document.getElementById('volumeCemGotas')
-    
-    // Selecionar os Spans com os Valores dos Sliders
-    massaCemGotasResp = document.getElementById('massaCemGotasValue')
-    volumeCemGotasResp = document.getElementById('volumeCemGotasValue')
+    // Selecionar os Spans com os Valores da Tabela
+    salEscolhidoResp = document.getElementById('salEscolhidoValue')
+    corChamaResp = document.getElementById('corChamaValue')
+}
 
-    massaGotaResp = document.getElementById('massaGotaValue')
-    volumeGotaResp = document.getElementById('volumeGotaValue')
-    nGotaResp = document.getElementById('nGotaValue')
+function escolherSal(num) {
+    let pos = num - 1
 
-    
-    // Atualizar os Sliders
-    massaCemGotas.oninput = function atualizarMassaCemGotas() {
-        let massaCemGotasValue = massaCemGotas.value * 10
-    
-        massaCemGotasResp.innerHTML = `${massaCemGotasValue.toFixed(0)}`
+    salArray[salEscolhidoPos].className = 'escolha'
+    salArray[pos].className = 'escolha-atual'
 
-        corrigirVolumeCemGotas()
-    }
-    volumeCemGotas.oninput = function atualizarVolumeCemGotas() {
-        let volumeCemGotasValue = volumeCemGotas.value / 100
-    
-        volumeCemGotasResp.innerHTML = `${volumeCemGotasValue.toFixed(2)}`
-
-        corrigirMassaCemGotas()
-    }
+    salEscolhidoPos = pos
+    salEscolhidoNome = salArray[pos].innerText
 
     curva()
 }
 
-// Modificar o Volume para que densidade pertença a [0.98, 1.00]
-function corrigirVolumeCemGotas() {
-    let densidade = massaCemGotas.value / volumeCemGotas.value
-
-    if (densidade < densidadeMin) {
-        volumeCemGotas.value = massaCemGotas.value / densidadeMin       // Calcular o Volume usando a densidade Mínima
-
-        let volumeCemGotasValue = volumeCemGotas.value / 100
-        volumeCemGotasResp.innerHTML = `${volumeCemGotasValue.toFixed(2)}`
-    } else if (densidade > densidadeMax) {
-        volumeCemGotas.value = massaCemGotas.value / densidadeMax       // Calcular o Volume usando a densidade Máxima
-
-        let volumeCemGotasValue = volumeCemGotas.value / 100
-        volumeCemGotasResp.innerHTML = `${volumeCemGotasValue.toFixed(2)}`
-    }
-}
-
-// Modificar a Massa para que densidade pertença a [0.98, 1.00]
-function corrigirMassaCemGotas() {
-    let densidade = massaCemGotas.value / volumeCemGotas.value
-
-    if (densidade < densidadeMin) {
-        massaCemGotas.value = volumeCemGotas.value * densidadeMin       // Calcular a Massa usando a densidade Mínima
-
-        let massaCemGotasValue = massaCemGotas.value * 10
-        massaCemGotasResp.innerHTML = `${massaCemGotasValue.toFixed(0)}`
-    } else if (densidade > densidadeMax) {
-        massaCemGotas.value = volumeCemGotas.value * densidadeMax       // Calcular a Massa usando a densidade Máxima
-
-        let massaCemGotasValue = massaCemGotas.value * 10
-        massaCemGotasResp.innerHTML = `${massaCemGotasValue.toFixed(0)}`
-    }
-}
-
-
-// Calcular as características de uma gota de água
 function curva() {
-    let massa = massaCemGotas.value / 10
-    let volume = volumeCemGotas.value / 10
-    let N = (massa * 1e-3 / 18.02) * nAvogrado
-
-    let nTexto = String(N.toExponential(5))
-    nTexto = nTexto.slice(0, 5) + ' &times 10<sup>' + nTexto.slice(nTexto.length - 2) + '</sup>'
-
-    massaGotaResp.innerHTML = `${massa.toFixed(2)}`
-    volumeGotaResp.innerHTML = `${volume.toFixed(2)}`
-    nGotaResp.innerHTML = `${nTexto}`
+    if (salEscolhidoNome == 'NaCl') {
+        salEscolhidoResp.innerText = 'Cloreto de Sódio'
+        corChamaResp.innerText = 'Amarelo'
+    } else if (salEscolhidoNome == 'CaCl2') {
+        salEscolhidoResp.innerText = 'Cloreto de Cálcio'
+        corChamaResp.innerText = 'Vermelho Claro'
+    } else if (salEscolhidoNome == 'KCl') {
+        salEscolhidoResp.innerText = 'Cloreto de Potássio'
+        corChamaResp.innerText = 'Violeta'
+    } else if (salEscolhidoNome == 'BaCl2') {
+        salEscolhidoResp.innerText = 'Cloreto de Bário'
+        corChamaResp.innerText = 'Verde'
+    } else if (salEscolhidoNome == 'LiCl') {
+        salEscolhidoResp.innerText = 'Cloreto de Lítio'
+        corChamaResp.innerText = 'Vermelho Escuro'
+    } else if (salEscolhidoNome == 'CuCl2') {
+        salEscolhidoResp.innerText = 'Cloreto de Cobre (II)'
+        corChamaResp.innerText = 'Verde Claro'
+    }
 }
 
-// Ideia: Incluir variação da densidade com a temperatura
+// Adicionar Imagens da Chama, quando as tiver
