@@ -1,0 +1,108 @@
+<h3>Objetivo</h3>
+<p>
+    Estudar as forças existentes no Movimento Retilíneo Uniformemente Acelerado e
+    verificar se é possível um corpo manter-se em movimento se a Resultante das Forças
+    que atua sobre ele é nula.
+</p>
+
+<br>
+<h3>Método</h3>
+<p>
+    Para podermos estudar as forças que existem nestas situações, iremos usar um
+    carrinho que se move sobre um plano horizontal, puxado por um
+    <span class="anchor" onclick="mostrarExtra('fio-ideal')">fio ideal</span>
+    ligado a um corpo suspenso, através de uma roldana.
+</p>
+<div id="fio-ideal" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('fio-ideal')">X</button>
+    <p>
+        O fio deverá ser inextensível - o seu comprimento não irá variar - e a sua
+        massa deve ser desprezável. Como tal, a soma de todas as forças de Tensão,
+        exercidas sobre ele e por ele, terá que ser nula.
+    </p><br>
+</div><br>
+<p>
+    Sobre o Carrinho irá atuar o seu Peso, a Reação Normal e uma força de Tensão
+    exercida pelo fio, sendo a Resultante das Forças de Atrito considerada desprezável.
+</p>
+<p>
+    Sobre o Fio irão atuar várias forças de Tensão, já que o Corpo, em queda,
+    o irá puxar, fazendo com que o este, por sua vez, puxe o Carrinho.
+</p>
+<p>
+    Sobre o Corpo Suspenso irá atuar o seu Peso e uma força de Tensão exercida pelo
+    Fio, par Ação-Reação da a Força que o Corpo exerce no Fio.
+</p>
+<p>
+    Logo, a Força Resultante do Sistema Corpo + Carrinho + Fio irá ser o Peso do Corpo
+    Suspenso, já que a Reação Normal exercida sobre o Carrinho é Simétrica do seu Peso
+    e a soma de todas as forças de Tensão terá que ser nula.
+</p>
+<p>
+    Então, o Sistema irá adquirir aceleração, cujo módulo é constante e se relaciona
+    com o Peso do Corpo Suspenso da seguinte forma:
+</p>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> |a| &times; m<sub>Sistema</sub> &equals; |F<sub>r</sub>|<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &hArr; <br>
+        &hArr; |a| &times; (m<sub>corpo</sub> &plus; m<sub>carrinho</sub>) &equals; |P<sub>corpo</sub>| &hArr; <br>
+        &hArr; |a| &equals; <sup>|P<sub>corpo</sub>|</sup> &frasl; <sub>m<sub>corpo</sub> &plus; m<sub>carrinho</sub></sub>
+    </p>
+</div>
+<table class="explicar">
+    <tr>
+        <td>a</td>
+        <td>&rarr;</td>
+        <td>Aceleração do Sisetma</td>
+    </tr>
+    <tr>
+        <td>F<sub>r</sub></td>
+        <td>&rarr;</td>
+        <td>Força Resultante do Sistema</td>
+    </tr>
+    <tr>
+        <td>m<sub>X</sub></td>
+        <td>&rarr;</td>
+        <td>Massa do Corpo X</td>
+    </tr>
+    <tr>
+        <td>P<sub>X</sub></td>
+        <td>&rarr;</td>
+        <td>Peso do Corpo X</td>
+    </tr>
+    <tr>
+        <td>|X|</td>
+        <td>&rarr;</td>
+        <td>Módulo do Vetor X</td>
+    </tr>
+</table><br>
+<div>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>A Força Resultante do Sistema irá ser igual ao Produto da Massa do Sistema pela sua Aceleração.<br><br></p>
+</div>
+<p>
+    Para podermos determinar experimentalmente o módulo da aceleração do Carrinho,
+    podemos usar um Sistema de aquisição automática de dados e um sensor de
+    movimento, que nos mostre em tempo real o gráfico velocidade-tempo.
+</p>
+<p>
+    O declive desse gráfico, obtido por regressão linear, será o valor da
+    aceleração do carrinho, pois, sendo este módulo constante, a aceleração 
+    (instantânea) será igual à aceleração média.
+</p><br>
+<p>
+    Após o Corpo atingir o solo, o Carrinho irá continuar a percorrer o plano, 
+    sendo que deixa de atuar sobre ele a força de Tensão exercida pelo fio.
+</p>
+<p>
+    Sendo assim, a Força Resultante exercida nele será nula, pelo que, pela
+    Lei da Inércia, a sua velocidade será constante.
+</p>
+<p>
+    Tal será visível no gráfico velocidade-tempo através do declive da reta de
+    melhor ajuste para essa segunda zona, na qual a velocidade é constante,
+    que será próximo de 0.
+</p>
+<p>
+    Logo, conlcuimos que é possível um corpo continuar em Movimento mesmo quando
+    a Resultante das Forças que atuam sobre ele é nula.
+</p>

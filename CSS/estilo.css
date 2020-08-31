@@ -230,7 +230,7 @@ div.explicar {
 div.explicar p {
     font-style: italic;
     text-indent: 10px;
-    margin: 10px;
+    margin: 0px 8px 12px 8px;
 }
 
 
@@ -451,6 +451,10 @@ ul.material {
     padding: 0px;
     text-align: left;
     list-style-position: inside;
+}
+
+ul.teoria li {
+    margin-bottom: 8px;
 }
 
 

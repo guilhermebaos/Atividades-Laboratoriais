@@ -126,40 +126,6 @@ function leiPosicao(x0, v0, a0, tempo){
 }
 
 
-// Calcular os Valores Relacionados com a Queda da Esfera
-function curva() {
-    // Guardar os Resultados para os Gráficos Extra
-    F11_AL11.resultados = pontos()
-
-    // Extrair os Resultados
-    let resultados = F11_AL11.resultados
-
-    let tim = resultados[0]
-    let t_f = Number(tim[tim.length - 1]) * 1000
-
-    let vel = resultados[2]
-    let v_f = vel[vel.length - 1]
-
-    let acc = resultados[3]
-    let a_f = acc[acc.length - 1]
-
-    let d = 2 * raioEsfera.value / 1000 // m
-
-    // Fórmula Quadrática com a lei x(t) para determinar o delta t de passagem, com RAr suposta constante
-    let deltaT_celula2Value = (-1 * v_f + (v_f ** 2 + 2 * a_f * d) ** 0.5) / a_f * 1000 // ms
-    let vm = d / deltaT_celula2Value * 1000
-    let gExperimental = vm / t_f * 1000
-
-    deltaT_celula2Resp.innerHTML = `${deltaT_celula2Value.toFixed(2)}`
-    deltaT_quedaResp.innerHTML = `${t_f.toFixed(1)}`
-    velocidade_celula2Resp.innerHTML = `${vm.toFixed(3)}`
-    gravidade_experimentalResp.innerHTML = `${gExperimental.toFixed(3)}`
-
-
-    curvaExtra()
-}
-
-
 // Calcular os Pontos dos vários gráficos
 function pontos() {
     // Declarar variáveis e valores iniciais
@@ -208,6 +174,40 @@ function pontos() {
         jer.push(j)
     }
     return [tim, pos, vel, acc, jer]
+}
+
+
+// Calcular os Valores Relacionados com a Queda da Esfera
+function curva() {
+    // Guardar os Resultados para os Gráficos Extra
+    F11_AL11.resultados = pontos()
+
+    // Extrair os Resultados
+    let resultados = F11_AL11.resultados
+
+    let tim = resultados[0]
+    let t_f = Number(tim[tim.length - 1]) * 1000
+
+    let vel = resultados[2]
+    let v_f = vel[vel.length - 1]
+
+    let acc = resultados[3]
+    let a_f = acc[acc.length - 1]
+
+    let d = 2 * raioEsfera.value / 1000 // m
+
+    // Fórmula Quadrática com a lei x(t) para determinar o delta t de passagem, com RAr suposta constante
+    let deltaT_celula2Value = (-1 * v_f + (v_f ** 2 + 2 * a_f * d) ** 0.5) / a_f * 1000 // ms
+    let vm = d / deltaT_celula2Value * 1000
+    let gExperimental = vm / t_f * 1000
+
+    deltaT_celula2Resp.innerHTML = `${deltaT_celula2Value.toFixed(2)}`
+    deltaT_quedaResp.innerHTML = `${t_f.toFixed(1)}`
+    velocidade_celula2Resp.innerHTML = `${vm.toFixed(3)}`
+    gravidade_experimentalResp.innerHTML = `${gExperimental.toFixed(3)}`
+
+
+    curvaExtra()
 }
 
 

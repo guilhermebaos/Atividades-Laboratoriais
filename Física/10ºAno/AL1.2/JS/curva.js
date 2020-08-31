@@ -84,6 +84,40 @@ function leiPosicao(x0, v0, a0, tempo){
 }
 
 
+function valoresTabela(alturas) {
+    let hQ = []
+    let hR = []
+    let pos = 0
+    for (pos = 0; pos < alturas.length - 1; pos++) {
+        hQ.push((alturas[pos] * 100).toFixed(1))
+        hR.push((alturas[pos+1] * 100).toFixed(1))
+    }
+
+    let nColunas = alturasTabela.children[0].childElementCount
+    for (pos = 1; pos < nColunas; pos++) {
+        alturasTabela.deleteRow(1)
+    }
+    
+    let coluna
+    let pontos = []
+    for (pos = 0; pos < hQ.length; pos++) {
+        coluna = alturasTabela.insertRow(pos + 1)
+
+        coluna.innerHTML = `
+        <td>${hQ[pos]}cm</td>
+        <td class='fim-tabela'>${hR[pos]}cm</td>`
+
+        pontos.push([Number(hQ[pos]), Number(hR[pos])])
+    }
+    
+    let retaMelhorAjuste = regression.linear(pontos);
+    let declive = retaMelhorAjuste.equation[0];
+    
+    razaoResp.innerHTML = `${declive.toFixed(3)}`
+    EmDissipadaResp.innerHTML = `${((1 - declive) * 100).toFixed(1)}%`
+}
+
+
 // Calcular os Pontos do Gráfico x(t)
 function pontos() {
     // Declarar variáveis e valores iniciais
@@ -133,39 +167,6 @@ function pontos() {
     return [tim, pos]
 }
 
-
-function valoresTabela(alturas) {
-    let hQ = []
-    let hR = []
-    let pos = 0
-    for (pos = 0; pos < alturas.length - 1; pos++) {
-        hQ.push((alturas[pos] * 100).toFixed(1))
-        hR.push((alturas[pos+1] * 100).toFixed(1))
-    }
-
-    let nColunas = alturasTabela.children[0].childElementCount
-    for (pos = 1; pos < nColunas; pos++) {
-        alturasTabela.deleteRow(1)
-    }
-    
-    let coluna
-    let pontos = []
-    for (pos = 0; pos < hQ.length; pos++) {
-        coluna = alturasTabela.insertRow(pos + 1)
-
-        coluna.innerHTML = `
-        <td>${hQ[pos]}cm</td>
-        <td class='fim-tabela'>${hR[pos]}cm</td>`
-
-        pontos.push([Number(hQ[pos]), Number(hR[pos])])
-    }
-    
-    let retaMelhorAjuste = regression.linear(pontos);
-    let declive = retaMelhorAjuste.equation[0];
-    
-    razaoResp.innerHTML = `${declive.toFixed(3)}`
-    EmDissipadaResp.innerHTML = `${((1 - declive) * 100).toFixed(1)}%`
-}
 
 
 // Calcular os Valores Relacionados com a Queda da Esfera
