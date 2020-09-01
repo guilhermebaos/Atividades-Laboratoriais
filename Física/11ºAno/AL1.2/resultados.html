@@ -8,29 +8,62 @@
     Experimenta prever as consequências de uma ou mais alterações:
 </p>
 <ul>
-    <li></li>
+    <li>Qual foi o módulo da velocidade máxima atingida pelo Carrinho?</li>
+    <li>Qual será o Módulo da Aceleração do Carrinho enquanto o Peso está a cair?</li>
 </ul><br>
 
 <div class="centrada">
+    <div class="flex-slider">
+        <div><label for="massaCarrinho">Massa do Carrinho</label></div>
+        <div><span id="massaCarrinhoValue">0.50</span>kg
+        <input type="range" name="massaCarrinho" id="massaCarrinho" class="slider" min="10" max="999" value="50"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="massaCorpoSuspenso">Massa do Corpo Suspenso</label></div>
+        <div><span id="massaCorpoSuspensoValue">1.00</span>kg
+        <input type="range" name="massaCorpoSuspenso" id="massaCorpoSuspenso" class="slider" min="10" max="999" value="100"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="alturaCorpoSuspenso">Altura do Corpo Suspenso</label></div>
+        <div><span id="alturaCorpoSuspensoValue">0.50</span>m
+        <input type="range" name="alturaCorpoSuspenso" id="alturaCorpoSuspenso" class="slider" min="10" max="300" value="50"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="forçaAtrito">Resultante das Forças de Atrito</label></div>
+        <div><span id="forçaAtritoValue">0.000</span>N
+        <input type="range" name="forçaAtrito" id="forçaAtrito" class="slider" min="0" max="490" value="0"></div>
+    </div>
 
-    <button id="fazer-curva-Esfera" class="submit" onclick="curva()">Atualizar a Tabela dos Resultados Experimentais</button>
-    <br><br><br>
-
+    <button id="fazer-curva-Velocidade-Tempo" class="submit" onclick="curva()">Traçar o Gráfico Velocidade-Tempo</button>
+    <br>
+</div>
+<div class="graf-container">
+    <div id="curva-vt" class="graf">
+        <span id="canvasCurva"></span>
+    </div>
+</div>
+<div class="centrada">
     <div class="overflow" style="max-width: 72vw;">
         <table class="resultados">
             <tr class="vars">
-                <td>&Delta;t <sub>passagem pela 2ª Célula</sub>/ ms</td>
-                <td class="fim-tabela">g/ <span class="nbsp">ms<sup>-2</sup></span></td>
+                <td>a <sub>1ª Zona</sub></td>
+                <td class="fim-tabela">a <sub>2ª Zona</sub></td>
             </tr>
             <tr>
-                <td><span id="deltaT-celula2"></span></td>
-                <td class="fim-tabela"><span id="gravidade-experimental"></td>
+                <td><span id="aZona1Value">6.538</span></td>
+                <td class="fim-tabela"><span id="aZona2Value">0.000</td>
             </tr>
         </table>
     </div>
-</div>
+</div><br><br><br>
 <div class="explicar">
-    <p>
-        
+    <p class="m0">
+        A Resultante das Forças de Atrito está limitada de modo a que haja
+        Movimento, isto é, o Peso do Corpo Suspenso é muito superior, em módulo,
+        à Força de Atrito.
+    </p>
+    <p class="m0">
+        Esta Resultante inclui não são a Força de Atrito entre o Carrinho e o Plano,
+        mas também a Resistência do Ar e Atritos que possam existir na Roldana.
     </p>
 </div>
