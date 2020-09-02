@@ -207,7 +207,7 @@ function curva() {
     deltaT_celula2Resp.innerHTML = `${deltaT_celula2Value.toFixed(2)}`
     deltaT_quedaResp.innerHTML = `${t_f.toFixed(1)}`
     velocidade_celula2Resp.innerHTML = `${vm.toFixed(3)}`
-    gravidade_experimentalResp.innerHTML = `${gExperimental.toFixed(3)}`
+    gravidade_experimentalResp.innerHTML = `${gExperimental.toFixed(2)}`
 
 
     curvaExtra()

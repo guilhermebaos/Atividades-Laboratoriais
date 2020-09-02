@@ -213,7 +213,7 @@ function curva() {
             labels: xVolumes,
             datasets: [{
                 data: ypH,
-                label: 'pH da Solução do Goblé',
+                label: 'pH da Mistura',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -232,7 +232,7 @@ function curva() {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'pH da Solução do Goblé',
+                        labelString: 'pH da Mistura',
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
@@ -252,7 +252,7 @@ function curva() {
                     label: function(tooltipItem, data) {
                         let value = Number(tooltipItem.value).toFixed(2)
     
-                        return 'pH da Solução do Goblé: ' + value
+                        return 'pH da Mistura: ' + value
                     }
                 },
                 custom: function(tooltip) {

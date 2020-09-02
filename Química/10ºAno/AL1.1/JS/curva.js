@@ -105,10 +105,10 @@ function curva() {
     let N = (massa * 1e-3 / 18.02) * nAvogrado
 
     let nTexto = String(N.toExponential(5))
-    nTexto = nTexto.slice(0, 5) + ' &times 10<sup>' + nTexto.slice(nTexto.length - 2) + '</sup>'
+    nTexto = nTexto.slice(0, 4) + ' &times 10<sup>' + nTexto.slice(nTexto.length - 2) + '</sup>'
 
-    massaGotaResp.innerHTML = `${massa.toFixed(2)}`
-    volumeGotaResp.innerHTML = `${volume.toFixed(2)}`
+    massaGotaResp.innerHTML = `${massa.toFixed(1)}`
+    volumeGotaResp.innerHTML = `${volume.toFixed(1)}`
     nGotaResp.innerHTML = `${nTexto}`
 }
 

@@ -36,7 +36,7 @@
 <div class="overflow">
     <p>Reação que ocorre durante a Titulação:</p>
     <p>
-        aTitulado + bTitulante &rarr; Sal + Água*
+        aTitulado &plus; bTitulante &rarr; Sal &plus; Água*
     </p>
 </div>
 <p>
@@ -79,7 +79,7 @@
         <td>Volume da Solução contendo X</td>
     </tr>
 </table>
-<span class="nota">*Raramente, pode não se formar Água</span>
+<span class="nota">*Geralmente forma-se água porque a Base usada é um Hidróxido</span>
 <p>
     O pH do ponto de Equivalência varia com a Temperatura, com o Titulante e com o Titulado.
     A 25ºC, será 7 se tanto o Titulante como o Titulado forem fortes, será menor que 7 se o
@@ -113,7 +113,7 @@
 
 <h4>Usando um Indicador Ácido-Base</h4>
 <p>
-    <b>Indicador Ácido-Base</b> - Moléculas que podem dar e receber iões H<sup>+</sup>
+    <b>Indicador Ácido-Base</b> - Moléculas que podem dar e receber iões H<sup>&plus;</sup>
     facilmente, formando pares ácido-base fraco/fraco.
 </p>
 <p>
@@ -125,8 +125,8 @@
 </p>
 <p>
     <ul>
-        <li>[H-IND] &ge; 10 &times; [IND] &rarr; Vemos a cor da Forma Ácida</li>
-        <li>[IND]  &ge; [H-IND] &times; 10 &rarr; Vemos a cor da Forma Básica</li>
+        <li>[H-IND] &ge; 10 &times; [IND<sup>&minus;</sup>] &rarr; Vemos a cor da Forma Ácida</li>
+        <li>[IND<sup>&minus;</sup>]  &ge; [H-IND] &times; 10 &rarr; Vemos a cor da Forma Básica</li>
         <li>Se nenhuma das condições se cumprir, vemos uma mistura das Cores</li>
     </ul>
 </p>
@@ -134,12 +134,12 @@
     <tr>
         <td>H-IND</td>
         <td>&rarr;</td>
-        <td>Forma Ácida do Indicador (pode dar H<sup>+</sup>)</td>
+        <td>Forma Ácida do Indicador (pode dar H<sup>&plus;</sup>)</td>
     </tr>
     <tr>
-        <td>IND</td>
+        <td>IND<sup>&minus;</sup></td>
         <td>&rarr;</td>
-        <td>Forma Básica do Indicador (pode receber H<sup>+</sup>)</td>
+        <td>Forma Básica do Indicador (pode receber H<sup>&plus;</sup>)</td>
     </tr>
     <tr>
         <td>[X]</td>
@@ -148,18 +148,18 @@
     </tr>
 </table><br>
 <p>
-    Quanto <u class="simples">menor o pH</u>, maior a concentração da forma Ácida, já que haverá mais H<sub>3</sub>O<sup>+</sup>
+    Quanto <u class="simples">menor o pH</u>, maior a concentração da forma Ácida, já que haverá mais H<sub>3</sub>O<sup>&plus;</sup>
     a reagir com a forma básica do indicador:
 </p>
 <p>
-    IND + H<sub>3</sub>O<sup>+</sup> &rarr; H-IND + H<sub>2</sub>O
+    IND<sup>&minus;</sup> &plus; H<sub>3</sub>O<sup>&plus;</sup> &rarr; H-IND &plus; H<sub>2</sub>O
 </p>
 <p>
-    Quanto <u class="simples">maior o pH</u>, maior a concentração da forma Básica, já que haverá mais OH<sup>-</sup>
+    Quanto <u class="simples">maior o pH</u>, maior a concentração da forma Básica, já que haverá mais OH<sup>&minus;</sup>
     a reagir com a forma ácida do indicador:
 </p>
 <p>
-    H-IND + OH<sup>-</sup> &rarr; IND + H<sub>2</sub>O
+    H-IND &plus; OH<sup>&minus;</sup> &rarr; IND<sup>&minus;</sup> &plus; H<sub>2</sub>O
 </p>
 <p>
     Como tal, cada Indicador tem um pH até ao qual nós vemos a cor correspondente
@@ -169,22 +169,32 @@
 </p><br>
 <p>
     Para Identificarmos o Ponto de Equivalência usando um Indicador, é necessário
-    que este cumpra as seguintes regras, apresentadas por ordem decrescente
-    de prioridade:
+    que este cumpra os seguintes critérios
+    <span class="anchor" onclick="mostrarExtra('cumulativos')">cumulativos</span>:
 </p>
+<div id="cumulativos" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('cumulativos')">X</button>
+    <p>
+        Primeiro, verificamos se o Indicador cumpre o 1º Critério, se o cumprir
+        passamos para o Critério seguinte, verificando se o cumpre.
+    </p>
+    <p>
+        Repetimos este processo até já não haver mais Critérios.
+    </p>
+    <p>
+        O Indicador deverá cumprir pelo menos o 1º Critério, sendo que o resultado
+        melhora quanto mais critérios cumprir.
+    </p><br>
+</div>
 <p>
     <ol>
         <li>
             A Zona de Viragem do Indicador deve estar contida na Zona de Variação
             Brusca do pH.
         </li>
-        <li>O Ponto de Equivalência deve estar contido na Zona de Viragem do Indicador.</li>
+        <li>O pH do Ponto de Equivalência deve estar contido na Zona de Viragem do Indicador.</li>
         <li>A Zona de Viragem deve ser o menor possível.</li>
     </ol>
-</p>
-<p>
-    O Indicador terá de cumprir pelo menos a 1ª Regra, sendo que o resultado 
-    melhora quanto mais regras cumprir.
 </p>
 <p>
     Escolhendo um Indicador de acordo com as regras descritas, sabemos que quando

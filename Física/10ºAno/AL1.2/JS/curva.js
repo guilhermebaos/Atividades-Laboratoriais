@@ -117,8 +117,8 @@ function valoresTabela(alturas) {
     let retaMelhorAjuste = regression.linear(pontos);
     let declive = retaMelhorAjuste.equation[0];
     
-    razaoResp.innerHTML = `${declive.toFixed(3)}`
-    EmDissipadaResp.innerHTML = `${((1 - declive) * 100).toFixed(1)}%`
+    razaoResp.innerHTML = `${declive.toFixed(2)}`
+    EmDissipadaResp.innerHTML = `${((1 - declive) * 100).toFixed(0)}%`
 }
 
 

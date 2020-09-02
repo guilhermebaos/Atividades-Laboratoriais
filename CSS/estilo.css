@@ -120,6 +120,11 @@ sup.exp-contas:hover {
     text-decoration: underline;
 }
 
+sup.sobre-sub {
+    position: relative;
+    right: 0.5em;
+}
+
 sup sup {
     font-size: 100%;
 }
@@ -226,11 +231,11 @@ div.overflow {
 }
 div.explicar {
     margin: 0px;
+    padding: 12px 8px 0px 20px;
 }
 div.explicar p {
-    font-style: italic;
     text-indent: 10px;
-    margin: 0px 8px 12px 8px;
+    margin: 0px 0px 12px 0px;
 }
 
 
