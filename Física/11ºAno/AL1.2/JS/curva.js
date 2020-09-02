@@ -1,7 +1,6 @@
 // Definir Constantes
 const g = 9.80665   // Aceleração Gravitaconal
-const CAM = 0.1 // Coeficiente de Atrito Máximo, relativamente ao Peso do Corpo Suspenso
-
+const CAM = 0.1     // Razão máxima entre a Resultante das Forças de Atrito e o Peso do Corpo Suspenso
 
 
 // Inicializar Variáveis Globais
@@ -48,7 +47,7 @@ function prepararResultados() {
     // Selecionar a div que vai ter a Curva
     F11_AL12.divCurva = document.getElementById('curva-vt')
 
-    // Selecionar os Spans da Tabela
+    // Selecionar os Spans com os Resultados da Tabela
     aZona1Resp = document.getElementById('aZona1Value')
     aZona2Resp = document.getElementById('aZona2Value')
 
@@ -81,14 +80,14 @@ function prepararResultados() {
     curva()
 }
 
+
 // Limitar a Força de Atrito Máxima Sentida pelo Carrinho
 function atualizarAtritoMax() {
-    let mCa = massaCarrinho.value / 100
     let mCS = massaCorpoSuspenso.value / 100
 
     // Limitar o Atrito para que a Força Resultante realize trabalho Positivo sobre o Carrinho (para isso, P >> Fa, caso contrário o Carrinho poderia ficar parado)
-    let Fresultante = mCS * g               // Força Resultante do Sistema = Peso do Corpo Suspenso
-    let FaMax = CAM * Fresultante           // A Força de Atrito não poderá ser maior do que o Peso do Corpo Suspenso
+    let Fresultante = mCS * g               // Força Resultante do Sistema Ideal = Peso do Corpo Suspenso
+    let FaMax = CAM * Fresultante           // A Força de Atrito não poderá ser maior do que 0.1 * o Peso do Corpo Suspenso
 
     let FaMaxConvertido = Math.floor(FaMax * 1000)
 
@@ -105,13 +104,14 @@ function leiVelocidade(v0, a0, tempo) {
     return v0 + a0 * tempo
 }
 
+
 // Lei x(t)
 function leiPosicao(x0, v0, a0, tempo){
     return x0 + v0 * tempo + 0.5 * a0 * (tempo ** 2)
 }
 
 
-// Calcular os Pontos dos Gráfico 
+// Calcular os Pontos dos Gráfico vt
 function pontos() {
     // Declarar variáveis e valores iniciais
     let mCa = massaCarrinho.value / 100
@@ -140,13 +140,13 @@ function pontos() {
     while (true) {
         t += deltaT
 
-        x = leiPosicao(x, v, a, deltaT)             // Calcular o Xf de acrdo com o Xf e Vf do instante anterior e a aceleração deste
-        v = leiVelocidade(v, a, deltaT)             // Calcular o Vf de acordo com o Vf do instante anterior e a aceleração deste
+        x = leiPosicao(x, v, a, deltaT)                 // Calcular o Xf de acrdo com o Xf e Vf do instante anterior e a aceleração deste
+        v = leiVelocidade(v, a, deltaT)                 // Calcular o Vf de acordo com o Vf do instante anterior e a aceleração deste
 
-        if (x >= h && !corpoAtingiuSolo) {          // O Corpo Suspenso atinge o Solo
-            Fr -= PCS                               // Altera-se a força Resultante do Sistema
+        if (x >= h && !corpoAtingiuSolo) {              // O Corpo Suspenso atinge o Solo
+            Fr -= PCS                                   // Altera-se a força Resultante do Sistema
             aZona1Resp.innerText = `${a.toFixed(3)}`
-            a = Fr / mSIST                          // ALtera-se a aceleração do Carrinho
+            a = Fr / mSIST                              // ALtera-se a aceleração do Carrinho
             aZona2Resp.innerText = `${a.toFixed(3)}`
             corpoAtingiuSolo = true
         } else if (x >= 2 * h && corpoAtingiuSolo) {

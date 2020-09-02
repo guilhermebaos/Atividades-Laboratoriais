@@ -2,6 +2,7 @@
 const COF = 0.1 // Coeficiente de Fricção entre o carrinho e o plano
 const g = 9.80665 // Aceleração Gravitaconal
 
+
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns

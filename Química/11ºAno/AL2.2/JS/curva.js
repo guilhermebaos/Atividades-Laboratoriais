@@ -190,7 +190,7 @@ function pontos() {
 }
 
 
-// Fazer a Curva de pH
+// Recebe os valores do pH e traça a Curva de pH
 function curva() {
     // Remover o Canvas antigo
     let canvasCurva = document.getElementById('canvasCurva')

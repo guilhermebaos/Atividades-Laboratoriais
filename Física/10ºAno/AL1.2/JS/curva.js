@@ -1,5 +1,6 @@
 // Definir Constantes
-const g = 9.80665 // Aceleração Gravitaconal
+const g = 9.80665   // Aceleração Gravitaconal
+
 
 // Inicializar Variáveis Globais
 
@@ -42,7 +43,7 @@ function prepararResultados() {
     raioBolaResp = document.getElementById('raioBolaValue')
     alturaInicialResp = document.getElementById('alturaInicialValue')
 
-    // Selecionar os Spans com os Valores da Tabela
+    // Selecionar os Spans com os Resultados da Tabela
     razaoResp = document.getElementById('razaoValue')
     EmDissipadaResp = document.getElementById('EmDissipadaValue')
 
@@ -78,12 +79,14 @@ function leiVelocidade(v0, a0, tempo) {
     return v0 + a0 * tempo
 }
 
+
 // Lei x(t)
 function leiPosicao(x0, v0, a0, tempo){
     return x0 + v0 * tempo + 0.5 * a0 * (tempo ** 2)
 }
 
 
+// Calcula os Resultados que aparecem na Tabela, a Razão e a Em dissipada
 function valoresTabela(alturas) {
     let hQ = []
     let hR = []
@@ -98,6 +101,7 @@ function valoresTabela(alturas) {
         alturasTabela.deleteRow(1)
     }
     
+    // Altera o número de linhas da tabela, para que tenha todas as alturas de Queda e Ressalto
     let coluna
     let pontos = []
     for (pos = 0; pos < hQ.length; pos++) {
@@ -118,7 +122,7 @@ function valoresTabela(alturas) {
 }
 
 
-// Calcular os Pontos do Gráfico x(t)
+// Calcular os Pontos do Gráfico h(t)
 function pontos() {
     // Declarar variáveis e valores iniciais
     let hf = 1.5 * raioBola.value / 1000
@@ -169,7 +173,7 @@ function pontos() {
 
 
 
-// Calcular os Valores Relacionados com a Queda da Esfera
+// Mostra os Valores Relacionados com a Queda da Esfera
 function curva() {
     // Remover o Canvas antigo
     let canvasCurva = document.getElementById('canvasCurva')

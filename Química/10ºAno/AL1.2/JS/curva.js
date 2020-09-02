@@ -1,5 +1,3 @@
-// Definir Constantes
-
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
@@ -24,11 +22,13 @@ function prepararResultados() {
     // Selecionar os Butões
     salArray = document.getElementsByName('salChama')
 
-    // Selecionar os Spans com os Valores da Tabela
+    // Selecionar os Spans com os Resultados da Tabela
     salEscolhidoResp = document.getElementById('salEscolhidoValue')
     corChamaResp = document.getElementById('corChamaValue')
 }
 
+
+// Altera o Sal escolhido, bem como a aparência dos butões
 function escolherSal(num) {
     let pos = num - 1
 
@@ -41,6 +41,8 @@ function escolherSal(num) {
     curva()
 }
 
+
+// Mostra os Resultados na Tabela, Nome do Sal e Cor da Chama
 function curva() {
     if (salEscolhidoNome == 'NaCl') {
         salEscolhidoResp.innerText = 'Cloreto de Sódio'

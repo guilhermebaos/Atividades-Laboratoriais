@@ -64,7 +64,7 @@ function prepararResultados() {
     F11_AL11.divCurva_at = document.getElementById('curva-at')
     F11_AL11.divCurva_jt = document.getElementById('curva-jt')
 
-    // Selecionar os Spans da Tabela
+    // Selecionar os Spans com os Resultados da Tabela
     deltaT_celula2Resp = document.getElementById('deltaT-celula2')
     deltaT_quedaResp = document.getElementById('deltaT-queda')
     velocidade_celula2Resp = document.getElementById('velocidade-celula2')
@@ -110,15 +110,18 @@ function calcularAreaEsfera() {
     areaEsfera = PI * raio ** 2     // m^2
 }
 
+
 // Função para calcular a Intensidade da Resistência do Ar
 function intensidadeResistAr(velocidade) {
     return 0.5 * densidadeAr * CRar * areaEsfera * velocidade ** 2
 }
 
+
 // Lei v(t)
 function leiVelocidade(v0, a0, tempo) {
     return v0 + a0 * tempo
 }
+
 
 // Lei x(t)
 function leiPosicao(x0, v0, a0, tempo){
@@ -126,7 +129,7 @@ function leiPosicao(x0, v0, a0, tempo){
 }
 
 
-// Calcular os Pontos dos vários gráficos
+// Calcular os Pontos dos vários gráficos, xt, vt, at e jt
 function pontos() {
     // Declarar variáveis e valores iniciais
     let m = massaEsfera.value / 1000
@@ -177,7 +180,7 @@ function pontos() {
 }
 
 
-// Calcular os Valores Relacionados com a Queda da Esfera
+// Calcula os Valores Relacionados com a Queda da Esfera e mostra da Tabela
 function curva() {
     // Guardar os Resultados para os Gráficos Extra
     F11_AL11.resultados = pontos()
@@ -211,7 +214,7 @@ function curva() {
 }
 
 
-// Fazer os gráficos Extra
+// Fazer os gráficos Extra e mostrar nas divs-Extra
 function curvaExtra() {
     // Remover os Canvas antigos
     let canvasCurva_xt = document.getElementById('canvasCurva-xt')

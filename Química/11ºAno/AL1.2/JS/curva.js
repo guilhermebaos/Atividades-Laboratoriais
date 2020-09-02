@@ -1,6 +1,3 @@
-// Definir constantes
-
-
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
@@ -20,7 +17,7 @@ function prepararResultados() {
     
     // Selecionar os Spans com os Valores dos Sliders
 
-    // Selecionar os Spans da Tabela
+    // Selecionar os Spans com os Resultados da Tabela
     
     // Atualizar os Sliders
 }
