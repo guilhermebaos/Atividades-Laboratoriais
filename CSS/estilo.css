@@ -96,6 +96,11 @@ span.nbsp {
     white-space: nowrap;
 }
 
+span.serif {
+    font-family: serif;
+    font-size: 110%;
+}
+
 span.anchor {
     text-decoration: underline;
     color: rgb(0, 0, 200);
