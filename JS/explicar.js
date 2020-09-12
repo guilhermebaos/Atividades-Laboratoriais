@@ -30,9 +30,35 @@ function mostrarExpContas(num) {
 
 function mostrarExtra(keyWord) {
     let extra = document.getElementById(keyWord)
-    if (extra.style.display == 'none') {
-        extra.style.display = 'block'
-    } else {
-        extra.style.display = 'none'
+    
+    // Esconde o elemento, se já estiver visível
+    if (extra.classList.contains('is-visible')) {
+        // Dá a altura atual do elemento
+        extra.style.height = extra.scrollHeight + 'px';
+    
+        // Pôe a altura a 0
+        window.setTimeout(function () {
+            extra.style.height = '0';
+        }, 1);
+    
+        // Quando a transição está completa, esconde o elemento
+        window.setTimeout(function () {
+            extra.classList.remove('is-visible');
+        }, 350);
+
+    } // Mostra o elemento, se ainda estiver escondido
+    else {
+        // Obter a altura 'natural' do elemento
+        extra.style.display = 'block'; // Torná-lo visível
+        let height = extra.scrollHeight + 'px'; // Obter a altura
+        extra.style.display = ''; // Escondê-lo de novo
+
+        extra.classList.add('is-visible'); // Torna o elemento visível
+        extra.style.height = height; // Atualiza a altura máxima
+
+        // Quando a transição estiver completa, remove a inline max-height para que o contentor possa mudar de dimensões
+        window.setTimeout(function () {
+            extra.style.height = '';
+        }, 350);
     }
 }
