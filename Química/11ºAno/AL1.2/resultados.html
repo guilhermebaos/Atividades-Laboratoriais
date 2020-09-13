@@ -1,29 +1,39 @@
 <h3>Resultados</h3>
 
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
-    diferentes resultados.
+    Usa os Butões para adicionar diferentes Soluções ao Equilíbrio Químico em estudo.
 </p>
 <p>
-    Experimenta prever as consequências de uma ou mais alterações:
+    Experimenta prever as consequências dessa adição:
 </p>
 <ul>
-    <li></li>
+    <li>O Sistema irá evoluir no Sentido Direto ou no Sentido Inverso?</li>
+    <li>O Quociente da Reação irá aumentar ou diminuir após a alteração?</li>
+    <li>Que cor é que se irá intensificar?</li>
 </ul><br>
 <div class="centrada">
+    <div class="m0">
+        <p class="m0">Adicionar uma Solução de:</p>
+    </div>
+    <div class="flex-slider">
+        <div class="btn"><button name="sAdicionada" class="escolha-atual" onclick="escolherSol(0)">NaSCN</button></div>
+        <div class="btn"><button name="sAdicionada" class="escolha" onclick="escolherSol(1)">Fe(NO<sub>3</sub>)<sub>3</sub></button></div>
+        <div class="btn"><button name="sAdicionada" class="escolha" onclick="escolherSol(2)">C<sub>2</sub>H<sub>2</sub>O<sub>4</sub></button></div>
+        <div class="btn"><button name="sAdicionada" class="escolha" onclick="escolherSol(3)">AgNO<sub>3</sub></button></div>
+    </div><br>
     
-    
-    <button id="fazer-curva-Síntese" class="submit" onclick="curva()">Simular a Reação</button>
-    <br><br><br>
-
-    <div class="overflow tabela-container">
-        <table class="resultados">
-            <tr class="vars">
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
+    <div id="solução0" class="explicar is-visible">
+        <div class="overflow">
+            <p class="linha-alta">
+                Fe<sup>3&plus;</sup> (aq) &plus; SCN<sup>&minus;</sup> (aq) &rightleftharpoons; FeSCN<sup>2&plus;</sup> (aq)
+            </p>
+        </div>
+    </div>
+    <div id="solução1" class="explicar">
+        <div class="overflow">
+            <p class="linha-alta">
+                Fe<sup>3&plus;</sup> (aq) &plus; SCN<sup>&minus;</sup> (aq) &rightleftharpoons; FeSCN<sup>2&plus;</sup> (aq)
+            </p>
+        </div>
     </div>
 </div><br><br>

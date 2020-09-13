@@ -7,7 +7,6 @@ let Q10_AL12 = {
 
 let salArray
 let salEscolhidoPos = 0
-let salEscolhidoNome = 'NaCl'
 
 let salEscolhidoResp
 let corChamaResp
@@ -29,14 +28,12 @@ function prepararResultados() {
 
 
 // Altera o Sal escolhido, bem como a aparência dos butões
-function escolherSal(num) {
-    let pos = num - 1
+function escolherSal(pos) {
 
     salArray[salEscolhidoPos].className = 'escolha'
     salArray[pos].className = 'escolha-atual'
 
     salEscolhidoPos = pos
-    salEscolhidoNome = salArray[pos].innerText
 
     curva()
 }
@@ -44,22 +41,22 @@ function escolherSal(num) {
 
 // Mostra os Resultados na Tabela, Nome do Sal e Cor da Chama
 function curva() {
-    if (salEscolhidoNome == 'NaCl') {
+    if (salEscolhidoPos == '0') {
         salEscolhidoResp.innerText = 'Cloreto de Sódio'
         corChamaResp.innerText = 'Amarelo'
-    } else if (salEscolhidoNome == 'CaCl2') {
+    } else if (salEscolhidoPos == '1') {
         salEscolhidoResp.innerText = 'Cloreto de Cálcio'
         corChamaResp.innerText = 'Vermelho Claro'
-    } else if (salEscolhidoNome == 'KCl') {
+    } else if (salEscolhidoPos == '2') {
         salEscolhidoResp.innerText = 'Cloreto de Potássio'
         corChamaResp.innerText = 'Violeta'
-    } else if (salEscolhidoNome == 'BaCl2') {
+    } else if (salEscolhidoPos == '3') {
         salEscolhidoResp.innerText = 'Cloreto de Bário'
         corChamaResp.innerText = 'Verde'
-    } else if (salEscolhidoNome == 'LiCl') {
+    } else if (salEscolhidoPos == '4') {
         salEscolhidoResp.innerText = 'Cloreto de Lítio'
         corChamaResp.innerText = 'Vermelho Escuro'
-    } else if (salEscolhidoNome == 'CuCl2') {
+    } else if (salEscolhidoPos == '5') {
         salEscolhidoResp.innerText = 'Cloreto de Cobre (II)'
         corChamaResp.innerText = 'Verde Claro'
     }

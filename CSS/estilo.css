@@ -37,9 +37,7 @@ p {
     text-indent: 10px;
 }
 
-p.m0 {
-    margin: 0px;
-}
+
 
 p.contas {
     line-height: 180%;
@@ -84,6 +82,17 @@ h3.unidade {
     margin-bottom: 0px;
 }
 
+.m0 {
+    margin: 0px;
+}
+
+.nbsp {
+    white-space: nowrap;
+}
+
+.linha-alta {
+    line-height: 130%;
+}
 
 span.nota {
     font-size: small;
@@ -91,10 +100,6 @@ span.nota {
 
 span.invi {
     color: white;
-}
-
-.nbsp {
-    white-space: nowrap;
 }
 
 span.serif {
@@ -206,6 +211,9 @@ div.flex-slider div.label {
 }
 div.flex-slider div.btn {
     min-width: 100px;
+}
+.margin-auto {
+    margin: auto;
 }
 
 div.flex {
@@ -378,7 +386,7 @@ button::-moz-focus-inner {
 button.escolha {
     font-size: 12pt;
     color: white;
-    width: fit-content;
+    width: 100%;
     margin: 2px 0px 2px 0px;
     padding: 5px 20px 5px 20px;
     background-color: rgba(50, 140, 255, 0.7);
@@ -393,7 +401,7 @@ button.escolha:hover {
 button.escolha-atual {
     font-size: 12pt;
     color: white;
-    width: fit-content;
+    width: 100%;
     margin: 2px 0px 2px 0px;
     padding: 5px 20px 5px 20px;
     background-color: rgba(50, 140, 255, 1);
