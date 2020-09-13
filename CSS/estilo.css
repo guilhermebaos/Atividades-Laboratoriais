@@ -42,7 +42,8 @@ p.m0 {
 }
 
 p.contas {
-    line-height: 150%;
+    line-height: 180%;
+    font-size: 110%;
     text-indent: 0px;
     white-space: nowrap;
     font-family: serif;
@@ -92,7 +93,7 @@ span.invi {
     color: white;
 }
 
-span.nbsp {
+.nbsp {
     white-space: nowrap;
 }
 
@@ -115,6 +116,9 @@ span.contas {
     font-family: serif;
 }
 
+sup {
+    line-height: 0;
+}
 
 sup.exp-contas {
     text-decoration: none;
@@ -132,6 +136,10 @@ sup.sobre-sub {
 
 sup sup {
     font-size: 100%;
+}
+
+sub {
+    line-height: 0;
 }
 
 sub sup {
@@ -221,7 +229,7 @@ div.contas {
     padding-bottom: 0px;
 }
 div.contas p {
-    line-height: 150%;
+    line-height: 180%;
     font-size: 110%;
     text-indent: 0px;
     white-space: nowrap;
@@ -237,10 +245,13 @@ div.overflow {
 div.explicar {
 	display: none;
 	height: 0;
-    margin: 12px 0px 0px 0px;
+    margin: 0px;
     padding: 0px 8px 0px 20px;
 	overflow: hidden;
 	transition: height 200ms ease-in-out;
+}
+div.explicar button {
+    margin: 12px 0px 4px 0px;
 }
 div.explicar.is-visible {
 	display: block;

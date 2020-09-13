@@ -19,11 +19,36 @@
         alterar, a uma Temperatura constante.
     </p>
     <p>
-        No Equilíbrio Químico a Reação ocorre no Sentido Direto e no Sentido Inverso
+        No Equilíbrio Químico a Reação ocorre no
+        <span class="anchor" onclick="mostrarExtra('Sentido-Direto')">Sentido Direto</span> e no
+        <span class="anchor" onclick="mostrarExtra('Sentido-Inverso')">Sentido Inverso</span>
         ao mesmo tempo e ao mesmo ritmo. Os Reagentes gastam-se para formar
         Produtos e os Produtos gastam-se para formar Reagentes, não havendo alteração
         das suas concentrações.
-    </p><br>
+    </p>
+    <div id="Sentido-Direto" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('Sentido-Direto')">X</button>
+        <p><b>Sentido Direto</b></p>
+        <p>
+            O Sentido Direto corresponde à reação entre os Reagentes (do lado esquerdo
+            das duas semissetas), que dá origem aos Produtos de Reação.
+        </p>
+        <p>
+            Gastam-se Reagentes e Formam-se Produtos.
+        </p>
+    </div>
+    <div id="Sentido-Inverso" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('Sentido-Inverso')">X</button>
+        <p><b>Sentido Inverso</b></p>
+        <p>
+            O Sentido Inverso corresponde à reação entre os Produtos de Reação
+            (do lado direito das duas semissetas), que dá origem aos Reagentes.
+        </p>
+        <p>
+            Gastam-se Produtos e Formam-se Reagentes.
+        </p>
+    </div>
+    <br>
 </div>
 <div class="overflow">
     <p>
@@ -49,7 +74,7 @@
 </table><br>
 
 <br>
-<h4>Criar o Equilíbrio</h4>
+<h4>Criar o Equilíbrio Químico</h4>
 <p class="m0">
     Para criarmos o Equilíbrio descrito acima, iremos usar uma solução aquosa de
     Nitrato de Ferro (III) e uma solução aquosa de Tiocianato de Sódio, visto que
@@ -92,7 +117,7 @@
 </p>
 
 <br>
-<h4>Estudar o Equilíbrio</h4>
+<h4>Estudar o Equilíbrio Químico</h4>
 <p>
     Para sabermos se após uma alteração ao Sistema o Equilíbrio se desloca no
     Sentido Direto ou no Sentido Inverso, iremos usar a cor que um Reagente
@@ -105,13 +130,131 @@
         <li>Os outros iões não têm nenhuma cor característica</li>
     </ul>
 </p><br>
-<p>
+<p class="m0">
     Logo, sabemos como é que a cor da Solução irá mudar de acordo com o Sentido
     no qual se desloca o Equilíbrio Químico:
 </p>
+<div class="overflow">
+    <p>
+        <ul>
+            <li class="nbsp"><u class="simples">Sentido Direto</u> &rarr; Mais FeSCN<sup>2&plus;</sup> (aq) &rarr; Intensificação do <u class="simples">Vermelho-Acastanhado</u></li>
+            <li class="nbsp"><u class="simples">Sentido Inverso</u> &rarr; Mais Fe<sup>3&plus;</sup> (aq) &rarr; Intensificação do <u class="simples">Amarelo</u></li>
+        </ul>
+    </p>
+</div>
 <p>
-    <ul>
-        <li><u class="simples">Sentido Direto</u> &rarr; Mais FeSCN<sup>2&plus;</sup> em Solução &rarr; Intensificação do <u class="simples">Vermelho-Acastanhado</u></li>
-        <li><u class="simples">Sentido Inverso</u> &rarr; Mais Fe<sup>3&plus;</sup> em Solução &rarr; Intensificação do <u class="simples">Amarelo</u></li>
-    </ul>
+    Ao variarmos a Concentração dos Reagentes e dos Produtos da
+    <span class="anchor" onclick="mostrarExtra('Reação-acima')">Reação acima</span>,
+    através da adição de sais em Solução Aquosa, iremos verificar que ocorre uma
+    mudança da cor da Solução.
 </p>
+<p class="m0">
+    Este fenómeno pode ser explicado de duas formas:
+</p>
+<div id="Reação-acima" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Reação-acima')">X</button>
+    <div class="overflow">
+        <p>
+            Fe<sup>3&plus;</sup> (aq) &plus; SCN<sup>&minus;</sup> (aq) &rightleftharpoons; FeSCN<sup>2&plus;</sup> (aq)
+        </p>
+    </div>
+</div><br>
+<div>
+    <p><b>Princípio de Le Chatelier (PLC)</b></p>
+    <p>
+        O PLC diz que ao fazermos uma alteração a um Sistema em Equilíbrio, este irá
+        evoluir de forma a contrariar parcialmente essa alteração.
+    </p>
+    <p>
+        Se aumentarmos a Concentração de um dos Reagentes, o sistema irá
+        evoluir de forma a consumir parcialmente o Reagente adicionado, ou seja,
+        o Equilíbrio desloca-se no Sentido Direto.
+    </p>
+    <p>
+        Da mesma forma, se aumentarmos a Concentração do Produto da Reação, o
+        sistema também irá evoluir de forma a consumir parcialmente o Produto
+        adicionado, ou seja, o Equilíbrio desloca-se no Sentido Inverso.
+    </p>
+    <p>
+        Este racioncínio também pode ser aplicado caso haja uma diminuição na
+        Concentração de um dos intervenientes na Reação. O Sistema irá evoluir de
+        forma a repô-lo parcialmente.
+    </p>
+    <p>
+        Logo, ao adicionarmos Reagentes ou Produtos, sabemos que o Equilíbrio se
+        irá alterar, alterando também a cor da Solução, como foi dito acima.
+    </p>
+</div>
+<div>
+    <p><b>Quociente da Reação (Q<sub>C</sub>)</b></p>
+    <p>
+        O Quociente da Reação, para esta reação, é:
+    </p>
+    <p class="contas">
+        <span class="invi">&hArr;</span> Q<sub>C</sub> &equals; <sup>[FeSCN<sup>2&plus;</sup>]</sup> &frasl; <sub>([Fe<sup>3&plus;</sup>] &times; [SCN<sup>&minus;</sup>])</sub>
+    </p>
+    <table class="explicar">
+        <tr>
+            <td>[X]</td>
+            <td>&rarr;</td>
+            <td>Concentração (atual) de X</td>
+        </tr>
+    </table><br><br>
+    <p class="m0">
+        O Quociente da Reação está relacionado com a
+        <span class="anchor" onclick="mostrarExtra('Constante-de-Equilíbrio')">Constante de Equilíbrio</span>
+        de uma Reação, da seguinte forma:
+    </p>
+    <div id="Constante-de-Equilíbrio" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('Constante-de-Equilíbrio')">X</button>
+        <div class="overflow">
+            <p class="contas">
+                <span class="invi">&hArr;</span> K<sub>C</sub> &equals; <sup>[FeSCN<sup>2&plus;</sup>]<sub>e</sub></sup> &frasl; <sub>([Fe<sup>3&plus;</sup>]<sub>e</sub> &times; [SCN<sup>&minus;</sup>]<sub>e</sub>)</sub>
+            </p>
+            <table class="explicar">
+                <tr>
+                    <td>[X]<sub>e</sub></td>
+                    <td>&rarr;</td>
+                    <td>Concentração <b>em Equilíbrio</b> de X</td>
+                </tr>
+            </table><br>
+        </div>
+    </div>
+    <div class="overflow">
+        <p>
+            <ul>
+                <li>Q<sub>C</sub> &gt; K<sub>C</sub> &rarr; O Q<sub>C</sub> irá diminuir até que Q<sub>C</sub> &equals; K<sub>C</sub>, o Sistema evolui no Sentido Inverso</li>
+                <li>Q<sub>C</sub> &equals; K<sub>C</sub> &rarr; O Sistema está em Equilíbrio</li>
+                <li>Q<sub>C</sub> &lt; K<sub>C</sub> &rarr; O Q<sub>C</sub> irá aumentar até que Q<sub>C</sub> &equals; K<sub>C</sub>, o Sistema evolui no Sentido Direto</li>
+            </ul>
+        </p>
+    </div>
+    <p>
+        Antes de qualquer adição, o Sistema está em Equilíbrio, por isso:
+        <span class="nbsp">Q<sub>C</sub> &equals; K<sub>C</sub></span>
+    </p>
+    <p class="m0">
+        Ao adicionarmos Reagente à Solução, aumentamos a sua Concentração, logo, iremos
+        aumentar o denominador do Q<sub>C</sub>.
+    </p>
+    <p class="m0">
+        Então, o Q<sub>C</sub> diminui, sendo que o Sistema irá evoluir no Sentido Direto.
+    </p><br>
+    <p class="m0">
+        Ao adicionarmos Produto de Reação à Solução, aumentamos a sua Concentração,
+        logo, iremos aumentar o numerador do Q<sub>C</sub>.
+    </p>
+    <p class="m0">
+        Então, o Q<sub>C</sub> aumenta, sendo que o Sistema irá evoluir no Sentido Inverso.
+    </p>
+    <p>
+        Este racioncínio também pode ser aplicado caso haja uma diminuição na
+        Concentração de um dos intervenientes na Reação. O Q<sub>C</sub> irá variar,
+        sendo que o Sistema irá evoluir para que o Q<sub>C</sub> volte a ser igual ao
+        K<sub>C</sub>.
+    </p>
+    <p>
+        Logo, ao adicionarmos Reagentes ou Produtos, sabemos que o Equilíbrio se
+        irá alterar, alterando também a cor da Solução, como foi dito acima.
+    </p>
+</div>
