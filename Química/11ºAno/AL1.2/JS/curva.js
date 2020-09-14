@@ -22,14 +22,16 @@ function prepararResultados() {
 
 // Altera a Solução escolhida, bem como a aparência dos butões
 function escolherSol(pos) {
-    solArray[solEscolhidoPos].className = 'escolha'
-    solArray[pos].className = 'escolha-atual'
+    if (pos != solEscolhidoPos) {
+        solArray[solEscolhidoPos].className = 'escolha'
+        solArray[pos].className = 'escolha-atual'
+        
+        curva()
 
-    curva()
+        solEscolhidoPos = pos
 
-    solEscolhidoPos = pos
-
-    curva()
+        curva()
+    }
 }
 
 

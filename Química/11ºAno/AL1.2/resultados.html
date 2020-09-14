@@ -12,27 +12,128 @@
     <li>Que cor é que se irá intensificar?</li>
 </ul><br>
 <div class="centrada">
-    <div class="m0">
-        <p class="m0">Adicionar uma Solução de:</p>
-    </div>
+    <p>Equação que traduz o Equilíbrio Químico em estudo:</p>
+    <p>Fe<sup>3&plus;</sup> (aq) &plus; SCN<sup>&minus;</sup> (aq) &rightleftharpoons; FeSCN<sup>2&plus;</sup> (aq)</p><br>
+    <p class="m0">Adicionar uma Solução de:</p>
     <div class="flex-slider">
         <div class="btn"><button name="sAdicionada" class="escolha-atual" onclick="escolherSol(0)">NaSCN</button></div>
         <div class="btn"><button name="sAdicionada" class="escolha" onclick="escolherSol(1)">Fe(NO<sub>3</sub>)<sub>3</sub></button></div>
-        <div class="btn"><button name="sAdicionada" class="escolha" onclick="escolherSol(2)">C<sub>2</sub>H<sub>2</sub>O<sub>4</sub></button></div>
+        <div class="btn"><button name="sAdicionada" class="escolha" onclick="escolherSol(2)">Na<sub>2</sub>C<sub>2</sub>O<sub>4</sub></button></div>
         <div class="btn"><button name="sAdicionada" class="escolha" onclick="escolherSol(3)">AgNO<sub>3</sub></button></div>
     </div><br>
-    
+</div>
+<div class="centrada">
     <div id="solução0" class="explicar is-visible">
-        <div class="overflow">
-            <p class="linha-alta">
-                Fe<sup>3&plus;</sup> (aq) &plus; SCN<sup>&minus;</sup> (aq) &rightleftharpoons; FeSCN<sup>2&plus;</sup> (aq)
+            <p>O Tiocianato de Sódio, em solução aquosa, dissocia-se da seguinte forma:</p>
+            <div class="overflow">
+                <p class="linha-alta">
+                    NaSCN (aq) &rarr; Na<sup>&plus;</sup> (aq) &plus; SCN<sup>&minus;</sup> (aq)
+                </p>
+            </div><br>
+            <p>
+                O SCN<sup>&minus;</sup> adicional irá fazer com que o Equilíbrio se
+                desloque no Sentido Direto, intensificando assim a cor
+                vermelha-acastanhada da Solução (<span class="anchor" onclick="mostrarExtra('Porquê?0')">Porquê?</span>).
+            </p>
+        <div id="Porquê?0" class="explicar" style="display: none;">
+            <button class="fechar" onclick="mostrarExtra('Porquê?0')">X</button>
+            <p>
+                <b>Q<sub>C</sub></b>: O Quociente de Reação diminui, logo, o
+                Sistema evolui no Sentido Direto, até que <span class="nbsp">Q<sub>C</sub> &equals; K<sub>C</sub></span>.
+            </p>
+            <p>
+                <b>Princípio de Le Chatelier</b>: O Sistema vai evoluir no Sentido
+                Direto, de forma a consumir parcialmente o SCN<sup>&minus;</sup> adicional.
             </p>
         </div>
     </div>
     <div id="solução1" class="explicar">
-        <div class="overflow">
-            <p class="linha-alta">
-                Fe<sup>3&plus;</sup> (aq) &plus; SCN<sup>&minus;</sup> (aq) &rightleftharpoons; FeSCN<sup>2&plus;</sup> (aq)
+            <p>O Nitrato de Ferro (III), em solução aquosa, dissocia-se da seguinte forma:</p>
+            <div class="overflow">
+                <p class="linha-alta">
+                    Fe(NO<sub>3</sub>)<sub>3</sub> (aq) &rarr; Fe<sup>3&plus;</sup> (aq) &plus; 3 NO<sub>3</sub><sup class="sobre-sub">&minus;</sup>(aq)
+                </p>
+            </div><br>
+            <p>
+                O Fe<sup>3&plus;</sup> adicional irá fazer com que o Equilíbrio se
+                desloque no Sentido Direto, intensificando assim a cor
+                vermelha-acastanhada da Solução (<span class="anchor" onclick="mostrarExtra('Porquê?1')">Porquê?</span>).
+            </p>
+        <div id="Porquê?1" class="explicar" style="display: none;">
+            <button class="fechar" onclick="mostrarExtra('Porquê?1')">X</button>
+            <p>
+                <b>Q<sub>C</sub></b>: O Quociente de Reação diminui, logo, o
+                Sistema evolui no Sentido Direto, até que <span class="nbsp">Q<sub>C</sub> &equals; K<sub>C</sub></span>.
+            </p>
+            <p>
+                <b>Princípio de Le Chatelier</b>: O Sistema vai evoluir no Sentido
+                Direto, de forma a consumir parcialmente o Fe<sup>3&plus;</sup> adicional.
+            </p>
+        </div>
+    </div>
+    <div id="solução2" class="explicar">
+            <p>O Oxalato de Sódio, em solução aquosa, dissocia-se da seguinte forma:</p>
+            <div class="overflow">
+                <p class="linha-alta">
+                    Na<sub>2</sub>C<sub>2</sub>O<sub>4</sub> (aq) &rarr; 2 Na<sup>&plus;</sup> (aq) &plus; C<sub>2</sub>O<sub>4</sub><sup>2&minus;</sup> (aq)
+                </p>
+            </div><br>
+            <p>
+                O C<sub>2</sub>O<sub>4</sub><sup>2&minus;</sup> irá reagir com o Fe<sup>3&plus;</sup>
+                em Solução, formando um ião complexo, diminuindo a sua concentração:
+            </p>
+            <div class="overflow">
+                <p class="linha-alta">
+                    3 C<sub>2</sub>O<sub>4</sub><sup>2&minus;</sup> (aq) + Fe<sup>3&plus;</sup> (aq) &rightleftharpoons; [Fe(C<sub>2</sub>O<sub>4</sub>)<sub>3</sub>]<sup>3&minus;</sup>
+                </p>
+            </div><br>
+            <p>
+                A remoção de Fe<sup>3&plus;</sup> irá fazer com que o Equilíbrio
+                se desloque no Sentido Inverso, intensificando assim a cor amarela
+                da Solução (<span class="anchor" onclick="mostrarExtra('Porquê?2')">Porquê?</span>).
+            </p>
+        <div id="Porquê?2" class="explicar" style="display: none;">
+            <button class="fechar" onclick="mostrarExtra('Porquê?2')">X</button>
+            <p>
+                <b>Q<sub>C</sub></b>: O Quociente de Reação aumenta, logo, o
+                Sistema evolui no Sentido Direto, até que <span class="nbsp">Q<sub>C</sub> &equals; K<sub>C</sub></span>.
+            </p>
+            <p>
+                <b>Princípio de Le Chatelier</b>: O Sistema vai evoluir no Sentido
+                Direto, de forma a repor parcialmente o Fe<sup>3&plus;</sup> que reagiu.
+            </p>
+        </div>
+    </div>
+    <div id="solução3" class="explicar">
+            <p>O Nitrato de Prata, em solução aquosa, dissocia-se da seguinte forma:</p>
+            <div class="overflow">
+                <p class="linha-alta">
+                    AgNO<sub>3</sub> (aq) &rarr; Ag<sup>&plus;</sup> (aq) &plus; NO<sub>3</sub><sup class="sobre-sub">&minus;</sup> (aq)
+                </p>
+            </div><br>
+            <p>
+                O Ag<sup>&plus;</sup> irá reagir com o SCN<sup>&minus;</sup>
+                em Solução, formando um sal, diminuindo a sua concentração:
+            </p>
+            <div class="overflow">
+                <p class="linha-alta">
+                    Ag<sup>&plus;</sup> (aq) + SCN<sup>&minus;</sup> (aq) &rightleftharpoons; AgSCN (s)
+                </p>
+            </div><br>
+            <p>
+                A remoção de SCN<sup>&minus;</sup> irá fazer com que o Equilíbrio
+                se desloque no Sentido Inverso, intensificando assim a cor amarela
+                da Solução (<span class="anchor" onclick="mostrarExtra('Porquê?2')">Porquê?</span>).
+            </p>
+        <div id="Porquê?3" class="explicar" style="display: none;">
+            <button class="fechar" onclick="mostrarExtra('Porquê?3')">X</button>
+            <p>
+                <b>Q<sub>C</sub></b>: O Quociente de Reação aumenta, logo, o
+                Sistema evolui no Sentido Direto, até que Q<sub>C</sub> &equals; K<sub>C</sub>.
+            </p>
+            <p>
+                <b>Princípio de Le Chatelier</b>: O Sistema vai evoluir no Sentido
+                Direto, de forma a repor parcialmente o SCN<sup>&minus;</sup> que reagiu.
             </p>
         </div>
     </div>
