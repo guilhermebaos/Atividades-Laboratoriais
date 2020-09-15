@@ -1,0 +1,28 @@
+<h3>Resultados</h3>
+
+<p>
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
+    diferentes resultados.
+</p>
+<p>
+    Experimenta prever as consequências de uma ou mais alterações:
+</p>
+<ul>
+    <li></li>
+</ul><br>
+
+<div class="centrada">
+    <div class="flex-slider">
+        <div><label for="massaCarrinho">Massa do Carrinho</label></div>
+        <div><span id="massaCarrinhoValue">200</span>g<br>
+        <input type="range" name="massaCarrinho" id="massaCarrinho" class="slider" min="10" max="99" value="20"></div>
+    </div>
+
+    <button id="fazer-curva-Pilha" class="submit" onclick="curva()">Traçar a função U = f(I)</button>
+</div><br>
+
+<div class="graf-container">
+    <div id="curva-Pilha" class="graf">
+        <span id="canvasCurva"></span>
+    </div>
+</div>
