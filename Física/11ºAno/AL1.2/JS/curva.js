@@ -22,6 +22,7 @@ let alturaCorpoSuspensoResp
 let forçaAtritoResp
 
 let aZona1Resp
+let corpoAtingiuSoloTResp
 let aZona2Resp
 
 
@@ -49,6 +50,7 @@ function prepararResultados() {
 
     // Selecionar os Spans com os Resultados da Tabela
     aZona1Resp = document.getElementById('aZona1Value')
+    corpoAtingiuSoloTResp = document.getElementById('corpoAtingiuSoloTValue')
     aZona2Resp = document.getElementById('aZona2Value')
 
     // Atualizar os Sliders
@@ -133,9 +135,10 @@ function pontos() {
     let pos = [x]
     let vel = [v]
     let acc = [a]
-    let deltaT = 0.002 + Math.floor(h) / 1000 + Math.floor(mCa) / 1000
+    let deltaT = 0.01
 
     let corpoAtingiuSolo = false
+    let corpoAtingiuSoloT = 0
 
     while (true) {
         t += deltaT
@@ -146,12 +149,16 @@ function pontos() {
         if (x >= h && !corpoAtingiuSolo) {              // O Corpo Suspenso atinge o Solo
             Fr -= PCS                                   // Altera-se a força Resultante do Sistema
             aZona1Resp.innerText = `${a.toFixed(3)}`
+            corpoAtingiuSolo = true
+            corpoAtingiuSoloT = t
+            corpoAtingiuSoloTResp.innerText = `${t.toFixed(3)}`
             a = Fr / mSIST                              // ALtera-se a aceleração do Carrinho
             aZona2Resp.innerText = `${a.toFixed(3)}`
-            corpoAtingiuSolo = true
-        } else if (x >= 2 * h && corpoAtingiuSolo) {
+        } else if (corpoAtingiuSolo && t > 7 && t > corpoAtingiuSoloT + 2) {
             break
         }
+
+        if (v < 0) {v = 0}
 
         // Guardar os valores
         tim.push(t.toFixed(3))
@@ -209,7 +216,11 @@ function curva() {
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
-                    }  
+                    },
+                    ticks: {
+                        max: 8,
+                        min: 0
+                    }
                 }]
             },
             legend: {
