@@ -3,22 +3,21 @@
 <p>
     Usa os Sliders para alterar os valores indicados, de forma a poderes ver
     diferentes resultados.
-</p>
-<p>
-    Experimenta prever as consequências de uma ou mais alterações:
-</p>
-<ul>
-    <li></li>
-</ul><br>
+</p><br>
 
 <div class="centrada">
     <div class="flex-slider">
-        <div><label for="massaCarrinho">Massa do Carrinho</label></div>
-        <div><span id="massaCarrinhoValue">200</span>g<br>
-        <input type="range" name="massaCarrinho" id="massaCarrinho" class="slider" min="10" max="99" value="20"></div>
+        <div><label for="forçaEletromotriz">Força Eletromotriz</label></div>
+        <div><span id="forçaEletromotrizValue">9,0</span>V<br>
+        <input type="range" name="forçaEletromotriz" id="forçaEletromotriz" class="slider" min="30" max="100" value="90"></div>
     </div>
+    <div class="flex-slider">
+        <div><label for="resistInterna">Resistência Interna</label></div>
+        <div><span id="resistInternaValue">3,00</span>&ohm;<br>
+        <input type="range" name="resistInterna" id="resistInterna" class="slider" min="1" max="500" value="300"></div>
+    </div>    
 
-    <button id="fazer-curva-Pilha" class="submit" onclick="curva()">Traçar a função U = f(I)</button>
+    <button id="fazer-curva-Pilha" class="submit" onclick="curva()">Traçar a função U = <span class="serif">f(I)</span></button>
 </div><br>
 
 <div class="graf-container">
