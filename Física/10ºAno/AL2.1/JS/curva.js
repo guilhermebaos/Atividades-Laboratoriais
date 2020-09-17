@@ -86,8 +86,7 @@ function pontos() {
 // Mostra os Valores Relacionados com a Queda da Esfera
 function curva() {
     // Remover o Canvas antigo
-    let canvasCurva = document.getElementById('canvasCurva')
-    F10_AL21.divCurva.removeChild(canvasCurva)
+    F10_AL21.divCurva.innerHTML = ''
 
     // Obter e guardar os resultados
     let resultados = pontos()

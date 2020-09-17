@@ -193,8 +193,7 @@ function pontos() {
 // Recebe os valores do pH e traça a Curva de pH
 function curva() {
     // Remover o Canvas antigo
-    let canvasCurva = document.getElementById('canvasCurva')
-    Q11_AL22.divCurva.removeChild(canvasCurva)
+    Q11_AL22.divCurva.innerHTML = ''
 
     // Variáveis da função
     let resultados = pontos()

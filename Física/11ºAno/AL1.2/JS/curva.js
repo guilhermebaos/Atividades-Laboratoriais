@@ -173,8 +173,7 @@ function pontos() {
 // Traçar o gráfico Velocidade-Tempo
 function curva() {
     // Remover o Canvas antigo
-    let canvasCurva = document.getElementById('canvasCurva')
-    F11_AL12.divCurva.removeChild(canvasCurva)
+    F11_AL12.divCurva.innerHTML = ''
 
     // Obter e guardar os resultados
     let resultados = pontos()

@@ -217,17 +217,13 @@ function curva() {
 // Fazer os gráficos Extra e mostrar nas divs-Extra
 function curvaExtra() {
     // Remover os Canvas antigos
-    let canvasCurva_xt = document.getElementById('canvasCurva-xt')
-    F11_AL11.divCurva_xt.removeChild(canvasCurva_xt)
+    F11_AL11.divCurva_xt.innerHTML = ''
 
-    let canvasCurva_vt = document.getElementById('canvasCurva-vt')
-    F11_AL11.divCurva_vt.removeChild(canvasCurva_vt)
+    F11_AL11.divCurva_vt.innerHTML = ''
 
-    let canvasCurva_at = document.getElementById('canvasCurva-at')
-    F11_AL11.divCurva_at.removeChild(canvasCurva_at)
+    F11_AL11.divCurva_at.innerHTML = ''
 
-    let canvasCurva_jt = document.getElementById('canvasCurva-jt')
-    F11_AL11.divCurva_jt.removeChild(canvasCurva_jt)
+    F11_AL11.divCurva_jt.innerHTML = ''
 
     // Variáveis das funções
     let resultados = F11_AL11.resultados
