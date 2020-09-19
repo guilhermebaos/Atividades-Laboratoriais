@@ -131,7 +131,7 @@ function curva() {
                     },
                     ticks: {
                         max: 10,
-                        min: 0,
+                        min: 0
                     }
                 }]
             },

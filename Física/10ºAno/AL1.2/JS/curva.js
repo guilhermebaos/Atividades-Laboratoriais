@@ -125,7 +125,7 @@ function valoresTabela(alturas) {
 // Calcular os Pontos do Gráfico h(t)
 function pontos() {
     // Declarar variáveis e valores iniciais
-    let hf = 1.5 * raioBola.value / 1000
+    let hf = 0.05
     let hi = alturaInicial.value / 100
     let e = (elasticidade.value / 100) ** 0.5
 
@@ -140,7 +140,7 @@ function pontos() {
 
     let deltaT = Math.ceil(hi) * Math.ceil((1 + e)**2) / 1000 - 0.001
 
-    let hMax = 0
+    let hMax = hi
 
     while (true) {
         t += deltaT                         // Instante de tempo a que correspondem os valores calculados
@@ -154,9 +154,7 @@ function pontos() {
             x = 0                           // Quando está no Solo, a posição é 0
             v *= -e                         // Inverte a velocidade e diminui o seu módulo
             hQeR.push(hMax)                 // Guardar as alturas de Queda e de Ressalto
-            if (hMax < hf) {
-                break
-            } else if (hQeR.length >= 30) {
+            if (hMax < hf ||hQeR.length >= 25) {
                 break
             } else {
                 hMax = 0
@@ -218,7 +216,11 @@ function curva() {
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
-                    }  
+                    },
+                    ticks: {
+                        max: 300,
+                        min: 0
+                    } 
                 }]
             },
             legend: {

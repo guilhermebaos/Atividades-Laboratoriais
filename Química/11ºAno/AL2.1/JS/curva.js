@@ -54,11 +54,11 @@ function prepararResultados() {
     
     // Atualizar os Sliders
     ConcTitulante.oninput = function atualizarConcTitulante() {
-        let ConcTitulanteValue = ConcTitulante.value / 100
+        let ConcTitulanteValue = ConcTitulante.value / 1000
         ConcTitulanteResp.innerHTML = `${ConcTitulanteValue.toFixed(3)}`
     }
     ConcTitulado.oninput = function atualizarConcTitulado() {
-        let ConcTituladoValue = ConcTitulado.value / 500
+        let ConcTituladoValue = ConcTitulado.value / 1000
         ConcTituladoResp.innerHTML = `${ConcTituladoValue.toFixed(3)}`
     }
 
@@ -67,7 +67,7 @@ function prepararResultados() {
         VolTitulanteResp.innerHTML = `${VolTitulanteValue.toFixed(2)}`
     }
     VolTitulado.oninput = function atualizarVolTitulado() {
-        let VolTituladoValue = VolTitulado.value * 1
+        let VolTituladoValue = VolTitulado.value / 1
         VolTituladoResp.innerHTML = `${VolTituladoValue.toFixed(2)}`
     }
 
@@ -101,8 +101,8 @@ function pontos() {
     let nTitulante = 0
     let nTitulado = 0
 
-    let CTitulante = ConcTitulante.value / 100
-    let CTitulado = ConcTitulado.value / 500
+    let CTitulante = ConcTitulante.value / 1000
+    let CTitulado = ConcTitulado.value / 1000
 
     let nH3O = 0
     let nHO = 0
@@ -111,10 +111,14 @@ function pontos() {
     let CHO = 0
     
     let volumeTitulante = 0
-    let volumeTitulado = (VolTitulado.value * 1)  * 10e-3
+    let volumeTitulado = (VolTitulado.value * 1) / 1000
 
-    let volumeAdicional = (VolTitulante.value / 100) * 10e-3
-    let volumeTotal = (VolTitulado.value * 1) * 10e-3
+    let volumeAdicional = (VolTitulante.value / 100) / 1000
+    let volumeTotal = (VolTitulado.value * 1) / 1000
+
+    console.log(volumeTitulado)
+    console.log(volumeAdicional)
+    console.log(volumeTotal)
 
     let pH = 0
 
@@ -174,11 +178,11 @@ function pontos() {
         }
 
         // Guardar os Valores
-        xVolumes.push((volumeTitulante * 100).toFixed(2))
+        xVolumes.push((volumeTitulante * 1000).toFixed(2))
         ypH.push(pH.toFixed(2))
 
         // Paramos quando o pH for menor que dois
-        if ((pH < 2 && volumeTitulante >= volumeTitulado && curvaTitulante == 'HCl') || (pH > 12 && volumeTitulante >= volumeTitulado && curvaTitulante == 'NaOH') || (volumeTitulante >= 5 * volumeTitulado)) {
+        if (volumeTitulante >= 0.060) {
             break
         } else {
             volumeTotal += volumeAdicional

@@ -153,7 +153,11 @@ function curva() {
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
-                    }  
+                    },
+                    ticks: {
+                        max: 7,
+                        min: 0
+                    }
                 }]
             },
             legend: {
