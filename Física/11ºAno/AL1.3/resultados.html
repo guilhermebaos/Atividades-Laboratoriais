@@ -13,10 +13,10 @@
         Após alterar os valores, mas antes de ver o gráfico:
     </p>
     <ul>
-        <li>Determina se o declive do gráfico irá aumentar ou diminuir.</li>
+        <li>Prevê se o declive do gráfico irá aumentar ou diminuir.</li>
     </ul><br>
     <p>
-        Depois de ver o gráfico:
+        Depois de ver o gráfico, mas antes de ver a Tabela com os Resultados:
     </p>
     <ul>
         <li>
@@ -24,30 +24,42 @@
             do Carrinho ao longo da travagem.
         </li>
         <li>
-            Usando o módulo da aceleração e a massa do Carrinho, calcula a
-            intensidade da Resultante das Forças de Atrito.
+            Usando o módulo da aceleração calculado e a massa do Carrinho,
+            determina a intensidade da Resultante das Forças de Atrito.
         </li>
     </ul><br>
 </div>
 
 <div class="centrada">
+    <div class="flex-slider">
+        <div><label for="massaCarrinho">Massa do Carrinho</label></div>
+        <div><span id="massaCarrinhoValue">0.500</span>kg<br>
+        <input type="range" name="massaCarrinho" id="massaCarrinho" class="slider" min="300" max="2000" value="500"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="fAtrito">Força de Atrito</label></div>
+        <div><input type="range" name="fAtrito" id="fAtrito" class="slider" min="10" max="50" value="30"></div>
+    </div>
 
     <button id="fazer-curva-Velocidade-Deslocamento" class="submit" onclick="curva()">Traçar o Gráfico <span class="nbsp serif">v<sub>0</sub><sup>2</sup> &equals; f(&Delta;x)</span></button>
-    <br>
+    <br><br>
 </div>
-
-<div class="graf-container">
-    <div id="curva-vx" class="graf"></div>
-</div>
+<div class="overflow">
+    <div class="graf-container">
+        <div id="curva-v2x"></div>
+    </div>
+</div><br>
 
 <div class="centrada">
     <div class="overflow" style="max-width: 72vw;">
         <table class="resultados">
             <tr class="vars">
-                <td></td>
+                <td>|a|<sub>travagem</sub>/ ms<sup>-2</sup></td>
+                <td>|F<sub>a</sub>|/N</td>
             </tr>
             <tr>
-                <td></td>
+                <td><span id="aTravagemValue"></span></td>
+                <td><span id="fAtritoTravagemValue"></span></td>
             </tr>
         </table>
     </div>

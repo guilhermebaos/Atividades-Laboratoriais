@@ -113,7 +113,7 @@ function leiPosicao(x0, v0, a0, tempo){
 }
 
 
-// Calcular os Pontos dos Gráfico vt
+// Calcular os Pontos dos Gráfico vt e valores Tabela Resultados
 function pontos() {
     // Declarar variáveis e valores iniciais
     let mCa = massaCarrinho.value / 100

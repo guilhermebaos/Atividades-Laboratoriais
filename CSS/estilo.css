@@ -182,14 +182,9 @@ div.tabela-container {
 
 div.graf-container {
     padding: 0px;
-    overflow-x: auto;
+    min-width: 600px;
+    min-height: 300px;
 }
-div.graf {
-    position: relative;
-    padding: 0px;
-    width: 100%;
-}
-
 div.header {
     width: 100%;
     top: 0px;
