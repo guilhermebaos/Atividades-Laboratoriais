@@ -5,17 +5,34 @@
     diferentes resultados.
 </p>
 <p>
-    Experimenta prever as consequências de uma ou mais alterações:
+    <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
-<ul>
-    <li>Qual será o Módulo da Aceleração do Bloco durante a travagem?</li>
-    <li>Qual será o Módulo da Aceleração do Bloco durante a descida?</li>
-    <li>Qual será a intensidade da Resultante das Forças de Atrito?</li>
-</ul><br>
+<div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
+    <p>
+        Após alterar os valores, mas antes de ver o gráfico:
+    </p>
+    <ul>
+        <li>Determina se o declive do gráfico irá aumentar ou diminuir.</li>
+    </ul><br>
+    <p>
+        Depois de ver o gráfico:
+    </p>
+    <ul>
+        <li>
+            Usando alguns pontos do gráfico, calcula o módulo da aceleração
+            do Carrinho ao longo da travagem.
+        </li>
+        <li>
+            Usando o módulo da aceleração e a massa do Carrinho, calcula a
+            intensidade da Resultante das Forças de Atrito.
+        </li>
+    </ul><br>
+</div>
 
 <div class="centrada">
 
-    <button id="fazer-curva-Velocidade-Deslocamento" class="submit" onclick="curva()">Traçar o Gráfico Velocidade<sup>2</sup>-Deslocamento</button>
+    <button id="fazer-curva-Velocidade-Deslocamento" class="submit" onclick="curva()">Traçar o Gráfico <span class="nbsp serif">v<sub>0</sub><sup>2</sup> &equals; f(&Delta;x)</span></button>
     <br>
 </div>
 

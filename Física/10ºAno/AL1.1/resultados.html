@@ -5,12 +5,18 @@
     diferentes resultados.
 </p>
 <p>
-    Experimenta prever as consequências de uma ou mais alterações:
+    <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
-<ul>
-    <li>Como irá variar a Energia Cinética Final para uma mesma distância?</li>
-    <li>Por quanto irá aumentar/ diminuir o declive da reta representada?</li>
-</ul><br>
+<div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
+    <p>
+        Após alterar os valores, mas antes de ver o gráfico:
+    </p>
+    <ul>
+        <li>Calcula a Energia Cinética que o Carrinho terá após percorrer 60cm.</li>
+        <li>Determina o declive da função <span class="nbsp serif">E<sub>c</sub> = f(d)</span>.</li>
+    </ul><br>
+</div>
 
 <div class="centrada">
     <div class="flex-slider">
@@ -29,7 +35,7 @@
         <input type="range" name="forçaAtrito" id="forçaAtrito" class="slider" min="0" max="184" value="100"></div>
     </div>
 
-    <button id="fazer-curva-Ec" class="submit" onclick="curva()">Traçar a função E<sub>c</sub> = f(d)</button>
+    <button id="fazer-curva-Ec" class="submit" onclick="curva()">Traçar a função <span class="nbsp serif">E<sub>c</sub> = f(d)</span></button>
 </div><br>
 
 <div class="graf-container">

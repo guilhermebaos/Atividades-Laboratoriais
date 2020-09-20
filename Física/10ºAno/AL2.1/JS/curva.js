@@ -59,8 +59,8 @@ function pontos() {
     let I = 0
     let Imax = fe / r
 
-    let ddp = []
-    let cor = []
+    let ddp = [fe]
+    let cor = [I.toFixed(3)]
 
     while (true) {
         I += 0.05

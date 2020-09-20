@@ -5,12 +5,18 @@
     diferentes resultados.
 </p>
 <p>
-    Experimenta prever as consequências de uma ou mais alterações:
+    <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
-<ul>
-    <li>Qual passará a ser o Reagente Limitante?</li>
-    <li>O Rendimento irá aumentar, diminuir ou manter-se constante?</li>
-</ul><br>
+<div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
+    <p>
+        Após alterar os valores, mas antes de ver a Tabela dos Resultados.
+    </p>
+    <ul>
+        <li>Determina o Reagente Limitante.</li>
+        <li>Calcula o Rendimento.</li>
+    </ul><br>
+</div>
 <div class="centrada">
     <div class="flex-slider">
         <div><label for="massaReagente1">Massa Ácido Salicílico: </label></div>
@@ -48,7 +54,7 @@
             <tr>
                 <td><span id="nC7H6O3Value">0.01448</span></td>
                 <td><span id="nC4H6O3Value">0.05289</span></td>
-                <td><span id="nC9H8O4Value">	0.01110</span></td>
+                <td><span id="nC9H8O4Value">0.01110</span></td>
             </tr>
         </table>
     </div>

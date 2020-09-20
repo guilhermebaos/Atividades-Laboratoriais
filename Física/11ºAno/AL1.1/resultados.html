@@ -5,12 +5,36 @@
     diferentes resultados.
 </p>
 <p>
-    Experimenta prever as consequências de uma ou mais alterações:
+    <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
-<ul>
-    <li>Uma variação na Massa irá variar a aceleração gravítica obtida?</li>
-    <li>Como irá aumentar a velocidade de passagem pela 2ª Célula com o aumento da distância entre as células?</li>
-</ul><br>
+<div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
+    <p>
+        Após alterar os valores, mas antes de ver a 1ª Tabela com os Resultados:
+    </p>
+    <ul>
+        <li>
+            Desprezando a Resistência do Ar, prevê se uma variação na Massa irá
+            variar a aceleração gravítica obtida.
+        </li>
+        <li>
+            Desprezando a Resistência do Ar, calcula o tempo de queda da esfera
+            entre as Células, sendo <span class="nbsp">g &equals; 9.81ms<sup>-2</sup></span>.
+        </li>
+    </ul><br>
+    <p>
+        Após ver apenas a 1ª Tabela com os Resultados:
+    </p>
+    <ul>
+        <li>
+            Calcula o valor experimental para a aceleração gravítica.
+        </li>
+        <li>
+            Calcula o erro relativo para a aceleração gravítica,
+            sendo <span class="nbsp">g &equals; 9.81ms<sup>-2</sup></span>.
+        </li>
+    </ul>
+</div>
 
 <div class="centrada">
     <div class="flex-slider">
@@ -39,23 +63,33 @@
     <button id="fazer-curva-Esfera" class="submit" onclick="curva()">Atualizar a Tabela dos Resultados Experimentais</button>
     <br><br><br>
 
-    <div class="overflow" style="max-width: 72vw;">
+    <div class="overflow">
         <table class="resultados">
             <tr class="vars">
                 <td>&Delta;t <sub>passagem pela 2ª Célula</sub>/ ms</td>
                 <td>&Delta;t <sub>queda entre as Células</sub>/ ms</td>
                 <td>v <sub>passagem pela 2ª Célula</sub>/ <span class="nbsp">ms<sup>-1</sup></span></td>
-                <td class="fim-tabela">g/ <span class="nbsp">ms<sup>-2</sup></span></td>
             </tr>
             <tr>
                 <td><span id="deltaT-celula2"></span></td>
                 <td><span id="deltaT-queda"></span></td>
                 <td><span id="velocidade-celula2"></span></td>
-                <td class="fim-tabela"><span id="gravidade-experimental"></td>
+            </tr>
+        </table>
+    </div><br><br>
+    <div class="overflow">
+        <table class="resultados">
+            <tr class="vars">
+                <td>g/ ms<sup>-2</sup></td>
+                <td>Erro Relativo (%)</td>
+            </tr>
+            <tr>
+                <td><span id="gravidade-experimental"></span></td>
+                <td><span id="erro-gravidade-experimental"></span></td>
             </tr>
         </table>
     </div>
-    <p>Valor Tabelado para o g: 9.81 <span class="nbsp">ms<sup>-2</sup></span> </p>
+    <p class="nota">Valor Tabelado para o g: 9.80665 <span class="nbsp">ms<sup>-2</sup></span></p>
 </div>
 <div class="explicar">
     <p>

@@ -34,8 +34,9 @@ let distCelulasResp
 
 let deltaT_celula2Resp
 let deltaT_quedaResp
-let velocidade_celula2Resp
-let gravidade_experimentalResp
+let velocidadeCelula2Resp
+let gravidadeExperimentalResp
+let erroGravidadeExperimentalResp
 
 
 function prepararResultados() {
@@ -67,8 +68,9 @@ function prepararResultados() {
     // Selecionar os Spans com os Resultados da Tabela
     deltaT_celula2Resp = document.getElementById('deltaT-celula2')
     deltaT_quedaResp = document.getElementById('deltaT-queda')
-    velocidade_celula2Resp = document.getElementById('velocidade-celula2')
-    gravidade_experimentalResp = document.getElementById('gravidade-experimental')
+    velocidadeCelula2Resp = document.getElementById('velocidade-celula2')
+    gravidadeExperimentalResp = document.getElementById('gravidade-experimental')
+    erroGravidadeExperimentalResp = document.getElementById('erro-gravidade-experimental')
 
     // Atualizar os Sliders
     massaEsfera.oninput = function atualizarMassaEsfera() {
@@ -204,10 +206,13 @@ function curva() {
     let vm = d / deltaT_celula2Value * 1000
     let gExperimental = vm / t_f * 1000
 
-    deltaT_celula2Resp.innerHTML = `${deltaT_celula2Value.toFixed(2)}`
-    deltaT_quedaResp.innerHTML = `${t_f.toFixed(1)}`
-    velocidade_celula2Resp.innerHTML = `${vm.toFixed(3)}`
-    gravidade_experimentalResp.innerHTML = `${gExperimental.toFixed(2)}`
+    let errogExperimental = (gExperimental - g) / g * 100
+
+    deltaT_celula2Resp.innerText = `${deltaT_celula2Value.toFixed(2)}`
+    deltaT_quedaResp.innerText = `${t_f.toFixed(1)}`
+    velocidadeCelula2Resp.innerText = `${vm.toFixed(3)}`
+    gravidadeExperimentalResp.innerText = `${gExperimental.toFixed(2)}`
+    erroGravidadeExperimentalResp.innerText = `${errogExperimental.toFixed(1)}%`
 
 
     curvaExtra()
