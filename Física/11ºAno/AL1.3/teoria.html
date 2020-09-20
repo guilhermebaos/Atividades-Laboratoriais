@@ -8,9 +8,9 @@
 <h3>Relação Teórica</h3>
 <p>
     Começamos por medir indiretamente a aceleração do corpo em estudo,
-    neste caso, um carrinho, e de seguida medimos a sua massa. Pois, durante
+    neste caso, um carrinho, e de seguida medimos a sua massa, pois, durante
     a travagem, a Força Resultante será igual à resultante das Forças de Atrito,
-    logo:
+    ou seja:
 </p>
 <div class="contas">
     <p>
@@ -132,17 +132,97 @@
     <p>
         <span class="invi">&hArr;</span> 2a &times; &Delta;x &equals; &minus;v<sub>0</sub><sup>2</sup> &hArr; <br>
         &hArr; 2 &times; (&minus;a) &times; &Delta;x &equals; v<sub>0</sub><sup>2</sup> &hArr; <br>
-        &hArr; 2|a| &times; &Delta;x &equals; v<sub>0</sub><sup>2</sup> &hArr; <br>
+        &hArr; 2|a|<sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &times; &Delta;x &equals; v<sub>0</sub><sup>2</sup> &hArr; <br>
     </p>
 </div>
+<div name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup>Como
+    <span class="serif">a &lt; 0</span>:
+    <p class="contas">
+        <span class="invi">&hArr;</span> a &equals; &minus;|a| &hArr; <br>
+        &hArr; &minus;a &equals; &minus;(&minus;|a|) &hArr; <br>
+        &hArr; &minus;a &equals; |a| <br>
+    <br></p>
+</div>
 <p>
-    Logo, se medirmos a velocidade inicial do carrinho e o seu deslocamento total
-    após parar, conseguimos determinar a sua aceleração.
+    Logo, se medirmos a velocidade inicial do carrinho e o deslocamento realizado
+    durante a travagem, conseguimos determinar a sua aceleração.
 </p>
 <p>
-    A partir da aceleração, juntamente, com a massa do carrinho, conseguimos
-    obter a intensidade da Resultante das Forças de Atrito.
+    Como vimos no início, sabendo a aceleração e a massa do Carrinho, conseguimos
+    determinar a intensidade da Resultante das Forças de Atrito.
 </p>
 
 <br>
 <h3>Método</h3>
+<p>
+    Iremos abandonar o Carrinho no topo de uma Rampa, sendo que que o carro irá
+    adquirir velocidade. No final da Rampa irá percorrer um plano horizontal.
+</p>
+
+<br>
+<h4>Medir a Velocidade Inicial, v<sub>0</sub></h4>
+<p>
+    Para medirmos a sua velocidade inicial, isto é, a sua velocidade antes de
+    começar a travagem, iremos colocar uma 
+    <span class="anchor" onclick="mostrarExtra('célula-fotoelétrica')">célula fotoelétrica</span>
+    no final da Rampa e uma tira opaca no topo do carro.
+</p>
+<div id="célula-fotoelétrica" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('célula-fotoelétrica')">X</button>
+    <p>
+        As células fotoelétricas têm um emissor de luz e um recetor de luz, sempre que o feixe
+        deixa de ser recebido, devido à passagem de um objeto, ou volta a ser recebido, após
+        o objeto deixar de o interromper, envia um sinal.
+    </p><br>
+</div>
+<p class="m0">
+    Isto permite-nos saber o módulo da velocidade do Carrinho pois podemos saber
+    quanto tempo demorou a tira opaca no topo do carro a atravessar o feixe da
+    célula.
+</p>
+<p>
+    Como o tempo de passagem pela célula é muito pequeno, podemos considerar que
+    a velocidade de passagem por essa célula é constante e igual à velocidade
+    média de passagem <span class="nbsp">(v &approx; v<sub>m</sub>)</span>, logo:
+</p>
+<div class="contas">
+    <p>
+        <span class="invi">&hArr;</span> v<sub>0</sub> &equals; <sup>|&Delta;r|</sup> &frasl; <sub>&Delta;t</sub> &hArr; <br>
+        &hArr; v<sub>0</sub> &equals; <sup>l<sub>tira</sub></sup> &frasl; <sub>&Delta;t<sub>passagem</sub></sub> &hArr; <br>
+    </p>
+</div>
+<table class="explicar">
+    <tr>
+        <td>|&Delta;r|</td>
+        <td>&rarr;</td>
+        <td>Módulo do Deslocamento</td>
+    </tr>
+    <tr>
+        <td>l<sub>tira</sub></td>
+        <td>&rarr;</td>
+        <td>Largura da Tira Opaca</td>
+    </tr>
+    <tr>
+        <td>&Delta;t<sub>passagem</sub></td>
+        <td>&rarr;</td>
+        <td>Intervalo de Tempo de passagem na célula</td>
+    </tr>
+</table><br>
+
+<br>
+<h4>Medir o seu deslocamento, &Delta;x</h4>
+<p>
+    Após o Carrinho parar, devido à aceleração causada pela Resultante das Forças
+    de atrito, usamos uma régua ou fita métrica para medir o deslocamento realizado
+    durante a travagem.
+</p><br>
+<p>
+    Como os valores obtidos, traçamos uma reta de melhor ajuste aos pontos de
+    abcissa &Delta;x e ordenada v<sub>0</sub><sup>2</sup> e iremos obter uma reta
+    de declive 2|a|.
+</p>
+<p>
+    Finalmente, medimos a massa do Carrinho e calculamos a intensidade da Resultante
+    das forças de atrito que atuam sobre ele:
+</p>
+<p class="contas"><span class="invi">&hArr;</span> |F<sub>a</sub>| &equals; m &times; |a|</p>
