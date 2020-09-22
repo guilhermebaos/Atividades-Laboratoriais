@@ -91,6 +91,10 @@ h3.unidade {
     margin-bottom: 0px;
 }
 
+hr.frac {
+    margin: 0px;
+}
+
 .m0 {
     margin: 0px;
 }
@@ -105,6 +109,10 @@ h3.unidade {
 
 .nota {
     font-size: 90%;
+}
+
+.grande {
+    font-size: 120%;
 }
 
 .margin-auto {
@@ -245,13 +253,13 @@ div.contas {
     margin-top: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+    font-size: 110%;
+    font-family: serif;
+    white-space: nowrap;
 }
 div.contas p {
     line-height: 180%;
-    font-family: serif;
-    font-size: 110%;
     text-indent: 0px;
-    white-space: nowrap;
     margin-top: 5px;
 }
 
@@ -280,6 +288,27 @@ div.explicar p {
     text-indent: 10px;
     margin: 0px 0px 12px 0px;
 }
+
+div.frac {
+    display: inline-block;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
+}
+div.frac > span {
+    display: block;
+    padding: 0.1em;
+}
+div.frac span.denom {
+    border-top: thin solid black;
+}
+div.frac sub {
+    line-height: normal;
+}
+
 
 
 form {
@@ -502,6 +531,10 @@ ul.teoria li {
     margin-bottom: 8px;
 }
 
+
+ol li {
+    margin-top: 5px;
+}
 
 ol.procedimento {
     line-height: 120%;
