@@ -91,6 +91,7 @@ function calcularMassaProdutoMax() {
     let nLimitante = calcularQuantidadeLimitante()
 
     let mProdutoMax = 180.17 * nLimitante * 0.99
+    let massaProdutoValue = massaProduto.value / 100
 
     // Limita o Slider do Produto Obtido
     if (massaProdutoValue > mProdutoMax) {
@@ -122,10 +123,10 @@ function curva() {
 
     let rendimento = nProdutoObt / nProdutoTeo * 100
 
-    nC7H6O3Resp.innerHTML = `${nC7H6O3.toFixed(5)}`
-    nC4H6O3Resp.innerHTML = `${nC4H6O3.toFixed(5)}`
-    nC9H8O4Resp.innerHTML = `${nC9H8O4.toFixed(5)}`
+    nC7H6O3Resp.innerText = `${nC7H6O3.toFixed(5)}`
+    nC4H6O3Resp.innerText = `${nC4H6O3.toFixed(5)}`
+    nC9H8O4Resp.innerText = `${nC9H8O4.toFixed(5)}`
     
-    reagenteLimitanteResp.innerHTML = nC7H6O3 < nC4H6O3 ? 'Ácido Salicílico' : 'Anidrido Etanoico'
-    rendimentoResp.innerHTML = `${rendimento.toFixed(1)}`
+    reagenteLimitanteResp.innerText = nC7H6O3 < nC4H6O3 ? 'Ácido Salicílico' : 'Anidrido Etanoico'
+    rendimentoResp.innerText = `${rendimento.toFixed(1)}`
 }

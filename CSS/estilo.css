@@ -373,6 +373,7 @@ table.resultados tr {
 table.resultados tr td {
     padding: 10px;
     border-right: 2px solid lightgray;
+    text-align: center;
 }
 table.resultados tr td:last-child{
     border-right: 0px;
