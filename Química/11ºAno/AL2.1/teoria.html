@@ -43,14 +43,15 @@
     No Ponto de Equivalência:
 </p>
 <div class="contas">
-    <p>
-        <span class="invi">&hArr;</span> n(Titulado) &times; <sup>b</sup>&frasl;<sub>a</sub><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; n(Titulante) &hArr;<br>
-        &hArr; C(Titulado) &times; V(Titulado) &times; <sup>b</sup>&frasl;<sub>a</sub> &equals; C(Titulante) &times; V(Titulante Adicionado) &hArr;<br>
-        &hArr; C(Titulado) &equals; <sup>C(Titulante) &times; V(Titulante Adicionado) &times; a</sup> <b>&frasl;</b> <sub>V(Titulado) &times; b</sub>
-    </p>
+    <span class="invi">&hArr;</span> n(Titulado) &times; <div class="frac"><span>b</span><span class="denom">a</span></div><sup><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup></sup> &equals; n(Titulante) &hArr;<br>
+    &hArr; C(Titulado) &times; V(Titulado) &times; <div class="frac"><span>b</span><span class="denom">a</span></div> &equals; C(Titulante) &times; V(Titulante Adicionado) &hArr;<br>
+    &hArr; C(Titulado) &equals; <div class="frac"><span>C(Titulante) &times; V(Titulante Adicionado) &times; a</span><span class="denom">V(Titulado) &times; b</span></div>
 </div>
 <div>
-    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>Se b &equals; 2 e a &equals; 1, então a quantidade químcia de Titulante será o dobro da de Titulado, por exemplo.<br><br></p>
+    <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>Se
+        b &equals; 2 e a &equals; 1, então a quantidade químcia de Titulante
+        será o dobro da de Titulado, no Ponto de Equivalência, por exemplo.<br><br>
+    </p>
 </div>
 <table class="explicar">
     <tr>

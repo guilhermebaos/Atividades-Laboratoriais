@@ -11,11 +11,9 @@
     Dissipada e na Potência Útil:
 </p>
 <div class="contas">
-    <p>
-        <span class="invi">&hArr;</span> P<sub>Pilha</sub><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; &epsi; &times; I <br>
-        <span class="invi">&hArr;</span> P<sub>Dissipada</sub><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &equals; r &times; I<sup>2</sup> <br>
-        <span class="invi">&hArr;</span> P<sub>Útil</sub><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &equals; U &times; I <br>
-    </p>
+    <span class="invi">&hArr;</span> P<sub>Pilha</sub><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &equals; &epsi; &times; I <br>
+    <span class="invi">&hArr;</span> P<sub>Dissipada</sub><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup> &equals; r &times; I<sup>2</sup> <br>
+    <span class="invi">&hArr;</span> P<sub>Útil</sub><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup> &equals; U &times; I <br>
 </div>
 <div>
     <div name="exp-contas" style="display: none;">
@@ -29,9 +27,9 @@
             energia disponibilizada pelo gerador por unidade de carga que o
             atravessa:
         </p>
-        <p class="contas">
-            <span class="invi">&hArr;</span> &epsi; &equals; <sup>E</sup>&frasl;<sub>Q</sub>
-        </p>
+        <div class="contas">
+            <span class="invi">&hArr;</span> &epsi; &equals; <div class="frac"><span>E</span><span class="denom">Q</span></div>
+        </div><br>
         <table class="explicar">
             <tr>
                 <td>E</td>
@@ -48,17 +46,17 @@
             A corrente corresponde à carga que atravessa uma secção reta de um
             condutor por unidade de tempo:
         </p>
-        <p class="contas">
-            <span class="invi">&hArr;</span> I &equals; <sup>Q</sup>&frasl;<sub>&Delta;t</sub>
-        </p><br>
+        <div class="contas">
+            <span class="invi">&hArr;</span> I &equals; <div class="frac"><span>Q</span><span class="denom">&Delta;t</span></div>
+        </div><br>
         <p>
             Logo, a Potência disponibilizada pela Pilha é dada por:
         </p>
-        <p class="contas">
+        <div class="contas">
             <span class="invi">&hArr;</span> P<sub>Pilha</sub> &equals; &epsi; &times; I &hArr; <br>
-            &hArr; P<sub>Pilha</sub> &equals; <sup>E</sup>&frasl;<sub>Q</sub> &times; <sup>Q</sup>&frasl;<sub>&Delta;t</sub> &hArr; <br>
+            &hArr; P<sub>Pilha</sub> &equals; <div class="frac"><span>E</span><span class="denom">Q</span></div> &times; <div class="frac"><span>Q</span><span class="denom">&Delta;t</span></div> &hArr; <br>
             &hArr; P<sub>Pilha</sub> &equals; E &times; &Delta;t &hArr; <br>
-        </p><br><br>
+        </div><br><br>
     </div>
     <div name="exp-contas" style="display: none;">
         <p>
@@ -83,9 +81,9 @@
             por unidade de carga que o atravessa, ou seja, a energia útil
             disponibilizada pela Pilha:
         </p>
-        <p class="contas">
-            <span class="invi">&hArr;</span> U &equals; <sup>E<sub>Útil</sub></sup>&frasl;<sub>Q</sub>
-        </p>
+        <div class="contas">
+            <span class="invi">&hArr;</span> U &equals; <div class="frac"><span>E<sub>útil</sub></span><span class="denom">Q</span></div>
+        </div><br>
         <table class="explicar">
             <tr>
                 <td>E<sub>Útil</sub></td>
@@ -102,17 +100,17 @@
             A corrente corresponde à carga que atravessa uma secção reta de um
             condutor por unidade de tempo:
         </p>
-        <p class="contas">
-            <span class="invi">&hArr;</span> I &equals; <sup>Q</sup>&frasl;<sub>&Delta;t</sub>
-        </p><br>
+        <div class="contas">
+            <span class="invi">&hArr;</span> I &equals; <div class="frac"><span>Q</span><span class="denom">&Delta;t</span></div>
+        </div><br>
         <p>
             Logo, a Potência útil disponibilizada pela Pilha é dada por:
         </p>
-        <p class="contas">
+        <div class="contas">
             <span class="invi">&hArr;</span> P<sub>Útil</sub> &equals; U &times; I &hArr; <br>
-            &hArr; P<sub>Útil</sub> &equals; <sup>E<sub>Útil</sub></sup>&frasl;<sub>Q</sub> &times; <sup>Q</sup>&frasl;<sub>&Delta;t</sub> &hArr; <br>
-            &hArr; P<sub>Útil</sub> &equals; E<sub>Útil</sub> &times; &Delta;t &hArr; <br>
-        </p><br><br>
+            &hArr; P<sub>Útil</sub> &equals; <div class="frac"><span>E<sub>útil</sub></span><span class="denom">Q</span></div> &times; <div class="frac"><span>Q</span><span class="denom">&Delta;t</span></div> &hArr; <br>
+            &hArr; P<sub>Útil</sub> &equals; E<sub>Útil</sub> &times; &Delta;t &hArr; <br><br>
+        </div>
     </div>
 </div>
 <table class="explicar">
@@ -157,12 +155,10 @@
     Característica da Pilha:
 </p>
 <div class="contas">
-    <p>
-        <span class="invi">&hArr;</span> P<sub>Pilha</sub> &equals; P<sub>Dissipada</sub> &plus; P<sub>Útil</sub> &hArr; <br>
-        &hArr; &epsi; &times; I &equals; r &times; I<sup>2</sup> &plus; U &times; I &hArr; <br>
-        &hArr; &epsi; &equals; r &times; I &plus; U &hArr; <br>
-        &hArr; U &equals; &epsi; &minus; rI
-    </p>
+    <span class="invi">&hArr;</span> P<sub>Pilha</sub> &equals; P<sub>Dissipada</sub> &plus; P<sub>Útil</sub> &hArr; <br>
+    &hArr; &epsi; &times; I &equals; r &times; I<sup>2</sup> &plus; U &times; I &hArr; <br>
+    &hArr; &epsi; &equals; r &times; I &plus; U &hArr; <br>
+    &hArr; U &equals; &epsi; &minus; rI
 </div>
 <p>
     Nesta expressão, <span class="serif">&epsi;</span> e <span class="serif">r</span>

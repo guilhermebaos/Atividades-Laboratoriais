@@ -44,6 +44,7 @@ a:hover {
 
 p {
     text-indent: 10px;
+    margin-bottom: 12px;
 }
 
 
@@ -115,17 +116,21 @@ hr.frac {
     font-size: 120%;
 }
 
+.pequeno {
+    font-size: 80%;
+}
+
 .margin-auto {
     margin: auto;
 }
 
-span.invi {
-    color: white;
-}
-
-span.serif {
+.serif {
     font-family: serif;
     font-size: 110%;
+}
+
+span.invi {
+    color: white;
 }
 
 span.anchor {
@@ -148,6 +153,8 @@ sup {
 
 sup.exp-contas {
     text-decoration: none;
+    font-family: serif;
+    line-height: normal;
     color: rgb(0, 0, 200);
 }
 sup.exp-contas:hover {
@@ -250,19 +257,17 @@ div.flex div {
 
 div.contas {
     overflow-x: auto;
+    overflow-y: hidden;
     margin-top: 0px;
+    margin-bottom: 5px;
     padding-top: 0px;
     padding-bottom: 0px;
     font-size: 110%;
     font-family: serif;
     white-space: nowrap;
-}
-div.contas p {
     line-height: 180%;
     text-indent: 0px;
-    margin-top: 5px;
 }
-
 div.overflow {
     overflow-x: auto;
     margin: 0px;
@@ -292,7 +297,7 @@ div.explicar p {
 div.frac {
     display: inline-block;
     position: relative;
-    margin: 0px;
+    margin: 2px 0px 4px 0px;
     padding: 0px;
     vertical-align: middle;
     letter-spacing: 0.001em;
@@ -300,13 +305,12 @@ div.frac {
 }
 div.frac > span {
     display: block;
-    padding: 0.1em;
+    padding: 0 0.1em 0 0.1em;
+    line-height: 130%;
+    font-size: 90%;
 }
 div.frac span.denom {
     border-top: thin solid black;
-}
-div.frac sub {
-    line-height: normal;
 }
 
 
