@@ -24,10 +24,10 @@ function prepararResultados() {
     }
     F11_AL13.preparado = true
 
+    
     // Selecionar Sliders
     massaCarrinho = document.getElementById('massaCarrinho')
     fAtrito = document.getElementById('fAtrito')
-
 
     // Selecionar os Spans com os Valores dos Sliders
     massaCarrinhoResp = document.getElementById('massaCarrinhoValue')

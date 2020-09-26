@@ -8,6 +8,7 @@
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
+
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
     <p>
         Após alterar os valores, mas antes de ver o gráfico:
@@ -16,12 +17,34 @@
 </div>
 
 <div class="centrada">
-
-    <button id="fazer-curva-Velocidade-Deslocamento" class="submit" onclick="curva()">Traçar o Gráfico <span class="nbsp serif">v<sub>0</sub><sup>2</sup> &equals; f(&Delta;x)</span></button>
-    <br><br>
-</div>
+    <p>Definições do <u>Osciloscópio:</u></p>
+    <div class="flex-slider">
+        <div><label for="voltsDiv">VOLTS/ DIV</label></div>
+        <div><span id="voltsDivValue">1V</span><br>
+        <input type="range" name="voltsDiv" id="voltsDiv" class="slider" min="1" max="6" value="4"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="segundosDiv">SEGUNDOS/ DIV</label></div>
+        <div><span id="segundosDivValue">500&micro;s</span><br>
+        <input type="range" name="segundosDiv" id="segundosDiv" class="slider" min="1" max="6" value="4"></div>
+    </div><br>
+    <p>Definições do <u>Gerador de Sinais</u>:</p>
+    <div class="flex-slider">
+        <div><label for="freqSinal">Frequência do Sinal</label></div>
+        <div><span id="freqSinalValue">1000</span>Hz<br>
+        <input type="range" name="freqSinal" id="freqSinal" class="slider" min="100" max="10000" value="1000"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="amplitudeSinal">Amplitude do Sinal</label></div>
+        <div><span id="amplitudeSinalValue">2.000</span>V<br>
+        <input type="range" name="amplitudeSinal" id="amplitudeSinal" class="slider" min="50" max="4000" value="2000"></div>
+    </div>
+</div><br><br>
+<p>
+    Ecrã do Osciloscópio:
+</p>
 <div class="overflow">
     <div class="graf-container">
-        <div id="curva-v2x"></div>
+        <div id="curva-oscilos" style="border-radius: 5px; background-size: 100% 100%; background-image: url('Imagens/Osci-background.png')"></div>
     </div>
 </div><br>

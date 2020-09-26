@@ -3,3 +3,60 @@
     Compreender como podem ser medidas e visualizadas as características de um Som.
 </p>
 
+<br>
+<h3>Método</h3>
+<p>
+    Iremos analisar o Som usando um Osciloscópio ou outro sistema de aquisição de
+    dados semelhante.
+</p><br>
+<p>
+    O Osciloscópio irá receber um sinal elétrico, enviado por um
+    <span class="anchor" onclick="mostrarExtra('gerador-de-sinais')">Gerador de Sinais</span>
+    ou por um <span class="anchor" onclick="mostrarExtra('microfone')">Microfone</span>.
+</p>
+<div id="gerador-de-sinais" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('gerador-de-sinais')">X</button>
+    <p>
+        O <b>Gerador de Sinais</b> é um dispositivo utilizado para gerar sinais
+        elétricos em forma de onda, numa grande amplitude de frequências,
+        intensidade e formas.
+    </p>
+    <p>
+        Neste caso, iremos gerar sinais cuja forma é semelhante à do Som no ar.
+    </p><br>
+</div>
+<div id="microfone" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('microfone')">X</button>
+    <p>
+        O <b>Microfone</b> converte o sinal sonoro recebido num sinal elétrico com
+        as mesmas características.
+    </p><br>
+</div>
+<p class="m0">
+    Irá de seguida mostrar como varia a Tensão desse sinal elétrico ao longo do
+    Tempo, sendo que para podermos ver adquadamente o Sinal, termos definir as
+    escalas dos eixos:
+</p>
+<ul>
+    <li>
+        VOLTS/ DIV &rarr; Eixo Vertical, indica a quantos Volts corresponde uma
+        Divisão da escala.
+    </li>
+    <li>
+        SEGUNDOS/ DIV &rarr; Eixo Horizontal, indica a quantos Segundos corresponde
+        uma Divisão da escala.
+    </li>
+</ul>
+<br>
+<h4>Gerador de Sinais</h4>
+<p>
+    Começamos por estudar os gráficos dos sinais elétricos criados por um Gerador
+    de Sinais, já que estes irão corresponder a sons puros sem ruído, sendo por
+    isso mais fáceis de estudar.
+</p>
+<p>
+    Após ligarmos o Gerador de Sinais a uma das entradas do Osciloscópio,
+    selecionamos no Gerador um sinal sinusoidal com uma frequência de, por exemplo
+    1000Hz. De seguida regulamos a amplitude do Sinal para cerca de metade do
+    máximo que o Gerador consegue fornecer. 
+</p>

@@ -1,51 +1,140 @@
 // Definir Constantes
-const g = 9.80665   // Aceleração Gravitaconal
 
 
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
-let F11_AL13 = {
+let F11_AL21 = {
     preparado: false,
     divCurva: ''
 }
 
-let massaCarrinho
-let fAtrito
+let voltsDiv
+let segundosDiv
+let desfazamentoHorizontal
+let desfazamentoVertical
+let freqSinal
+let amplitudeSinal
 
-let massaCarrinhoResp
-let aTravagemResp
-let fAtritoTravagemResp
+let voltsDivResp
+let segundosDivResp
+let desfazamentoHorizontalResp
+let desfazamentoVerticalResp
+let freqSinalResp
+let amplitudeSinalResp
+
+let voltsDivNum = 1
+segundosDivNum = 500e-6
 
 
 function prepararResultados() {
-    if (F11_AL13.preparado) {
+    if (F11_AL21.preparado) {
         return
     }
-    F11_AL13.preparado = true
+    F11_AL21.preparado = true
+
 
     // Selecionar Sliders
-    massaCarrinho = document.getElementById('massaCarrinho')
-    fAtrito = document.getElementById('fAtrito')
-
+    voltsDiv = document.getElementById('voltsDiv')
+    segundosDiv = document.getElementById('segundosDiv')
+    freqSinal = document.getElementById('freqSinal')
+    amplitudeSinal = document.getElementById('amplitudeSinal')
 
     // Selecionar os Spans com os Valores dos Sliders
-    massaCarrinhoResp = document.getElementById('massaCarrinhoValue')
+    voltsDivResp = document.getElementById('voltsDivValue')
+    segundosDivResp = document.getElementById('segundosDivValue')
+    freqSinalResp = document.getElementById('freqSinalValue')
+    amplitudeSinalResp = document.getElementById('amplitudeSinalValue')
 
     // Selecionar a div que vai ter a Curva
-    F11_AL13.divCurva = document.getElementById('curva-v2x')
-
-    // Selecionar os Spans com os Resultados da Tabela
-    aTravagemResp = document.getElementById('aTravagemValue')
-    fAtritoTravagemResp = document.getElementById('fAtritoTravagemValue')
+    F11_AL21.divCurva = document.getElementById('curva-oscilos')
 
     // Atualizar os Sliders
-    massaCarrinho.oninput = function atualizarMassaCarrinho() {
-        let massaCarrinhoValue = massaCarrinho.value / 1000
-    
-        massaCarrinhoResp.innerHTML = `${massaCarrinhoValue.toFixed(3)}`
-    }
+    voltsDiv.oninput = function atualizarVoltsDiv() {
+        let voltsDivValue = voltsDiv.value / 1
 
+        let resp
+        switch (voltsDivValue) {
+            case 1:
+                resp = '50mV'
+                voltsDivNum = 0.05
+                break
+            case 2:
+                resp = '100mV'
+                voltsDivNum = 0.1
+                break
+            case 3:
+                resp = '500mV'
+                voltsDivNum = 0.5
+                break
+            case 4:
+                resp = '1V'
+                voltsDivNum = 1
+                break
+            case 5:
+                resp = '5V'
+                voltsDivNum = 5
+                break
+            case 6:
+                resp = '10V'
+                voltsDivNum = 10
+                break
+            default:
+                break
+        }
+    
+        voltsDivResp.innerHTML = resp
+        curva()
+    }
+    segundosDiv.oninput = function atualizarSegundosDiv() {
+        let segundosDivValue = segundosDiv.value / 1
+
+        let resp
+        switch (segundosDivValue) {
+            case 1:
+                resp = '50&micro;s'
+                segundosDivNum = 50e-6
+                break
+            case 2:
+                resp = '100&micro;s'
+                segundosDivNum = 100e-6
+                break
+            case 3:
+                resp = '200&micro;s'
+                segundosDivNum = 200e-6
+                break
+            case 4:
+                resp = '500&micro;s'
+                segundosDivNum = 500e-6
+                break
+            case 5:
+                resp = '1ms'
+                segundosDivNum = 1000e-6
+                break
+            case 6:
+                resp = '5ms'
+                segundosDivNum = 5000e-6
+                break
+            default:
+                break
+        }
+    
+        segundosDivResp.innerHTML = resp
+        curva()
+    }
+    freqSinal.oninput = function atualizarFreqSinal() {
+        let freqSinalValue = freqSinal.value / 1
+    
+        freqSinalResp.innerHTML = `${freqSinalValue.toFixed(1)}`
+        curva()
+    }
+    amplitudeSinal.oninput = function atualizarAmplitudeSinal() {
+        let amplitudeSinalValue = amplitudeSinal.value / 1000
+    
+        amplitudeSinalResp.innerHTML = `${amplitudeSinalValue.toFixed(3)}`
+        curva()
+    }
+    
     curva()
 }
 
@@ -53,87 +142,87 @@ function prepararResultados() {
 // Traçar o gráfico v^2-x
 function pontos() {
     // Declarar variáveis e valores iniciais
-    let m = massaCarrinhoValue = massaCarrinho.value / 1000
-    let fa = fAtrito.value / 10
+    let f = freqSinalValue = freqSinal.value / 1
+    let A = amplitudeSinalValue = amplitudeSinal.value / 1000
 
-    let P = m * g
-    let a = fa / m
+    // Calcular Período e Frequência Angular
+    let T = f**-1
+    let fAng = 2 * Math.PI / T
 
-    let dx = 0
-    let v2 = 0
+    // Escolher o intervalo e o delta T
+    let deltaT = Math.min(segundosDivNum / 30, T / 10) / 2
+    let t = -3.2 * segundosDivNum
 
-    let des = [dx.toFixed(2)]
-    let vel = [v2]
+    // Ideia: Fazer Desfazamentos
 
-    aTravagemResp.innerText = `${a.toFixed(2)}`
-    fAtritoTravagemResp.innerText = `${fa.toFixed(1)}`
+    let v
 
-    // Para cada deslocamento, calcular o v0^2 inicial
-    while (true) {
-        dx += 0.02
+    let tArr = []
+    let vArr = []
+    while (t < 3.2 * segundosDivNum) {
+        v = A * Math.sin(fAng * t) / voltsDivNum
 
-        v2 = 2 * a * dx
+        tArr.push((t*1000).toFixed(3))
+        vArr.push(v)
 
-        des.push(dx.toFixed(2))
-        vel.push(v2)
-
-        if (dx > 1) {
-            break
-        }
+        t += deltaT
     }
-    return [des, vel]
+    return [tArr, vArr]
 }
 
 
 // Mostrar o gráfico
 function curva() {
     // Remover o Canvas antigo
-    F11_AL13.divCurva.innerHTML = ''
+    F11_AL21.divCurva.innerHTML = ''
 
     // Obter e guardar os resultados
     let resultados = pontos()
-    let dx = resultados[0]
-    let v2 = resultados[1]
+    let t = resultados[0]
+    let v = resultados[1]
 
     // Criar o canvas onde vai estar a curva
     canvasCurva = document.createElement('canvas')
     canvasCurva.setAttribute('id', 'canvasCurva')
-    F11_AL13.divCurva.appendChild(canvasCurva)
+    F11_AL21.divCurva.appendChild(canvasCurva)
 
     // Criar o Chart Object
     let graCurva = new Chart(canvasCurva, {
         type: 'line',
         data: {
-            labels: dx,
+            labels: t,
             datasets: [{
-                data: v2,
-                label: 'Deslocamento do Carrinho',
-                borderColor: 'blue',
+                data: v,
+                label: 'Tensão',
+                borderColor: 'rgb(160, 230, 200)',
                 fill: false
             }]
         },
         options: {
+            animation: {
+                duration: 0
+            },
+            hover: {
+                animationDuration: 0
+            },
+            responsiveAnimationDuration: 0,
+            elements: {
+                point: {
+                    radius: 1,
+                    hitRadius: 1,
+                    hoverRadius: 4
+                }
+            },
             scales: {
                 xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Deslocamento do Carrinho/ m',
-                        fontColor: 'black',
-                        fontSize: 13,
-                        fontFamily: '"Arial", "sans-serif"'
-                    }
+                    display: false,
+                    labelString: '',
                 }],
                 yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Módulo do Quadrado da Velocidade/ m²/s²',
-                        fontColor: 'black',
-                        fontSize: 13,
-                        fontFamily: '"Arial", "sans-serif"'
-                    },
+                    display: false,
                     ticks: {
-                        max: 35,
-                        min: 0
+                        max: 2.04,
+                        min: -2.04
                     }
                 }]
             },
@@ -145,7 +234,7 @@ function curva() {
                     title: function(tooltipItems, data) {
                         let tooltipItem = tooltipItems[0]
 
-                        return 'Deslocamento: ' + tooltipItem.label + 'm'
+                        return 'Deslocamento: ' + tooltipItem.label + 'ms'
                     },
                     label: function(tooltipItem, data) {
                         let value = Number(tooltipItem.value).toFixed(3)
