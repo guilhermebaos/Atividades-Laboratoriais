@@ -40,23 +40,122 @@
 <ul>
     <li>
         VOLTS/ DIV &rarr; Eixo Vertical, indica a quantos Volts corresponde uma
-        Divisão da escala.
+        <span class="anchor" onclick="mostrarExtra('Divisão-da-escala')">Divisão da escala</span>.
     </li>
     <li>
         SEGUNDOS/ DIV &rarr; Eixo Horizontal, indica a quantos Segundos corresponde
-        uma Divisão da escala.
+        uma <span class="anchor" onclick="mostrarExtra('Divisão-da-escala')">Divisão da escala</span>.
     </li>
 </ul>
-<br>
-<h4>Gerador de Sinais</h4>
+<div id="Divisão-da-escala" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Divisão-da-escala')">X</button>
+    <div class="overflow">
+        <img id="Osci-explicado-F11-AL21" src="Imagens/Osci-explicado.png" alt="As maiores divisões do ecrã do Osciloscópio correspondem a uma DIV" width="803" height="512">
+    </div>
+</div><br>
+<p>Iremos realizar 4 experiências distintas:</p>
+<h4 style="margin-bottom: 5px;">1. Medição de Períodos e Frequências</h4>
 <p>
-    Começamos por estudar os gráficos dos sinais elétricos criados por um Gerador
-    de Sinais, já que estes irão corresponder a sons puros sem ruído, sendo por
-    isso mais fáceis de estudar.
+    Iremos usar o Gerador de Sinais para criar sinais elétricos que correspondam
+    a Sons Puros (sem ruído), cuja frequência podemos variar, sendo por isso
+    mais fáceis de estudar.
 </p>
 <p>
     Após ligarmos o Gerador de Sinais a uma das entradas do Osciloscópio,
-    selecionamos no Gerador um sinal sinusoidal com uma frequência de, por exemplo
-    1000Hz. De seguida regulamos a amplitude do Sinal para cerca de metade do
-    máximo que o Gerador consegue fornecer. 
+    selecionamos no Gerador um sinal
+    <span class="anchor" onclick="mostrarExtra('sinusoidal')">sinusoidal</span>
+    com uma frequência de, por exemplo, 1000Hz. De seguida regulamos a amplitude
+    do Sinal para cerca de metade do máximo que o Gerador consegue fornecer. 
+</p>
+<div id="sinusoidal" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('sinusoidal')">X</button>
+    <p>
+        Uma função <b>sinusoidal</b> irá ter uma representação gráfica semelhante
+        à da função seno(x).
+    </p>
+    <p>
+        Os sons puros são representados graficamente por funções sinusoidais.
+    </p>
+</div>
+<p>
+    De seguida ajustamos a frequência do Sinal para que uma oscilação completa
+    corresponda a uma divisão no Eixo Horizontal, tornando mais fácil a leitura do
+    Perídodo (<span class="serif">&Tau;</span>).
+</p>
+<p>
+    Posteriormente calculamos a sua frequência ( <span class="serif"><i>f</i></span> )
+    e comparamos o valor obtido com o valor indicado no Gerador.
+</p>
+
+<br>
+<h4 style="margin-bottom: 5px;">2. Intensidade de um Som e Limiar da Audição</h4>
+<p>
+    Ligamos um altifalante ou auscultador à saída do gerador de sinais, de modo
+    a ouvir o Som correspondente ao sinal elétrico que este cria.
+</p>
+<p>
+    Selecionando uma frequência, aumentamos e diminuimos a amplitude do Sinal
+    do Gerador, percebendo que a uma menor amplitude corresponde um Som mais
+    fraco e a uma maior amplitude um Som mais forte. 
+</p>
+<p>
+    Escolhendo uma amplitude que permita ouvir o som confortavelmente, começamos
+    com uma frequência inicial de 1000Hz e vamos diminuindo-a até deixarmos de
+    ouvr qualquer som, registando o valor da menor frequência por nós audível.
+</p>
+<p>
+    Depois começamos a aumentar a frequência até o Som ser tão agudo que, de
+    novo, o deixamos de ouvir, registando o valor da maior frequência por nós
+    audível.
+</p>
+<p>
+    Estes dois valores correspondem aos nossos Limiares de Audição.
+</p>
+<p>
+    Podemos também repetir este processo com uma pessoa mais velha, comparando
+    os Limiares de Audição Registados.
+</p>
+
+<br>
+<h4 style="margin-bottom: 5px;">3. Tipos de Sinais</h4>
+<p>
+    Ligamos um microfone ao
+    <span class="anchor" onclick="mostrarExtra('Canal-1')">Canal 1</span>
+    do Osciloscópio.
+</p>
+<div id="Canal-1" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Canal-1')">X</button>
+    <p>
+        A maioria dos Osciloscópios tem pelo menos dois <b>Canais</b>, isto é,
+        entradas para Sinais elétricos, sendo que pode mostrar ambos os Sinais
+        no mesmo ecrã ao mesmo tempo.
+    </p>
+</div>
+<p>
+    A seguir produzimos um som usando um Diapasão, observando a sua forma e 
+    registando o seu Perídodo e a sua Frequência, comparando com a frequência
+    indicada pelo fabricante.
+</p>
+<p>
+    Em seguida emitimos sons direcionados para o microfone, como palavras ou
+    assobios, comparando a forma do Sinal que aparece do ecrã com o Som do
+    Diapasão e com os Sons emitidos por outras pessoas.
+</p>
+
+<br>
+<h4 style="margin-bottom: 5px;">4. Medição Direta do Comprimento de Onda (&lambda;)</h4>
+<p>
+    Começamos por ligar outro microfone ao Canal 2 do Osciloscópio e por ligar o
+    Gerador de Sinais a um altifalante, sendo que os microfones devem estar
+    colocados lado a lado.
+</p>
+<p>
+    Depois produzimos um sinal no Gerador, de, por exemplo, 1000Hz. Devemos ver
+    dois sinais sobrepostos no Osciloscópio.
+</p>
+<p>
+    Fixando um dos Microfones, começamos a afastar o 2º, até que os sinais voltem
+    a estar em fase (tenham os picos e vales na mesma posição). A distância entre
+    os microfones será igual ao comprimento de onda do Som emitido pelo
+    Altifalante.
 </p>
