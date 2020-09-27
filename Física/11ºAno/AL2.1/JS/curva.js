@@ -192,7 +192,7 @@ function pontos() {
 
     // Escolher o intervalo e o delta T
     let deltaT = Math.min(segundosDivNum / 30, T / 10) / 2
-    let t = -3.172 * segundosDivNum
+    let t = -3.22 * segundosDivNum
 
     // Ideia: Fazer Desfazamentos
 
@@ -200,7 +200,7 @@ function pontos() {
 
     let tArr = []
     let vArr = []
-    while (t < 3.172 * segundosDivNum) {
+    while (t < 3.22 * segundosDivNum) {
         v = A * Math.sin(fAng * t) / voltsDivNum
 
         tArr.push((t*1000).toFixed(3))
@@ -262,8 +262,8 @@ function curva() {
                 yAxes: [{
                     display: false,
                     ticks: {
-                        max: 2.01,
-                        min: -2.01
+                        max: 2.04,
+                        min: -2.04
                     }
                 }]
             },

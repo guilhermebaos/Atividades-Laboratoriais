@@ -79,12 +79,33 @@
 </div>
 <p>
     De seguida ajustamos os SEGUNDOS/ DIV para que se veja no ecrã uma ou duas
-    oscilações completas, tornando mais fácil a leitura do Perídodo
+    oscilações completas, tornando mais fácil a
+    <span class="anchor" onclick="mostrarExtra('leitura-do-Perídodo')">leitura do Perídodo</span>
     (<span class="serif">&Tau;</span>).
 </p>
+<div id="leitura-do-Perídodo" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('leitura-do-Perídodo')">X</button>
+    <img id="Periodo-explicado-F11-AL21" src="Imagens/Periodo-explicado.png" alt="Como ler o Período no Osciloscópio" width="1250" height="625"><br>
+    <p>
+        Entre os dois pontos assinaldos ocorre uma oscilação completa. Esses pontos
+        estão a 2.0 Divisões de distância um do outro (na Horizontal).
+    </p>
+    <p>
+        Logo, o Perídodo será igual a 2.0 &times; SEGUNDOS/ DIV, sendo que os
+        SEGUNDOS/ DIV são selecionados pelo utilizador.
+    </p>
+    <p>
+        Neste caso, a cada divisão correspondem 500&micro;s, logo:
+    </p>
+    <div class="contas">
+        <span class="invi">&hArr;</span> &Tau; &equals; 2.0 &times; 500 &hArr; <br>
+        &hArr; &Tau; &equals; 1000&micro;s
+    </div><br>
+</div>
 <p>
-    Posteriormente calculamos a sua frequência ( <span class="serif"><i>f</i></span> )
-    e comparamos o valor obtido com o valor indicado no Gerador.
+    Com base no Período observado, calculamos a sua frequência
+    ( <span class="serif"><i>f</i></span> ) e comparamos o valor obtido com o
+    valor indicado no Gerador.
 </p>
 
 <br>
