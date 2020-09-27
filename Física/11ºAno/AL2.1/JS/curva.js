@@ -153,7 +153,6 @@ function criarSom(arr) {
     let buffer = aContext.createBuffer(1, buf.length, aContext.sampleRate)
     try {
         buffer.copyToChannel(buf, 0)
-        throw TypeError
     } catch (erro) {
         let bufferAtual = buffer.getChannelData(0)
         for (let i = 0; i < arr.length; i++) {bufferAtual[i] = arr[i]}
