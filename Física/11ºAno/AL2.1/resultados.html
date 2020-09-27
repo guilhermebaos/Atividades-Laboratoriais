@@ -32,7 +32,7 @@
     <div class="flex-slider">
         <div><label for="freqSinal">Frequência do Sinal</label></div>
         <div><span id="freqSinalValue">1000</span>Hz<br>
-        <input type="range" name="freqSinal" id="freqSinal" class="slider" min="100" max="10000" value="1000"></div>
+        <input type="range" name="freqSinal" id="freqSinal" class="slider" min="10" max="10000" value="1000"></div>
     </div>
     <div class="flex-slider">
         <div><label for="amplitudeSinal">Amplitude do Sinal</label></div>
@@ -47,4 +47,10 @@
     <div class="graf-container">
         <div id="curva-oscilos" style="border-radius: 5px; background-size: 100% 100%; background-image: url('Imagens/Osci-background.png')"></div>
     </div>
-</div><br>
+</div><br><br>
+<p>
+    Podemos também ouvir o Som correspondente ao Sinal elétrico produzido pelo
+    Gerador de Sinais:
+</p>
+<button id="ouvir-Som" class="submit" onclick="tocarSom()">Ouvir o Som</button>
+<br><br>

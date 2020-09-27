@@ -26,6 +26,8 @@ let amplitudeSinalResp
 let voltsDivNum = 1
 segundosDivNum = 500e-6
 
+let aContext
+
 
 function prepararResultados() {
     if (F11_AL21.preparado) {
@@ -112,8 +114,8 @@ function prepararResultados() {
                 segundosDivNum = 1000e-6
                 break
             case 6:
-                resp = '5ms'
-                segundosDivNum = 5000e-6
+                resp = '2ms'
+                segundosDivNum = 2000e-6
                 break
             default:
                 break
@@ -134,13 +136,52 @@ function prepararResultados() {
         amplitudeSinalResp.innerHTML = `${amplitudeSinalValue.toFixed(3)}`
         curva()
     }
+
+
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+    aContext = new AudioContext();
     
     curva()
 }
 
 
+// Retirado de: https://stackoverflow.com/questions/34708980/generate-sine-wave-and-play-it-in-the-browser
+function criarSom(arr) {
+    let buf = new Float32Array(arr.length)
+    for (let i = 0; i < arr.length; i++) {buf[i] = arr[i]}
+    let buffer = aContext.createBuffer(1, buf.length, aContext.sampleRate)
+    buffer.copyToChannel(buf, 0)
+    let fonte = aContext.createBufferSource();
+    fonte.buffer = buffer;
+    fonte.connect(aContext.destination);
+    fonte.start(0);
+}
+
+function somSinudoidal(sampleNumber, tom) {
+    var sampleFreq = aContext.sampleRate / tom
+    return Math.sin(sampleNumber / (sampleFreq / (Math.PI * 2)))
+}
+
+function tocarSom() {
+    let somArr = [],
+    volume = amplitudeSinal.value / 1000 * 0.1,
+    segundos = 1,
+    tom = freqSinal.value / 1
+
+    for (let i = 0; i < aContext.sampleRate * segundos; i++) {
+        somArr[i] = somSinudoidal(i, tom) * volume
+    }
+
+    criarSom(somArr)
+}
+    
+
+
 // Traçar o gráfico v^2-x
 function pontos() {
+    // tocarSom() -> Ouvir todos os Sons
+
     // Declarar variáveis e valores iniciais
     let f = freqSinalValue = freqSinal.value / 1
     let A = amplitudeSinalValue = amplitudeSinal.value / 1000
@@ -230,22 +271,7 @@ function curva() {
                 display: false,
             },
             tooltips: {
-                callbacks: {
-                    title: function(tooltipItems, data) {
-                        let tooltipItem = tooltipItems[0]
-
-                        return 'Deslocamento: ' + tooltipItem.label + 'ms'
-                    },
-                    label: function(tooltipItem, data) {
-                        let value = Number(tooltipItem.value).toFixed(3)
-    
-                        return 'Quadrado da Velocidade: ' + value + 'm²/s²'
-                    }
-                },
-                custom: function(tooltip) {
-                    if (!tooltip) return
-                    tooltip.displayColors = false
-                },
+                enabled: false
             }
         },
     })
