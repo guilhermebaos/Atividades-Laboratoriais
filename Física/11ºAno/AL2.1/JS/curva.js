@@ -146,20 +146,28 @@ function prepararResultados() {
 }
 
 
-// Retirado de: https://stackoverflow.com/questions/34708980/generate-sine-wave-and-play-it-in-the-browser
+// Inspirado por: https://stackoverflow.com/questions/34708980/generate-sine-wave-and-play-it-in-the-browser
 function criarSom(arr) {
     let buf = new Float32Array(arr.length)
     for (let i = 0; i < arr.length; i++) {buf[i] = arr[i]}
     let buffer = aContext.createBuffer(1, buf.length, aContext.sampleRate)
-    buffer.copyToChannel(buf, 0)
-    let fonte = aContext.createBufferSource();
-    fonte.buffer = buffer;
-    fonte.connect(aContext.destination);
-    fonte.start(0);
+    try {
+        buffer.copyToChannel(buf, 0)
+        throw TypeError
+    } catch (erro) {
+        let bufferAtual = buffer.getChannelData(0)
+        for (let i = 0; i < arr.length; i++) {bufferAtual[i] = arr[i]}
+        console.log(`Erro no Safari: ${erro}`)
+        console.log('Usando método getChannelData()')
+    }
+    let fonte = aContext.createBufferSource()
+    fonte.buffer = buffer
+    fonte.connect(aContext.destination)
+    fonte.start(0)
 }
 
 function somSinudoidal(sampleNumber, tom) {
-    var sampleFreq = aContext.sampleRate / tom
+    let sampleFreq = aContext.sampleRate / tom
     return Math.sin(sampleNumber / (sampleFreq / (Math.PI * 2)))
 }
 
