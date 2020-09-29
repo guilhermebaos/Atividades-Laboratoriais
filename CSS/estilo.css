@@ -97,6 +97,11 @@ hr.frac {
     margin: 0px;
 }
 
+
+.margin-auto {
+    margin: auto;
+}
+
 .m0 {
     margin: 0px;
 }
@@ -109,20 +114,16 @@ hr.frac {
     line-height: 130%;
 }
 
-.nota {
-    font-size: 90%;
-}
-
 .grande {
     font-size: 120%;
 }
 
-.pequeno {
-    font-size: 80%;
+.nota {
+    font-size: 90%;
 }
 
-.margin-auto {
-    margin: auto;
+.pequeno {
+    font-size: 80%;
 }
 
 .serif {
@@ -201,6 +202,12 @@ div.graf-overflow {
     overflow-y: hidden;
     width: 100%;
     padding: 0px;
+}
+
+div.graf-background {
+    background-size: 100% 100%;
+    padding: 0px;
+    border-radius: 5px;
 }
 
 div.graf-container {
@@ -356,7 +363,7 @@ table.centrada {
 table.explicar {
     font-size: 80%;
     text-indent: 0px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 table.explicar tr {
     border-bottom: 1px solid lightgray;
