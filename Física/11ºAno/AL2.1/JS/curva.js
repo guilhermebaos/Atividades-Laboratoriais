@@ -283,3 +283,5 @@ function curva() {
         },
     })
 }
+
+// Ideia: Permitir Input do Microfone
