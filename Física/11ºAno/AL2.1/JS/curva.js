@@ -11,15 +11,11 @@ let F11_AL21 = {
 
 let voltsDiv
 let segundosDiv
-let desfazamentoHorizontal
-let desfazamentoVertical
 let freqSinal
 let amplitudeSinal
 
 let voltsDivResp
 let segundosDivResp
-let desfazamentoHorizontalResp
-let desfazamentoVerticalResp
 let freqSinalResp
 let amplitudeSinalResp
 
@@ -185,7 +181,7 @@ function tocarSom() {
     
 
 
-// Traçar o gráfico v^2-x
+// Traçar o gráfico correspondente ao Sinal do Gerador de Sinais
 function pontos() {
     // tocarSom() -> Ouvir todos os Sons
 

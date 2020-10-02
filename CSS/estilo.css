@@ -257,7 +257,7 @@ div.flex-slider div.label {
     flex: 1 1 0px;
 }
 div.flex-slider div.btn {
-    min-width: 100px;
+    min-width: fit-content;
 }
 
 div.flex {
