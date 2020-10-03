@@ -105,6 +105,9 @@ hr.frac {
 .m0 {
     margin: 0px;
 }
+.m5-top {
+    margin: 5px 0px 0px 0px;
+}
 
 .nbsp {
     white-space: nowrap;
