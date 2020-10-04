@@ -116,10 +116,6 @@ function pontos() {
     let volumeAdicional = (VolTitulante.value / 100) / 1000
     let volumeTotal = (VolTitulado.value * 1) / 1000
 
-    console.log(volumeTitulado)
-    console.log(volumeAdicional)
-    console.log(volumeTotal)
-
     let pH = 0
 
     let xVolumes = []

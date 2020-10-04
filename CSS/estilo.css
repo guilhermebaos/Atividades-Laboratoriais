@@ -109,6 +109,10 @@ hr.frac {
     margin: 5px 0px 0px 0px;
 }
 
+.p0 {
+    padding: 0px;
+}
+
 .nbsp {
     white-space: nowrap;
 }
@@ -260,7 +264,8 @@ div.flex-slider div.label {
     flex: 1 1 0px;
 }
 div.flex-slider div.btn {
-    min-width: fit-content;
+    flex: 1 1 100px;
+    min-width: 100px;
 }
 
 div.flex {
