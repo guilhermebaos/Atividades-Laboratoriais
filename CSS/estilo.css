@@ -247,6 +247,12 @@ div.centrada {
     justify-content: center;
 }
 
+div.texto-centrado {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
 div.flex-slider {
     display: flex;
     flex-flow: row wrap;
