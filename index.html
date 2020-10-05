@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="CSS/estilo.css">
 
     <script src="JS/w3-Html-Includes.js"></script>
+    <script src="../../../JS/menu.js"></script>
+    <script src="../../../JS/explicar.js"></script>
     
 </head>
 <body>
@@ -28,11 +30,70 @@
         <section>
             <div>
                 <p>
-                    Tem como objetivo facilitar a compreensão e visualização das
-                    Atividades Laboratoriais realizadas ao longo do Secundário, nas disciplinas de
-                    Física e Química A (10º e 11º), Física (12º) e Química (12º).
+                    O nosso Objetivo é facilitar a aprendizagem das Atividades
+                    Laboratoriais (as ALs) de Física e de Química, de todo o
+                    Secundário.
                 </p>
+            </div><br>
+            <div>
                 <p>
+                    Para facilitar a tua exploração das ALs, podes aceder a, por
+                    exemplo:
+                </p>
+                <ul>
+                    <li>Notas<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup></li>
+                    <p name="exp-contas" style="display: none;"><br><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>Em
+                        notas como estas irás veres pequenas explicações,
+                        normalmente associadas aos cálculos ou deduções matemáticas.
+                        Para a fechar clica de novo no [1].<br><br>
+                    </p>
+                    <li><span class="anchor" onclick="mostrarExtra('Informações-adicionais')">Informações adicionais</span></li>
+                    <div id="Informações-adicionais" class="explicar" style="display: none;">
+                        <button class="fechar" onclick="mostrarExtra('Informações-adicionais')">X</button>
+                        <p>
+                            Aqui vais encontrar Informações extra para te ajudar a
+                            compreender uma determinada palavra, expressão,
+                            instrumento de laboratório ou raciocínio científico.
+                        </p><br>
+                    </div>
+                </ul><br>
+                <p>
+                    Para além disso isso, o conteúdo correspondente a cada
+                    AL está dividido em 4 partes:
+                </p>
+                <ul>
+                    <li>Teoria</li>
+                    <li>Material Necessário</li>
+                    <li>Procedimento Laboratorial</li>
+                    <li>Simulação dos Resultados</li>
+                </ul><br>
+                <p>
+                    Após reveres os conceitos teóricos necessários à compreensão
+                    da AL, podes Simular resultados experimentais realisticos,
+                    e usar as <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
+                    apresentadas para verificar se entendes cada AL.
+                </p>
+                <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
+                    <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
+                    <p>
+                        Após te familiarizares com a interface da Simulação, podes
+                        resolver os exercícos sugeridos.
+                    </p>
+                    <p>
+                        Cada exercício irá indicar que valores podes usar para
+                        chegar à sua resposta.
+                    </p>
+                    <p>
+                        Os resultados aos exercícios estão sempre incluidos entre
+                        os Resultados Experimentais apresentados.
+                    </p><br>
+                </div><br>
+            </div>
+            <div>
+                <p>Usa a barra de navegação acima para explorar o Site!</p>
+            </div><br><br>
+            <div>
+                <p class="nota">
                     Este site ainda está na fase de desenvolvimento, logo, o número de 
                     ALs que temos disponíveis irá aumentar ao longo do tempo, bem como
                     o número de outros recursos e ferrementas.
