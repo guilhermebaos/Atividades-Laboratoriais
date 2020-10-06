@@ -37,12 +37,12 @@ function prepararResultados() {
     forçaEletromotriz.oninput = function atualizarForçaEletromotriz() {
         let forçaEletromotrizValue = forçaEletromotriz.value / 10
     
-        forçaEletromotrizResp.innerHTML = `${forçaEletromotrizValue.toFixed(1)}`
+        forçaEletromotrizResp.innerText = `${forçaEletromotrizValue.toFixed(1)}`
     }
     resistInterna.oninput = function atualizarResistInterna() {
         let resistInternaValue = resistInterna.value / 100
     
-        resistInternaResp.innerHTML = `${resistInternaValue.toFixed(2)}`
+        resistInternaResp.innerText = `${resistInternaValue.toFixed(2)}`
     }
 
     curva()

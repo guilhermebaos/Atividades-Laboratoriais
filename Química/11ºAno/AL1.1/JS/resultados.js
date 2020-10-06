@@ -49,21 +49,21 @@ function prepararResultados() {
     massaReagente1.oninput = function atualizarMassaReagente1() {
         let massaReagente1Value = massaReagente1.value / 100
     
-        massaReagente1Resp.innerHTML = `${massaReagente1Value.toFixed(2)}`
+        massaReagente1Resp.innerText = `${massaReagente1Value.toFixed(2)}`
 
         calcularMassaProdutoMax()
     }
     volumeReagente2.oninput = function atualizarVolumeReagente2() {
         let volumeReagente2Value = volumeReagente2.value / 100
     
-        volumeReagente2Resp.innerHTML = `${volumeReagente2Value.toFixed(2)}`
+        volumeReagente2Resp.innerText = `${volumeReagente2Value.toFixed(2)}`
         
         calcularMassaProdutoMax()
     }
     massaProduto.oninput = function atualizarMassaProduto() {
         let massaProdutoValue = massaProduto.value / 100
     
-        massaProdutoResp.innerHTML = `${massaProdutoValue.toFixed(2)}`
+        massaProdutoResp.innerText = `${massaProdutoValue.toFixed(2)}`
     }
 
     curva()

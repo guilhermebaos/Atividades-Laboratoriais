@@ -103,7 +103,7 @@ function prepararResultados() {
                 break
         }
     
-        voltsDivResp.innerHTML = resp
+        voltsDivResp.innerText = resp
         if (procedimentoEscolhido == 2) {
             curva()
         }
@@ -149,25 +149,25 @@ function prepararResultados() {
     freqSinal.oninput = function atualizarFreqSinal() {
         let freqSinalValue = freqSinal.value / 1
     
-        freqSinalResp.innerHTML = `${freqSinalValue.toFixed(1)}`
+        freqSinalResp.innerText = `${freqSinalValue.toFixed(1)}`
         curva()
     }
     amplitudeSinal.oninput = function atualizarAmplitudeSinal() {
         let amplitudeSinalValue = amplitudeSinal.value / 1000
     
-        amplitudeSinalResp.innerHTML = `${amplitudeSinalValue.toFixed(3)}`
+        amplitudeSinalResp.innerText = `${amplitudeSinalValue.toFixed(3)}`
         curva()
     }
     distMicrofone.oninput = function atualizarDistMicrofone() {
         let distMicrofoneValue = distMicrofone.value / 10
     
-        distMicrofoneResp.innerHTML = `${distMicrofoneValue.toFixed(2)}`
+        distMicrofoneResp.innerText = `${distMicrofoneValue.toFixed(2)}`
         curva()
     }
     temperaturaAr.oninput = function atualizarTemperaturaAr() {
         let temperaturaArValue = temperaturaAr.value / 10
     
-        temperaturaArResp.innerHTML = `${temperaturaArValue.toFixed(1)}`
+        temperaturaArResp.innerText = `${temperaturaArValue.toFixed(1)}`
 
         if (procedimentoEscolhido == 2) {
             curva()
@@ -177,7 +177,7 @@ function prepararResultados() {
     mangueira.oninput = function atualizarMangueira() {
         let mangueiraValue = mangueira.value / 1
     
-        mangueiraResp.innerHTML = `${mangueiraValue.toFixed(0)}`
+        mangueiraResp.innerText = `${mangueiraValue.toFixed(0)}`
     }
 
 
@@ -306,7 +306,7 @@ function pontos2() {
 
     // Velocidade do Som
     let vSom = vSomTemp(tAr)
-    let intensidadeSom = 1 / d
+    // let intensidadeSom = 1 / d
 
     let v // Volts
 

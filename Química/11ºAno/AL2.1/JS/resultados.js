@@ -55,20 +55,24 @@ function prepararResultados() {
     // Atualizar os Sliders
     ConcTitulante.oninput = function atualizarConcTitulante() {
         let ConcTitulanteValue = ConcTitulante.value / 1000
-        ConcTitulanteResp.innerHTML = `${ConcTitulanteValue.toFixed(3)}`
+
+        ConcTitulanteResp.innerText = `${ConcTitulanteValue.toFixed(3)}`
     }
     ConcTitulado.oninput = function atualizarConcTitulado() {
         let ConcTituladoValue = ConcTitulado.value / 1000
-        ConcTituladoResp.innerHTML = `${ConcTituladoValue.toFixed(3)}`
+
+        ConcTituladoResp.innerText = `${ConcTituladoValue.toFixed(3)}`
     }
 
     VolTitulante.oninput = function atualizarVolTitulante() {
         let VolTitulanteValue = VolTitulante.value / 100
-        VolTitulanteResp.innerHTML = `${VolTitulanteValue.toFixed(2)}`
+
+        VolTitulanteResp.innerText = `${VolTitulanteValue.toFixed(2)}`
     }
     VolTitulado.oninput = function atualizarVolTitulado() {
         let VolTituladoValue = VolTitulado.value / 1
-        VolTituladoResp.innerHTML = `${VolTituladoValue.toFixed(2)}`
+        
+        VolTituladoResp.innerText = `${VolTituladoValue.toFixed(2)}`
     }
 
     curva()

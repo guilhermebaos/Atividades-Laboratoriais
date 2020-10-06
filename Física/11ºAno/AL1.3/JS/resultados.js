@@ -43,7 +43,7 @@ function prepararResultados() {
     massaCarrinho.oninput = function atualizarMassaCarrinho() {
         let massaCarrinhoValue = massaCarrinho.value / 1000
     
-        massaCarrinhoResp.innerHTML = `${massaCarrinhoValue.toFixed(3)}`
+        massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(3)}`
     }
 
     curva()

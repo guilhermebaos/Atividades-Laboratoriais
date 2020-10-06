@@ -57,26 +57,26 @@ function prepararResultados() {
     massaCarrinho.oninput = function atualizarMassaCarrinho() {
         let massaCarrinhoValue = massaCarrinho.value / 100
     
-        massaCarrinhoResp.innerHTML = `${massaCarrinhoValue.toFixed(2)}`
+        massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(2)}`
 
         atualizarAtritoMax()
     }
     massaCorpoSuspenso.oninput = function atualizarMassaCorpoSuspenso() {
         let massaCorpoSuspensoValue = massaCorpoSuspenso.value / 100
     
-        massaCorpoSuspensoResp.innerHTML = `${massaCorpoSuspensoValue.toFixed(2)}`
+        massaCorpoSuspensoResp.innerText = `${massaCorpoSuspensoValue.toFixed(2)}`
 
         atualizarAtritoMax()
     }
     alturaCorpoSuspenso.oninput = function atualizarAlturaCorpoSuspenso() {
         let alturaCorpoSuspensoValue = alturaCorpoSuspenso.value / 100
     
-        alturaCorpoSuspensoResp.innerHTML = `${alturaCorpoSuspensoValue.toFixed(2)}`
+        alturaCorpoSuspensoResp.innerText = `${alturaCorpoSuspensoValue.toFixed(2)}`
     }
     forçaAtrito.oninput = function atualizarForçaAtrito() {
         let forçaAtritoValue = forçaAtrito.value / 1000
     
-        forçaAtritoResp.innerHTML = `${forçaAtritoValue.toFixed(3)}`
+        forçaAtritoResp.innerText = `${forçaAtritoValue.toFixed(3)}`
     }
 
     curva()
@@ -94,7 +94,7 @@ function atualizarAtritoMax() {
     let FaMaxConvertido = Math.floor(FaMax * 1000)
 
     if (forçaAtrito.value > FaMaxConvertido) {
-        forçaAtritoResp.innerHTML = `${(FaMaxConvertido / 1000).toFixed(3)}`
+        forçaAtritoResp.innerText = `${(FaMaxConvertido / 1000).toFixed(3)}`
     }
 
     forçaAtrito.max = FaMaxConvertido

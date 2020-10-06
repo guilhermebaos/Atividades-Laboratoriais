@@ -55,12 +55,12 @@ function prepararResultados() {
     massaEsfera.oninput = function atualizarMassaEsfera() {
         let massaEsferaValue = massaEsfera.value / 10
     
-        massaEsferaResp.innerHTML = `${massaEsferaValue.toFixed(1)}`
+        massaEsferaResp.innerText = `${massaEsferaValue.toFixed(1)}`
     }
     massaPic.oninput = function atualizarMassaPic() {
         let massaPicValue = massaPic.value / 10
     
-        massaPicResp.innerHTML = `${massaPicValue.toFixed(1)}`
+        massaPicResp.innerText = `${massaPicValue.toFixed(1)}`
     }
 
     curva()

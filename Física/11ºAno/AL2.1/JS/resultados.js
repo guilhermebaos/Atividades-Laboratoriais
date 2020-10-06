@@ -117,19 +117,19 @@ function prepararResultados() {
                 break
         }
     
-        segundosDivResp.innerText = resp
+        segundosDivResp.innerHTML = resp
         curva()
     }
     freqSinal.oninput = function atualizarFreqSinal() {
         let freqSinalValue = freqSinal.value / 1
     
-        freqSinalResp.innerHTML = `${freqSinalValue.toFixed(1)}`
+        freqSinalResp.innerText = `${freqSinalValue.toFixed(1)}`
         curva()
     }
     amplitudeSinal.oninput = function atualizarAmplitudeSinal() {
         let amplitudeSinalValue = amplitudeSinal.value / 1000
     
-        amplitudeSinalResp.innerHTML = `${amplitudeSinalValue.toFixed(3)}`
+        amplitudeSinalResp.innerText = `${amplitudeSinalValue.toFixed(3)}`
         curva()
     }
 

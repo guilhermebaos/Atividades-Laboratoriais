@@ -57,17 +57,17 @@ function prepararResultados() {
     massaBola.oninput = function atualizarMassaBola() {
         let massaBolaValue = massaBola.value / 1000
     
-        massaBolaResp.innerHTML = `${massaBolaValue.toFixed(3)}`
+        massaBolaResp.innerText = `${massaBolaValue.toFixed(3)}`
     }
     raioBola.oninput = function atualizarRaioBola() {
         let raioBolaValue = raioBola.value / 10
     
-        raioBolaResp.innerHTML = `${raioBolaValue.toFixed(1)}`
+        raioBolaResp.innerText = `${raioBolaValue.toFixed(1)}`
     }
     alturaInicial.oninput = function atualizarAlturaInicial() {
         let alturaInicialValue = alturaInicial.value / 1
     
-        alturaInicialResp.innerHTML = `${alturaInicialValue.toFixed(0)}`
+        alturaInicialResp.innerText = `${alturaInicialValue.toFixed(0)}`
     }
 
     curva()
@@ -117,8 +117,8 @@ function valoresTabela(alturas) {
     let retaMelhorAjuste = regression.linear(pontos);
     let declive = retaMelhorAjuste.equation[0];
     
-    razaoResp.innerHTML = `${declive.toFixed(2)}`
-    EmDissipadaResp.innerHTML = `${((1 - declive) * 100).toFixed(0)}%`
+    razaoResp.innerText = `${declive.toFixed(2)}`
+    EmDissipadaResp.innerText = `${((1 - declive) * 100).toFixed(0)}%`
 }
 
 

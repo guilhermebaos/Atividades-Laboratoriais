@@ -46,14 +46,14 @@ function prepararResultados() {
     massaCemGotas.oninput = function atualizarMassaCemGotas() {
         let massaCemGotasValue = massaCemGotas.value * 10
     
-        massaCemGotasResp.innerHTML = `${massaCemGotasValue.toFixed(0)}`
+        massaCemGotasResp.innerText = `${massaCemGotasValue.toFixed(0)}`
 
         corrigirVolumeCemGotas()
     }
     volumeCemGotas.oninput = function atualizarVolumeCemGotas() {
         let volumeCemGotasValue = volumeCemGotas.value / 100
     
-        volumeCemGotasResp.innerHTML = `${volumeCemGotasValue.toFixed(2)}`
+        volumeCemGotasResp.innerText = `${volumeCemGotasValue.toFixed(2)}`
 
         corrigirMassaCemGotas()
     }
@@ -70,12 +70,12 @@ function corrigirVolumeCemGotas() {
         volumeCemGotas.value = massaCemGotas.value / densidadeMin       // Calcular o Volume usando a densidade Mínima
 
         let volumeCemGotasValue = volumeCemGotas.value / 100
-        volumeCemGotasResp.innerHTML = `${volumeCemGotasValue.toFixed(2)}`
+        volumeCemGotasResp.innerText = `${volumeCemGotasValue.toFixed(2)}`
     } else if (densidade > densidadeMax) {
         volumeCemGotas.value = massaCemGotas.value / densidadeMax       // Calcular o Volume usando a densidade Máxima
 
         let volumeCemGotasValue = volumeCemGotas.value / 100
-        volumeCemGotasResp.innerHTML = `${volumeCemGotasValue.toFixed(2)}`
+        volumeCemGotasResp.innerText = `${volumeCemGotasValue.toFixed(2)}`
     }
 }
 
@@ -88,12 +88,12 @@ function corrigirMassaCemGotas() {
         massaCemGotas.value = volumeCemGotas.value * densidadeMin       // Calcular a Massa usando a densidade Mínima
 
         let massaCemGotasValue = massaCemGotas.value * 10
-        massaCemGotasResp.innerHTML = `${massaCemGotasValue.toFixed(0)}`
+        massaCemGotasResp.innerText = `${massaCemGotasValue.toFixed(0)}`
     } else if (densidade > densidadeMax) {
         massaCemGotas.value = volumeCemGotas.value * densidadeMax       // Calcular a Massa usando a densidade Máxima
 
         let massaCemGotasValue = massaCemGotas.value * 10
-        massaCemGotasResp.innerHTML = `${massaCemGotasValue.toFixed(0)}`
+        massaCemGotasResp.innerText = `${massaCemGotasValue.toFixed(0)}`
     }
 }
 
@@ -107,9 +107,9 @@ function curva() {
     let nTexto = String(N.toExponential(5))
     nTexto = nTexto.slice(0, 4) + ' &times 10<sup>' + nTexto.slice(nTexto.length - 2) + '</sup>'
 
-    massaGotaResp.innerHTML = `${massa.toFixed(1)}`
-    volumeGotaResp.innerHTML = `${volume.toFixed(1)}`
-    nGotaResp.innerHTML = `${nTexto}`
+    massaGotaResp.innerText = `${massa.toFixed(1)}`
+    volumeGotaResp.innerText = `${volume.toFixed(1)}`
+    nGotaResp.innerText = `${nTexto}`
 }
 
 // Ideia: Incluir variação da densidade com a temperatura

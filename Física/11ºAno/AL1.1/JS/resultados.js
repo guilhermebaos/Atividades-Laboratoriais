@@ -76,17 +76,17 @@ function prepararResultados() {
     massaEsfera.oninput = function atualizarMassaEsfera() {
         let massaEsferaValue = massaEsfera.value / 1
     
-        massaEsferaResp.innerHTML = `${massaEsferaValue.toFixed(0)}`
+        massaEsferaResp.innerText = `${massaEsferaValue.toFixed(0)}`
     }
     raioEsfera.oninput = function atualizarRaioEsfera() {
         let raioEsferaValue = raioEsfera.value / 10
     
-        raioEsferaResp.innerHTML = `${raioEsferaValue.toFixed(1)}`
+        raioEsferaResp.innerText = `${raioEsferaValue.toFixed(1)}`
     }
     distCelulas.oninput = function atualizarDistCelulas() {
         let distCelulasValue = distCelulas.value / 1
     
-        distCelulasResp.innerHTML = `${distCelulasValue.toFixed(0)}`
+        distCelulasResp.innerText = `${distCelulasValue.toFixed(0)}`
     }
 
     curva()

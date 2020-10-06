@@ -43,21 +43,21 @@ function prepararResultados() {
     massaCarrinho.oninput = function atualizarMassaCarrinho() {
         let massaCarrinhoValue = massaCarrinho.value * 10
     
-        massaCarrinhoResp.innerHTML = `${massaCarrinhoValue.toFixed(0)}`
+        massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(0)}`
 
         atualizarAtritoMax()
     }
     angPlanoInclinado.oninput = function atualizarAngPlanoInclinado() {
         let angPlanoInclinadoValue = angPlanoInclinado.value / 10
     
-        angPlanoInclinadoResp.innerHTML = `${angPlanoInclinadoValue.toFixed(1)}`
+        angPlanoInclinadoResp.innerText = `${angPlanoInclinadoValue.toFixed(1)}`
 
         atualizarAtritoMax()
     }
     forçaAtrito.oninput = function atualizarForçaAtrito() {
         let forçaAtritoValue = forçaAtrito.value / 1000
     
-        forçaAtritoResp.innerHTML = `${forçaAtritoValue.toFixed(3)}`
+        forçaAtritoResp.innerText = `${forçaAtritoValue.toFixed(3)}`
     }
 
     curva()
@@ -74,7 +74,7 @@ function atualizarAtritoMax() {
     let FaMaxConvertido = Math.floor(FaMax * 1000)
 
     if (forçaAtrito.value > FaMaxConvertido) {
-        forçaAtritoResp.innerHTML = `${(FaMaxConvertido / 1000).toFixed(3)}`
+        forçaAtritoResp.innerText = `${(FaMaxConvertido / 1000).toFixed(3)}`
     }
 
     forçaAtrito.max = FaMaxConvertido
