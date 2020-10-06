@@ -102,6 +102,10 @@ hr.frac {
     margin: auto;
 }
 
+.mw-140 {
+    min-width: 140px !important;
+}
+
 .m0 {
     margin: 0px;
 }
@@ -125,6 +129,7 @@ hr.frac {
     font-size: 120%;
 }
 
+
 .nota {
     font-size: 90%;
 }
@@ -136,6 +141,10 @@ hr.frac {
 .serif {
     font-family: serif;
     font-size: 110%;
+}
+.serif100 {
+    font-family: serif;
+    font-size: 95%;
 }
 
 span.invi {
@@ -603,6 +612,12 @@ img#Periodo-explicado-F11-AL21 {
     display: block;
     margin: auto;
     min-width: 300px;
+    border-radius: 5px;
+}
+img#TP-Exame {
+    display: block;
+    margin: auto;
+    min-width: 400px;
     border-radius: 5px;
 }
 

@@ -81,7 +81,7 @@ function prepararResultados() {
                 break
         }
     
-        voltsDivResp.innerHTML = resp
+        voltsDivResp.innerText = resp
         curva()
     }
     segundosDiv.oninput = function atualizarSegundosDiv() {
@@ -117,7 +117,7 @@ function prepararResultados() {
                 break
         }
     
-        segundosDivResp.innerHTML = resp
+        segundosDivResp.innerText = resp
         curva()
     }
     freqSinal.oninput = function atualizarFreqSinal() {
