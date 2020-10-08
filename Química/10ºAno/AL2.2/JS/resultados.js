@@ -63,7 +63,7 @@ function prepararResultados() {
         let volumeSoluValue = volumeSolu.value / 1
 
         let resp
-        switch (volumeSoluValue ) {
+        switch (volumeSoluValue) {
             case 1:
                 resp = '100'
                 Vsol = 0.100
