@@ -1,7 +1,7 @@
 body {
     background: rgba(0, 125, 255, 0.3);
-    font-size: 13pt;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 13.2pt;
+    font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;
     /*font-family: "Comic Sans MS", cursive, sans-serif;*/
     margin: 0px;
 }
@@ -22,6 +22,9 @@ header {
         max-width: 1500px;
         min-height: calc(100vh - 10px - 10px - 40px - 50px);
     }
+    div.mobile-only {
+        display: none;
+    }
 }
 @media screen and (max-width: 600px) {
     main {
@@ -30,6 +33,9 @@ header {
         padding: 10px 20px 10px 20px;
         width: 80%;
         min-height: calc(100vh - 10px - 10px - 40px - 50px);
+    }
+    div.mobile-only {
+        display: initial;
     }
 }
 
