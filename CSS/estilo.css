@@ -589,6 +589,10 @@ ol li {
     margin-top: 5px;
 }
 
+ol.junto li {
+    margin-top: 0px;
+}
+
 ol.procedimento {
     line-height: 120%;
 }
