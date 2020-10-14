@@ -99,8 +99,18 @@ h3.unidade {
     margin-bottom: 15px;
 }
 
+
 hr.frac {
     margin: 0px;
+}
+
+
+.maxw-fc {
+    max-width: fit-content;
+}
+
+.minw-140 {
+    min-width: 140px !important;
 }
 
 
@@ -108,33 +118,33 @@ hr.frac {
     margin: auto;
 }
 
-.mw-140 {
-    min-width: 140px !important;
-}
-
 .m0 {
     margin: 0px;
 }
+
 .m5-top {
     margin: 5px 0px 0px 0px;
 }
+
 
 .p0 {
     padding: 0px;
 }
 
+
 .nbsp {
     white-space: nowrap;
 }
+
 
 .linha-alta {
     line-height: 130%;
 }
 
+
 .grande {
     font-size: 120%;
 }
-
 
 .nota {
     font-size: 90%;
@@ -144,6 +154,7 @@ hr.frac {
     font-size: 80%;
 }
 
+
 .serif {
     font-family: serif;
     font-size: 110%;
@@ -152,6 +163,7 @@ hr.frac {
     font-family: serif;
     font-size: 95%;
 }
+
 
 span.invi {
     color: white;
@@ -268,6 +280,20 @@ div.texto-centrado {
     text-align: center;
 }
 
+div.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 0px;
+}
+div.flex div {
+    flex: 1 1 100px;
+    margin: 5px;
+    padding: 0px;
+}
+
 div.flex-slider {
     display: flex;
     flex-flow: row wrap;
@@ -288,19 +314,15 @@ div.flex-slider div.btn {
     flex: 1 1 100px;
     min-width: 100px;
 }
-
-div.flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    padding: 0px;
+div.flex-slider div.small-btns {
+    flex: 1 1 0px;
+    min-width: 200px;
 }
-div.flex div {
-    flex: 1 1 100px;
-    margin: 5px;
-    padding: 0px;
+
+div.small-btns button {
+    width: fit-content;
+    padding: 4px 10px 4px 10px;
+    transition: background-color 0.2s;
 }
 
 div.contas {
@@ -463,6 +485,12 @@ input.slider::-moz-range-thumb {
 }
 
 
+select:hover {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+
 button {
     outline: none;
 }
@@ -479,7 +507,7 @@ button.escolha {
     width: 100%;
     margin: 2px 0px 2px 0px;
     padding: 5px 20px 5px 20px;
-    background-color: rgba(50, 140, 255, 0.7);
+    background-color: rgba(50, 140, 255, 0.6);
     border-radius: 10px;
     border-color: rgba(0, 120, 255, 0.5);
     transition: background-color 0.2s;
@@ -506,7 +534,7 @@ button.submit {
     max-width: 70vw;
     margin: 15px 0px 0px 5px;
     padding: 5px 12px 5px 12px;
-    background-color: rgba(50, 140, 255, 0.7);
+    background-color: rgba(50, 140, 255, 0.8);
     border-radius: 10px;
     border-color: rgba(0, 120, 255, 0.5);
     transition: background-color 0.2s;

@@ -1,7 +1,7 @@
 <h3>Resultados</h3>
 
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
+    Altera os Embulhos dos tubos de ensaio A, B, C, D e E, de forma a poderes ver
     diferentes resultados.
 </p>
 <p>
@@ -15,8 +15,77 @@
     </ul>
 </div><br>
 <div class="centrada">
+    <p>
+        Cada tubo de ensaio irá ter um embrulho diferente, para podermos comparar
+        como irá escurecer o Cloreto de Prata quando incide sobre ele luz
+        de diferentes intensidades.
+    </p><br>
+    <div class="flex-slider" style="margin-bottom: 10px;">
+        <div><b>Embrulhos:</b></div>
+        <div><b>Tubos de Ensaio:</b></div>
+    </div>
+    <div class="flex-slider">
+        <div><label>Folha de Alumínio</label></div>
+        <div class="flex-slider">
+            <div class="small-btns">
+                <button name="tubo" class="escolha-atual" onclick="escolherTubo('A', 0)">A</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('B', 0)">B</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('C', 0)">C</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('D', 0)">D</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('E', 0)">E</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex-slider">
+        <div><label>Papel de Celofane Azul</label></div>
+        <div class="flex-slider">
+            <div class="small-btns">
+                <button name="tubo" class="escolha" onclick="escolherTubo('A', 1)">A</button>
+                <button name="tubo" class="escolha-atual" onclick="escolherTubo('B', 1)">B</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('C', 1)">C</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('D', 1)">D</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('E', 1)">E</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex-slider">
+        <div><label>Papel de Celofane Vermelho</label></div>
+        <div class="flex-slider">
+            <div class="small-btns">
+                <button name="tubo" class="escolha" onclick="escolherTubo('A', 2)">A</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('B', 2)">B</button>
+                <button name="tubo" class="escolha-atual" onclick="escolherTubo('C', 2)">C</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('D', 2)">D</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('E', 2)">E</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex-slider">
+        <div><label>Papel de Celofane Verde</label></div>
+        <div class="flex-slider">
+            <div class="small-btns">
+                <button name="tubo" class="escolha" onclick="escolherTubo('A', 3)">A</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('B', 3)">B</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('C', 3)">C</button>
+                <button name="tubo" class="escolha-atual" onclick="escolherTubo('D', 3)">D</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('E', 3)">E</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex-slider">
+        <div><label>Sem Embrulho</label></div>
+        <div class="flex-slider">
+            <div class="small-btns">
+                <button name="tubo" class="escolha" onclick="escolherTubo('A', 4)">A</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('B', 4)">B</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('C', 4)">C</button>
+                <button name="tubo" class="escolha" onclick="escolherTubo('D', 4)">D</button>
+                <button name="tubo" class="escolha-atual" onclick="escolherTubo('E', 4)">E</button>
+            </div>
+        </div>
+    </div><br>
     
-    <button id="fazer-solução" class="submit" onclick="curva()">Expor o Cloreto de Prata à luz.</button>
+    <button id="fazer-solução" class="submit" onclick="curva()">Expor o Cloreto de Prata à luz</button>
     <br><br>
 </div><br><br>
 <div class="centrada">
