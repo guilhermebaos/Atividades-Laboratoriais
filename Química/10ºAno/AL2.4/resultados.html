@@ -9,10 +9,17 @@
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
-    <p></p>
+    <p>Após alterares os embrulhos:</p>
     <ul>
-        <li></li>
-    </ul>
+        <li>
+            Prevê a ordem, do mais claro para o mais escuro, do conteúdo dos
+            tubos após exposição à luz.
+        </li>
+    </ul><br>
+    <p>
+        Podes também tentar embrulhar os tubos de forma a que a essa ordem
+        seja A,B,C,D,E e, depois, E,D,C,B,A.
+    </p>
 </div><br>
 <div class="centrada">
     <p>
@@ -88,13 +95,69 @@
     <button id="fazer-solução" class="submit" onclick="curva()">Expor o Cloreto de Prata à luz</button>
     <br><br>
 </div><br><br>
-<div class="centrada">
-    <div class="overflow tabela-container">
-        <table class="resultados">
-            <tr class="vars">
-            </tr>
-            <tr>
-            </tr>
-        </table>
+<p> Tubos ordenados do mais claro para o mais escuro: </p><br>
+<div class="overflow">
+    <div class="centrada">
+        <span name="claridadeTubo" class="anchor" onclick="mostrarExtra('tuboAlumínio')">Tubo A</span> &rarr;
+        <span name="claridadeTubo" class="anchor" onclick="mostrarExtra('tuboVermelho')">Tubo C</span> &rarr;
+        <span name="claridadeTubo" class="anchor" onclick="mostrarExtra('tuboVerde')">Tubo D</span> &rarr;
+        <span name="claridadeTubo" class="anchor" onclick="mostrarExtra('tuboAzul')">Tubo B</span> &rarr;
+        <span name="claridadeTubo" class="anchor" onclick="mostrarExtra('tuboSemEmbrulho')">Tubo E</span>
     </div>
+</div>
+<div id="tuboAlumínio" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('tuboAlumínio')">X</button>
+    <p>
+        O <span name="embrulhoTubo">Tubo A</span> estava embrulhado com
+        folha de alumínio, logo, praticamente nenhuma da radiação solar atingia
+        o Cloreto de Prata.
+    </p>
+    <p>
+        Como tal, praticamente não houve decomposição deste Sal,
+        estando por isso o conteúdo do tubo ainda claro.
+    </p>
+</div>
+<div id="tuboVermelho" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('tuboVermelho')">X</button>
+    <p>
+        O <span name="embrulhoTubo">Tubo C</span> estava embrulhado com
+        papel de celofane vermelho, logo, apenas a radiação vermelha, pouco intensa,
+        atingia o Cloreto de Prata.
+    </p>
+    <p>
+        Como tal, apenas uma pequena parte deste Sal se decompôs.
+    </p>
+</div>
+<div id="tuboVerde" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('tuboVerde')">X</button>
+    <p>
+        O <span name="embrulhoTubo">Tubo D</span> estava embrulhado com,
+        papel de celofane verde, logo, apenas a radiação verde, de intensidade intermédia,
+        atingia o Cloreto de Prata.
+    </p>
+    <p>
+        Como tal, uma parte significativa deste Sal decompôs-se.
+    </p>
+</div>
+<div id="tuboAzul" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('tuboAzul')">X</button>
+    <p>
+        O <span name="embrulhoTubo">Tubo B</span> estava embrulhado com,
+        papel de celofane azul, logo, apenas a radiação azul, muito energética,
+        atingia o Cloreto de Prata.
+    </p>
+    <p>
+        Como tal, muito deste Sal decompôs-se.
+    </p>
+</div>
+<div id="tuboSemEmbrulho" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('tuboSemEmbrulho')">X</button>
+    <p>
+        O <span name="embrulhoTubo">Tubo E</span> não tinha embrulho, logo,
+        toda a radiação irá incidir sobre o Cloreto de Prata.
+    </p>
+    <p>
+        Como tal, a maioria deste Sal ter-se-à decomposto, escurecendo
+        assim o conteúdo do tubo.
+    </p>
 </div>

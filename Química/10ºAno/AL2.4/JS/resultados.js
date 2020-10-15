@@ -10,6 +10,11 @@ let Q10_AL24 = {
 
 let tubos
 
+let claridadeTubos
+let embrulhosTubos
+
+// Tubos com respetivos embrulhos, ordenados pela posição em que aparecem no site
+let nomesTubos = ['A', 'B', 'C', 'D', 'E']
 let embrulhos = {
     'A': 0,
     'B': 1,
@@ -28,6 +33,10 @@ function prepararResultados() {
     // Selecionar os Butões
     tubos = document.getElementsByName('tubo')
 
+    // Selecionar os Spans com os Resultados
+    claridadeTubos = document.getElementsByName('claridadeTubo')
+    embrulhosTubos = document.getElementsByName('embrulhoTubo')
+
     curva()
 }
 
@@ -37,12 +46,13 @@ function escolherTubo(letraTubo, embrulhoEscolhido) {
     let posLetra, posEmbrulho
 
     // Retirar o embrulho ao tubo que o tinha antes
-    let nomesTubos = ['A', 'B', 'C', 'D', 'E']
+    let tempLetraTubo
     for (let key in nomesTubos) {
-        if (embrulhos[nomesTubos[key]] == embrulhoEscolhido) {
-            tubos[embrulhoEscolhido * 5 + nomesTubos[key].codePointAt(0) - 65].className = 'escolha'
-            tubos[embrulhos[letraTubo] * 5 + nomesTubos[key].codePointAt(0) - 65].className = 'escolha-atual'
-            embrulhos[nomesTubos[key]] = embrulhos[letraTubo]
+        tempLetraTubo = nomesTubos[key]
+        if (embrulhos[tempLetraTubo] == embrulhoEscolhido) {
+            tubos[embrulhoEscolhido * 5 + tempLetraTubo.codePointAt(0) - 65].className = 'escolha'
+            tubos[embrulhos[letraTubo] * 5 + tempLetraTubo.codePointAt(0) - 65].className = 'escolha-atual'
+            embrulhos[tempLetraTubo] = embrulhos[letraTubo]
             break
         }
     }
@@ -62,4 +72,28 @@ function escolherTubo(letraTubo, embrulhoEscolhido) {
 
 // Mostrar o Resultado
 function curva() {
+    let letraTubo
+    for (let key in nomesTubos) {
+        letraTubo = nomesTubos[key]
+        embrulhoTubo = embrulhos[letraTubo]
+
+        // Ordenar os tubos por claridade do conteúdo
+        let claridadePos = embrulhoTubo
+        switch (embrulhoTubo) {
+            case 1:
+                claridadePos = 3
+                break;
+            case 2:
+                claridadePos = 1
+                break;
+            case 3:
+                claridadePos = 2
+                break;
+            default:
+                break;
+        }
+
+        claridadeTubos[claridadePos].innerText = `Tubo ${letraTubo}`
+        embrulhosTubos[claridadePos].innerText = `Tubo ${letraTubo}`
+    }
 }
