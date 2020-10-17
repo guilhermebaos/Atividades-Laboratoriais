@@ -1,7 +1,201 @@
 <h3>Objetivo</h3>
 <p>
-    Organizar uma Série Eletroquímica.
+    Organizar uma
+    <span class="anchor" onclick="mostrarExtra('Série-Eletroquímica')">Série Eletroquímica</span>.
 </p>
+<div id="Série-Eletroquímica" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Série-Eletroquímica')">X</button>
+    <p>
+        A Série Eletroquímica consiste na ordenação dos 
+        <span class="anchor" onclick="mostrarExtra('oxidantes')">oxidantes</span>
+        pelo seu Poder Oxidante e dos 
+        <span class="anchor" onclick="mostrarExtra('redutores')">redutores</span>
+        pelo seu Poder Redutor. 
+    </p><br>
+    <div id="oxidantes" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('oxidantes')">X</button>
+        <p class="m0">
+            O <b>Oxidante</b> (ou Agente Oxidante) é a espécie que, durante uma
+            reação de Oxidação-Redução vai receber eletrões do Redutor, ou seja:
+        </p>
+        <ul class="m5-top">
+            <li>Oxida o Redutor (daí o nome Oxidante).</li>
+            <li>Reduz-se.</li>
+        </ul><br>
+    </div>
+    <div id="redutores" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('redutores')">X</button>
+        <p class="m0">
+            O <b>Redutor</b> (ou Agente Redutor) é a espécie que, durante uma reação
+            de Oxidação-Redução vai dar eletrões ao Oxidante, ou seja:
+        </p>
+        <ul class="m5-top">
+            <li>Reduz o Oxidante (daí o nome Redutor).</li>
+            <li>Oxida-se.</li>
+        </ul><br>
+    </div>
+</div>
 
 <br>
 <h3>Método</h3>
+<p>
+    Iremos ordenar Metais pelo seu Poder Redutor e Catiões pelo seu Poder Oxidante,
+    através do estudo de reações entre Metais sólidos e soluções aquosas de
+    sais contendo Catiões de outros metais.
+</p><br>
+<p>
+    Após sabermos os Metais e Soluções Aquosas que iremos usar, preparamos os
+    tubos de ensaio de modo a termos um por cada par metal-solução.
+</p>
+<p>
+    De seguida, colocamos uma pequena quantidade de um dos Metais escolhidos num
+    tubo de ensaio com uma Solução Aquosa que contenha um Catião de outro metal e
+    verificamos se ocorreu ou não uma reação de
+    <span class="anchor" onclick="mostrarExtra('Oxidação-Redução')">Oxidação-Redução</span>.
+</p>
+<div id="Oxidação-Redução" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Oxidação-Redução')">X</button>
+    <p>
+        Numa reação química de Oxidação-Redução (também chamada de RedOx), há 
+        transferência de eletrões entre as espécies envolvidas, nomeadamente,
+        do <span class="anchor" onclick="mostrarExtra('oxidante')">oxidante</span>
+        para o <span class="anchor" onclick="mostrarExtra('redutor')">redutor</span>
+    </p>
+    <div id="oxidante" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('oxidante')">X</button>
+        <p class="m0">
+            O <b>Oxidante</b> (ou Agente Oxidante) é a espécie que, durante uma
+            reação de Oxidação-Redução vai receber eletrões do Redutor, ou seja:
+        </p>
+        <ul class="m5-top">
+            <li>Oxida o Redutor (daí o nome Oxidante).</li>
+            <li>Reduz-se.</li>
+        </ul><br>
+    </div>
+    <div id="redutor" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('redutor')">X</button>
+        <p class="m0">
+            O <b>Redutor</b> (ou Agente Redutor) é a espécie que, durante uma reação
+            de Oxidação-Redução vai dar eletrões ao Oxidante, ou seja:
+        </p>
+        <ul class="m5-top">
+            <li>Reduz o Oxidante (daí o nome Redutor).</li>
+            <li>Oxida-se.</li>
+        </ul><br>
+    </div>
+</div><br>
+<p>
+    Quer tenha ocorrido Reação quer não, podemos usar os
+    <span class="anchor" onclick="mostrarExtra('pares-oxidante-redutor')">pares oxidante-redutor</span>
+    para começarmos a organizar a Série Eletroquímica:
+</p>
+<div id="pares-oxidante-redutor" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('pares-oxidante-redutor')">X</button>
+    <p>
+        Um <b>par oxidante-redutor</b> é o conjunto de dois elementos, sendo o 1º
+        um Oxidante e o 2º um Redutor. O 1º elemento pode dar origem ao 2º por
+        Redução, e o 2º pode dar origem ao 1º por Oxidação.
+    </p><br>
+    <p>Por exmplo:</p>
+    <p><span class="invi">&hArr;</span>Mg<sup>2+</sup>/Mg</p>
+    <ul>
+        <li>
+            O Mg<sup>2+</sup> é um oxidante, que pode dar origem ao Magnésio
+            metálico, por Redução.
+        </li>
+        <li>
+            O Magnésio metálico é um redutor, que pode dar origem ao Catião
+            Magnésio (<span class="serif">II</span>), por Oxidação.
+        </li>
+    </ul>
+</div>
+<ol>
+    <li>Escrevemos os pares envolvidos.</li>
+    <li>
+        Caso tenha ocorrido Reação, sabemos que o Oxidante e o Redutor envolvidos
+        são os que têm maior Poder Oxidante e Redutor, de ambos os pares
+        (<span class="anchor" onclick="mostrarExtra('exemplo1')">exemplo</span>).
+    </li>
+    <div id="exemplo1" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('exemplo1')">X</button>
+        <p>
+            Se juntarmos Ferro Metálico a uma Solução que contem Cu<sup>2+</sup>,
+            irá ocorrer reação. Logo, podemos fazer a seguinte dedução:
+        </p>
+        <ol>
+            <li>
+                Escrevemos os pares oxidante-redutor envolvidos:
+                <ul class="m0" style="list-style-type:disc">
+                    <li>Fe<sup>2+</sup>/Fe</li>
+                    <li>Cu<sup>2+</sup>/Cu</li></li>
+                </ul>
+            </li>
+            <li>
+                Como ocorreu reação sabemos que o Cu<sup>2+</sup> tem maior
+                Poder Oxidante que o Fe<sup>2+</sup> e o Fe tem maior Poder
+                Redutor que o Cu.
+            </li>
+        </ol><br>
+    </div>
+    <li>Caso não tenha ocorrido Reação, sabemos que o Oxidante e Redutor envolvidos
+        são os que têm menor Poder Oxidante e Redutor de ambos os pares
+        (<span class="anchor" onclick="mostrarExtra('exemplo2')">exemplo</span>).
+    </li>
+    <div id="exemplo2" class="explicar" style="display: none;">
+        <button class="fechar" onclick="mostrarExtra('exemplo2')">X</button>
+        <p>
+            Se juntarmos Cobre Metálico a uma Solução que contem Fe<sup>2+</sup>,
+            não irá ocorrer reação. Logo, podemos fazer a seguinte dedução:
+        </p>
+        <ol>
+            <li>
+                Escrevemos os pares oxidante-redutor envolvidos:
+                <ul class="m0" style="list-style-type:disc">
+                    <li>Fe<sup>2+</sup>/Fe</li>
+                    <li>Cu<sup>2+</sup>/Cu</li></li>
+                </ul>
+            </li>
+            <li>
+                Como não ocorreu reação sabemos que o Fe<sup>2+</sup> tem menor
+                Poder Oxidante que o Cu<sup>2+</sup> e o Ce tem menor Poder
+                Redutor que o Fe.
+            </li>
+        </ol><br>
+    </div>
+</ol>
+<p>
+    Repetindo o processo anterior para todos os Metais e Soluções disponíveis,
+    conseguimos, a partir das relações estabelecidas entre os Poderes de Oxidação
+    e de Redução, fazer a Série Eletroquímica.
+</p><br>
+<p>
+    Uma Série Eletroquímica também pode ser usada para prever se vai ocorrer uma
+    reação de Oxidação-Redução entre um Oxidante e um Redutor
+    (<span class="anchor" onclick="mostrarExtra('exemplo3')">exemplo</span>).
+</p>
+<div id="exemplo3" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('exemplo3')">X</button>
+    <p>
+        Se formos juntar Zinco Metálico a uma Solução que contem Cu<sup>2+</sup>,
+        podemos prever se irá ocorrer reação da seguinte forma:
+    </p>
+    <ol>
+        <li>
+            Escrevemos os pares oxidante-redutor envolvidos:
+            <ul class="m0" style="list-style-type:disc">
+                <li>Zn<sup>2+</sup>/Zn</li>
+                <li>Cu<sup>2+</sup>/Cu</li></li>
+            </ul>
+        </li>
+        <li>
+            Consultando uma Série Eletroquímica, vemos que o Zinco tem maior
+            Poder Redutor que o Cobre e o Cu<sup>2+</sup> maior Poder Oxidante
+            que o Zn<sup>2+</sup>.
+        </li>
+        <li>
+            Como os elementos envolvidos são os que têm maior Poder Redutor (Zn)
+            e Oxidante (Cu<sup>2+</sup>), irá ocorrer reação.
+        </li>
+    </ol><br>
+</div>
+
