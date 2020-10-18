@@ -652,6 +652,18 @@ img#Periodo-explicado-F11-AL21 {
     min-width: 300px;
     border-radius: 5px;
 }
+img#Oxidantes-Q11-AL22 {
+    display: block;
+    margin: auto;
+    min-width: 200px;
+    border-radius: 5px;
+}
+img#Redutores-Q11-AL22 {
+    display: block;
+    margin: auto;
+    min-width: 200px;
+    border-radius: 5px;
+}
 img#TP-Exame {
     display: block;
     margin: auto;

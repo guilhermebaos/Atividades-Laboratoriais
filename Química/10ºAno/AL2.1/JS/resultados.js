@@ -58,7 +58,9 @@ function escolherLiq(pos) {
 
 // Mostrar o Resultado
 function curva() {
-    mostrarExtra(resultadoAntigo)
-    mostrarExtra(resultadoNovo)
-    resultadoAntigo = resultadoNovo
+    if (resultadoAntigo != resultadoNovo) {
+        mostrarExtra(resultadoAntigo)
+        mostrarExtra(resultadoNovo)
+        resultadoAntigo = resultadoNovo
+    }
 }
