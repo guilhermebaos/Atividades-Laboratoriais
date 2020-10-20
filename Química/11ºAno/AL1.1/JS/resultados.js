@@ -26,7 +26,6 @@ function prepararResultados() {
     if (Q11_AL11.preparado) {
         return
     }
-    Q11_AL11.preparado = true
     
     // Selecionar Sliders
     massaReagente1 = document.getElementById('massaReagente1')
@@ -66,6 +65,7 @@ function prepararResultados() {
         massaProdutoResp.innerText = `${massaProdutoValue.toFixed(2)}`
     }
 
+    Q11_AL11.preparado = true
     curva()
 }
 

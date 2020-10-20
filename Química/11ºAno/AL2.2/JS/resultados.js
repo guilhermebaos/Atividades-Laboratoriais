@@ -21,11 +21,12 @@ function prepararResultados() {
     if (Q11_AL22.preparado) {
         return
     }
-    Q11_AL22.preparado = true
 
     // Selecionar os Butões
     metais = document.getElementsByName('metal')
     cats = document.getElementsByName('catião')
+    
+    Q11_AL22.preparado = true
 }
 
 

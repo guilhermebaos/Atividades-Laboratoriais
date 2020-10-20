@@ -29,7 +29,6 @@ function prepararResultados() {
     if (Q10_AL13.preparado) {
         return
     }
-    Q10_AL13.preparado = true
 
     // Selecionar Sliders
     massaEsfera = document.getElementById('massaEsfera')
@@ -63,6 +62,7 @@ function prepararResultados() {
         massaPicResp.innerText = `${massaPicValue.toFixed(1)}`
     }
 
+    Q10_AL13.preparado = true
     curva()
 }
 

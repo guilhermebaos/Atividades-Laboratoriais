@@ -1,7 +1,7 @@
 // Retirado de: https://www.w3schools.com/howto/howto_html_include.asp
 
 function incluirHTML() {
-  var z, i, elmnt, file, xhttp;
+  let z, i, elmnt, file, xhttp;
 
   // Faz loop por todos os elementos da página, procurando um que tenha um atributo específico
   z = document.getElementsByTagName("*");

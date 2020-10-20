@@ -28,7 +28,6 @@ function prepararResultados() {
     if (Q10_AL24.preparado) {
         return
     }
-    Q10_AL24.preparado = true
 
     // Selecionar os Butões
     tubos = document.getElementsByName('tubo')
@@ -37,6 +36,7 @@ function prepararResultados() {
     claridadeTubos = document.getElementsByName('claridadeTubo')
     embrulhosTubos = document.getElementsByName('embrulhoTubo')
 
+    Q10_AL24.preparado = true
     curva()
 }
 

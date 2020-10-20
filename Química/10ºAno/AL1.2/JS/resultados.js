@@ -16,7 +16,6 @@ function prepararResultados() {
     if (Q10_AL12.preparado) {
         return
     }
-    Q10_AL12.preparado = true
 
     // Selecionar os Butões
     salArray = document.getElementsByName('salChama')
@@ -35,6 +34,7 @@ function escolherSal(pos) {
 
     salEscolhidoPos = pos
 
+    Q10_AL12.preparado = true
     curva()
 }
 

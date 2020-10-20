@@ -29,7 +29,6 @@ function prepararResultados() {
     if (F10_AL12.preparado) {
         return
     }
-    F10_AL12.preparado = true
     
 
     // Selecionar Sliders
@@ -70,6 +69,7 @@ function prepararResultados() {
         alturaInicialResp.innerText = `${alturaInicialValue.toFixed(0)}`
     }
 
+    F10_AL12.preparado = true
     curva()
 }
 

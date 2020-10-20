@@ -24,7 +24,6 @@ function prepararResultados() {
     if (F10_AL11.preparado) {
         return
     }
-    F10_AL11.preparado = true
     
     // Selecionar Sliders
     massaCarrinho = document.getElementById('massaCarrinho')
@@ -60,6 +59,7 @@ function prepararResultados() {
         forçaAtritoResp.innerText = `${forçaAtritoValue.toFixed(3)}`
     }
 
+    F10_AL11.preparado = true
     curva()
 }
 

@@ -21,11 +21,11 @@ function prepararResultados() {
     if (Q10_AL21.preparado) {
         return
     }
-    Q10_AL21.preparado = true
 
     // Selecionar os Butões
     liqArray = document.getElementsByName('líquido')
 
+    Q10_AL21.preparado = true
     // curva()
 }
 

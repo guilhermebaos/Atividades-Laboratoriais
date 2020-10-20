@@ -25,7 +25,6 @@ function prepararResultados() {
     if (Q10_AL11.preparado) {
         return
     }
-    Q10_AL11.preparado = true
 
 
     // Selecionar Sliders
@@ -58,6 +57,7 @@ function prepararResultados() {
         corrigirMassaCemGotas()
     }
 
+    Q10_AL11.preparado = true
     curva()
 }
 

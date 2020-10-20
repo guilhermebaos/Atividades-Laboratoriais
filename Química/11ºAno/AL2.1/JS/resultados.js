@@ -26,7 +26,6 @@ function prepararResultados() {
     if (Q11_AL21.preparado) {
         return
     }
-    Q11_AL21.preparado = true
     
     // Selecionar os butões
     TitulanteHCl = document.getElementById('TitulanteHCl')
@@ -75,6 +74,7 @@ function prepararResultados() {
         VolTituladoResp.innerText = `${VolTituladoValue.toFixed(2)}`
     }
 
+    Q11_AL21.preparado = true
     curva()
 }
 

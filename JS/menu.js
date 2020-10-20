@@ -51,6 +51,24 @@ function carregar(ficheiro) {
         } else if (projetoALmenu.aberto == 'resultados.html') {
             liResultados.style.textDecoration = 'underline'
             divResultados.style.display = 'initial'
+            carregarJSResultados()
         }
     }
 }
+// Carregar o JS que simula os Resultados
+async function carregarJSResultados() {
+    let JScarregado = false
+    while (!JScarregado) {  
+        try {
+            prepararResultados()
+            JScarregado = true
+            console.log('Simulação Carregada!')
+        } catch(erro) {
+            /* Caso a rede esteja lenta, repetir a função até que os
+                elementos HTML sejam selecionados*/
+            console.log('Rede lenta, a tentar carregar a Simulação de novo...')
+            await new Promise(r => setTimeout(r, 500))
+        }
+    }
+}
+            

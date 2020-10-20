@@ -29,7 +29,6 @@ function prepararResultados() {
     if (F11_AL21.preparado) {
         return
     }
-    F11_AL21.preparado = true
 
 
     // Selecionar Sliders
@@ -138,6 +137,7 @@ function prepararResultados() {
 
     aContext = new AudioContext();
     
+    F11_AL21.preparado = true
     curva()
 }
 

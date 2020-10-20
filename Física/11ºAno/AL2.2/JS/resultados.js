@@ -39,7 +39,6 @@ function prepararResultados() {
     if (F11_AL22.preparado) {
         return
     }
-    F11_AL22.preparado = true
 
 
     // Selecionar Sliders
@@ -185,6 +184,7 @@ function prepararResultados() {
 
     aContext = new AudioContext()
 
+    F11_AL22.preparado = true
     limparOsci()
 }
 
@@ -477,7 +477,7 @@ async function curva() {
                 },
             })
 
-            await new Promise(r => setTimeout(r, deltaT*1000));
+            await new Promise(r => setTimeout(r, deltaT*1000))
 
             tPassou += deltaT 
         }

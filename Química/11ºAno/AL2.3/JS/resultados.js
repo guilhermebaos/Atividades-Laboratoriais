@@ -14,7 +14,6 @@ function prepararResultados() {
     if (Q11_AL23.preparado) {
         return
     }
-    Q11_AL23.preparado = true
     
     // Selecionar os butões
 
@@ -24,6 +23,7 @@ function prepararResultados() {
 
     // Selecionar a div onde vai parar a curva
 
+    Q11_AL23.preparado = true
     curva()
 }
 

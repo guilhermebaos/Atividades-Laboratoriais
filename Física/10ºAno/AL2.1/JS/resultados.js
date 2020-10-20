@@ -20,7 +20,6 @@ function prepararResultados() {
     if (F10_AL21.preparado) {
         return
     }
-    F10_AL21.preparado = true
     
     // Selecionar Sliders
     forçaEletromotriz = document.getElementById('forçaEletromotriz')
@@ -45,6 +44,7 @@ function prepararResultados() {
         resistInternaResp.innerText = `${resistInternaValue.toFixed(2)}`
     }
 
+    F10_AL21.preparado = true
     curva()
 }
 

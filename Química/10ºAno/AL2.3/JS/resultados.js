@@ -25,7 +25,6 @@ function prepararResultados() {
     if (Q10_AL23.preparado) {
         return
     }
-    Q10_AL23.preparado = true
 
     // Selecionar Sliders
     concInicial = document.getElementById('concInicial')
@@ -87,6 +86,7 @@ function prepararResultados() {
         volumeSoluResp.innerText = resp
     }
 
+    Q10_AL23.preparado = true
     curva()
 }
 

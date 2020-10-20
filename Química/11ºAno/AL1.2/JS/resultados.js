@@ -12,12 +12,11 @@ function prepararResultados() {
     if (Q11_AL12.preparado) {
         return
     }
-    Q11_AL12.preparado = true
 
     // Selecionar os Butões
     solArray = document.getElementsByName('sAdicionada')
 
-    // Selecionar os Spans com os Resultados da Tabela
+    Q11_AL12.preparado = true
 }
 
 // Altera a Solução escolhida, bem como a aparência dos butões

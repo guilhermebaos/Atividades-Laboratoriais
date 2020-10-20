@@ -43,7 +43,6 @@ function prepararResultados() {
     if (F11_AL11.preparado) {
         return
     }
-    F11_AL11.preparado = true
     
     // Selecionar os Butões
     btnCalcularRAr = document.getElementById('calcularRAr')
@@ -89,6 +88,7 @@ function prepararResultados() {
         distCelulasResp.innerText = `${distCelulasValue.toFixed(0)}`
     }
 
+    F11_AL11.preparado = true
     curva()
 }
 

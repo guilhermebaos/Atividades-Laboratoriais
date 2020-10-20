@@ -31,7 +31,6 @@ function prepararResultados() {
     if (Q10_AL22.preparado) {
         return
     }
-    Q10_AL22.preparado = true
 
     // Selecionar os Butões
     solutoArray = document.getElementsByName('soluto')
@@ -87,6 +86,7 @@ function prepararResultados() {
         volumeSoluResp.innerText = resp
     }
 
+    Q10_AL22.preparado = true
     curva()
 }
 
