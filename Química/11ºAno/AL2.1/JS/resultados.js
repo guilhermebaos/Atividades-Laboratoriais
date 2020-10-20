@@ -5,7 +5,7 @@ const Kw = 1.00e-14
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
-let Q11_AL22 = {
+let Q11_AL21 = {
     preparado: false,
     divCurva: ''
 }
@@ -23,10 +23,10 @@ let VolTitulanteResp, VolTituladoResp
 
 
 function prepararResultados() {
-    if (Q11_AL22.preparado) {
+    if (Q11_AL21.preparado) {
         return
     }
-    Q11_AL22.preparado = true
+    Q11_AL21.preparado = true
     
     // Selecionar os butões
     TitulanteHCl = document.getElementById('TitulanteHCl')
@@ -50,7 +50,7 @@ function prepararResultados() {
     VolTituladoResp = document.getElementById('VolTituladoValue')
 
     // Selecionar a div onde vai parar a curva
-    Q11_AL22.divCurva = document.getElementById('curva-pH')
+    Q11_AL21.divCurva = document.getElementById('curva-pH')
     
     // Atualizar os Sliders
     ConcTitulante.oninput = function atualizarConcTitulante() {
@@ -197,7 +197,7 @@ function pontos() {
 // Recebe os valores do pH e traça a Curva de pH
 function curva() {
     // Remover o Canvas antigo
-    Q11_AL22.divCurva.innerHTML = ''
+    Q11_AL21.divCurva.innerHTML = ''
 
     // Variáveis da função
     let resultados = pontos()
@@ -207,7 +207,7 @@ function curva() {
     // Criar o canvas on de vai estar a curva
     canvasCurva = document.createElement('canvas')
     canvasCurva.setAttribute('id', 'canvasCurva')
-    Q11_AL22.divCurva.appendChild(canvasCurva)
+    Q11_AL21.divCurva.appendChild(canvasCurva)
 
     // Criar o Chart Object
     let graCurva = new Chart(canvasCurva, {
