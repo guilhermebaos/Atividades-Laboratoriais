@@ -23,6 +23,8 @@ function prepararResultados() {
     // Selecionar os Spans com os Resultados da Tabela
     salEscolhidoResp = document.getElementById('salEscolhidoValue')
     corChamaResp = document.getElementById('corChamaValue')
+    
+    Q10_AL12.preparado = true
 }
 
 
@@ -34,7 +36,6 @@ function escolherSal(pos) {
 
     salEscolhidoPos = pos
 
-    Q10_AL12.preparado = true
     curva()
 }
 
