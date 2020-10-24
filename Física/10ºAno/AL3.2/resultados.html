@@ -1,0 +1,29 @@
+<h3>Resultados</h3>
+
+<p>
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
+    diferentes resultados.
+</p>
+<p>
+    <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
+</p>
+<div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
+    <p>
+        
+    </p>
+    <ul>
+        <li></li>
+    </ul><br>
+</div>
+
+<div class="centrada">
+
+    <button id="fazer-curva-CTM" class="submit" onclick="curva()">Traçar a função <span class="serif">&Delta;T = f(E)</span></button>
+</div><br>
+
+<div class="graf-overflow">
+    <div class="graf-container">
+        <div id="curva-CTM"></div>
+    </div>
+</div>
