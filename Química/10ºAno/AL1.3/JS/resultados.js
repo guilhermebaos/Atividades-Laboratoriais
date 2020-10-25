@@ -73,7 +73,7 @@ function escolherMetal(pos) {
     metalArray[metalEscolhidoPos].className = 'escolha'
     metalArray[pos].className = 'escolha-atual'
 
-    metalEscolhidoPos = Number(pos)
+    metalEscolhidoPos = pos
 }
 
 
