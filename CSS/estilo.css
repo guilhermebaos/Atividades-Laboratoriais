@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: rgba(0, 125, 255, 0.3);
     font-size: 13.2pt;
@@ -558,6 +562,26 @@ button.fechar {
 button.fechar:hover {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+button#para-o-topo {
+    display: none;
+    position: fixed;
+    font-size: 20px;
+    color: white;
+    height: fit-content;
+    padding: 14px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgba(50, 140, 255, 0.5);
+    transition: background-color 0.2s;
+}
+button#para-o-topo:hover {
+    background-color: rgba(0, 120, 255, 1);
 }
 
 
