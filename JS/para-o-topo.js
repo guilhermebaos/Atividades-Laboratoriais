@@ -12,7 +12,6 @@ if (screen && screen.width < 600) {
             paraOTopoBtn.style.display = 'none'
             paraOTopoBtn.blur()
         }
-        console.log('Oi')
     }
 
 
