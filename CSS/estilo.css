@@ -568,9 +568,10 @@ button#para-o-topo {
     display: none;
     position: fixed;
     font-size: 20px;
+    font-weight: bold;
     color: white;
     height: fit-content;
-    padding: 14px;
+    padding: 8px 15px 8px 15px;
     right: 20px;
     bottom: 20px;
     z-index: 10;
