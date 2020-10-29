@@ -25,13 +25,13 @@ if (screen && screen.width < 600) {
             let tempo = 300
 
             function scrollStep(goTo) {
-                window.scrollTop = goTo
+                document.body.scrollTop = goTo
             }
 
-            let c = 0
+            let c = 1
             while (animTem <= tempo) {
-                c += 1
                 window.setTimeout(scrollStep, animTem, docTopo - docStep * c)
+                c += 1
                 animTem += tempo / 100
             }
         // Chrome, IE, Opera, etc.
