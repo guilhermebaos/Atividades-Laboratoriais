@@ -116,6 +116,9 @@ hr.frac {
 .minw-140 {
     min-width: 140px !important;
 }
+.minw-260 {
+    min-width: 260px !important;
+}
 
 
 .margin-auto {
