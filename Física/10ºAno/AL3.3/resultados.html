@@ -56,26 +56,21 @@
             <input type="range" name="massaGelo" id="massaGelo" class="slider" min="100" max="1000" value="200"></div>
         </div>
     </div>
-</div>
-<div class="centrada">
-    <p>Simular perdas de energia?</p>
-    <div class="flex-slider">
-        <div class="btn"><button name="perdasDeEnergia" class="escolha-atual" onclick="escolherMistura(0)">Sim</button></div>
-        <div class="btn"><button name="perdasDeEnergia" class="escolha" onclick="escolherMistura(1)">Não</button></div>
-    </div>
-</div>
+</div><br>
 <button id="misturar-água" class="submit" onclick="curva()">Simular a mistura</button>
 
 <br><br>
 <div class="centrada">
     <div class="overflow" style="max-width: 72vw;">
-        <table class="resultados">
+        <table id="tabelaResultados" class="resultados">
             <tr class="vars">
-                <td></td>
+                <td>Temperatura Final (ºC)</td>
             </tr>
             <tr>
-                <td></td>
+                <td id="tempFinalValue"></td>
             </tr>
         </table>
-    </div>
+    </div><br>
+
+    <p id="varEntalpiaGelo"></p>
 </div><br>

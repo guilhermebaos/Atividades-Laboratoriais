@@ -1,7 +1,6 @@
 // Definir Constantes
-
-// As capacidades térmicas mássicas estão em J/Kg/ºC
-
+const varEntalpiaFusaoGelo = 333.55   // kJ/kg
+const cAgua = 4.18e03   // J/kg/ºC
 
 
 // Inicializar Variáveis Globais
@@ -9,7 +8,6 @@
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let F10_AL33 = {
     preparado: false,
-    divCurva: ''
 }
 
 let massaQuente
@@ -23,6 +21,9 @@ let tempQuenteResp
 let massaFriaResp
 let tempFriaResp
 let massaGeloResp
+let tempFinalResp
+
+let varEntalpiaGeloResp
 
 let escolhasMistura
 let misturaEscolhida = 0
@@ -50,9 +51,12 @@ function prepararResultados() {
     // Selecionar os Butões
     escolhasMistura = document.getElementsByName('escolhaMistura')
 
-    // Selecionar os spans com os Resultados da Tabela
 
-    // Selecionar a div onde vai parar a curva
+    // Selecionar os spans com os Resultados da Tabela
+    tempFinalResp = document.getElementById('tempFinalValue')
+
+    // Variação de Entalpia do Gelo
+    varEntalpiaGeloResp = document.getElementById('varEntalpiaGelo')
 
     // Atualizar os Sliders
     massaQuente.oninput = function atualizarMassaQuente() {
@@ -101,27 +105,28 @@ function escolherMistura(num) {
 }
 
 
-// Calcular os Pontos do Gráfico 
-function pontos() {
-    // Definir os valores para a simulação
-    return
-}
 
-
-
-// Mostra o Gráfico relacionado com o bloco calorimétrico
+// Calcula e mostra os Resultados da Tabela
 function curva() {
-    // Remover o Canvas antigo
-    F10_AL33.divCurva.innerHTML = ''
+    let mQuente = massaQuente.value / 10
+    let tQuente = tempQuente.value / 10
+    
+    if (misturaEscolhida == 0) {
+        mFria = massaFria.value / 10
+        tFria = tempFria.value / 10
 
-    // Obter e guardar os resultados
+        let tf = (mQuente * tQuente + mFria * tFria) / (mQuente + mFria)
+        tempFinalResp.innerText = tf.toFixed(2)
 
-    // Criar o canvas onde vai estar a curva
-    canvasCurva = document.createElement('canvas')
-    canvasCurva.setAttribute('id', 'canvasCurva')
-    F10_AL33.divCurva.appendChild(canvasCurva)
+        varEntalpiaGelo.innerText = ''
+    } else {
+        let mGelo = massaGelo.value / 10
 
-    // Criar o Chart Object
+        let tf = (varEntalpiaFusaoGelo * mGelo - cAgua * mQuente * tQuente) / (-cAgua * mGelo - cAgua * mQuente)
+        tempFinalResp.innerText = tf.toFixed(2)
+
+        varEntalpiaGeloResp.innerText = `Variação de Entalpia Mássica de Fusão do Gelo é de ${varEntalpiaFusaoGelo}kJ/kg`
+    }
 }
 
 
