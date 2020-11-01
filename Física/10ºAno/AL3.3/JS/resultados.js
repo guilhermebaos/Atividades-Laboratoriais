@@ -130,4 +130,5 @@ function curva() {
 }
 
 
-// Ideia: Permitir dissipação de energia
+// Ideia: Permitir dissipação de energia, aleatória ou não,
+//        ou absorção pelo Gobelé
