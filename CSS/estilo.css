@@ -171,10 +171,12 @@ hr.frac {
 .serif {
     font-family: serif;
     font-size: 110%;
+    white-space: nowrap;
 }
 .serif100 {
     font-family: serif;
     font-size: 95%;
+    white-space: nowrap;
 }
 
 
@@ -363,7 +365,7 @@ div.explicar {
     margin: 0px;
     padding: 0px 8px 0px 20px;
 	overflow: hidden;
-	transition: height 200ms ease-in-out;
+	transition: height 350ms ease;
 }
 div.explicar button {
     margin: 12px 0px 4px 0px;

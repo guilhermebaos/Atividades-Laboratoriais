@@ -52,7 +52,7 @@ function mostrarExtra(keyWord) {
         window.setTimeout(function () {
             extra.classList.remove('is-visible')
             extra.processando = false
-        }, 350)
+        }, 400)
 
     } // Mostra o elemento, se ainda estiver escondido
     else {
@@ -70,6 +70,6 @@ function mostrarExtra(keyWord) {
         window.setTimeout(function () {
             extra.style.height = ''
             extra.processando = false
-        }, 350)
+        }, 400)
     }
 }

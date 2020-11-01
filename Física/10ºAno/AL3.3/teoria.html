@@ -40,11 +40,12 @@
 <h3>Método</h3>
 <p>
     Para podermos estudar as transferências de energia dentro de um Sistema,
-    temos que saber quanta energia o Sistema irá trocar com o meio.
+    temos que saber quanta energia esse Sistema irá trocar com o meio.
 </p>
 <p>
-    Nesta AL, iremos usar um Gobelé para fazermos as misturas, envolvido num
-    material isolador térmico, para podermos considerá-lo um
+    Vamos usar um Gobelé envolvido num material isolador térmico para
+    realizarmos a Atividade Laboratorial. Desta forma, podemos considerar que
+    o Sistema em estudo é um
     <span class="anchor" onclick="mostrarExtra('sistema-isolado')">sistema isolado</span>.
 </p>
 <div id="sistema-isolado" class="explicar" style="display: none;">
@@ -60,9 +61,21 @@
     </p><br>
 </div>
 <p>
-    Iremos também considerar que a energia que o Gobelé em si possa absorver ou
-    libertar é desprezável.
+    Iremos também considerar que a energia que o Gobelé possa
+    <span class="anchor" onclick="mostrarExtra('absorver-ou-libertar')">absorver ou libertar</span>
+    é desprezável.
 </p>
+<div id="absorver-ou-libertar" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('absorver-ou-libertar')">X</button><br>
+    <p>
+        O Gobelé irá estar em contacto com água quente e com gelo, portanto,
+        poderá aquecer (absorver energia) ou arrefecer (libertar energia).
+    </p>
+    <p>
+        Nesta AL, consideramos que a energia que ele possa absorver ou libertar
+        é desprezável.
+    </p>
+</div>
 
 <br>
 <h4 class="m5-bot">Transferências de energia entre amostras de água</h4>
@@ -87,25 +100,36 @@
     &hArr; m<sub>1</sub> &times; (T<sub>f</sub> &minus; T<sub>1</sub>) &equals; &minus; m<sub>2</sub> &times; (T<sub>f</sub> &minus; T<sub>2</sub>)
 </div><br>
 <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>Como
-    o Sistema é isolado, a sua energia é constante
+    o Sistema é isolado, a sua energia interna é constante
     (<span class="serif">U &equals; k</span>), logo, a sua variação da
-    energia interna será 0 (<span class="serif">&Delta;U &equals; 0</span>).
+    energia interna será 0 (<span class="serif">&Delta;U &equals; 0</span>).<br><br>
 </p>
 <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>A
     variação da energia interna de um Sistema pode ser divida em transferências
     de energia sob a forma de Calor (<span class="serif">Q</span>) e sob a
-    forma de Trabalho (<span class="serif">W</span>).
+    forma de Trabalho (<span class="serif">W</span>).<br><br>
 </p>
 <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(3)">[3]</sup>Como
-    não há forças a atuar no Sistema, não há transferências de energia sob a
-    forma de Trabalho (<span class="serif">W &equals; 0</span>).
+    a Força Resultante que atua no Sistema é nula, não há transferências de
+    energia sob a forma de Trabalho (<span class="serif">W &equals; 0</span>).<br><br>
 </p>
-<p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>A
-    variação de energia de uma amostra de água, sob a forma de calor é:
-    <span class="serif">Q &equals; c<sub>água</sub> &times; m &times; &Delta;T</span>
-</p>
+<div name="exp-contas" style="display: none;"><p><sup class="exp-contas" onclick="mostrarExpContas(4)">[4]</sup>A
+    variação de energia de uma amostra de água, devido ao seu aquecimento ou
+    arrefecimento, é igual a:
+    <span class="serif">E &equals; c<sub>água</sub> &times; m &times; &Delta;T</span>.</p>
+    <p>
+        Se <span class="serif">E</span> for positivo, a água aqueceu e absorveu
+        energia, ou seja <span class="serif">Q &gt; 0</span>.
+    </p>
+    <p>
+        Se <span class="serif">E</span> for positivo, a água arrefeceu e libertou
+        energia, ou seja <span class="serif">Q &lt; 0</span>.
+    </p>
+    <br>
+</div>
 <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(5)">[5]</sup>A
-    variação de Temperatura é dada por: <span class="serif">&Delta;T &equals; T<sub>final</sub> &minus; T<sub>inicial</sub></span>
+    variação de Temperatura é dada por:
+    <span class="serif">&Delta;T &equals; T<sub>final</sub> &minus; T<sub>inicial</sub></span><br><br>
 </p>
 <table class="explicar">
     <tr>
@@ -173,14 +197,9 @@
     <span class="invi">&hArr;</span> T<sub>f</sub> &equals; <div class="frac"><span>m<sub>1</sub> &times; T<sub>1</sub> &plus; m<sub>2</sub> &times; T<sub>2</sub></span><span class="denom">m<sub>1</sub> &plus; m<sub>2</sub></span></div>
 </div><br>
 <p>
-    Depois, realizamos a experiência, sendo que, antes de misturar as amostras
-    de água, calculamos o valor teórico da temperatura final do Sistema,
-    usando a expressão acima.
-</p>
-<p>
-    Finalmente, juntamos as duas amostras de água no Gobelé e, após o sistema
+    Finalmente, juntamos duas amostras de água no Gobelé e, após o sistema
     estar em equilíbrio térmico, medimos a sua temperatura e calculamos o
-    erro em relação ao valor teórico.
+    erro em relação ao valor teórico previsto.
 </p>
 
 <br>
@@ -196,7 +215,7 @@
     <p>
         O Gelo Fundente é gelo a 0ºC, logo, toda a energia que recebe irá ser
         usada para a sua Fusão, não para aquecimento.
-    </p>
+    </p><br>
 </div>
 <p>
     Mas, como não sabemos ainda o valor do <span class="serif">&Delta;H</span>,
@@ -214,7 +233,7 @@
         <span class="invi">&hArr;</span> &Delta;U &equals; 0 &hArr; <br>
         &hArr; Q &plus; W &equals; 0 &hArr; <br>
         &hArr; Q<sub>1</sub> &plus; Q<sub>2</sub> &plus; 0 &equals; 0
-    </div>
+    </div><br>
 </div>
 <div class="contas">
     <span class="invi">&hArr;</span> Q<sub>gelo</sub> &equals; E<sub>fusão</sub><sup class="exp-contas" onclick="mostrarExpContas(6)">[6]</sup> &plus; E<sub>aquecimento</sub><sup class="exp-contas" onclick="mostrarExpContas(7)">[7]</sup> &hArr; <br>
@@ -226,19 +245,17 @@
         <span class="invi">&hArr;</span> E<sub>fusão</sub> &equals; &Delta;H<sub>Fusão do Gelo</sub> &times; m<sub>gelo</sub>
     </div>
 </div>
-<div name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(7)">[7]</sup>A
-    energia utilizada para aquecer a água que se formou após o gelo fundir,
-    que está inicialmente a 0ºC é:
+<div name="exp-contas" style="display: none;"><p><sup class="exp-contas" onclick="mostrarExpContas(7)">[7]</sup>O
+        gelo, após fundir, irá ficar sob a forma de água a 0ºC no Sistema,
+        esta água irá ser aquecida pela amostra de água quente. Logo,
+        temos que contabilizar a energia usada nesse aquecimento:
+    </p>
     <div class="contas">
         <span class="invi">&hArr;</span> E<sub>aquecimento</sub> &equals; c<sub>água</sub> &times; m<sub>gelo</sub> &times; &Delta;T<sub>gelo fundido</sub> &hArr; <br>
         &hArr; E<sub>aquecimento</sub> &equals; c<sub>água</sub> &times; m<sub>gelo</sub> &times; (T<sub>final</sub> &minus; T<sub>inicial</sub>) &hArr; <br>
         &hArr; E<sub>aquecimento</sub> &equals; c<sub>água</sub> &times; m<sub>gelo</sub> &times; (T<sub>f</sub> &minus; 0) &hArr; <br>
         &hArr; E<sub>aquecimento</sub> &equals; c<sub>água</sub> &times; m<sub>gelo</sub> &times; T<sub>f</sub>
-    </div>
-    <p>
-        O gelo, após fundir, irá ficar sob a forma de água no sistema, pelo que
-        temos que contabilizar a energia usada no aquecimento dessa água.
-    </p>
+    </div><br>
 </div><br>
 <p>
     Obtendo assim a segunte expressão:
@@ -252,7 +269,8 @@
 <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(8)">[8]</sup>A
     variação da temperatura da água irá ser negativa, uma vez que a sua 
     temperatura inicial é maior que a temperatura final do sistema
-    (<span class="serif">T<sub>água</sub> &gt; T<sub>f</sub></span>).
+    (<span class="serif">T<sub>água</sub> &gt; T<sub>f</sub></span>). Logo,
+    concluimos que a água quente irá ceder energia.
 </p><br>
 <table class="explicar">
     <tr>
@@ -299,7 +317,7 @@
         <td>&rarr;</td>
         <td>Temperatura inicial da amostra de água</td>
     </tr>
-</table><br>
+</table><br><br>
 <p>
     De seguida, misturamos o gelo fundende e a água, medimos a temperatura final
     do sistema e calculamos o

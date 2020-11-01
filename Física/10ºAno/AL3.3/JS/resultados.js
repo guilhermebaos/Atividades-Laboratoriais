@@ -1,5 +1,5 @@
 // Definir Constantes
-const varEntalpiaFusaoGelo = 333.55   // kJ/kg
+const varEntalpiaFusaoGelo = 333.55e03   // J/kg
 const cAgua = 4.18e03   // J/kg/ºC
 
 
@@ -125,7 +125,7 @@ function curva() {
         let tf = (varEntalpiaFusaoGelo * mGelo - cAgua * mQuente * tQuente) / (-cAgua * mGelo - cAgua * mQuente)
         tempFinalResp.innerText = tf.toFixed(2)
 
-        varEntalpiaGeloResp.innerText = `Variação de Entalpia Mássica de Fusão do Gelo é de ${varEntalpiaFusaoGelo}kJ/kg`
+        varEntalpiaGeloResp.innerText = `Variação de Entalpia Mássica de Fusão do Gelo é de ${varEntalpiaFusaoGelo/1000}kJ/kg`
     }
 }
 
