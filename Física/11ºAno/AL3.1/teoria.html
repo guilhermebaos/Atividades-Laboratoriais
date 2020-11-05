@@ -24,9 +24,9 @@
 <br>
 <h4 class="m5-bot">Refração da luz</h4>
 <p>
-    Fazemos incidir o lazer em meios não opacos diferentes, como uma placa de
-    acrílico e uma tina de vidro, primeiro sem água e depois com água e
-    registamos para qual dos meior o feixe refratado tem maior intensidade.
+    Fazemos incidir o lazer em meios transparentes diferentes, como uma placa de
+    acrílico e um copo vidro &minus; primeiro sem água e depois com água &minus;
+    e registamos para qual dos meior o feixe refratado tem maior intensidade.
 </p>
 <p>
     Depois, colocamos uma placa de acrílico com forma de semicírculo em cima
@@ -38,6 +38,106 @@
     registamos os vários ângulos de incidência e de reflexão.
 </p>
 <p>
-    Finalmente, usamos uma reta de melhor ajuste e a Lei de Snell-Descartes
-    para calcular o índice de refração da placa de acrílico:
+    Finalmente, usamos uma reta de melhor ajuste e a
+    <span class="anchor" onclick="mostrarExtra('Lei-de-Snell-Descartes')">Lei de Snell-Descartes</span>
+    para calcular o
+    <span class="anchor" onclick="mostrarExtra('índice-de-refração')">índice de refração</span>
+    da placa de acrílico:
 </p>
+<div id="Lei-de-Snell-Descartes" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('Lei-de-Snell-Descartes')">X</button>
+    <p>
+        A Lei de Snell-Descartes relaciona os índices de refração de dois meios
+        não opacos com o ângulo com que incide a luz e com o ângulo com que
+        será refratada:
+    </p>
+    <div class="contas">
+        <span class="invi">&hArr;</span>n<sub>1</sub> &times; sin(&theta;<sub>1</sub>) &equals; n<sub>2</sub> &times; sin(&theta;<sub>2</sub>)
+    </div>
+    <table class="explicar">
+        <tr>
+            <td>n<sub>1</sub></td>
+            <td>&rarr;</td>
+            <td>Indíce de Refração do meio onde a luz se está a propagar</td>
+        </tr>
+        <tr>
+            <td>&theta;<sub>1</sub></td>
+            <td>&rarr;</td>
+            <td>Ângulo de incidência da luz na superfície que separa os meios</td>
+        </tr>
+        <tr>
+            <td>n<sub>2</sub></td>
+            <td>&rarr;</td>
+            <td>Indíce de Refração do meio onde a luz se passa a propagar</td>
+        </tr>
+        <tr>
+            <td>&theta;<sub>2</sub></td>
+            <td>&rarr;</td>
+            <td>Ângulo de incidência da luz na superfície que separa os meios</td>
+        </tr>
+    </table><br><br>
+    <p>
+        Por exemplo, no caso de um raio solar que incida sobre uma superfície
+        plana de vidro:
+    </p>
+    <img id="Ar-Vidro-F11-AL31" src="Imagens/Ar-Vidro-F11-AL31.png" alt="Feixe a passar do ar para o vidro, com um ângulo de refração menor que o ângulo de incidência" width="580" height="330">
+    <div class="contas">
+        <span class="invi">&hArr;</span>n<sub>ar</sub> &times; sin(&theta;<sub>1</sub>) &equals; n<sub>vidro</sub> &times; sin(&theta;<sub>2</sub>)
+    </div><br>
+    <p>
+        Como o indíce de refração do vidro é superior ao do ar, o ângulo de
+        refração é menor que o ângulo de incidência:
+    </p>
+    <div class="contas">
+        <span class="invi">&hArr;</span>n<sub>vidro</sub> &gt; n<sub>ar</sub> &rArr; sin(&theta;<sub>2</sub>) &lt; sin(&theta;<sub>1</sub>) &rArr; &theta;<sub>2</sub> &lt; &theta;<sub>1</sub>
+    </div>
+</div>
+<div id="índice-de-refração" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('índice-de-refração')">X</button>
+    <p>
+        O índice de refração, <span class="serif">n</span>, de um material está
+        relacionado com a velocidade da luz nesse material e é definido pela
+        seguinte razão:
+    </p>
+    <div class="contas">
+        <span class="invi">&hArr;</span>n &equals; <div class="frac"><span>c</span><span class="denom">v</span></div>
+    </div>
+    <table class="explicar">
+        <tr>
+            <td>n</td>
+            <td>&rarr;</td>
+            <td>Indíce de Refração num material</td>
+        </tr>
+        <tr>
+            <td>c</td>
+            <td>&rarr;</td>
+            <td>Velocidade de propagação da luz no vácuo</td>
+        </tr>
+        <tr>
+            <td>v</td>
+            <td>&rarr;</td>
+            <td>Velocidade de propagação da luz no material escolhido</td>
+        </tr>
+    </table><br><br>
+    <p>
+        Logo, se a luz viajar mais lentamente num determinado material, este terá
+        um maior índice de refração. Podemos também dizer que o material
+        é muito refringente.
+    </p>
+    <p>
+        Da mesma forma, se a luz viajar mais rapidamente num determinado
+        material, este terá um menor índice de refração. Podemos também dizer
+        que o material é pouco refringente.
+    </p>
+    <p>
+        Através do quociente que o define, podemos perceber que é uma grandeza
+        adimenional e terá um valor sempre superior a 1, pois a velocidade
+        de propagação da luz no vácuo será sempre superior ou igual à velocidade
+        de propagação da luz num qualquer material:
+    </p>
+    <div class="contas">
+        <span class="invi">&hArr;</span>c &gt; v &hArr; <br>
+        &hArr; <div class="frac"><span>c</span><span class="denom">v</span></div> &gt; <div class="frac"><span>v</span><span class="denom">v</span></div> &hArr; <br>
+        &hArr; n &gt; 1.00
+    </div>
+</div>

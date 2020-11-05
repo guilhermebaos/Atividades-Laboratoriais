@@ -427,7 +427,7 @@ table.centrada {
 }
 
 table.explicar {
-    font-size: 80%;
+    font-size: 85%;
     text-indent: 0px;
     margin-top: 10px;
 }
@@ -699,6 +699,11 @@ img#Redutores-Q11-AL22 {
     margin: auto;
     min-width: 200px;
     border-radius: 5px;
+}
+img#Ar-Vidro-F11-AL31 {
+    display: block;
+    min-width: 200px;
+    margin: 20px 0px 15px 0px;
 }
 img#TP-Exame {
     display: block;
