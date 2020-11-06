@@ -22,11 +22,11 @@
 </p>
 
 <br>
-<h4 class="m5-bot">Refração da luz</h4>
+<h4 class="m5-bot">Refração da Luz</h4>
 <p>
     Fazemos incidir o lazer em meios transparentes diferentes, como uma placa de
-    acrílico e um copo vidro &minus; primeiro sem água e depois com água &minus;
-    e registamos para qual dos meior o feixe refratado tem maior intensidade.
+    acrílico e um copo vidro &minus; primeiro vazio e depois com água &minus;
+    e registamos para qual dos meios o feixe refratado tem maior intensidade.
 </p>
 <p>
     Depois, colocamos uma placa de acrílico com forma de semicírculo em cima
@@ -63,7 +63,7 @@
         <tr>
             <td>&theta;<sub>1</sub></td>
             <td>&rarr;</td>
-            <td>Ângulo de incidência da luz na superfície que separa os meios</td>
+            <td>Ângulo de Incidência da luz na superfície que separa os meios</td>
         </tr>
         <tr>
             <td>n<sub>2</sub></td>
@@ -73,7 +73,7 @@
         <tr>
             <td>&theta;<sub>2</sub></td>
             <td>&rarr;</td>
-            <td>Ângulo de incidência da luz na superfície que separa os meios</td>
+            <td>Ângulo de Refração</td>
         </tr>
     </table><br><br>
     <p>
@@ -82,14 +82,14 @@
     </p>
     <img id="Ar-Vidro-F11-AL31" src="Imagens/Ar-Vidro-F11-AL31.png" alt="Feixe a passar do ar para o vidro, com um ângulo de refração menor que o ângulo de incidência" width="580" height="330">
     <div class="contas">
-        <span class="invi">&hArr;</span>n<sub>ar</sub> &times; sin(&theta;<sub>1</sub>) &equals; n<sub>vidro</sub> &times; sin(&theta;<sub>2</sub>)
+        <span class="invi">&hArr;</span> n<sub>ar</sub> &times; sin(&theta;<sub>1</sub>) &equals; n<sub>vidro</sub> &times; sin(&theta;<sub>2</sub>)
     </div><br>
     <p>
         Como o indíce de refração do vidro é superior ao do ar, o ângulo de
         refração é menor que o ângulo de incidência:
     </p>
     <div class="contas">
-        <span class="invi">&hArr;</span>n<sub>vidro</sub> &gt; n<sub>ar</sub> &rArr; sin(&theta;<sub>2</sub>) &lt; sin(&theta;<sub>1</sub>) &rArr; &theta;<sub>2</sub> &lt; &theta;<sub>1</sub>
+        <span class="invi">&hArr;</span> n<sub>vidro</sub> &gt; n<sub>ar</sub> &rArr; sin(&theta;<sub>2</sub>) &lt; sin(&theta;<sub>1</sub>) &rArr; &theta;<sub>2</sub> &lt; &theta;<sub>1</sub>
     </div>
 </div>
 <div id="índice-de-refração" class="explicar" style="display: none;">
@@ -136,8 +136,114 @@
         de propagação da luz num qualquer material:
     </p>
     <div class="contas">
-        <span class="invi">&hArr;</span>c &gt; v &hArr; <br>
+        <span class="invi">&hArr;</span> c &gt; v &hArr; <br>
         &hArr; <div class="frac"><span>c</span><span class="denom">v</span></div> &gt; <div class="frac"><span>v</span><span class="denom">v</span></div> &hArr; <br>
         &hArr; n &gt; 1.00
     </div>
 </div>
+<div class="contas">
+    <span class="invi">&hArr;</span> n<sub>ar</sub> &times; sin(&theta;<sub>1</sub>) &equals; n<sub>acrílico</sub> &times; sin(&theta;<sub>2</sub>) &hArr; <br>
+    &hArr; 1.00 &times; sin(&theta;<sub>1</sub>) &equals; n<sub>acrílico</sub> &times; sin(&theta;<sub>2</sub>) &hArr; <br>
+    &hArr; sin(&theta;<sub>1</sub>) &equals; n<sub>acrílico</sub> &times; sin(&theta;<sub>2</sub>)
+</div>
+<table class="explicar">
+    <tr>
+        <td>n<sub>ar</sub></td>
+        <td>&rarr;</td>
+        <td>Indíce de Refração do ar</td>
+    </tr>
+    <tr>
+        <td>&theta;<sub>1</sub></td>
+        <td>&rarr;</td>
+        <td>Ângulo de incidência da luz na superfície do acrílico</td>
+    </tr>
+    <tr>
+        <td>n<sub>acrílico</sub></td>
+        <td>&rarr;</td>
+        <td>Indíce de Refração do acrílico</td>
+    </tr>
+    <tr>
+        <td>&theta;<sub>2</sub></td>
+        <td>&rarr;</td>
+        <td>Ângulo de refração</td>
+    </tr>
+</table><br>
+<p>
+    Ou seja, o declive da reta de melhor ajuste traçada, por regressão linear,
+    será igual ao índice de refração do acrílico.
+</p>
+
+<br>
+<h4 class="m5-bot">Reflexão Total da Luz</h4>
+<p>
+    Se um feixe de luz se estiver a propagar num meio com maior índice de
+    refração e incidir sobre um meio com um índice de refração menor,
+    segundo um ângulo de incidência superior ao
+    <span class="anchor" onclick="mostrarExtra('ângulo-crítico')">ângulo crítico</span>,
+    irá ocorrer Reflexão Total.
+</p>
+<div id="ângulo-crítico" class="explicar" style="display: none;">
+    <button class="fechar" onclick="mostrarExtra('ângulo-crítico')">X</button>
+    <p>
+        O ângulo crítico, <span class="serif">&theta;<sub>c</sub></span> é o
+        ângulo de incidência para o qual o ângulo de refração é 90º.
+    </p>
+    <p>Pode ser calculado por (<span class="serif">sendo n<sub>1</sub> &gt; n<sub>2</sub></span> ):</p>
+    <div class="contas">
+        <span class="invi">&hArr;</span> n<sub>1</sub> &times; sin(&theta;<sub>1</sub>) &equals; n<sub>2</sub> &times; sin(&theta;<sub>2</sub>) &hArr; <br>
+        &hArr; n<sub>1</sub> &times; sin(&theta;<sub>c</sub>) &equals; n<sub>2</sub> &times; sin(90º) &hArr; <br>
+        &hArr; sin(&theta;<sub>c</sub>) &equals; <div class="frac"><span>n<sub>2</sub> &times; sin(90º)</span><span class="denom">n<sub>1</sub></span></div> &hArr; <br>
+        &hArr; sin(&theta;<sub>c</sub>) &equals; <div class="frac"><span>n<sub>2</sub> &times; 1</span><span class="denom">n<sub>1</sub></span></div> &hArr; <br>
+        &hArr; &theta;<sub>c</sub> &equals; sin<sup>-1</sup>( <div class="frac"><span>n<sub>2</sub></span><span class="denom">n<sub>1</sub></span></div> )
+    </div>
+    <table class="explicar">
+        <tr>
+            <td>n<sub>1</sub></td>
+            <td>&rarr;</td>
+            <td>Indíce de Refração do meio onde a luz se está a propagar</td>
+        </tr>
+        <tr>
+            <td>&theta;<sub>1</sub></td>
+            <td>&rarr;</td>
+            <td>Ângulo de Incidência da luz na superfície que separa os meios</td>
+        </tr>
+        <tr>
+            <td>n<sub>2</sub></td>
+            <td>&rarr;</td>
+            <td>Indíce de Refração do meio onde a luz se passa a propagar</td>
+        </tr>
+        <tr>
+            <td>&theta;<sub>2</sub></td>
+            <td>&rarr;</td>
+            <td>Ângulo de Refração</td>
+        </tr>
+        <tr>
+            <td>&theta;<sub>c</sub></td>
+            <td>&rarr;</td>
+            <td>Ângulo Crítico para o par de meios escolhidos</td>
+        </tr>
+    </table><br>
+    <p>
+        Se a luz tiver um ângulo de incidência superior ao ângulo crítico
+        não irá ocorrer refração, mas sim Reflexão Total.
+    </p>
+</div><br>
+<p>
+    Começamos por fazer incidir o laser sobre a superfície semicircular da placa
+    de acrílico, de forma a que não ocorra refração nesse ponto.
+</p>
+<p>
+    De seguida, começamos a aumentar o ângulo de incidência até que deixe de
+    ocorrer refração e passe a ocorrer reflexão total e registamos esse
+    ângulo, que será aproximadamente igual ao ângulo crítico.
+</p>
+<p>
+    Depois, fazemos incidir o laser numa fibra ótica e verificamos que, mesmo
+    que esta esteja encurvada, a luz irá atingir a outra ponta, visto que
+    ocorrem várias reflexões totais da luz no seu interior. 
+</p>
+<p>
+    Finalmente, repetimos o processo anterior, mas com uma mangueira cheia de
+    água, tapada nas pontas com fita-cola transparente e observamos as
+    sucessivas reflexões totais que se dão no seu interior.
+</p>
