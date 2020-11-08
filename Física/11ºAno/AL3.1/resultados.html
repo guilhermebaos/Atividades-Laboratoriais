@@ -21,11 +21,32 @@
     </div>
 </div><br>
 <div id="Fenómeno0" class="explicar is-visible">
-    <p>O laser vermelho irá incidir numa superfície metálica muito refletora:</p>
+    <p>O laser vermelho irá incidir numa superfície metálica muito refletora</p>
+    <div class="flex-slider">
+        <div><label for="angIncide">Ângulo de Incidência</label></div>
+        <div><span id="angIncideValue">30.0</span>º<br>
+        <input type="range" name="angIncide" id="angIncide" class="slider" min="10" max="890" value="300"></div>
+    </div><br>
 </div>
 <div id="Fenómeno1" class="explicar">
-    <p>O laser vermelho irá incidir na placa semicircular de acrílico:</p>
+    <p>O laser vermelho irá incidir na placa semicircular de acrílico</p>
+    <div class="flex-slider">
+        <div><label for="angIncideRefra">Ângulo de Incidência</label></div>
+        <div><span id="angIncideRefraValue">30.0</span>º<br>
+        <input type="range" name="angIncideRefra" id="angIncideRefra" class="slider" min="10" max="1790" value="300"></div>
+    </div>
+    <div class="flex-slider">
+        <div><label for="indiceRefra">Refringência do Acrílico:</label></div>
+        <div><span id="indiceRefraValue">Intermédia</span><br>
+        <input type="range" name="indiceRefra" id="indiceRefra" class="slider" min="5" max="50" value="30"></div>
+    </div>
 </div>
 <div id="Fenómeno2" class="explicar">
-    <p>O laser vermelho irá incidir no interior de uma fibra ótica:</p>
+    <p>O laser vermelho irá incidir no interior de uma fibra ótica</p>
+</div>
+
+<div class="graf-overflow">
+    <div class="graf-container">
+        <div id="curva-laser" class="graf-background" style="background-image: url('Imagens/Metal-background.png');"></div>
+    </div>
 </div>

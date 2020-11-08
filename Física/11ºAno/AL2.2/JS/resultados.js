@@ -192,13 +192,14 @@ function prepararResultados() {
 
 // Escolher o Procedimento a seguir
 function procedimento(num) {
-    if (F11_AL22.processandoAnim) return
-    F11_AL22.processandoAnim = true
     if (num == 1) {
         procedimento1.className = 'escolha-atual'
         procedimento2.className = 'escolha'
 
         if (procedimentoEscolhido != 1) {
+            if (F11_AL22.processandoAnim) return
+            F11_AL22.processandoAnim = true
+
             procedimentoEscolhido = 1
             mostrarExtra('Procedimento2-Div');
             window.setTimeout(mostrarExtra, mostrarExtraTempo, 'Procedimento1-Div')
@@ -212,6 +213,9 @@ function procedimento(num) {
         procedimento1.className = 'escolha'
 
         if (procedimentoEscolhido != 2) {
+            if (F11_AL22.processandoAnim) return
+            F11_AL22.processandoAnim = true
+            
             procedimentoEscolhido = 2
             mostrarExtra('Procedimento1-Div');
             window.setTimeout(mostrarExtra, mostrarExtraTempo, 'Procedimento2-Div')
