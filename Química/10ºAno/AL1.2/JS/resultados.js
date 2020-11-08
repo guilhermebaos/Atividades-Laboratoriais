@@ -23,6 +23,8 @@ function prepararResultados() {
     // Selecionar os Spans com os Resultados da Tabela
     salEscolhidoResp = document.getElementById('salEscolhidoValue')
     corChamaResp = document.getElementById('corChamaValue')
+
+    corChamaResp.innerText
     
     Q10_AL12.preparado = true
 }

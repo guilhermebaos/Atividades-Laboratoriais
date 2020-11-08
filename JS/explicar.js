@@ -4,6 +4,7 @@ let mostrarExpContasPronto = false
 let expContasArray = []
 let expContasAberto = 0
 let pos = 0
+let mostrarExtraTempo = 400
 
 function mostrarExpContas(num) {
     if (!mostrarExpContasPronto) {
@@ -52,7 +53,7 @@ function mostrarExtra(keyWord) {
         window.setTimeout(function () {
             extra.classList.remove('is-visible')
             extra.processando = false
-        }, 400)
+        }, mostrarExtraTempo)
 
     } // Mostra o elemento, se ainda estiver escondido
     else {
@@ -70,6 +71,6 @@ function mostrarExtra(keyWord) {
         window.setTimeout(function () {
             extra.style.height = ''
             extra.processando = false
-        }, 400)
+        }, mostrarExtraTempo)
     }
 }

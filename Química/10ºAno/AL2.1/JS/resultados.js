@@ -6,6 +6,7 @@
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let Q10_AL21 = {
     preparado: false,
+    processandoAnim: false
 }
 
 let liqArray
@@ -24,7 +25,6 @@ function prepararResultados() {
 
     // Selecionar os Butões
     liqArray = document.getElementsByName('líquido')
-
     Q10_AL21.preparado = true
     // curva()
 }
@@ -59,8 +59,13 @@ function escolherLiq(pos) {
 // Mostrar o Resultado
 function curva() {
     if (resultadoAntigo != resultadoNovo) {
+        if (Q10_AL21.processandoAnim) return
+        Q10_AL21.processandoAnim = true
         mostrarExtra(resultadoAntigo)
-        mostrarExtra(resultadoNovo)
+        window.setTimeout(mostrarExtra, mostrarExtraTempo, resultadoNovo)
+        window.setTimeout(function() {
+            Q10_AL21.processandoAnim = false
+        }, mostrarExtraTempo * 2)
         resultadoAntigo = resultadoNovo
     }
 }

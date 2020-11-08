@@ -6,6 +6,7 @@
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let Q11_AL22 = {
     preparado: false,
+    processandoAnim: false
 }
 
 let metais
@@ -52,8 +53,13 @@ function curva() {
         resultadoNovo = 'erro'
     } else resultadoNovo = parEscolhido.toString().replaceAll(',', '')
     if (resultadoAntigo != resultadoNovo) {
+        if (Q11_AL22.processandoAnim) return
+        Q11_AL22.processandoAnim = true
         mostrarExtra(resultadoAntigo)
-        mostrarExtra(resultadoNovo)
+        window.setTimeout(mostrarExtra, mostrarExtraTempo, resultadoNovo)
+        window.setTimeout(function() {
+            Q11_AL22.processandoAnim = false
+        }, mostrarExtraTempo * 2)
         resultadoAntigo = resultadoNovo
     }
 }

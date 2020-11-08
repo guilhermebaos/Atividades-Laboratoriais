@@ -6,9 +6,13 @@
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let F11_AL31 = {
     preparado: false,
-    divCurva: ''
+    divCurva: '',
+    processandoAnim: false
 }
-let misturaEscolhida = 0
+
+
+let fenomBtns
+let fenomEscolhido = 0
 
 
 function prepararResultados() {
@@ -20,12 +24,39 @@ function prepararResultados() {
 
     // Selecionar os Spans com os Valores dos Sliders
 
-    // Selecionar os spans com os Resultados da Tabela
+    // Selecionar os Spans com os Resultados da Tabela
+
+    // Selecionar os Butões que permitem escolher o Procedimento
+    fenomBtns = document.getElementsByName('Fenómenos')
 
     // Atualizar os Sliders
 
     F11_AL31.preparado = true
     curva()
+}
+
+
+// Esolher o fenómeno a estudar
+
+
+// Escolher o Procedimento a seguir
+function fenomeno(num) {
+    if (num == fenomEscolhido) return
+    else {
+        if (F11_AL31.processandoAnim) return
+        F11_AL31.processandoAnim = true
+
+        fenomBtns[fenomEscolhido].className = 'escolha'
+        fenomBtns[num].className = 'escolha-atual'
+
+        mostrarExtra(`Fenómeno${fenomEscolhido}`)
+        window.setTimeout(mostrarExtra, mostrarExtraTempo, `Fenómeno${num}`)
+        window.setTimeout(function() {
+            F11_AL31.processandoAnim = false
+        }, mostrarExtraTempo * 2)
+
+        fenomEscolhido = num
+    }
 }
 
 
@@ -39,6 +70,3 @@ function pontos() {
 function curva() {
     return
 }
-
-
-// Ideia: Fazer a Simulação com maior interatividade

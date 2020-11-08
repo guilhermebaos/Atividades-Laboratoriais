@@ -65,8 +65,9 @@ function prepararResultados() {
     // Selecionar a div onde vai parar a curva
     Q11_AL23.divCurva = document.getElementById('curva-Solubilidade')
 
-    Q11_AL23.preparado = true
+    if (Q11_AL23.divCurva == null) throw TypeError
 
+    Q11_AL23.preparado = true
     curva()
 }
 
@@ -275,6 +276,6 @@ function resultadosExtra() {
         }
 
 
-        massaResp.innerText = `Num kilograma de água, a 20ºC conseguimos dissolver até ${m.toFixed(1)}g de ${nomeSal}.`
+        massaResp.innerText = `Num kilograma de água, a 20ºC, conseguimos dissolver até ${m.toFixed(1)}g de ${nomeSal}.`
     }
 }

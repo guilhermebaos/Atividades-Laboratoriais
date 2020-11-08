@@ -8,6 +8,7 @@ const cAgua = 4.18e03   // J/kg/ºC
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let F10_AL33 = {
     preparado: false,
+    processandoAnim: false
 }
 
 let massaQuente
@@ -93,13 +94,18 @@ function prepararResultados() {
 // Selecionar o que vai ser misturado e alterar a aparência dos Butões
 function escolherMistura(num) {
     if (num != misturaEscolhida) {
+        if (F10_AL33.processandoAnim) return
+        F10_AL33.processandoAnim = true
         // Desselecionar escolha anterior
         mostrarExtra(`mistura${misturaEscolhida}`)
         escolhasMistura[misturaEscolhida].className = 'escolha'
 
         // Selecinar Nova Escolha
         misturaEscolhida = num
-        mostrarExtra(`mistura${misturaEscolhida}`)
+        window.setTimeout(mostrarExtra, mostrarExtraTempo, `mistura${misturaEscolhida}`)
+        window.setTimeout(function() {
+            F10_AL33.processandoAnim = false
+        }, mostrarExtraTempo * 2)
         escolhasMistura[misturaEscolhida].className = 'escolha-atual'
     }
 }
