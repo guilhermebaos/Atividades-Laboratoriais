@@ -1,6 +1,9 @@
 // Definir Constantes
 const nAr = 1.00
 
+const nNuc = 1.60
+const nRev = 1.40
+
 
 // Inicializar Variáveis Globais
 
@@ -14,11 +17,17 @@ let F11_AL31 = {
 let angIncide
 let angIncideRefra
 let indiceRefra
+let angIncideRefleTot
+let larguraFibra
 
 let angIncideResp
 let angIncideRefraResp
 let indiceRefraResp
+let angIncideRefleTotResp
+let larguraFibraResp
 
+let angRefResp
+let nAcrResp
 
 let fenomBtns
 let fenomEscolhido = 0
@@ -33,13 +42,19 @@ function prepararResultados() {
     angIncide = document.getElementById('angIncide')
     angIncideRefra = document.getElementById('angIncideRefra')
     indiceRefra = document.getElementById('indiceRefra')
+    angIncideRefleTot = document.getElementById('angIncideRefleTot')
+    larguraFibra = document.getElementById('larguraFibra')
 
     // Selecionar os Spans com os Valores dos Sliders
     angIncideResp = document.getElementById('angIncideValue')
     angIncideRefraResp = document.getElementById('angIncideRefraValue')
     indiceRefraResp = document.getElementById('indiceRefraValue')
+    angIncideRefleTotResp = document.getElementById('angIncideRefleTotValue')
+    larguraFibraResp = document.getElementById('larguraFibraValue')
 
     // Selecionar os Spans com os Resultados da Tabela
+    angRefResp = document.getElementById('angRefValue')
+    nAcrResp = document.getElementById('nAcrValue')
 
     // Selecionar a div que vai ter a Curva
     F11_AL31.divCurva = document.getElementById('curva-laser')
@@ -76,7 +91,18 @@ function prepararResultados() {
         }
         curva()
     }
+    angIncideRefleTot.oninput = function atualizarAngIncideRefleTot() {
+        let angIncideRefleTotValue = angIncideRefleTot.value / 10
     
+        angIncideRefleTotResp.innerText = `${angIncideRefleTotValue.toFixed(1)}`
+        curva()
+    }
+    larguraFibra.oninput = function atualizarLarguraFibra() {
+        let larguraFibraValue = larguraFibra.value / 1
+    
+        larguraFibraResp.innerText = `${larguraFibraValue.toFixed(0)}`
+        curva()
+    }
 
     F11_AL31.preparado = true
     curva()
@@ -84,9 +110,6 @@ function prepararResultados() {
 
 
 // Esolher o fenómeno a estudar
-
-
-// Escolher o Procedimento a seguir
 function fenomeno(num) {
     if (num == fenomEscolhido) return
     else {
@@ -96,16 +119,28 @@ function fenomeno(num) {
         fenomBtns[fenomEscolhido].className = 'escolha'
         fenomBtns[num].className = 'escolha-atual'
 
+        // Esconder e mostrar o gráfico
+        mostrarExtra('graf-anim')
+        window.setTimeout(function() {
+            mostrarExtra('graf-anim')
+            prepCurva()
+            curva()
+        }, mostrarExtraTempo)
+
+        // Esconder e mostrar a opção selecionada
         mostrarExtra(`Fenómeno${fenomEscolhido}`)
         window.setTimeout(mostrarExtra, mostrarExtraTempo, `Fenómeno${num}`)
         window.setTimeout(function() {
             F11_AL31.processandoAnim = false
         }, mostrarExtraTempo * 2)
 
+        // Mostrar a Tabela das Respostas
+        if (num == 1 || fenomEscolhido == 1) {
+            mostrarExtra('respostas')
+        }
+
         fenomEscolhido = num
     }
-    prepCurva()
-    curva()
 }
 
 
@@ -115,6 +150,8 @@ function prepCurva() {
         F11_AL31.divCurva.style.backgroundImage = 'url("Imagens/Metal-background.png")'
     } else if (fenomEscolhido == 1) {
         F11_AL31.divCurva.style.backgroundImage = 'url("Imagens/Acrilico-background.png")'
+    } else if (fenomEscolhido == 2) {
+        F11_AL31.divCurva.style.backgroundImage = ''
     }
 }
 
@@ -136,7 +173,7 @@ function pontos() {
         let incI = radianos(angIncide.value / 10 + 90)
         let decliveI = Math.tan(incI)
 
-        let angR = radianos(180) - incI
+        let angR = Math.PI - incI
         let decliveR = Math.tan(angR)
         while (x <= 20.1) {
             if (x < 0) {
@@ -149,8 +186,8 @@ function pontos() {
             xArr.push(x)
             yArr.push(y)
         }
-
         return [xArr, yArr]
+
     } else if (fenomEscolhido == 1) {
         // Inclinação e Declive do feixe incidente
         let incI = radianos(angIncideRefra.value / 10 + 90)
@@ -161,19 +198,24 @@ function pontos() {
 
         // Calcular o Declive do feixe refratado
         let decliveR
+        let angR
         if (graus(angI) <= 90) {
             let sinAngR = (nAr * Math.sin(angI)) / nAcr         // Lei de Snell-Descartes
-            let angR = Math.asin(sinAngR)                       // Ângulo de Refração
+            angR = Math.asin(sinAngR)                           // Ângulo de Refração
             decliveR = -Math.tan(Math.PI/2 - angR)              // Declive do feixe refratado
+            
+            angRefResp.innerText = graus(angR).toFixed(2)       // Mostrar o Valor do Ângulo de Refração
         } else {
-            let sinAngR = (nAcr * Math.sin(180 - angI)) / nAr   // Lei de Snell-Descartes
+            let sinAngR = (nAcr * Math.sin(Math.PI - angI)) / nAr   // Lei de Snell-Descartes
             if (sinAngR < 1) {
-                let angR = Math.asin(sinAngR)                   // Ângulo de Refração
+                angR = Math.asin(sinAngR)                       // Ângulo de Refração
                 decliveR = Math.tan(Math.PI/2 - angR)           // Declive do feixe refratado
             } else {
-                let angR = Math.PI - angI                       // Ângulo de Refração
+                angR = Math.PI - angI                           // Ângulo de Refração
                 decliveR = Math.tan(-Math.PI/2 + angR)          // Declive do feixe refratado
             }
+
+            angRefResp.innerText = graus(angR).toFixed(2)       // Mostrar o Valor do Ângulo de Refração
         }
 
         // Calucular os pontos do gráfico y = f(x) para o feixe
@@ -188,8 +230,51 @@ function pontos() {
             xArr.push(x)
             yArr.push(y)
         }
-
         return [xArr, yArr]
+
+    } else if (fenomEscolhido == 2) {
+        let lFibra = larguraFibra.value / 1
+        let fibraBaixo = -lFibra / 2
+        let fibraTopo = lFibra / 2
+
+        let fBaixoArr = []
+        let fTopoArr = []
+
+        // Inclinação e Declive do feixe incidente
+        let incI = radianos(angIncideRefleTot.value / 10 + 90)
+        let decliveI = Math.tan(incI)
+
+        let angR = Math.PI - incI
+        let decliveR = Math.tan(angR)
+
+        let decliveAtual = decliveI // Determinar o declive do feixe - Se é o mesmo da incidência ou se é da reflexão
+        let xSec = 0                // x usado para calcular o y de cada parte das sucessivas reflexões do feixe
+
+        let xInicial = 0
+        let xStep = 0.05
+        while (x <= 20 + xStep) {
+            y = xSec * decliveAtual
+
+            if (y < fibraBaixo) {
+                if (xInicial == 0) {
+                    xInicial = xSec
+                }
+                decliveAtual = decliveR
+                xSec = -xInicial
+            } else if (y > fibraTopo) {
+                decliveAtual = decliveI
+                xSec = -xInicial
+            }
+            x += xStep
+            xSec += xStep
+
+            xArr.push(x)
+            yArr.push(y)
+
+            fBaixoArr.push(fibraBaixo * 1.02)
+            fTopoArr.push(fibraTopo * 1.02)
+        }
+        return [xArr, yArr, fBaixoArr, fTopoArr]
     }
 }
 
@@ -259,6 +344,9 @@ function curva() {
             },
         })
     } else if (fenomEscolhido == 1) {
+        // Atualizar Resutlados na Tabela
+        nAcrResp.innerText = (1.00 + indiceRefra.value / 100).toFixed(2)
+
         // Obter e guardar os resultados
         let resultados = pontos()
         let x = resultados[0]
@@ -312,5 +400,75 @@ function curva() {
                 }
             },
         })
+    } else if (fenomEscolhido == 2) {
+        // Obter e guardar os resultados
+        let resultados = pontos()
+        let x = resultados[0]
+        let y = resultados[1]
+        let fB = resultados[2]
+        let fT = resultados[3]
+
+        // Criar o Chart Object
+        let graCurva = new Chart(canvasCurva, {
+            type: 'line',
+            data: {
+                labels: x,
+                datasets: [{
+                    data: y,
+                    label: 'Laser',
+                    borderColor: 'rgb(255, 0, 0)',
+                    fill: false
+                },
+                {
+                    data: fB,
+                    label: 'Fibra Ótica Baixo',
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false
+                },
+                {
+                    data: fT,
+                    label: 'Fibra Ótica Topo',
+                    borderColor: 'rgb(0, 0, 0)',
+                    fill: false
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 0
+                },
+                hover: {
+                    animationDuration: 0
+                },
+                responsiveAnimationDuration: 0,
+                elements: {
+                    point: {
+                        radius: 1,
+                        hitRadius: 1,
+                        hoverRadius: 4
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        display: false,
+                        labelString: '',
+                    }],
+                    yAxes: [{
+                        display: false,
+                        ticks: {
+                            max: 10,
+                            min: -10
+                        }
+                    }]
+                },
+                legend: {
+                    display: false,
+                },
+                tooltips: {
+                    enabled: false
+                }
+            },
+        })
     }
 }
+
+// Ideia: Ângulo Crítico na Refração
