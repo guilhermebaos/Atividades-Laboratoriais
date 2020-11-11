@@ -27,6 +27,7 @@ let angIncideRefleTotResp
 let larguraFibraResp
 
 let angRefResp
+let angCritResp
 let nAcrResp
 
 let fenomBtns
@@ -54,6 +55,7 @@ function prepararResultados() {
 
     // Selecionar os Spans com os Resultados da Tabela
     angRefResp = document.getElementById('angRefValue')
+    angCritResp = document.getElementById('angCritValue')
     nAcrResp = document.getElementById('nAcrValue')
 
     // Selecionar a div que vai ter a Curva
@@ -214,9 +216,10 @@ function pontos() {
                 angR = Math.PI - angI                           // Ângulo de Refração
                 decliveR = Math.tan(-Math.PI/2 + angR)          // Declive do feixe refratado
             }
-
+            
             angRefResp.innerText = graus(angR).toFixed(2)       // Mostrar o Valor do Ângulo de Refração
         }
+        angCritResp.innerText = graus(Math.asin(nAr / nAcr)).toFixed(2)
 
         // Calucular os pontos do gráfico y = f(x) para o feixe
         while (x <= 20.1) {
