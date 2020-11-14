@@ -131,14 +131,14 @@ hr.frac {
 }
 
 .m5-top {
-    margin-top: 5px;
+    margin-top: 5px !important;
 }
 .m5-bot {
-    margin-bottom: 5px;
+    margin-bottom: 5px !important;
 }
 .m15 {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
 
@@ -203,8 +203,9 @@ span.contas {
     font-family: serif;
 }
 
-sup {
-    line-height: 0;
+span.sqrt {
+    border-top: 1px solid black;
+    padding-top: 1.5px;
 }
 
 sup.exp-contas {
@@ -709,6 +710,11 @@ img#Ar-Vidro-F11-AL31 {
     display: block;
     min-width: 200px;
     margin: 20px 0px 15px 0px;
+}
+img#Difração-F11-AL32 img#Comprimento-de-Onda-F11-AL32{
+    display: block;
+    margin: auto;
+    min-width: 250px;
 }
 img#TP-Exame {
     display: block;
