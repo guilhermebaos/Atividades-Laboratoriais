@@ -1,8 +1,8 @@
 <h3>Objetivo</h3>
 <p>
     Análisar o fenómeno da
-    <span class="anchor" onclick="mostrarExtra('difração-da-luz')">difração da luz</span>, ao incidir numa fenda simples ou numa
-    rede de difração, e determinar o seu comprimento de onda.
+    <span class="anchor" onclick="mostrarExtra('difração-da-luz')">difração da luz</span>,
+    e determinar o comprimento de onda da luz emitida por um laser.
 </p>
 <div id="difração-da-luz" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('difração-da-luz')">X</button>
@@ -53,8 +53,8 @@
             <span class="serif">&lambda;</span> é o comprimento de onda da luz.
         </li>
         <li>
-            <span class="serif">d</span> é a largura das fendas atravessadas pelo
-            laser, ou seja, a distância entre as linhas da rede utilizada.
+            <span class="serif">d</span> é a distância entre as fendas
+            da rede de difração.
         </li>
         <li>
             <span class="serif">&theta;</span> é o ângulo entre a direção
@@ -87,7 +87,7 @@
 <div class="contas">
     <span class="invi">&hArr;</span>n &times; &lambda; &equals; d &times; sin(&theta;) &hArr; <br>
     &hArr; 1<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup> &times; &lambda; &equals; d &times; <div class="frac"><span>cateto oposto</span><span class="denom">hipotenusa</span></div> &hArr; <br>
-    &hArr; &lambda; &equals; d &times; <div class="frac"><span>a</span><span class="denom">&radic;<span class="sqrt">(L<sup>2</sup> &plus; a<sup>2</sup>)</span></span></div><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>
+    &hArr; &lambda; &equals; d &times; <div class="frac"><span>a</span><span class="denom">&radic;<span class="sqrt">L<sup>2</sup> &plus; a<sup>2</sup></span></span></div><sup class="exp-contas" onclick="mostrarExpContas(2)">[2]</sup>
 </div>
 <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>Vamos
     calcular o comprimento de onda com base no máximo de ordem 1, ou seja,
@@ -105,12 +105,15 @@
     </p>
     <div class="contas">
         <span class="invi">&hArr;</span>hipotenusa<sup>2</sup> &equals; cateto oposto<sup>2</sup> &plus; cateto adjacente<sup>2</sup> &hArr; <br>
-        &hArr; hipotenusa &equals; &radic;<span class="sqrt">(L<sup>2</sup> &plus; a<sup>2</sup>)</span>
+        &hArr; hipotenusa &equals; &radic;<span class="sqrt">L<sup>2</sup> &plus; a<sup>2</sup></span>
     </div><br>
     <p class="m0">
         Sabemos que:
     </p>
     <div class="contas">
-        <span class="invi">&hArr;</span>sen(&theta;) &equals; <div class="frac"><span>a</span><span class="denom">&radic;<span class="sqrt">(L<sup>2</sup> &plus; a<sup>2</sup>)</span></span></div>
+        <span class="invi">&hArr;</span>sen(&theta;) &equals; <div class="frac"><span>a</span><span class="denom">&radic;<span class="sqrt">L<sup>2</sup> &plus; a<sup>2</sup></span></span></div>
     </div><br>
 </div>
+<p>
+    Obtemos assim o comprimento de onda da luz emitida pelo ponteiro laser.
+</p>
