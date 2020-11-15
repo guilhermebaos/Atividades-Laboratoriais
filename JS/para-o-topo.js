@@ -1,7 +1,7 @@
 // Selecionar o Butão
 paraOTopoBtn = document.getElementById('para-o-topo')
 
-if (screen && screen.width < 600) {
+if (screen) {
     // Verificar a posição da barra de navegação
     window.onscroll = scrollPos
 
