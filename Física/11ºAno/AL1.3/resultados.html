@@ -1,33 +1,27 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
-    diferentes resultados.
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver diferentes resultados.
 </p>
 <p>
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
-    <p>
-        Após alterares os valores, mas antes de veres o gráfico:
-    </p>
-    <ul>
+    <p>Após alterares os valores, mas antes de veres o gráfico:</p>
+    <ul class="m5-top">
         <li>Prevê se o declive irá aumentar ou diminuir.</li>
-    </ul><br>
-    <p>
+    </ul>
+    <p class="m30-top">
         Depois de veres o gráfico, mas antes de veres a Tabela com os Resultados:
     </p>
-    <ul>
+    <ul class="m5-top">
         <li>
-            Usando alguns dos pontos assinalados, calcula o módulo da aceleração
-            do Carrinho ao longo da travagem.
+            Usando alguns dos pontos assinalados, calcula o módulo da aceleração do Carrinho ao longo da travagem.
         </li>
         <li>
-            Usando o módulo da aceleração calculado e a massa do Carrinho,
-            determina a intensidade da Resultante das Forças de Atrito.
+            Usando o módulo da aceleração calculado e a massa do Carrinho, determina a intensidade da Resultante das Forças de Atrito.
         </li>
-    </ul><br>
+    </ul>
 </div>
 
 <div class="centrada">
@@ -41,16 +35,16 @@
         <div><input type="range" name="fAtrito" id="fAtrito" class="slider" min="10" max="50" value="30"></div>
     </div>
 
-    <button id="fazer-curva-Velocidade-Deslocamento" class="submit" onclick="curva()">Traçar o Gráfico <span class="nbsp serif">v<sub>0</sub><sup>2</sup> &equals; f(&Delta;x)</span></button>
-    <br><br>
+    <button id="fazer-curva-Velocidade-Deslocamento" class="submit" onclick="curva()">Traçar o Gráfico <span class="serif">v<sub>0</sub><sup>2</sup> &equals; f(&Delta;x)</span></button>
 </div>
-<div class="graf-overflow">
+
+<div class="graf-overflow m30-top">
     <div class="graf-container">
         <div id="curva-v2x"></div>
     </div>
-</div><br>
+</div>
 
-<div class="centrada">
+<div class="centrada m30-top">
     <div class="overflow" style="max-width: 72vw;">
         <table class="resultados">
             <tr class="vars">
@@ -63,4 +57,4 @@
             </tr>
         </table>
     </div>
-</div><br><br><br>
+</div>

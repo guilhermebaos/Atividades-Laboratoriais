@@ -1,32 +1,26 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
-    diferentes resultados.
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver diferentes resultados.
 </p>
 <p>
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
-    <p>
-        Antes de veres a Tabela dos Resultados:
+    <p>Antes de veres a Tabela dos Resultados:</p>
+    <ul class="m5-top">
+        <li>
+            Misutura duas amostras de água e prevê a temperatura final do Sistema, após ser atingido o Equilíbrio Térmico, assumindo que este Sistema é isolado.
+        </li>
+    </ul>
+    <p class="m30-top">
+        Mistura água e Gelo Fundente e, após veres a temperatura final do Sistema:
     </p>
-    <ul>
+    <ul class="m5-top">
         <li>
-            Misutura duas amostras de água e prevê a temperatura final do
-            Sistema, após ser atingido o Equilíbrio Térmico, assumindo
-            que este Sistema é isolado.
+            Calcula a Variação de Entalpia Mássica de Fusão do Gelo, assumindo que o Sistema é isolado.
         </li>
-    </ul>
-    <p>Mistura água e Gelo Fundente e, após veres a temperatura final do Sistema:</p>
-    <ul>
-        <li>
-            Calcula a Variação de Entalpia Mássica de Fusão do Gelo, assumindo
-            que o Sistema é isolado.
-        </li>
-    </ul>
-    <br>
+    </ul><br>
 </div>
 
 <div class="centrada">
@@ -68,11 +62,10 @@
             <input type="range" name="massaGelo" id="massaGelo" class="slider" min="100" max="1000" value="200"></div>
         </div>
     </div>
-</div><br>
+</div>
 <button id="misturar-água" class="submit" onclick="curva()">Simular a mistura</button>
 
-<br><br>
-<div class="centrada">
+<div class="centrada m30">
     <div class="overflow" style="max-width: 72vw;">
         <table id="tabelaResultados" class="resultados">
             <tr class="vars">
@@ -82,6 +75,8 @@
                 <td id="tempFinalValue">25.00</td>
             </tr>
         </table>
-    </div><br><br>
+    </div>
+</div>
+<div class="centrada">
     <p id="varEntalpiaGelo"></p>
-</div><br>
+</div>

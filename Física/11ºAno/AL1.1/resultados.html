@@ -1,8 +1,6 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
-    diferentes resultados.
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver diferentes resultados.
 </p>
 <p>
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
@@ -12,26 +10,21 @@
     <p>
         Após alterares os valores, mas antes de veres a 1ª Tabela com os Resultados:
     </p>
-    <ul>
+    <ul class="m5-top">
         <li>
-            Desprezando a Resistência do Ar, prevê se uma variação na Massa irá
-            variar a aceleração gravítica obtida.
+            Desprezando a Resistência do Ar, prevê se uma variação na Massa irá variar a aceleração gravítica obtida.
         </li>
         <li>
-            Desprezando a Resistência do Ar, calcula o tempo de queda da esfera
-            entre as Células, sendo <span class="nbsp">g &equals; 9.81ms<sup>-2</sup></span>.
+            Desprezando a Resistência do Ar, calcula o tempo de queda da esfera entre as Células, sendo <span class="serif">g &equals; 9.81ms<sup>-2</sup></span>.
         </li>
-    </ul><br>
-    <p>
-        Após veres apenas a 1ª Tabela com os Resultados:
-    </p>
-    <ul>
+    </ul>
+    <p class="m30-top">Após veres apenas a 1ª Tabela com os Resultados:</p>
+    <ul class="m5-top">
         <li>
             Calcula o valor experimental para a aceleração gravítica.
         </li>
         <li>
-            Calcula o erro relativo para a aceleração gravítica calculada,
-            sendo <span class="nbsp">g &equals; 9.81ms<sup>-2</sup></span>.
+            Calcula o erro relativo para a aceleração gravítica calculada, sendo <span class="serif">g &equals; 9.81ms<sup>-2</sup></span>.
         </li>
     </ul>
 </div>
@@ -55,15 +48,14 @@
     <div class="flex-slider">
         <div>Resistência do Ar</div>
         <div class="flex-slider">
-            <div class="btn"><button id="calcularRAr" class="escolha-atual" onclick="mudarCalcularRAr(true)">Calcular <span class="nbsp">(R<sub>Ar</sub> &NotEqual; 0)</span></button></div>
-            <div class="btn"><button id="desprezarRAr" class="escolha" onclick="mudarCalcularRAr(false)">Desprezar <span class="nbsp">(R<sub>Ar</sub> &equals; 0)</span></button></div>
+            <div class="btn"><button id="calcularRAr" class="escolha-atual" onclick="mudarCalcularRAr(true)">Calcular <span class="serif">(R<sub>Ar</sub> &NotEqual; 0)</span></button></div>
+            <div class="btn"><button id="desprezarRAr" class="escolha" onclick="mudarCalcularRAr(false)">Desprezar <span class="serif">(R<sub>Ar</sub> &equals; 0)</span></button></div>
         </div>
     </div><br>
 
     <button id="fazer-curva-Esfera" class="submit" onclick="curva()">Atualizar a Tabela dos Resultados Experimentais</button>
-    <br><br><br>
 
-    <div class="overflow">
+    <div class="overflow m45-top">
         <table class="resultados">
             <tr class="vars">
                 <td>&Delta;t <sub>passagem pela 2ª Célula</sub>/ ms</td>
@@ -76,8 +68,8 @@
                 <td><span id="velocidade-celula2"></span></td>
             </tr>
         </table>
-    </div><br><br>
-    <div class="overflow">
+    </div>
+    <div class="overflow m45-top">
         <table class="resultados">
             <tr class="vars">
                 <td>g/ ms<sup>-2</sup></td>
@@ -89,12 +81,13 @@
             </tr>
         </table>
     </div>
-    <p class="nota">Valor Tabelado para o g: 9.80665 <span class="nbsp">ms<sup>-2</sup></span></p>
 </div>
-<div class="explicar">
+<div class="nota m15-top">
     <p>
-        A Resistência do Ar foi calculada de forma aproximada usando 0.5 como o Coeficiente
-        de Resistência Aerodinâmica da Esfera.
+        Valor Tabelado para o g: <span class="nbsp">9.80665 ms<sup>-2</sup></span>
+    </p>
+    <p>
+        A Resistência do Ar foi calculada de forma aproximada usando 0.5 como o Coeficiente de Resistência Aerodinâmica da Esfera.
     </p>
 </div>
 <p>
@@ -102,7 +95,7 @@
 </p>
 <div id="gráficos-extra" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('gráficos-extra')">X</button>
-    <p>
+    <p class="m15-top">
         O Eixo usado tem origem na posição incial da esfera e o sentido do Movimento
     </p>
     <ul>
@@ -113,34 +106,32 @@
     </ul>
     
     <div id="gráfico-extra-xt" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-xt')">X</button><br><br>
-        
-        <div class="graf-overflow">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-xt')">X</button>
+        <div class="graf-overflow m30-top">
             <div class="graf-container">
                 <div id="curva-xt"></div>
             </div>
         </div>
     </div>
     <div id="gráfico-extra-vt" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-vt')">X</button><br><br>
-        
-        <div class="graf-overflow">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-vt')">X</button>
+        <div class="graf-overflow m30-top">
             <div class="graf-container">
                 <div id="curva-vt"></div>
             </div>
         </div>
     </div>
     <div id="gráfico-extra-at" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-at')">X</button><br><br>
-        <div class="graf-overflow">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-at')">X</button>
+        <div class="graf-overflow m30-top">
             <div class="graf-container">
                 <div id="curva-at"></div>
             </div>
         </div>
     </div>
     <div id="gráfico-extra-jt" class="explicar" style="display: none;">
-        <button class="fechar" onclick="mostrarExtra('gráfico-extra-jt')">X</button><br><br>
-        <div class="graf-overflow">
+        <button class="fechar" onclick="mostrarExtra('gráfico-extra-jt')">X</button>
+        <div class="graf-overflow m30-top">
             <div class="graf-container">
                 <div id="curva-jt"></div>
             </div>

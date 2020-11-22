@@ -1,8 +1,6 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
-    diferentes resultados.
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver diferentes resultados.
 </p>
 <p>
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
@@ -12,15 +10,14 @@
     <p>
         Após alterares os valores, mas antes de veres o gráfico:
     </p>
-    <ul>
+    <ul class="m5-top">
         <li>
-            Calcula a diferença de potencial nos terminais da Pilha quando esta
-            é percorrida por uma Corrente de 0.500A.
+            Calcula a diferença de potencial nos terminais da Pilha quando esta é percorrida por uma Corrente de 0.500A.
         </li>
-    </ul><br>
+    </ul>
 </div>
 
-<div class="centrada">
+<div class="centrada m30-bot">
     <div class="flex-slider">
         <div><label for="forçaEletromotriz">Força Eletromotriz</label></div>
         <div><span id="forçaEletromotrizValue">9,0</span>V<br>
@@ -32,8 +29,8 @@
         <input type="range" name="resistInterna" id="resistInterna" class="slider" min="1" max="500" value="300"></div>
     </div>    
 
-    <button id="fazer-curva-Pilha" class="submit" onclick="curva()">Traçar a função U = <span class="serif">f(I)</span></button>
-</div><br>
+    <button id="fazer-curva-Pilha" class="submit" onclick="curva()">Traçar a função <span class="serif">U = f(I)</span></button>
+</div>
 
 <div class="graf-overflow">
     <div class="graf-container">
