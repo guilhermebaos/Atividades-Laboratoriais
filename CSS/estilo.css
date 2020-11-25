@@ -26,10 +26,9 @@ header {
 @media not screen and (max-width: 600px) {
     main {
         background: white;
-        margin-right: calc(10vw - (100vw - 100%) - 20px);
-        margin-left: calc(10vw - 20px);
+        margin: auto;
         padding: 10px 20px 10px 20px;
-        width: 80vw;
+        width: 80%;
         max-width: 1500px;
         min-height: calc(100vh - 10px - 10px - 40px - 50px);
     }
