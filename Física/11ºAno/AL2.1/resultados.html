@@ -1,47 +1,41 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
-    diferentes resultados.
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver diferentes resultados.
 </p>
-<p>
+<p class="m0">
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
-
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
-    <p>
-        Antes alterar os valores:
+    <p class="m5-bot">
+        Antes de alterares os valores:
     </p>
-    <ul>
+    <ul class="m0 m30-bot">
         <li>
-            Prever se um aumento nos VOLTS/ DIV vai aumentar ou dimiuir a 
-            ordenada (altura) dos picos.
+            Prevê se um aumento nos VOLTS/ DIV vai aumentar ou dimiuir a ordenada (altura) dos picos.
         </li>
         <li>
-            Prever se uma dimiuição nos SEGUNDOS/ DIV vai aumentar ou dimiuir
-            o número de picos que aparecem no ecrã.
+            Prevê se uma dimiuição nos SEGUNDOS/ DIV vai aumentar ou dimiuir o número de picos que aparecem no ecrã.
         </li>
         <li>
-            Prever se um aumento na frequência vai aumentar ou diminuir o número
-            de oscilações que aparecem no ecrã.
+            Prevê se um aumento na frequência vai aumentar ou diminuir o número de oscilações que aparecem no ecrã.
         </li>
-    </ul><br>
-    <p>
-        Após alterar os valores:
+    </ul>
+    <p class="m5-bot">
+        Após alterares os valores:
     </p>
-    <ul>
+    <ul class="m0">
         <li>
-            Determinar o Período do Sinal a partir do Ecrã do Osciloscópio e
+            Determina o Período do Sinal a partir do Ecrã do Osciloscópio e
             calcula a sua Frequência, comparando com o valor selecionado.
         </li>
         <li>
             Verifica que consegues ouvir Sons com frequências de 10Hz a 10kHz.
         </li>
-    </ul><br>
+    </ul>
 </div>
 
-<div class="centrada">
+<div class="centrada m30">
     <p>Definições do <u>Osciloscópio:</u></p>
     <div class="flex-slider">
         <div><label for="voltsDiv">VOLTS/ DIV</label></div>
@@ -64,7 +58,7 @@
         <div><span id="amplitudeSinalValue">1.000</span>V<br>
         <input type="range" name="amplitudeSinal" id="amplitudeSinal" class="slider" min="50" max="4000" value="1000"></div>
     </div>
-</div><br><br>
+</div>
 <p>
     Ecrã do Osciloscópio:
 </p>
@@ -72,11 +66,10 @@
     <div class="graf-container">
         <div id="curva-oscilos" class="graf-background" style="background-image: url('Imagens/Osci-background.png')"></div>
     </div>
-</div><br><br>
+</div>
 <!--Permitir ouvir Sons de 1Hz a 20kHz, talvez um slider diferente-->
-<p class="m0">
+<p class="m0 m30-top">
     Podemos também ouvir o Som correspondente ao Sinal elétrico produzido pelo
     Gerador de Sinais:
 </p>
-<button id="ouvir-Som" class="submit" onclick="tocarSom()">Ouvir o Som</button>
-<br><br>
+<button id="ouvir-Som" class="submit m30-bot" onclick="tocarSom()">Ouvir o Som</button>

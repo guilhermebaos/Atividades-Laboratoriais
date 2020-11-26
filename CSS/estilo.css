@@ -717,6 +717,14 @@ ol.procedimento li {
     margin-top: 10px;
 }
 
+dl dt {
+    display: inline;
+}
+dl dd {
+    display: inline;
+    margin-inline-start: 0px;
+}
+
 
 img {
     max-width: 100%;
