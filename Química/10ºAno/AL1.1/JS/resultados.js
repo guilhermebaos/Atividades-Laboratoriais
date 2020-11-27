@@ -109,7 +109,7 @@ function curva() {
 
     massaGotaResp.innerText = `${massa.toFixed(1)}`
     volumeGotaResp.innerText = `${volume.toFixed(1)}`
-    nGotaResp.innerText = `${nTexto}`
+    nGotaResp.innerHTML = `${nTexto}`
 }
 
 // Ideia: Incluir variação da densidade com a temperatura
