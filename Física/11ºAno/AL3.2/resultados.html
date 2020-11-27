@@ -1,46 +1,41 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Usa os Sliders para alterar os valores indicados, de forma a poderes ver
-    diferentes resultados.
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver diferentes resultados.
 </p>
 <p>
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
-    <p>Após alterares os valores, mas antes de veres a Tabela com os Resultados:</p>
+    <p>
+        Após alterares os valores, mas antes de veres a Tabela com os Resultados:
+    </p>
     <ul>
         <li>
-            Mede a distância entre os máximos de ordem 1
-            (<span class="serif">2a</span>), usando a escala indicada e confere
-            <span class="anchor" onclick="mostrarExtra('aqui')">aqui</span> o
-            valor medido.
+            Mede a distância entre os máximos de ordem 1 (<span class="serif">2a</span>), usando a escala indicada e confere <span class="anchor" onclick="mostrarExtra('aqui')">aqui</span> o valor medido.
         </li>
         <div id="aqui" class="explicar" style="display: none;">
             <button class="fechar" onclick="mostrarExtra('aqui')">X</button>
-            <p>
-                A distância entre os máxmios de ordem 1 é:
-                <span id="distN1Value"></span>cm.
-            </p><br>
+            <p class="m30-bot">
+                A distância entre os máximos de ordem 1 é: <span id="distN1Value"></span>cm.
+            </p>
         </div>
-        <li>
+        <li class="m5-top">
             Calcula o comprimento de onda da luz que incide no alvo.
         </li>
     </ul>
 </div>
 
-<div class="centrada">
+<div class="centrada m30-top">
     <p>
-        O laser irá incidir numa rede de difração. A Simulação mostra o que
-        irá ser visto, aproximadamente, no alvo.
+        O laser irá incidir numa rede de difração. A Simulação mostra o que irá ser visto, aproximadamente, no alvo.
     </p>
     <div class="flex-slider">
         <div class="btn"><button name="cor-laser" class="escolha-atual" onclick="corLaser(0)">Vermelho</button></div>
         <div class="btn"><button name="cor-laser" class="escolha" onclick="corLaser(1)">Verde</button></div>
         <div class="btn"><button name="cor-laser" class="escolha" onclick="corLaser(2)">Azul</button></div>
-    </div><br>
-    <div class="flex-slider">
+    </div>
+    <div class="flex-slider m30-top">
         <div><label for="linhas">Linhas por milímetro</label></div>
         <div><span id="linhasValue">500</span>linhas<br>
         <input type="range" name="linhas" id="linhas" class="slider" min="200" max="800" value="500"></div>
@@ -50,18 +45,16 @@
         <div><span id="distAoAlvoValue">20.0</span>cm<br>
         <input type="range" name="distAoAlvo" id="distAoAlvo" class="slider" min="50" max="600" value="200"></div>
     </div>
-</div><br>
+</div>
 
 <div class="graf-overflow">
     <div class="graf-container">
         <div id="curva-laser"></div>
     </div>
 </div>
-<p>
-    A linha preta corresponde a 10cm no alvo.
-</p><br>
+<p>A linha preta corresponde a 10cm no alvo.</p>
 
-<table class="resultados">
+<table class="resultados m30-top">
     <tr class="vars">
         <td>Comprimento de onda (metros)</td>
     </tr>
