@@ -30,7 +30,7 @@ header {
         padding: 10px 20px 10px 20px;
         width: 80%;
         max-width: 1500px;
-        min-height: calc(100vh - 10px - 10px - 40px - 50px - 1px);
+        min-height: calc(100vh - 10px - 10px - 40px - 50px + 1px);
     }
     div.mobile-only {
         display: none;
@@ -42,7 +42,7 @@ header {
         margin: auto;
         padding: 10px 20px 10px 20px;
         width: 80%;
-        min-height: calc(100vh - 10px - 10px - 40px - 50px - 1px);
+        min-height: calc(100vh - 10px - 10px - 40px - 50px + 1px);
     }
     div.mobile-only {
         display: initial;
