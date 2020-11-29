@@ -1,35 +1,29 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Altera os Embulhos dos tubos de ensaio A, B, C, D e E, de forma a poderes ver
-    diferentes resultados.
+    Altera os Embulhos dos tubos de ensaio A, B, C, D e E, de forma a poderes ver diferentes resultados.
 </p>
-<p>
+<p class="m0">
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
-    <p>Após alterares os embrulhos:</p>
-    <ul>
+    <p class="m5-bot">Após alterares os embrulhos:</p>
+    <ul class="m0 m15-bot">
         <li>
-            Prevê a ordem, do mais claro para o mais escuro, do conteúdo dos
-            tubos após exposição à luz.
+            Prevê a ordem, do mais claro para o mais escuro, do conteúdo dos tubos após exposição à luz.
         </li>
-    </ul><br>
+    </ul>
     <p>
-        Podes também tentar embrulhar os tubos de forma a que a essa ordem
-        seja A,B,C,D,E e, depois, E,D,C,B,A.
+        Podes também tentar embrulhar os tubos de forma a que a essa ordem seja A,B,C,D,E e, depois, E,D,C,B,A.
     </p>
-</div><br>
-<div class="centrada">
-    <p>
-        Cada tubo de ensaio irá ter um embrulho diferente, para podermos comparar
-        como irá escurecer o Cloreto de Prata quando incide sobre ele luz
-        de diferentes intensidades.
-    </p><br>
+</div>
+<div class="centrada m30-top m45-bot">
+    <p class="m30-bot">
+        Cada tubo de ensaio irá ter um embrulho diferente, para podermos comparar como irá escurecer o Cloreto de Prata quando incide sobre ele luz de diferentes intensidades.
+    </p>
     <div class="flex-slider" style="margin-bottom: 10px;">
-        <div><b>Embrulhos:</b></div>
-        <div><b>Tubos de Ensaio:</b></div>
+        <div><strong>Embrulhos:</strong></div>
+        <div><strong>Tubos de Ensaio:</strong></div>
     </div>
     <div class="flex-slider">
         <div><label>Folha de Alumínio</label></div>
@@ -90,12 +84,11 @@
                 <button name="tubo" class="escolha-atual" onclick="escolherTubo('E', 4)">E</button>
             </div>
         </div>
-    </div><br>
+    </div>
     
     <button id="fazer-solução" class="submit" onclick="curva()">Expor o Cloreto de Prata à luz</button>
-    <br><br>
-</div><br><br>
-<p> Tubos ordenados do mais claro para o mais escuro: </p><br>
+</div>
+<p>Tubos ordenados do mais claro para o mais escuro:</p>
 <div class="overflow">
     <div class="centrada">
         <span name="claridadeTubo" class="anchor" onclick="mostrarExtra('tuboAlumínio')">Tubo A</span> &rarr;

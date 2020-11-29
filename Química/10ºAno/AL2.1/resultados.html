@@ -1,31 +1,28 @@
-<h3>Resultados</h3>
-
+<h2 class="topico">Resultados</h2>
 <p>
-    Seleciona diferentes pares de liquídos para verificar se são ou não miscíveis.
-    Clica num líquido para o selecionar e clica de novo para o desselecionares.
+    Seleciona diferentes pares de liquídos para verificar se são ou não miscíveis. Clica num líquido para o selecionar e clica de novo para o desselecionares.
 </p>
-<p>
+<p class="m0">
     <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
 </p>
 <div id="Sugestões-de-Exercícios" class="explicar" style="display: none;">
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
-    <p>Antes de veres a Tabela de Polaridade:</p>
-    <ul>
+    <p class="m5-bot">Antes de veres a Tabela de Polaridade:</p>
+    <ul class="m0 m30-bot">
         <li>
-            Se conseguires, prevê se as moléculas constituintes dos líquidos
-            apresentados são Polares ou Apolares.
+            Se conseguires, prevê se as moléculas constituintes dos líquidos apresentados são Polares ou Apolares.
         </li>
-    </ul><br>
-    <p>Após veres a Tabela de Polaridade:</p>
-    <ul>
+    </ul>
+    <p class="m5-bot">Após veres a Tabela de Polaridade:</p>
+    <ul class="m0">
         <li>
             Prevê se dois líquidos irão ser miscíveis (sendo que a regra geral
             apresentada na Teoria admite exceções).
         </li>
     </ul>
-</div><br>
+</div>
 
-<div class="centrada">
+<div class="centrada m30-top">
     <p>Líquidos disponíveis:</p>
     <div class="flex-slider">
         <div class="btn"><button name="líquido" class="escolha" onclick="escolherLiq(0)">Água</button></div>
@@ -34,12 +31,14 @@
         <div class="btn"><button name="líquido" class="escolha" onclick="escolherLiq(3)">ACN</button></div>
         <div class="btn"><button name="líquido" class="escolha" onclick="escolherLiq(4)">Hexano</button></div>
         <div class="btn"><button name="líquido" class="escolha" onclick="escolherLiq(5)">Xileno</button></div>
-    </div><br><br>
+    </div>
 </div>
-<p><span class="anchor" onclick="mostrarExtra('Tabela-de-Polaridade')">Tabela de Polaridade</span></p>
+<p class="m0 m30-top">
+    <span class="anchor" onclick="mostrarExtra('Tabela-de-Polaridade')">Tabela de Polaridade</span>
+</p>
 <div class="centrada">
     <div id="Tabela-de-Polaridade" class="explicar">
-        <button class="fechar" onclick="mostrarExtra('Tabela-de-Polaridade')">X</button><br>
+        <button class="fechar m0" onclick="mostrarExtra('Tabela-de-Polaridade')">X</button>
         <div class="overflow" style="max-width: 72vw;">
             <table class="resultados">
                 <tr class="vars">
@@ -71,17 +70,13 @@
                     <td>Apolar</td>
                 </tr>
             </table>
-        </div><br>
-        <p name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>O
-            Etanol tem uma parte Polar devido ao seu grupo Hidróxido (OH), e uma
-            parte Apolar, visto ter uma cadeia de Carbono.<br>
+        </div>
+        <p class="exp-contas" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>O Etanol tem uma parte Polar devido ao seu grupo Hidróxido (OH), e uma parte Apolar, visto ter uma cadeia de Carbono.
         </p>
-        <br><br>
     </div>
-</div><br>
-<button class="submit" onclick="curva()">Misturar os Líquidos</button>
-<br><br>
-<div class="texto-centrado">
+</div>
+<button class="submit m45-top" onclick="curva()">Misturar os Líquidos</button>
+<div class="texto-centrado m30-top">
     <div id="a-menos" class="explicar is-visible">
         <p>Escolhe 2 Líquidos para misturar.</p>
     </div>

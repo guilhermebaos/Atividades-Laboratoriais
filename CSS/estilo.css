@@ -30,7 +30,7 @@ header {
         padding: 10px 20px 10px 20px;
         width: 80%;
         max-width: 1500px;
-        min-height: calc(100vh - 10px - 10px - 40px - 50px);
+        min-height: calc(100vh - 10px - 10px - 40px - 50px - 1px);
     }
     div.mobile-only {
         display: none;
@@ -42,7 +42,7 @@ header {
         margin: auto;
         padding: 10px 20px 10px 20px;
         width: 80%;
-        min-height: calc(100vh - 10px - 10px - 40px - 50px);
+        min-height: calc(100vh - 10px - 10px - 40px - 50px - 1px);
     }
     div.mobile-only {
         display: initial;
@@ -73,6 +73,10 @@ header {
     margin: 0px;
 }
 
+.m5 {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
 .m15 {
     margin-top: 15px !important;
     margin-bottom: 15px !important;
@@ -196,8 +200,8 @@ mark.normal {
 }
 
 
-i.ex {
-    font-size: 90%;
+em.ex {
+    font-size: 95%;
 }
 
 
@@ -220,13 +224,13 @@ h2.ano {
 
 h2.topico {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.25em;
     margin-top: 50px;
 }
 
 
 h3.sub-topico {
-    font-size: 1.05em;
+    font-size: 1.08em;
     margin: 35px 0px 10px 0px;
 }
 
@@ -235,7 +239,6 @@ h3.unidade {
     margin-top: 40px;
     margin-bottom: 15px;
 }
-
 
 hr.frac {
     margin: 0px;
