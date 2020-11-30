@@ -1,7 +1,9 @@
 :root {
     --background-color: rgba(0, 125, 255, 0.3);
-    --button-light-blue: rgba(0, 120, 255, 0.5);
-    --button-dark-blue: rgba(0, 120, 255, 1);
+    --button-azul-claro: rgba(0, 120, 255, 0.5);
+    --button-azul-escuro: rgba(0, 120, 255, 1);
+
+    --footer-height: 50px
 }
 
 
@@ -30,7 +32,7 @@ header {
         padding: 10px 20px 10px 20px;
         width: 80%;
         max-width: 1500px;
-        min-height: calc(100vh - 10px - 10px - 40px - 50px + 1px);
+        min-height: calc(100vh - 10px - 10px - 40px - var(--footer-height) + 1px);
     }
     div.mobile-only {
         display: none;
@@ -42,7 +44,7 @@ header {
         margin: auto;
         padding: 10px 20px 10px 20px;
         width: 80%;
-        min-height: calc(100vh - 10px - 10px - 40px - 50px + 1px);
+        min-height: calc(100vh - 10px - 10px - 40px - var(--footer-height) + 1px);
     }
     div.mobile-only {
         display: initial;
@@ -596,11 +598,11 @@ button.escolha {
     padding: 5px 20px 5px 20px;
     background-color: rgba(50, 140, 255, 0.6);
     border-radius: 10px;
-    border-color: var(--button-light-blue);
+    border-color: var(--button-azul-claro);
     transition: background-color 0.2s;
 }
 button.escolha:hover {
-    background-color: var(--button-dark-blue);
+    background-color: var(--button-azul-escuro);
 }
 
 button.escolha-atual {
@@ -611,7 +613,7 @@ button.escolha-atual {
     padding: 5px 20px 5px 20px;
     background-color: rgba(50, 140, 255, 1);
     border-radius: 10px;
-    border-color: var(--button-light-blue);
+    border-color: var(--button-azul-claro);
 }
 
 button.submit {
@@ -623,11 +625,11 @@ button.submit {
     padding: 5px 12px 5px 12px;
     background-color: rgba(50, 140, 255, 0.8);
     border-radius: 10px;
-    border-color: var(--button-light-blue);
+    border-color: var(--button-azul-claro);
     transition: background-color 0.2s;
 }
 button.submit:hover {
-    background-color: var(--button-dark-blue);
+    background-color: var(--button-azul-escuro);
 }
 
 button.fechar {
@@ -665,7 +667,7 @@ button#para-o-topo {
     transition: background-color 0.2s;
 }
 button#para-o-topo:hover {
-    background-color: var(--button-dark-blue);
+    background-color: var(--button-azul-escuro);
 }
 
 
@@ -789,7 +791,7 @@ img#TP-Exame {
 footer {
     width: 100%;
     max-width: 100vw;
-    height: 50px;
+    height: var(--footer-height);
     text-align: center;
     margin-top: 0px;
     padding: 0px;
