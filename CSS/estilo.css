@@ -1,5 +1,5 @@
 :root {
-    --background-color: rgba(0, 125, 255, 0.3);
+    --background-color: rgba(50, 139, 255, 0.7);
     --button-azul-claro: rgba(0, 120, 255, 0.5);
     --button-azul-escuro: rgba(0, 120, 255, 1);
 
@@ -37,6 +37,9 @@ header {
     div.mobile-only {
         display: none;
     }
+    div.pc-only {
+        display: initial;
+    }
 }
 @media screen and (max-width: 600px) {
     main {
@@ -48,6 +51,9 @@ header {
     }
     div.mobile-only {
         display: initial;
+    }
+    div.pc-only {
+        display: none;
     }
 }
 
