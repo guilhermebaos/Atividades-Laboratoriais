@@ -253,6 +253,11 @@ h3.unidade {
     margin-bottom: 15px;
 }
 
+h4.explicar {
+    text-indent: 10px;
+    margin: 0px 0px 15px 0px;
+}
+
 hr.frac {
     margin: 0px;
 }
