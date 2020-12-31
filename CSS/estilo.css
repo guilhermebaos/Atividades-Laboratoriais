@@ -552,18 +552,18 @@ table.resultados {
 table.resultados tr.vars {
     font-weight: bold;
 }
-table.resultados tr.vars td {
+table.resultados tr.vars th {
     text-align: center;
 }
 table.resultados tr {
     border-bottom: 2px solid lightgray;
 }
-table.resultados tr td {
+table.resultados tr td, table.resultados tr th {
     padding: 10px;
     border-right: 2px solid lightgray;
     text-align: center;
 }
-table.resultados tr td:last-child{
+table.resultados tr td:last-child, table.resultados tr th:last-child{
     border-right: 0px;
 }
 
