@@ -43,20 +43,29 @@ let canvasPendulo = document.getElementById('canvasPendulo')
 let ctx = canvasPendulo.getContext('2d')
 
 
+
+// Obter o DPI do ecrã
+let DPI = window.devicePixelRatio
+
+
 // Dimensões do Canvas
-let LARGURA_SIM = canvasPendulo.width
-let ALTURA_SIM = canvasPendulo.height
+fixDPI()
 
-function novoTamanho() {
-    LARGURA_SIM = canvasPendulo.width
-    ALTURA_SIM = canvasPendulo.height
+function fixDPI() {
+    // Altura do CSS
+    let altura_css = +getComputedStyle(canvasPendulo).getPropertyValue("height").slice(0, -2)
+    // Larura do CSS
+    let largura_css = +getComputedStyle(canvasPendulo).getPropertyValue("width").slice(0, -2)
+
+    // Altera o tamanho do canvas
+    canvasPendulo.setAttribute('width', largura_css * DPI)
+    canvasPendulo.setAttribute('height', altura_css * DPI)
 }
-
-window.onresize = novoTamanho
 
 
 // Criar o Objeto Simula
-let simula = new Simula(LARGURA_SIM, ALTURA_SIM)
+let simula = new Simula(canvasPendulo)
+
 
 
 // Criar o loop da Simulação
@@ -66,7 +75,7 @@ function loopSimula(tempo) {
     let deltaTempo = tempo - ultimoTempo
     ultimoTempo = tempo
 
-    ctx.clearRect(0, 0, LARGURA_SIM, ALTURA_SIM)
+    ctx.clearRect(0, 0, canvasPendulo.width, canvasPendulo.height)
 
     simula.update(deltaTempo)
     simula.desenhar(ctx)
@@ -75,3 +84,5 @@ function loopSimula(tempo) {
 }
 
 requestAnimationFrame(loopSimula)
+
+window.onresize = simula.novoTamanho()

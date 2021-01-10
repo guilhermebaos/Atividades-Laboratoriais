@@ -1,10 +1,10 @@
-export default class Bola {
+export default class Pendulo {
     constructor(simula) {
         // Simulação
         this.simula = simula
 
         // Definições da Bola
-        this.raio = 8
+        this.raio = 16
         this.cor = 'red'
 
         // Ponto de fixação do fio
@@ -66,13 +66,19 @@ export default class Bola {
     }
 
     desenhar(ctx) {
+        // Desenhar o Fio
+        ctx.beginPath()
+        ctx.moveTo(this.fioPos.x, this.fioPos.y)
+        ctx.lineTo(this.posicao.x, this.posicao.y)
+        ctx.stroke()
+
         // Desenhar o Círculo no Ponto indicado pela posição
         ctx.fillStyle = this.cor
         ctx.beginPath()
         ctx.arc(
-            this.posicao.x - this.raio,
-            this.posicao.y - this.raio,
-            this.raio,
+            this.posicao.x,
+            this.posicao.y,
+            this.raio * 2,
             0,
             2 * Math.PI
         )

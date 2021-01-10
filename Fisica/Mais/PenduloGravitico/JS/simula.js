@@ -1,4 +1,4 @@
-import Bola from '../JS/bola.js'
+import Pendulo from '../JS/pendulo.js'
 
 const ESTADO_SIM = {
     EM_PROGRESSO: 0,
@@ -7,10 +7,11 @@ const ESTADO_SIM = {
 
 // Classe que vai executar a Simulação
 export default class Simula {
-    constructor(LARGURA_SIM, ALTURA_SIM) {
+    constructor(canvas) {
+        this.canvas = canvas
+
         // Tamanho da Simulação
-        this.largura = LARGURA_SIM
-        this.altura = ALTURA_SIM
+        this.novoTamanho()
 
         // Inputs usados para a Simulação
         this.inputs = this.juntarValores()
@@ -19,14 +20,19 @@ export default class Simula {
         this.estado = ESTADO_SIM.EM_PROGRESSO
 
         // Objetos da Simulação
-        this.bola = new Bola(this)
+        this.pendulo = new Pendulo(this)
 
         this.simObjetos = [
-            this.bola
+            this.pendulo
         ]
 
         // Inputs usados para a Simulação
         this.inputs = this.juntarValores()
+    }
+
+    novoTamanho() {
+        this.largura = this.canvas.width
+        this.altura = this.canvas.height
     }
 
     // Juntar os valores para serem usados pela Simulação
