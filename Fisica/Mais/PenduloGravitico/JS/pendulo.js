@@ -16,7 +16,7 @@ export default class Pendulo {
 
         // Posição da Bola
         this.posicao = {
-            x: this.fioPos.x + this.simula.inputs.angSin * this.simula.inputs.comp,
+            x: this.fioPos.x - this.simula.inputs.angSin * this.simula.inputs.comp,
             y: this.fioPos.y + this.simula.inputs.angCos * this.simula.inputs.comp
         }
 
@@ -40,6 +40,8 @@ export default class Pendulo {
             x: this.resultante.x / this.simula.inputs.massa,
             y: this.resultante.y / this.simula.inputs.massa
         }
+
+        this.aceleracao.abs = (this.aceleracao.x ** 2 + this.aceleracao.y ** 2) ** 0.5
 
         // Velocidade da Bola
         this.velocidade.x += this.aceleracao.x / deltaTempo

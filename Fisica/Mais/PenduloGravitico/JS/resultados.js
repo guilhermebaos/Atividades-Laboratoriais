@@ -38,10 +38,13 @@ angMax.oninput = function atualizaraGravitica() {
 }
 
 // Selecionar as divs com os Gráficos
-let recolherDados = document.getElementById('recolherDados')
-let verGraficos = document.getElementById('verGráficos')
-
 let divCurvaAng = document.getElementById('curvaAng')
+let divCurvaPos = document.getElementById('curvaPos')
+let divCurvaVel = document.getElementById('curvaVel')
+let divCurvaAce = document.getElementById('curvaAce')
+let divCurvaJer = document.getElementById('curvaJer')
+
+let mostrarGraficos = false
 
 
 // SIMULAÇÂO
@@ -90,6 +93,7 @@ function loopSimula(tempo) {
         mostrarExtra('recolherDados')
         mostrarExtra('verGráficos')
         graficos(dados)
+        mostrarGraficos = true
     }
     simula.desenhar(ctx)
 
@@ -100,6 +104,11 @@ requestAnimationFrame(loopSimula)
 
 
 document.getElementById('reiniciar-Simulação').addEventListener('click', (() => {
+    if (mostrarGraficos) {
+        mostrarExtra('recolherDados')
+        mostrarExtra('verGráficos')
+        mostrarGraficos = false
+    }
     simula.reiniciar()
 }))
 
@@ -171,7 +180,301 @@ function graficos(dados) {
                     label: function(tooltipItem, data) {
                         let value = Number(tooltipItem.value).toFixed(3)
     
-                        return 'Ângulo ' + value + 'º'
+                        return 'Ângulo: ' + value + 'º'
+                    }
+                },
+                custom: function(tooltip) {
+                    if (!tooltip) return
+                    tooltip.displayColors = false
+                },
+            }
+        },
+    })
+
+
+    // GRÁFICO DA POSIÇÃO
+
+    // Remover o Canvas antigo
+    divCurvaPos.innerHTML = ''
+
+    // Criar o canvas on de vai estar a curva
+    canvasCurva = document.createElement('canvas')
+    canvasCurva.setAttribute('id', 'canvasCurvaPos')
+    divCurvaPos.appendChild(canvasCurva)
+
+    // Criar o Chart Object
+    graCurva = new Chart(canvasCurva, {
+        type: 'line',
+        data: {
+            labels: tempo,
+            datasets: [{
+                data: dados.posX,
+                label: 'Posição no eixo dos X',
+                borderColor: 'red',
+                fill: false
+            },{
+                data: dados.posY,
+                label: 'Posição no eixo dos Y',
+                borderColor: 'green',
+                fill: false
+            },{
+                data: dados.pos,
+                label: 'Módulo da Posição',
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo/ s',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Posição/ cm',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        let tooltipItem = tooltipItems[0]
+
+                        return 'Tempo: ' + tooltipItem.label + 's'
+                    },
+                    label: function(tooltipItem, data) {
+                        let value = Number(tooltipItem.value).toFixed(2)
+                        
+                        // Label variável
+                        return data.datasets[0].label + ': ' + value + 'm'
+                    }
+                },
+                custom: function(tooltip) {
+                    if (!tooltip) return
+                    tooltip.displayColors = false
+                },
+            }
+        },
+    })
+
+
+    // GRÁFICO DA VELOCIDADE
+
+    // Remover o Canvas antigo
+    divCurvaVel.innerHTML = ''
+
+    // Criar o canvas on de vai estar a curva
+    canvasCurva = document.createElement('canvas')
+    canvasCurva.setAttribute('id', 'canvasCurvaVel')
+    divCurvaVel.appendChild(canvasCurva)
+
+    // Criar o Chart Object
+    graCurva = new Chart(canvasCurva, {
+        type: 'line',
+        data: {
+            labels: tempo,
+            datasets: [{
+                data: dados.velX,
+                label: 'Velocidade no eixo dos X',
+                borderColor: 'red',
+                fill: false
+            },{
+                data: dados.velY,
+                label: 'Velocidade no eixo dos Y',
+                borderColor: 'green',
+                fill: false
+            },{
+                data: dados.vel,
+                label: 'Módulo da Velocidade',
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo/ s',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Velocidade/ m/s',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        let tooltipItem = tooltipItems[0]
+
+                        return 'Tempo: ' + tooltipItem.label + 's'
+                    },
+                    label: function(tooltipItem, data) {
+                        let value = Number(tooltipItem.value).toFixed(2)
+                        
+                        // Label variável
+                        return data.datasets[0].label + ': ' + value + 'm/s'
+                    }
+                },
+                custom: function(tooltip) {
+                    if (!tooltip) return
+                    tooltip.displayColors = false
+                },
+            }
+        },
+    })
+
+
+    // GRÁFICO DA ACELERAÇÃO
+
+    // Remover o Canvas antigo
+    divCurvaAce.innerHTML = ''
+
+    // Criar o canvas on de vai estar a curva
+    canvasCurva = document.createElement('canvas')
+    canvasCurva.setAttribute('id', 'canvasCurvaAce')
+    divCurvaAce.appendChild(canvasCurva)
+
+    // Criar o Chart Object
+    graCurva = new Chart(canvasCurva, {
+        type: 'line',
+        data: {
+            labels: tempo,
+            datasets: [{
+                data: dados.aceX,
+                label: 'Aceleração no eixo dos X',
+                borderColor: 'red',
+                fill: false
+            },{
+                data: dados.aceY,
+                label: 'Aceleração no eixo dos Y',
+                borderColor: 'green',
+                fill: false
+            },{
+                data: dados.ace,
+                label: 'Módulo da Aceleração',
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo/ s',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Aceleração/ m/s²',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        let tooltipItem = tooltipItems[0]
+
+                        return 'Tempo: ' + tooltipItem.label + 's'
+                    },
+                    label: function(tooltipItem, data) {
+                        let value = Number(tooltipItem.value).toFixed(2)
+                        
+                        // Label variável
+                        return data.datasets[0].label + ': ' + value + 'm/s²'
+                    }
+                },
+                custom: function(tooltip) {
+                    if (!tooltip) return
+                    tooltip.displayColors = false
+                },
+            }
+        },
+    })
+
+
+    // GRÁFICO DO JERK
+
+    // Remover o Canvas antigo
+    divCurvaJer.innerHTML = ''
+
+    // Criar o canvas on de vai estar a curva
+    canvasCurva = document.createElement('canvas')
+    canvasCurva.setAttribute('id', 'canvasCurvaJer')
+    divCurvaJer.appendChild(canvasCurva)
+
+    // Criar o Chart Object
+    graCurva = new Chart(canvasCurva, {
+        type: 'line',
+        data: {
+            labels: tempo,
+            datasets: [{
+                data: dados.jer,
+                label: 'Módulo do Jerk',
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo/ s',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Jerk/ m/s²/s',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        let tooltipItem = tooltipItems[0]
+
+                        return 'Tempo: ' + tooltipItem.label + 's'
+                    },
+                    label: function(tooltipItem, data) {
+                        let value = Number(tooltipItem.value).toFixed(2)
+                        
+                        // Label variável
+                        return data.datasets[0].label + ': ' + value + 'm/s²/s'
                     }
                 },
                 custom: function(tooltip) {
