@@ -6,7 +6,11 @@ export default class Pendulo {
         // Definições da Bola
         this.raio = 16
         this.cor = 'red'
+        
+        this.reiniciar()
+    }
 
+    reiniciar() {
         // Ponto de fixação do fio
         this.fioPos = {x: this.simula.largura / 2, y: 0}
 
@@ -55,10 +59,11 @@ export default class Pendulo {
         this.simula.inputs.angCos = (vetor1.y * vetor2.y) / (vetor1.abs * vetor2.abs)
         if (this.posicao.x > this.fioPos.x) {
             this.simula.inputs.angSin = - ((1 - this.simula.inputs.angCos ** 2) ** 0.5)
+            this.simula.inputs.ang = - Math.acos(this.simula.inputs.angCos)
         } else {
             this.simula.inputs.angSin = (1 - this.simula.inputs.angCos ** 2) ** 0.5
+            this.simula.inputs.ang = Math.acos(this.simula.inputs.angCos)
         }
-        this.simula.inputs.ang = Math.acos(this.simula.inputs.angCos)
 
         // Módulo da Velocidade
         this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2) ** 0.5

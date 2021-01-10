@@ -1,4 +1,5 @@
 import Pendulo from '../JS/pendulo.js'
+import Dados from '../JS/dados.js'
 
 const ESTADO_SIM = {
     EM_PROGRESSO: 0,
@@ -26,8 +27,16 @@ export default class Simula {
             this.pendulo
         ]
 
+        this.dados = new Dados(this)
+
         // Inputs usados para a Simulação
         this.inputs = this.juntarValores()
+    }
+
+    reiniciar() {
+        this.inputs = this.juntarValores()
+        this.pendulo.reiniciar()
+        this.dados.reiniciar()
     }
 
     novoTamanho() {
@@ -40,10 +49,10 @@ export default class Simula {
         return {
             massa: massaPendulo.value / 1000,           // Massa em kg
             comp: comprimentoFio.value,                 // Comprimento em mm
+            g: aGravitica.value / 100,                  // g em m/s^2
             ang: angMax.value / 10 * (Math.PI / 180),   // Ângulo em Radianos
             angSin: Math.sin(angMax.value / 10 * (Math.PI / 180)),
             angCos: Math.cos(angMax.value / 10 * (Math.PI / 180)),
-            g: aGravitica.value / 100,                  // g em m/s^2
         }
     }
 
@@ -51,6 +60,10 @@ export default class Simula {
         if (this.estado !== ESTADO_SIM.EM_PROGRESSO) return
 
         this.simObjetos.forEach((objeto) => objeto.update(deltaTempo))
+
+        if (this.dados.update(deltaTempo)) {
+            return this.dados.dadosObtidos
+        }
     }
 
     desenhar(ctx) {

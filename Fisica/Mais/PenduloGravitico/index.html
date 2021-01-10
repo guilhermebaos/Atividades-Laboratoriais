@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simula FQ - AL 1.1 - Movimento num Plano Inclinado</title>
+    <title>Simula FQ - Pêndulo Gravítico</title>
     
     <link rel="shortcut icon" href="../../../Favicons/favicon.ico" type="image/x-icon">
 
@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="../../../CSS/estilo.css">
 
     <script src="../../../JS/w3-Html-Includes.js"></script>
-    <script src="../../../JS/menu.js"></script>
     <script src="../../../JS/explicar.js"></script>
     <script src="https://kit.fontawesome.com/8b48590a50.js" crossorigin="anonymous"></script>
 </head>
@@ -56,19 +55,44 @@
                         <input type="range" name="comprimentoFio" id="comprimentoFio" class="slider" min="100" max="500" value="200"></div>
                     </div>
                     <div class="flex-slider">
-                        <div><label for="angMax">Ângulo Máximo</label></div>
-                        <div><span id="angMaxValue">45.0</span>&deg;<br>
-                        <input type="range" name="angMax" id="angMax" class="slider" min="100" max="800" value="450"></div>
-                    </div>
-                    <div class="flex-slider">
                         <div><label for="aGravitica">Aceleração Gravítica</label></div>
                         <div><span id="aGraviticaValue">9.81</span>m/s<sup>2</sup><br>
                         <input type="range" name="aGravitica" id="aGravitica" class="slider" min="200" max="2000" value="981"></div>
                     </div>
+                    <div class="flex-slider">
+                        <div><label for="angMax">Ângulo Inicial</label></div>
+                        <div><span id="angMaxValue">45.0</span>&deg;<br>
+                        <input type="range" name="angMax" id="angMax" class="slider" min="100" max="800" value="450"></div>
+                    </div>
+
+                    <button id="reiniciar-Simulação" class="submit">Reiniciar a Simulação</button>
                 </div>
                 <div class="graf-overflow">
                     <div class="graf-container">
                         <canvas id="canvasPendulo" class="simulacao" style="width: calc(100% - 2px);"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 class="topico">Analisar o Movimento</h2>
+            <div id="recolherDados" class="explicar explicar-no-border is-visible">
+                <p>
+                    A recolher Dados sobre o Movimento do Pêndulo, aguarde uns segundos...
+                </p>
+            </div>
+            <div id="verGráficos" class="explicar explicar-no-border">
+                <p>
+                    Escolhe os gráficos que queres ver para estudar o Movimento do Pêndulo, em função do tempo:
+                </p>
+                <p><span class="anchor" onclick="mostrarExtra('Ângulo')">Ângulo com a vertical:</span></p>
+                <div id="Ângulo" class="explicar explicar-no-border">
+                    <button class="fechar" onclick="mostrarExtra('Ângulo')">X</button>
+                    <h4 class="explicar">Ângulo com a vertical</h4>
+                    <div class="graf-overflow">
+                        <div class="graf-container">
+                            <div id="curvaAng"></div>
+                        </div>
                     </div>
                 </div>
             </div>
