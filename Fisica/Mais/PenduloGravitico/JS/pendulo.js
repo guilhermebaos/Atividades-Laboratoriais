@@ -24,8 +24,6 @@ export default class Pendulo {
     }
 
     update(deltaTempo) {
-        deltaTempo /= 1000
-
         // Módulo das forças a atuar na bola
         this.peso = this.simula.inputs.massa * this.simula.inputs.g
         this.tensao = this.simula.inputs.angCos * this.peso  + 

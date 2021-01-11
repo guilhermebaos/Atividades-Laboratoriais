@@ -5,13 +5,13 @@ export default class Dados {
 
         // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
         this.contador = 0
-        this.ignorar = 5    // Apenas grava 1 valor em cada this.ignorar
+        this.ignorar = 3        // Apenas grava 1 valor em cada this.ignorar
 
         // Tempo atual
         this.tempo = 0
 
-        // Tempo até o qual vamos gravar dados, em ms
-        this.tempoFinal = 50000
+        // Tempo até o qual vamos gravar dados, em s
+        this.tempoFinal = 10
 
         // Objeto com os dados
         this.dadosObtidos = {
@@ -54,15 +54,15 @@ export default class Dados {
             return true
         }
 
-        // Calcular e guardar os valores
-        this.tempo += deltaTempo
-
         // Gravar apenas uma parte dos dados, para evitar ficar com muitos pontos
         this.contador++
 
-        if (this.contador % this.ignorar != 0) return false
+        if (this.contador % (this.ignorar * this.simula.resolucao) != 0) return false
 
-        this.dadosObtidos.tempo.push((this.tempo / 1000).toFixed(3))
+        // Calcular e guardar os valores
+        this.tempo += deltaTempo * (this.ignorar * this.simula.resolucao) / this.simula.updates_por_frame
+
+        this.dadosObtidos.tempo.push((this.tempo).toFixed(3))
 
         this.dadosObtidos.ang.push(this.simula.inputs.ang * (180 / Math.PI))
 

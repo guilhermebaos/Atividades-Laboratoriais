@@ -54,7 +54,6 @@ let canvasPendulo = document.getElementById('canvasPendulo')
 
 let ctx = canvasPendulo.getContext('2d')
 
-const UPDATES_POR_FRAME = 4
 
 
 
@@ -77,12 +76,16 @@ function fixDPI() {
 }
 
 
+// Constantes para a Simulação
+const RESOLUCAO = 50                 // Tamanho do deltaT em cada update
+const UPDATES_POR_FRAME = 5         // Velocidade da Simulação
+
 // Criar o Objeto Simula
-let simula = new Simula(canvasPendulo)
+let simula = new Simula(canvasPendulo, RESOLUCAO, UPDATES_POR_FRAME)
 
 
 // Criar o loop da Simulação
-let ultimoTempo = 0
+let ultimoTempo = performance.now()
 
 function loopSimula(tempo) {
     let deltaTempo = tempo - ultimoTempo
@@ -90,7 +93,7 @@ function loopSimula(tempo) {
 
     ctx.clearRect(0, 0, canvasPendulo.width, canvasPendulo.height)
     
-    for (let i = 0; i < UPDATES_POR_FRAME; i++) {
+    for (let i = 0; i < UPDATES_POR_FRAME * RESOLUCAO; i++) {
         let dados = simula.update(deltaTempo)
         if (dados) {
             mostrarExtra('recolherDados')

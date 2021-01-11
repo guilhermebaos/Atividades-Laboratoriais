@@ -8,8 +8,12 @@ const ESTADO_SIM = {
 
 // Classe que vai executar a Simulação
 export default class Simula {
-    constructor(canvas) {
+    constructor(canvas, resolucao, updates_por_frame) {
         this.canvas = canvas
+
+        // Resolução (Tamanho do deltaT) e Updates por Frame
+        this.resolucao = resolucao
+        this.updates_por_frame = updates_por_frame
 
         // Tamanho da Simulação
         this.novoTamanho()
@@ -28,9 +32,6 @@ export default class Simula {
         ]
 
         this.dados = new Dados(this)
-
-        // Inputs usados para a Simulação
-        this.inputs = this.juntarValores()
     }
 
     reiniciar() {
@@ -58,6 +59,9 @@ export default class Simula {
 
     update(deltaTempo) {
         if (this.estado !== ESTADO_SIM.EM_PROGRESSO) return
+
+        deltaTempo /= 1000
+        deltaTempo /= this.resolucao
 
         this.simObjetos.forEach((objeto) => objeto.update(deltaTempo))
 
