@@ -54,6 +54,8 @@ let canvasPendulo = document.getElementById('canvasPendulo')
 
 let ctx = canvasPendulo.getContext('2d')
 
+const UPDATES_POR_FRAME = 4
+
 
 
 // Obter o DPI do ecrã
@@ -87,13 +89,15 @@ function loopSimula(tempo) {
     ultimoTempo = tempo
 
     ctx.clearRect(0, 0, canvasPendulo.width, canvasPendulo.height)
-
-    let dados = simula.update(deltaTempo)
-    if (dados) {
-        mostrarExtra('recolherDados')
-        mostrarExtra('verGráficos')
-        graficos(dados)
-        mostrarGraficos = true
+    
+    for (let i = 0; i < UPDATES_POR_FRAME; i++) {
+        let dados = simula.update(deltaTempo)
+        if (dados) {
+            mostrarExtra('recolherDados')
+            mostrarExtra('verGráficos')
+            graficos(dados)
+            mostrarGraficos = true
+        }
     }
     simula.desenhar(ctx)
 

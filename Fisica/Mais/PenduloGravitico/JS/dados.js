@@ -7,7 +7,7 @@ export default class Dados {
         this.tempo = 0
 
         // Tempo até o qual vamos gravar dados, em ms
-        this.tempoFinal = 10000
+        this.tempoFinal = 50000
 
         // Objeto com os dados
         this.dadosObtidos = {
