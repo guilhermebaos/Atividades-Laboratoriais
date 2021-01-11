@@ -77,7 +77,7 @@ function fixDPI() {
 
 
 // Constantes para a Simulação
-const RESOLUCAO = 50                 // Tamanho do deltaT em cada update
+const RESOLUCAO = 5                 // Tamanho do deltaT em cada update
 const UPDATES_POR_FRAME = 5         // Velocidade da Simulação
 
 // Criar o Objeto Simula
