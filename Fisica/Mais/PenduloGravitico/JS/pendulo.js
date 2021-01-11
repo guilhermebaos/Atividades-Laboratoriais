@@ -24,6 +24,9 @@ export default class Pendulo {
     }
 
     update(deltaTempo) {
+        deltaTempo /= 1000
+        deltaTempo *= 4
+
         // Módulo das forças a atuar na bola
         this.peso = this.simula.inputs.massa * this.simula.inputs.g
         this.tensao = this.simula.inputs.angCos * this.peso  + 
@@ -44,12 +47,12 @@ export default class Pendulo {
         this.aceleracao.abs = (this.aceleracao.x ** 2 + this.aceleracao.y ** 2) ** 0.5
 
         // Velocidade da Bola
-        this.velocidade.x += this.aceleracao.x / deltaTempo
-        this.velocidade.y += this.aceleracao.y / deltaTempo
+        this.velocidade.x += this.aceleracao.x * deltaTempo
+        this.velocidade.y += this.aceleracao.y * deltaTempo
 
         // Posição da Bola
-        this.posicao.x += this.velocidade.x / deltaTempo
-        this.posicao.y += this.velocidade.y / deltaTempo
+        this.posicao.x += this.velocidade.x * deltaTempo
+        this.posicao.y += this.velocidade.y * deltaTempo
 
         // Novo Ângulo
         let vetor1 = {x: 0, y: 1, abs: 1}
