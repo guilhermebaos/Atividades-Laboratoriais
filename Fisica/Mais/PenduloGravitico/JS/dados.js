@@ -3,6 +3,10 @@ export default class Dados {
         // Simulação
         this.simula = simula
 
+        // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
+        this.contador = 0
+        this.ignorar = 5    // Apenas grava 1 valor em cada this.ignorar
+
         // Tempo atual
         this.tempo = 0
 
@@ -29,6 +33,7 @@ export default class Dados {
 
     reiniciar() {
         // Apaga os dados gravados
+        this.contador = 0
         this.tempo = 0
 
         for (let key in this.dadosObtidos) {
@@ -39,6 +44,7 @@ export default class Dados {
     }
 
     update(deltaTempo) {
+
         // Já entregou os dados
         if (this.dadosEntregues) return false
 
@@ -50,6 +56,11 @@ export default class Dados {
 
         // Calcular e guardar os valores
         this.tempo += deltaTempo
+
+        // Gravar apenas uma parte dos dados, para evitar ficar com muitos pontos
+        this.contador++
+
+        if (this.contador % this.ignorar != 0) return false
 
         this.dadosObtidos.tempo.push((this.tempo / 1000).toFixed(3))
 
