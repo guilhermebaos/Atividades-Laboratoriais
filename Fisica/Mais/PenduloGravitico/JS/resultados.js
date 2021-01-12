@@ -85,11 +85,19 @@ let simula = new Simula(canvasPendulo, RESOLUCAO, UPDATES_POR_FRAME)
 
 
 // Criar o loop da Simulação
-let ultimoTempo = performance.now()
+let ultimoTempo
 
 function loopSimula(tempo) {
+    if (ultimoTempo === undefined) {
+        ultimoTempo = tempo
+        requestAnimationFrame(loopSimula)
+        return
+    }
+
     let deltaTempo = tempo - ultimoTempo
     ultimoTempo = tempo
+
+    console.log(deltaTempo)
 
     ctx.clearRect(0, 0, canvasPendulo.width, canvasPendulo.height)
     
@@ -106,8 +114,6 @@ function loopSimula(tempo) {
 
     requestAnimationFrame(loopSimula)
 }
-
-requestAnimationFrame(loopSimula)
 
 
 document.getElementById('reiniciar-Simulação').addEventListener('click', (() => {
@@ -492,3 +498,8 @@ function graficos(dados) {
         },
     })
 }
+
+// Ajuda a evitar lag no carregamento da página
+window.setTimeout(() => {
+    requestAnimationFrame(loopSimula)
+}, 200)

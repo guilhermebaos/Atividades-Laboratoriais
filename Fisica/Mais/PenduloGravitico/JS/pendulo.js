@@ -26,7 +26,7 @@ export default class Pendulo {
     update(deltaTempo) {
         // Módulo das forças a atuar na bola
         this.peso = this.simula.inputs.massa * this.simula.inputs.g
-        this.tensao = this.simula.inputs.angCos * this.peso  + 
+        this.tensao = this.simula.inputs.angCos * this.peso + 
                       this.simula.inputs.massa * (this.velocidade.abs ** 2) / this.simula.inputs.comp
         
         // Força Resultante
@@ -55,10 +55,12 @@ export default class Pendulo {
         let vetor1 = {x: 0, y: 1, abs: 1}
         let vetor2 = {
             x: this.posicao.x - this.fioPos.x,
-            y: this.posicao.y - this.fioPos.y,
-            abs: ((this.posicao.x - this.fioPos.x) ** 2 + (this.posicao.y - this.fioPos.y) ** 2) ** 0.5
+            y: this.posicao.y - this.fioPos.y
         }
+        vetor2.abs = ((vetor2.x ** 2) + vetor2.y ** 2) ** 0.5
+
         this.simula.inputs.angCos = (vetor1.y * vetor2.y) / (vetor1.abs * vetor2.abs)
+        
         if (this.posicao.x > this.fioPos.x) {
             this.simula.inputs.angSin = - ((1 - this.simula.inputs.angCos ** 2) ** 0.5)
             this.simula.inputs.ang = - Math.acos(this.simula.inputs.angCos)
