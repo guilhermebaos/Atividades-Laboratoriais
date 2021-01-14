@@ -6,18 +6,28 @@ export default class Pendulo {
         // Definições da Bola
         this.raio = 16
         this.cor = 'red'
+
+        // Ponto de fixação do fio
+        this.fioPos = {x: this.simula.largura / 2, y: 0}
         
         this.reiniciar()
     }
 
     reiniciar() {
-        // Ponto de fixação do fio
-        this.fioPos = {x: this.simula.largura / 2, y: 0}
+        // Constantes
+        this.massa = this.simula.inputs.massa
+        this.g = this.simula.inputs.g
+        this.comp = this.simula.inputs.comp
+
+        // Ângulos
+        this.ang = this.simula.inputs.ang
+        this.angSin = Math.sin(this.ang)
+        this.angCos = Math.cos(this.ang)
 
         // Posição da Bola
         this.posicao = {
-            x: this.fioPos.x - this.simula.inputs.angSin * this.simula.inputs.comp,
-            y: this.fioPos.y + this.simula.inputs.angCos * this.simula.inputs.comp
+            x: this.fioPos.x + this.angSin * this.comp,
+            y: this.fioPos.y + this.angCos * this.comp
         }
 
         this.velocidade = {x: 0, y: 0, abs: 0}
@@ -25,53 +35,49 @@ export default class Pendulo {
 
     update(deltaTempo) {
         // Módulo das forças a atuar na bola
-        this.peso = this.simula.inputs.massa * this.simula.inputs.g
-        this.tensao = this.simula.inputs.angCos * this.peso + 
-                      this.simula.inputs.massa * (this.velocidade.abs ** 2) / this.simula.inputs.comp
-        
+        this.peso = this.massa * this.g
+        this.tensao = this.angCos * this.peso + this.massa * (this.velocidade.abs ** 2) / this.comp
+
         // Força Resultante
         this.resultante = {
-            x: this.simula.inputs.angSin * this.tensao,
-            y: this.peso - this.simula.inputs.angCos * this.tensao
+            x: this.angSin * this.tensao,
+            y: this.peso - this.angCos * this.tensao
         }
         
         // Aceleração da Bola
         this.aceleracao = {
-            x: this.resultante.x / this.simula.inputs.massa,
-            y: this.resultante.y / this.simula.inputs.massa
+            x: this.resultante.x / this.massa,
+            y: this.resultante.y / this.massa
         }
 
         this.aceleracao.abs = (this.aceleracao.x ** 2 + this.aceleracao.y ** 2) ** 0.5
 
+        // Posição da Bola
+        this.posicao.x += this.velocidade.x * deltaTempo + 0.5 * this.aceleracao.x * deltaTempo ** 2
+        this.posicao.y += this.velocidade.y * deltaTempo + 0.5 * this.aceleracao.y * deltaTempo ** 2
+
         // Velocidade da Bola
         this.velocidade.x += this.aceleracao.x * deltaTempo
         this.velocidade.y += this.aceleracao.y * deltaTempo
-
-        // Posição da Bola
-        this.posicao.x += this.velocidade.x * deltaTempo
-        this.posicao.y += this.velocidade.y * deltaTempo
-
+        
+        this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2) ** 0.5
+        
         // Novo Ângulo
         let vetor1 = {x: 0, y: 1, abs: 1}
         let vetor2 = {
             x: this.posicao.x - this.fioPos.x,
             y: this.posicao.y - this.fioPos.y
         }
-        vetor2.abs = ((vetor2.x ** 2) + vetor2.y ** 2) ** 0.5
+        vetor2.abs = (vetor2.x ** 2 + vetor2.y ** 2) ** 0.5
 
-        this.simula.inputs.angCos = (vetor1.y * vetor2.y) / (vetor1.abs * vetor2.abs)
+        this.angCos = (vetor1.y * vetor2.y) / (vetor1.abs * vetor2.abs)
         
         if (this.posicao.x > this.fioPos.x) {
-            this.simula.inputs.angSin = - ((1 - this.simula.inputs.angCos ** 2) ** 0.5)
-            this.simula.inputs.ang = - Math.acos(this.simula.inputs.angCos)
+            this.ang = - Math.acos(this.angCos)
         } else {
-            this.simula.inputs.angSin = (1 - this.simula.inputs.angCos ** 2) ** 0.5
-            this.simula.inputs.ang = Math.acos(this.simula.inputs.angCos)
+            this.ang = Math.acos(this.angCos)
         }
-
-        // Módulo da Velocidade
-        this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2) ** 0.5
-        
+        this.angSin = Math.sin(this.ang)
     }
 
     desenhar(ctx) {

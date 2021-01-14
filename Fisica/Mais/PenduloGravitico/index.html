@@ -64,21 +64,31 @@
                         <div><span id="angMaxValue">45.0</span>&deg;<br>
                         <input type="range" name="angMax" id="angMax" class="slider" min="0" max="900" value="450"></div>
                     </div>
+                    <p class="m30"><span class="anchor" onclick="mostrarExtra('Mais-definições')">Mais definições</span></p>
+                    <div id="Mais-definições" class="explicar explicar-no-border" style="display: none;">
+                        <button class="fechar" onclick="mostrarExtra('Mais-definições')">X</button>
+                        <div class="flex-slider">
+                            <div><label for="tempoMax">Tempo de Gravação<br>de Dados</label></div>
+                            <div><span id="tempoMaxValue">10</span>s<br>
+                            <input type="range" name="tempoMax" id="tempoMax" class="slider" min="5" max="60" value="10"></div>
+                        </div>
+                    </div>
 
                     <button id="reiniciar-Simulação" class="submit">Reiniciar a Simulação</button>
                 </div>
-                <div class="graf-overflow">
+                <div class="graf-overflow m5-bot">
                     <div class="graf-container">
                         <canvas id="canvasPendulo" class="simulacao" style="width: calc(100% - 4px);"></canvas>
                     </div>
                 </div>
+                <button id="pausa-Simulação" class="submit m5-top">Pausa</button>
             </div>
         </section>
         <section>
             <h2 class="topico m0">Analisar o Movimento</h2>
             <div id="recolherDados" class="explicar explicar-no-border is-visible">
                 <p class="m15-top">
-                    A recolher Dados sobre o Movimento do Pêndulo, aguarde uns segundos...
+                    A recolher Dados sobre o Movimento do Pêndulo, aguarde <span id="esperar-segundos"></span> segundos...
                 </p>
             </div>
             <div id="verGráficos" class="explicar explicar-no-border">

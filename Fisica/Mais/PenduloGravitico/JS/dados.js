@@ -5,13 +5,13 @@ export default class Dados {
 
         // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
         this.contador = 0
-        this.ignorar = 3        // Apenas grava 1 valor em cada this.ignorar
+        this.ignorar = 3 + Math.floor(this.simula.inputs.tempoMax / 10)        // Apenas grava 1 valor em cada this.ignorar
 
         // Tempo atual
         this.tempo = 0
 
         // Tempo até o qual vamos gravar dados, em s
-        this.tempoFinal = 10
+        this.tempoFinal = this.simula.inputs.tempoMax
 
         // Objeto com os dados
         this.dadosObtidos = {
@@ -35,6 +35,9 @@ export default class Dados {
         // Apaga os dados gravados
         this.contador = 0
         this.tempo = 0
+
+        // Atualizar o tempo até o qual vamos gravar dados, em s
+        this.tempoFinal = this.simula.inputs.tempoMax
 
         for (let key in this.dadosObtidos) {
             this.dadosObtidos[key] = []
@@ -64,7 +67,7 @@ export default class Dados {
 
         this.dadosObtidos.tempo.push((this.tempo).toFixed(3))
 
-        this.dadosObtidos.ang.push(this.simula.inputs.ang * (180 / Math.PI))
+        this.dadosObtidos.ang.push(this.simula.pendulo.ang * (180 / Math.PI))
 
         this.dadosObtidos.pos.push(((this.simula.pendulo.posicao.x - this.simula.pendulo.fioPos.x) ** 2 + (this.simula.altura - this.simula.pendulo.posicao.y) ** 2) ** 0.5)
         this.dadosObtidos.posX.push(this.simula.pendulo.posicao.x - this.simula.pendulo.fioPos.x)

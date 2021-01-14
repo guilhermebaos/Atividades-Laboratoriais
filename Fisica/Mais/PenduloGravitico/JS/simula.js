@@ -1,9 +1,9 @@
 import Pendulo from '../JS/pendulo.js'
 import Dados from '../JS/dados.js'
 
-const ESTADO_SIM = {
+const ESTADOS = {
     EM_PROGRESSO: 0,
-    MOVER_BOLA: 1
+    PAUSA: 1
 }
 
 // Classe que vai executar a Simulação
@@ -22,7 +22,7 @@ export default class Simula {
         this.inputs = this.juntarValores()
 
         // Estado da Simulação
-        this.estado = ESTADO_SIM.EM_PROGRESSO
+        this.estado = ESTADOS.EM_PROGRESSO
 
         // Objetos da Simulação
         this.pendulo = new Pendulo(this)
@@ -51,14 +51,21 @@ export default class Simula {
             massa: massaPendulo.value / 1000,           // Massa em kg
             comp: comprimentoFio.value,                 // Comprimento em mm
             g: aGravitica.value / 100,                  // g em m/s^2
-            ang: angMax.value / 10 * (Math.PI / 180),   // Ângulo em Radianos
-            angSin: Math.sin(angMax.value / 10 * (Math.PI / 180)),
-            angCos: Math.cos(angMax.value / 10 * (Math.PI / 180)),
+            ang: - angMax.value / 10 * (Math.PI / 180),   // Ângulo em Radianos
+            tempoMax: tempoMax.value / 1
+        }
+    }
+
+    pausa() {
+        if (this.estado == ESTADOS.PAUSA) {
+            this.estado = ESTADOS.EM_PROGRESSO
+        } else {
+            this.estado = ESTADOS.PAUSA
         }
     }
 
     update(deltaTempo) {
-        if (this.estado !== ESTADO_SIM.EM_PROGRESSO) return
+        if (this.estado !== ESTADOS.EM_PROGRESSO) return
 
         deltaTempo /= 1000
         deltaTempo /= this.resolucao
@@ -67,10 +74,17 @@ export default class Simula {
 
         if (this.dados.update(deltaTempo)) {
             return this.dados.dadosObtidos
+        } else {
+            return this.dados.tempoFinal - this.dados.tempo
         }
     }
 
     desenhar(ctx) {
         this.simObjetos.forEach((objeto) => objeto.desenhar(ctx))
+
+        if (this.estado == ESTADOS.PAUSA) {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)'
+            ctx.fillRect(0, 0, this.largura, this.altura)
+        }
     }
 }
