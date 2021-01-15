@@ -49,7 +49,7 @@ export default class Simula {
     juntarValores() {
         return {
             massa: massaPendulo.value / 1000,           // Massa em kg
-            comp: comprimentoFio.value,                 // Comprimento em mm
+            comp: comprimentoFio.value / 100,           // Comprimento em cm
             g: aGravitica.value / 100,                  // g em m/s^2
             ang: - angMax.value / 10 * (Math.PI / 180),   // Ângulo em Radianos
             tempoMax: tempoMax.value / 1

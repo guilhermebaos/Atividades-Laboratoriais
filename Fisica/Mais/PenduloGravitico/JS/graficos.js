@@ -5,6 +5,7 @@ export default function graficos(dados, divsCurvas) {
     let divCurvaVel = divsCurvas[2]
     let divCurvaAce = divsCurvas[3]
     let divCurvaJer = divsCurvas[4]
+    let divCurvaEne = divsCurvas[5]
 
     let tempo = dados.tempo
 
@@ -88,6 +89,89 @@ export default function graficos(dados, divsCurvas) {
     })
 
 
+    // GRÁFICO DA ENERGIA
+
+    // Remover o Canvas antigo
+    divCurvaEne.innerHTML = ''
+
+    // Criar o canvas on de vai estar a curva
+    canvasCurva = document.createElement('canvas')
+    canvasCurva.setAttribute('id', 'canvasCurvaEne')
+    divCurvaEne.appendChild(canvasCurva)
+
+    // Criar o Chart Object
+    graCurva = new Chart(canvasCurva, {
+        type: 'line',
+        data: {
+            labels: tempo,
+            datasets: [{
+                data: dados.ec,
+                label: 'Energia Cinética',
+                borderColor: 'red',
+                fill: false
+            },{
+                data: dados.epg,
+                label: 'Energia Potencial Gravítica',
+                borderColor: 'green',
+                fill: false
+            },{
+                data: dados.em,
+                label: 'Energia Mecânica',
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            animation: {
+                duration: 0
+            },
+            hover: {
+                animationDuration: 0
+            },
+            responsiveAnimationDuration: 0,
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Tempo/ s',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Energia/ J',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        let tooltipItem = tooltipItems[0]
+
+                        return 'Tempo: ' + tooltipItem.label + 's'
+                    },
+                    label: function(tooltipItem, data) {
+                        let value = Number(tooltipItem.value).toFixed(2)
+                        
+                        // Label variável
+                        return data.datasets[tooltipItem.datasetIndex].label + ': ' + value + 'J'
+                    }
+                },
+                custom: function(tooltip) {
+                    if (!tooltip) return
+                    tooltip.displayColors = false
+                },
+            }
+        },
+    })
+
+
     // GRÁFICO DA POSIÇÃO
 
     // Remover o Canvas antigo
@@ -159,7 +243,7 @@ export default function graficos(dados, divsCurvas) {
                         let value = Number(tooltipItem.value).toFixed(2)
                         
                         // Label variável
-                        return 'Posição: ' + value + 'm'
+                        return data.datasets[tooltipItem.datasetIndex].label + ': ' + value + 'm'
                     }
                 },
                 custom: function(tooltip) {
@@ -242,7 +326,7 @@ export default function graficos(dados, divsCurvas) {
                         let value = Number(tooltipItem.value).toFixed(2)
                         
                         // Label variável
-                        return  'Velocidade: ' + value + 'm/s'
+                        return  data.datasets[tooltipItem.datasetIndex].label + ': ' + value + 'm/s'
                     }
                 },
                 custom: function(tooltip) {
@@ -325,7 +409,7 @@ export default function graficos(dados, divsCurvas) {
                         let value = Number(tooltipItem.value).toFixed(2)
                         
                         // Label variável
-                        return 'Aceleração: ' + value + 'm/s²'
+                        return data.datasets[tooltipItem.datasetIndex].label + ': ' + value + 'm/s²'
                     }
                 },
                 custom: function(tooltip) {

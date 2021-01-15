@@ -7,8 +7,12 @@ export default class Pendulo {
         this.raio = 16
         this.cor = 'red'
 
+        // Escala (agora, de cm para metros)
+        this.escala = 100
+
         // Ponto de fixação do fio
-        this.fioPos = {x: this.simula.largura / 2, y: 0}
+        this.fioPos = {x: this.simula.largura / (2 * this.escala), y: 0}
+
         
         this.reiniciar()
     }
@@ -83,16 +87,16 @@ export default class Pendulo {
     desenhar(ctx) {
         // Desenhar o Fio
         ctx.beginPath()
-        ctx.moveTo(this.fioPos.x, this.fioPos.y)
-        ctx.lineTo(this.posicao.x, this.posicao.y)
+        ctx.moveTo(this.fioPos.x * this.escala, this.fioPos.y * this.escala)
+        ctx.lineTo(this.posicao.x * this.escala, this.posicao.y * this.escala)
         ctx.stroke()
 
         // Desenhar o Círculo no Ponto indicado pela posição
         ctx.fillStyle = this.cor
         ctx.beginPath()
         ctx.arc(
-            this.posicao.x,
-            this.posicao.y,
+            this.posicao.x * this.escala,
+            this.posicao.y * this.escala,
             this.raio * 2,
             0,
             2 * Math.PI

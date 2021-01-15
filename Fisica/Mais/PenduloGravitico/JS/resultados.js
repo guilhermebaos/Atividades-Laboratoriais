@@ -61,13 +61,15 @@ let divCurvaPos = document.getElementById('curvaPos')
 let divCurvaVel = document.getElementById('curvaVel')
 let divCurvaAce = document.getElementById('curvaAce')
 let divCurvaJer = document.getElementById('curvaJer')
+let divCurvaEne = document.getElementById('curvaEne')
 
 const DIVS_CURVAS = [
     divCurvaAng,
     divCurvaPos,
     divCurvaVel,
     divCurvaAce,
-    divCurvaJer
+    divCurvaJer,
+    divCurvaEne
 ]
 
 
@@ -101,8 +103,8 @@ function fixDPI() {
 
 
 // Constantes para a Simulação
-const RESOLUCAO = 2                 // Tamanho do deltaT em cada update
-const UPDATES_POR_FRAME = 5         // Velocidade da Simulação
+const RESOLUCAO = 100                 // Tamanho do deltaT em cada update
+const UPDATES_POR_FRAME = 1         // Velocidade da Simulação
 
 // Criar o Objeto Simula
 let simula = new Simula(canvasPendulo, RESOLUCAO, UPDATES_POR_FRAME)

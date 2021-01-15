@@ -5,7 +5,7 @@ export default class Dados {
 
         // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
         this.contador = 0
-        this.ignorar = 3 + Math.floor(this.simula.inputs.tempoMax / 10)        // Apenas grava 1 valor em cada this.ignorar
+        this.ignorar = 1 + Math.floor(this.simula.inputs.tempoMax / 10)        // Apenas grava 1 valor em cada this.ignorar
 
         // Tempo atual
         this.tempo = 0
@@ -26,7 +26,10 @@ export default class Dados {
             ace: [],
             aceX: [],
             aceY: [],
-            jer: []
+            jer: [],
+            ec: [],
+            epg: [],
+            em: []
         }
         this.dadosEntregues = false
     }
@@ -85,6 +88,12 @@ export default class Dados {
         this.dadosObtidos.jer.push(
             (this.dadosObtidos.ace[aceLen - 1] - this.dadosObtidos.ace[aceLen - 2]) / deltaTempo
         )
+
+        let tempEc = 0.5 * this.simula.pendulo.massa * this.simula.pendulo.velocidade.abs ** 2
+        let tempEpg = this.simula.pendulo.massa * this.simula.pendulo.g * (this.simula.pendulo.comp - this.simula.pendulo.posicao.y)
+        this.dadosObtidos.ec.push(tempEc)
+        this.dadosObtidos.epg.push(tempEpg)
+        this.dadosObtidos.em.push(tempEc + tempEpg)
 
         return false
     }
