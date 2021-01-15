@@ -56,16 +56,19 @@ export default class Pendulo {
 
         this.aceleracao.abs = (this.aceleracao.x ** 2 + this.aceleracao.y ** 2) ** 0.5
 
+
         // Posição da Bola
         this.posicao.x += this.velocidade.x * deltaTempo + 0.5 * this.aceleracao.x * deltaTempo ** 2
         this.posicao.y += this.velocidade.y * deltaTempo + 0.5 * this.aceleracao.y * deltaTempo ** 2
 
+
         // Velocidade da Bola
         this.velocidade.x += this.aceleracao.x * deltaTempo
         this.velocidade.y += this.aceleracao.y * deltaTempo
-        
+
         this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2) ** 0.5
         
+
         // Novo Ângulo
         let vetor1 = {x: 0, y: 1, abs: 1}
         let vetor2 = {
