@@ -1,0 +1,45 @@
+<h2 class="topico">Resultados</h2>
+<p>
+    Usa os Sliders para alterar os valores indicados, de forma a poderes ver diferentes resultados.
+</p>
+<p class="m0">
+    <span class="anchor" onclick="mostrarExtra('Sugestões-de-Exercícios')">Sugestões de Exercícios</span>
+</p>
+<div id="Sugestões-de-Exercícios" class="explicar">
+    <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
+    <h4 class="explicar">Sugestões de Exercícios</h4>
+    <p class="m5-bot">
+        Após alterares os valores, mas antes de veres a Tabela dos Resultados.
+    </p>
+    <ul>
+        <li></li>
+    </ul>
+</div>
+
+<div class="centrada m30-top">
+    
+    
+    <button id="fazer-curva-Síntese" class="submit" onclick="curva()">Simular a Reação</button>
+
+    <div class="overflow tabela-container m45-top">
+        <table class="resultados">
+            <tr class="vars">
+                <th scope="colgroup" colspan="3">Quantidade Química/ mol</td>
+                <th scope="col">Reagente Limitante</td>
+                <th scope="col">Rendimento (%)</td>
+            </tr>
+            <tr>
+                <td><b>Ácido Salicílico (C<sub>7</sub>H<sub>6</sub>O<sub>3</sub>)</b></td>
+                <td><b>Anidrido Etanoico (C<sub>4</sub>H<sub>6</sub>O<sub>3</sub>)</b></td>
+                <td><b>Ácido Acetilsalicílico (C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>)</b></td>
+                <td rowspan="2"><span id="reagenteLimitanteValue"></span></td>
+                <td rowspan="2"><span id="rendimentoValue"></span></td>
+            </tr>
+            <tr>
+                <td><span id="nC7H6O3Value">0.01448</span></td>
+                <td><span id="nC4H6O3Value">0.05289</span></td>
+                <td><span id="nC9H8O4Value">0.01110</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
