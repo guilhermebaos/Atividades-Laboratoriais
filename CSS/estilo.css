@@ -34,12 +34,8 @@ header {
         max-width: 1500px;
         min-height: calc(100vh - 10px - 10px - 40px - var(--footer-min-height));
     }
-    div.mobile-only {
-        display: none;
-    }
-    div.pc-only {
-        display: initial;
-    }
+    div.mobile-only {display: none;}
+    div.pc-only {display: initial;}
 }
 @media screen and (max-width: 600px) {
     main {
@@ -49,11 +45,11 @@ header {
         width: 80%;
         min-height: calc(100vh - 10px - 10px - 40px - var(--footer-min-height));
     }
-    div.mobile-only {
-        display: initial;
-    }
-    div.pc-only {
-        display: none;
+    div.mobile-only {display: initial;}
+    div.pc-only {display: none;}
+
+    div.contas {
+        overflow-x: scroll !important;
     }
 }
 
@@ -260,6 +256,10 @@ h3.unidade {
 h4.explicar {
     text-indent: 10px;
     margin: 0px 0px 15px 0px;
+}
+
+h4.sub-sub-topico {
+    margin: 15px 0px 15px 0px;
 }
 
 hr.frac {
