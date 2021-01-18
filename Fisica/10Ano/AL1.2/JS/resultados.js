@@ -24,6 +24,8 @@ let alturasTabela
 let razaoResp
 let EmDissipadaResp
 
+let canvasBola
+
 
 function prepararResultados() {
     if (F10_AL12.preparado) {
@@ -69,8 +71,23 @@ function prepararResultados() {
         alturaInicialResp.innerText = `${alturaInicialValue.toFixed(0)}`
     }
 
+
+    // SIMULAÇÂO
+    
+    // Selecionar o Canvas e o seu context
+    canvasBola = document.getElementById('canvasBola')
+
     F10_AL12.preparado = true
     curva()
+}
+
+
+// Alterar o tamanho da Simulação
+function atualizarTamanhoSim() {
+    // Usar variável global
+    if (simulaFQmenu.aberto !== 'resultados.html') return
+
+    canvasBola.height = +getComputedStyle(canvasCurva).getPropertyValue("height").slice(0, -2) * 2 - 134
 }
 
 
@@ -170,6 +187,7 @@ function pontos() {
 }
 
 
+let canvasCurva
 
 // Mostra os Valores Relacionados com a Queda da Esfera
 function curva() {
@@ -246,4 +264,7 @@ function curva() {
             }
         },
     })
+    atualizarTamanhoSim()
 }
+
+window.onresize = atualizarTamanhoSim

@@ -419,6 +419,10 @@ div.flex div {
     margin: 5px;
     padding: 0px;
 }
+div.flex div.canvas-container {
+    max-width: 150px;
+    margin-top: 17px;
+}
 
 div.flex-slider {
     display: flex;
