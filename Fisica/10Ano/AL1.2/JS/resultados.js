@@ -100,15 +100,15 @@ function fixDPI() {
     let DPI = window.devicePixelRatio
 
     // Altura do CSS
-    let altura_css = +getComputedStyle(canvasCurva).getPropertyValue("height").slice(0, -2) - 70
+    let altura_css = +getComputedStyle(canvasCurva).getPropertyValue('height').slice(0, -2) - 70
     // Larura do CSS
-    let largura_css = +getComputedStyle(canvasBola).getPropertyValue("width").slice(0, -2)
+    let largura_css = +getComputedStyle(canvasBola).getPropertyValue('width').slice(0, -2)
 
     // Altera o tamanho do canvas
     canvasBola.width = largura_css * DPI
     canvasBola.height = altura_css * DPI
 
-    if (canvasBola.width != largura_css * DPI) {
+    if (canvasBola.height != altura_css * DPI) {
         simula.novoTamanho()
     }
 }
