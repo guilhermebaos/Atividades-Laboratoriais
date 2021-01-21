@@ -3,8 +3,11 @@ import Dados from '../JS/dados.js'
 
 // Classe que vai executar a Simulação
 window.Simula = class Simula {
-    constructor(canvas, resolucao) {
+    constructor(canvas, resolucao, hiMax) {
         this.canvas = canvas
+        
+        // Alturas Iniciais Mínima e Máxima
+        this.hiMax = hiMax
 
         // Resolução (Tamanho do deltaT) e Updates por Frame
         this.resolucao = resolucao

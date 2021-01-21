@@ -84,7 +84,7 @@ function prepararResultados() {
     ctx = canvasBola.getContext('2d')
 
     // Criar o Objeto Simula
-    simula = new window.Simula(canvasBola, RESOLUCAO)
+    simula = new window.Simula(canvasBola, RESOLUCAO, alturaInicial.max)
 
     F10_AL12.preparado = true
     loopSimula()
@@ -150,6 +150,12 @@ function valoresTabela(alturas) {
 }
 
 
+// Reiniciar a Simulação
+function reiniciar() {
+    simula.reiniciar()
+}
+
+
 let canvasCurva
 
 // Mostra os Valores Relacionados com a Queda da Esfera
@@ -201,7 +207,7 @@ function curva(t, x) {
                         fontFamily: '"Arial", "sans-serif"'
                     },
                     ticks: {
-                        max: 300,
+                        max: 500,
                         min: 0
                     } 
                 }]

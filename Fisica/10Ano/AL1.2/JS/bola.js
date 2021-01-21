@@ -4,7 +4,7 @@ export default class Bola {
         this.simula = simula
 
         // Definições da Bola
-        this.raio = 16
+        this.raio = 30
         this.cor = 'orange'
 
         // Escala (agora, de cm para metros)
@@ -56,13 +56,16 @@ export default class Bola {
     }
 
     desenhar(ctx) {
+        // Fazer a altura em proporção ao tamanho do Canvas
+        this.alturaCanvas = (this.posicao.altura * this.escala) * this.simula.altura / this.simula.hiMax
+
         // Desenhar o Círculo no Ponto indicado pela posição
         ctx.fillStyle = this.cor
         ctx.beginPath()
         ctx.arc(
             this.posicao.x * this.escala,
-            this.simula.altura - this.posicao.altura * this.escala - this.raio * 2,
-            this.raio * 2,
+            this.simula.altura - this.alturaCanvas - this.raio,
+            this.raio,
             0,
             2 * Math.PI
         )
