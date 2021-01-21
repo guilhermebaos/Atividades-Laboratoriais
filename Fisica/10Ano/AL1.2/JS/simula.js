@@ -42,6 +42,8 @@ window.Simula = class Simula {
 
     // Atualizar o tamanho do canvas
     novoTamanho() {
+        if (this.largura == this.canvas.width) return
+
         this.largura = this.canvas.width
         this.altura = this.canvas.height
 

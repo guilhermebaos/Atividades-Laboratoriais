@@ -108,9 +108,7 @@ function fixDPI() {
     canvasBola.width = largura_css * DPI
     canvasBola.height = altura_css * DPI
 
-    if (canvasBola.height != altura_css * DPI) {
-        simula.novoTamanho()
-    }
+    simula.novoTamanho()
 }
 
 
