@@ -30,7 +30,7 @@ export default class Bola {
         }
 
         this.velocidade = {x: 0, y: 0, abs: 0}
-        this.aceleracao = {x: 0, y: -g, abs: g}
+        this.aceleracao = {x: 0, y: -this.g, abs: this.g}
     }
 
     // Novo tamanho do Canvas

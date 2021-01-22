@@ -35,7 +35,6 @@ function prepararResultados() {
     if (F10_AL12.preparado) {
         return
     }
-    
 
     // Selecionar Sliders
     massaBola = document.getElementById('massaBola')   
