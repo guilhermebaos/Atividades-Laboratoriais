@@ -67,6 +67,7 @@ async function carregarJSResultados() {
             /* Caso a rede esteja lenta, repetir a função até que os
                 elementos HTML sejam selecionados*/
             console.log('Rede lenta, a tentar carregar a Simulação de novo...')
+            console.log(`Erro: ${erro}`)
             await new Promise(r => setTimeout(r, 500))
         }
     }
