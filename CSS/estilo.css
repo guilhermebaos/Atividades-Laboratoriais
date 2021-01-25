@@ -1,7 +1,12 @@
 :root {
     --background-color: rgba(50, 139, 255, 0.7);
-    --button-azul-claro: rgba(0, 120, 255, 0.5);
-    --button-azul-escuro: rgba(0, 120, 255, 1);
+
+    --simulaFQ-azul-claro-tr: rgba(0, 120, 255, 0.5);
+    --simulaFQ-azul-claro: rgb(0, 120, 255);
+    --simulaFQ-azul-escuro: rgb(10, 100, 230);
+
+    --simulaFQ-laranja-claro: rgb(255, 130, 35);
+    --simulaFQ-laranja-escuro: rgb(250, 70, 10);
 
     --footer-min-height: 100px
 }
@@ -219,12 +224,14 @@ em.ex {
 
 
 h1 {
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--simulaFQ-azul-claro);
 }
 
 h1.disciplina {
     margin-bottom: 0px;
 }
+
 
 h2.contactos {
     margin: 40px 0px 10px 0px;
@@ -479,7 +486,7 @@ div.explicar {
 	height: 0;
     margin: 0px 8px 0px 25px;
     padding: 0px 0px 0px 5px;
-    border-left: 2px solid grey;
+    border-left: 2px solid var(--simulaFQ-laranja-escuro);
     border-radius: 5px;
     overflow: hidden;
     -webkit-transition: all 350ms ease;
@@ -653,11 +660,11 @@ button.escolha {
     padding: 5px 20px 5px 20px;
     background-color: rgba(50, 140, 255, 0.6);
     border-radius: 10px;
-    border-color: var(--button-azul-claro);
+    border-color: var(--simulaFQ-azul-claro-tr);
     transition: background-color 0.2s;
 }
 button.escolha:hover {
-    background-color: var(--button-azul-escuro);
+    background-color: var(--simulaFQ-azul-claro);
 }
 
 button.escolha-atual {
@@ -668,7 +675,7 @@ button.escolha-atual {
     padding: 5px 20px 5px 20px;
     background-color: rgba(50, 140, 255, 1);
     border-radius: 10px;
-    border-color: var(--button-azul-claro);
+    border-color: var(--simulaFQ-azul-claro-tr);
 }
 
 button.submit {
@@ -680,11 +687,11 @@ button.submit {
     padding: 5px 12px 5px 12px;
     background-color: rgba(50, 140, 255, 0.8);
     border-radius: 10px;
-    border-color: var(--button-azul-claro);
+    border-color: var(--simulaFQ-azul-claro-tr);
     transition: background-color 0.2s;
 }
 button.submit:hover {
-    background-color: var(--button-azul-escuro);
+    background-color: var(--simulaFQ-azul-claro);
 }
 
 button.fechar {
@@ -722,7 +729,7 @@ button#para-o-topo {
     transition: background-color 0.2s;
 }
 button#para-o-topo:hover {
-    background-color: var(--button-azul-escuro);
+    background-color: var(--simulaFQ-azul-claro);
 }
 
 
@@ -731,23 +738,27 @@ ul.navbar {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    background-color: rgb(128, 128, 128);
+    background-color: var(--simulaFQ-laranja-claro);
 }
 ul.navbar li {
     display: inline-block;
-    color: white;
     text-align: center;
     margin: 0px;
     padding: 10px 0px 10px 0px;
-    transition: background-color 0.2s;
+    transition: background-color 0.1s;
 }
 ul.navbar li:hover {
-    background-color: rgb(96, 96, 96);
+    background-color: white;
+}
+ul.navbar li:hover a{
+    color: black;
 }
 ul.navbar li a {
+    font-size: larger;
     color: white;
     padding: 10px 15px;
     text-decoration: none;
+    transition: color 0.1s;
 }
 
 ul.menu {
