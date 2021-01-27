@@ -238,14 +238,17 @@ h2.contactos {
     font-size: 1.3em;
 }
 
-h2.ano {
-    margin-top: 0px;
-}
 
 h2.topico {
     text-align: center;
     font-size: 1.25em;
     margin-top: 50px;
+    text-decoration: underline solid var(--simulaFQ-laranja-escuro);
+}
+
+h2.ano {
+    margin-top: 0px;
+    text-decoration: underline solid var(--simulaFQ-laranja-escuro);
 }
 
 
@@ -695,20 +698,23 @@ button.submit:hover {
 }
 
 button.fechar {
-    color: black;
+    color: white;
     font-weight: bolder;
     width: 26px;
     height: 26px;
     margin: 0px;
     padding: 0px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--simulaFQ-azul-escuro);
     border: 2px solid black;
     border-radius: 50%;
-    transition: background-color 0.2s;
+    -webkit-transition: background-color 0.1s;
+    -moz-transition: background-color 0.1s;
+    -o-transition: background-color 0.1s;
+    transition: background-color 0.1s;
 }
 button.fechar:hover {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    color: black;
+    background-color:white;
 }
 
 button#para-o-topo {
@@ -745,6 +751,9 @@ ul.navbar li {
     text-align: center;
     margin: 0px;
     padding: 10px 0px 10px 0px;
+    -webkit-transition: background-color 0.1s;
+    -moz-transition: background-color 0.1s;
+    -o-transition: background-color 0.1s;
     transition: background-color 0.1s;
 }
 ul.navbar li:hover {
@@ -769,6 +778,7 @@ ul.menu {
     border-bottom: 1px solid #ddd;
 }
 ul.menu li {
+    font-size: large;
     padding: 10px 15px 0px 15px;
     display: inline-block;
 }
