@@ -77,7 +77,10 @@ function prepararResultados() {
     ctx = canvasSim.getContext('2d')
 
     // Criar o Objeto Simula
-    simula = new window.Simula(canvasSim, RESOLUCAO)
+    simula = new window.Simula(canvasSim, RESOLUCAO, {
+        intForca: intForca,
+        massaAreia: massaAreia
+    })
 
     F12_AL12.preparado = true
     loopSimula()
@@ -133,12 +136,9 @@ function reiniciar() {
     simula.reiniciar()
 }
 
-/*
-
-let canvasCurva
 
 // Mostra os Valores Relacionados com a Queda da Esfera
-function curva(t, x) {
+function curva(t, v) {
     // Remover o Canvas antigo
     F12_AL12.divCurva.innerHTML = ''
 
@@ -153,8 +153,8 @@ function curva(t, x) {
         data: {
             labels: t,
             datasets: [{
-                data: x,
-                label: 'Altura da Bola',
+                data: v,
+                label: 'Velocidade do Bloco',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -180,7 +180,7 @@ function curva(t, x) {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Altura da Bola/ cm',
+                        labelString: 'Velocidade do Bloco/ m/s',
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
@@ -204,7 +204,7 @@ function curva(t, x) {
                     label: function(tooltipItem, data) {
                         let value = Number(tooltipItem.value).toFixed(1)
     
-                        return 'Posição: ' + value + 'cm'
+                        return 'Velocidade: ' + value + 'm/s'
                     }
                 },
                 custom: function(tooltip) {
@@ -215,7 +215,6 @@ function curva(t, x) {
         },
     })
 }
-*/
 
 // Criar o loop da Simulação
 let ultimoTempo
@@ -234,6 +233,9 @@ function loopSimula(tempo) {
     let dados
     for (let i = 0; i < RESOLUCAO; i++) {
         dados = simula.update(deltaTempo)
+    }
+    if (dados) {
+        curva(dados.t, dados.v)
     }
 
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
