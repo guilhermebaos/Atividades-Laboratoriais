@@ -4,6 +4,7 @@ import Dados from '../JS/dados.js'
 // Classe que vai executar a Simulação
 window.Simula = class Simula {
     constructor(canvas, resolucao, hiMax) {
+        // Guardar o canvas
         this.canvas = canvas
         
         // Alturas Iniciais Mínima e Máxima

@@ -1,13 +1,18 @@
+/*
 import Bola from '../JS/bola.js'
 import Dados from '../JS/dados.js'
+*/
+
+const MONTAGENS = {
+    M1: 1,
+    M2: 2
+}
 
 // Classe que vai executar a Simulação
 window.Simula = class Simula {
-    constructor(canvas, resolucao, hiMax) {
+    constructor(canvas, resolucao) {
+        // Guardar o canvas
         this.canvas = canvas
-        
-        // Alturas Iniciais Mínima e Máxima
-        this.hiMax = hiMax
 
         // Resolução (Tamanho do deltaT) e Updates por Frame
         this.resolucao = resolucao
@@ -18,23 +23,14 @@ window.Simula = class Simula {
         // Inputs usados para a Simulação
         this.inputs = this.juntarValores()
 
-        // Objetos da Simulação
-        this.bola = new Bola(this)
-
         this.simObjetos = [
-            this.bola
         ]
 
-        this.dados = new Dados(this)
-
-        this.acabou = false
+        // this.dados = new Dados(this)
     }
 
     // Reiniciar a Simulação
     reiniciar() {
-        // Simulação já acabou
-        this.acabou = false
-
         this.inputs = this.juntarValores()
         this.simObjetos.forEach((objeto) => objeto.reiniciar())
         this.dados.reiniciar()
@@ -44,29 +40,23 @@ window.Simula = class Simula {
     novoTamanho() {
         this.largura = this.canvas.width
         this.altura = this.canvas.height
-
-        if (this.bola) {
-            this.bola.novoTamanho()
-        }
     }
 
     // Juntar os valores para serem usados pela Simulação
     juntarValores() {
         return {
-            hi: alturaInicial.value / 100,          // Altura Inicial em Metros
-            hf : 0.05,                              // Altura 'Final'
-            e: (elasticidade.value / 100) ** 0.5,   // Elasticidade em %
-            g: 9.80665                              // Aceleração Gravítica
+            m: massaBloco.value / 1000,                             // Massa do Bloco em kg
+            cae: coefAtritoEstatico / 100,                          // Coeficiente de Atrito Estático
+            cac: coefAtritoEstatico * coefAtritoCinetico / 10000    // Coeficiente de Atrito Cinético
         }
     }
 
     update(deltaTempo) {
-        if (this.acabou) return
-
         deltaTempo /= 1000
         deltaTempo /= this.resolucao
 
-        let dados = this.dados.update(deltaTempo)
+        // let dados = this.dados.update(deltaTempo)
+        let dados = false
 
         this.simObjetos.forEach((objeto) => objeto.update(deltaTempo))
 
