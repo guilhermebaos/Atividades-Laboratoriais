@@ -127,6 +127,8 @@ function montagem(num) {
 
         montagemEscolhida = num
     }
+
+    simula.reiniciar(montagemEscolhida)
 }
 
 
@@ -153,7 +155,7 @@ function fixDPI() {
 
 // Reiniciar a Simulação
 function reiniciar() {
-    simula.reiniciar()
+    simula.reiniciar(montagemEscolhida)
 }
 
 

@@ -1,9 +1,10 @@
 import Montagem1 from '../JS/montagem1.js'
+import Montagem2 from '../JS/montagem2.js'
 import Dados from '../JS/dados.js'
 
 const MONTAGENS = {
-    M1: 1,
-    M2: 2
+    M1: 0,
+    M2: 1
 }
 
 // Classe que vai executar a Simulação
@@ -26,19 +27,21 @@ window.Simula = class Simula {
 
         this.dados = new Dados(this)
 
-        this.reiniciar()
+        this.reiniciar(this.montagem)
     }
 
     // Reiniciar a Simulação
-    reiniciar() {
+    reiniciar(montagemEscolhida) {
+        this.montagem = montagemEscolhida
+
         this.inputs = this.juntarValores()
 
         delete this.simObjetos
 
         this.simObjetos = []
-        if (this.montagem = MONTAGENS.M1) {
+        if (this.montagem == MONTAGENS.M1) {
             this.simObjetos.push(new Montagem1(this))
-        } else if (this.montagem = MONTAGENS.M2) {
+        } else if (this.montagem == MONTAGENS.M2) {
             this.simObjetos.push(new Montagem2(this))
         }
 
