@@ -6,7 +6,7 @@ export default class Montagem1 {
 
         // Definições do Bloco
         this.bloco = {
-            posXi: 1000,
+            posXi: 10,
             largura: 150 * (this.simula.inputs.m / 2) ** (1/3),
             altura: 75 * (this.simula.inputs.m / 2) ** (1/3),
             cor: 'rgb(255, 130, 35)'
@@ -19,8 +19,19 @@ export default class Montagem1 {
             cor: 'rgb(10, 100, 230)'
         }
 
+        // Cores dos vetores
+        this.corVetores = {
+            forca: 'rgb(0, 120, 255)',
+            fa: 'black',
+            velocidade: 'rgb(145, 200, 20)',
+            aceleracao: 'rgb(250, 70, 10)',
+        }
+
+        // Multiplicador do tamanho dos vetores
+        this.tamanhoVetor = 10
+
         // Zoom Out
-        this.zoomOut = 100
+        this.zoomOut = 1
         
         this.reiniciar()
     }
@@ -45,8 +56,10 @@ export default class Montagem1 {
     }
 
     update(deltaTempo) {
+        // Força aplicada
         this.forca = this.simula.inputVariavel.intForca.value / 100
 
+        // A Velocidade e a Aceleração não podem ser negativas
         if (this.velocidade < 0) {
             this.velocidade = 0
         }
@@ -54,19 +67,22 @@ export default class Montagem1 {
             this.aceleracao = 0
         }
 
+        // Determinar a Força de Atrito
         if (this.velocidade > 0) {
-            this.fr = this.forca - this.fac
+            this.fa = - this.fac
         } else if (this.forca <= this.faemax) {
-            this.fr = 0
+            this.fa = -this.forca
         } else {
-            this.fr = this.forca - this.faemax
+            this.fa = - this.faemax
         }
+        this.fr = this.forca + this.fa
 
+        // Calcular a Aceleração, Posição e Velocidade
         this.aceleracao = this.fr / this.m
 
         this.posicao += this.velocidade * deltaTempo + 0.5 * this.aceleracao * deltaTempo ** 2
 
-        this.velocidade += this.aceleracao
+        this.velocidade += this.aceleracao * deltaTempo
 
     }
 
@@ -76,7 +92,30 @@ export default class Montagem1 {
         ctx.fillRect(0, this.simula.altura - this.plano.posY, this.simula.largura, this.plano.altura)
 
         // Desenhar o Bloco no local indicado pela posição
+        let xBloco = this.posicao / this.zoomOut
+        let yBloco = this.simula.altura - this.plano.posY - this.bloco.altura
         ctx.fillStyle = this.bloco.cor
-        ctx.fillRect(this.posicao / this.zoomOut, this.simula.altura - this.plano.posY - this.bloco.altura, this.bloco.largura, this.bloco.altura)
+        ctx.fillRect(xBloco, yBloco, this.bloco.largura, this.bloco.altura)
+
+        // Desenhar os vetores Força, Fa e Aceleração
+        xBloco += this.bloco.largura / 2
+        yBloco += this.bloco.altura / 2
+
+        if (this.forca != 0) {
+            this.simula.desenharVetor(xBloco, yBloco, xBloco + this.forca * this.tamanhoVetor, yBloco, this.corVetores.forca)
+        }
+        if (this.fa != 0) {
+            this.simula.desenharVetor(xBloco, yBloco, xBloco + this.fa * this.tamanhoVetor, yBloco, this.corVetores.fa)
+        }
+        if (this.velocidade != 0) {
+            let posVetor = 0.8
+
+            this.simula.desenharVetor(xBloco, yBloco * posVetor, xBloco + this.velocidade * this.tamanhoVetor, yBloco * posVetor, this.corVetores.velocidade)
+        }
+        if (this.aceleracao != 0) {
+            let posVetor = 0.8
+
+            this.simula.desenharVetor(xBloco, yBloco * posVetor, xBloco + this.aceleracao * this.tamanhoVetor, yBloco * posVetor, this.corVetores.aceleracao)
+        }
     }
 }

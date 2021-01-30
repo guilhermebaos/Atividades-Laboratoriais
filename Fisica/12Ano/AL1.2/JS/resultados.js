@@ -11,7 +11,7 @@ const RESOLUCAO = 15                        // Tamanho do deltaT em cada update
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let F12_AL12 = {
     preparado: false,
-    divCurva: '',
+    divCurva: [],
     processandoAnim: false
 }
 
@@ -26,7 +26,10 @@ let intForcaResp
 let massaAreiaResp
 
 let montagemBtns
+let dadosBtn
 
+// Ligar ou desligar a aquisição de dados
+let recolherDados = false
 
 function prepararResultados() {
     if (F12_AL12.preparado) {
@@ -46,11 +49,28 @@ function prepararResultados() {
     massaAreiaResp = document.getElementById('massaAreiaValue')
 
     // Selecionar a div que vai ter a Curva
+    F12_AL12.divCurva.push(document.getElementById('curva-ft'))
+    F12_AL12.divCurva.push(document.getElementById('curva-ct'))
 
     // Selecionar os Butões que permitem escolher o Procedimento
     montagemBtns = document.getElementsByName('montagens')
 
-    // F12_AL12.divCurva = document.getElementById('curva-vt')
+    // Butão associado ao recolher dados
+    dadosBtn = document.getElementById('interruptor')
+    dadosBtn.estado = '0'
+
+    dadosBtn.onclick = () => {
+        if (dadosBtn.estado == '0') {
+            dadosBtn.estado = '1'
+            dadosBtn.innerText = 'Desligar'
+            this.simula.dados.reiniciar()
+            recolherDados = true
+        } else {
+            dadosBtn.estado = '0'
+            dadosBtn.innerText = 'Ligar'
+            recolherDados = false
+        }
+    }
 
     // Atualizar os Sliders
     massaBloco.oninput = function atualizarMassaBloco() {
@@ -137,92 +157,14 @@ function reiniciar() {
 }
 
 
-// Mostra os Valores Relacionados com a Queda da Esfera
-function curva(t, v) {
-    // Remover o Canvas antigo
-    F12_AL12.divCurva.innerHTML = ''
-
-    // Criar o canvas on de vai estar a curva
-    canvasCurva = document.createElement('canvas')
-    canvasCurva.setAttribute('id', 'canvasCurva')
-    F12_AL12.divCurva.appendChild(canvasCurva)
-
-    // Criar o Chart Object
-    let graCurva = new Chart(canvasCurva, {
-        type: 'line',
-        data: {
-            labels: t,
-            datasets: [{
-                data: v,
-                label: 'Velocidade do Bloco',
-                borderColor: 'blue',
-                fill: false
-            }]
-        },
-        options: {
-            animation: {
-                duration: 0
-            },
-            hover: {
-                animationDuration: 0
-            },
-            responsiveAnimationDuration: 0,
-            scales: {
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Tempo/ s',
-                        fontColor: 'black',
-                        fontSize: 13,
-                        fontFamily: '"Arial", "sans-serif"'
-                    }
-                }],
-                yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Velocidade do Bloco/ m/s',
-                        fontColor: 'black',
-                        fontSize: 13,
-                        fontFamily: '"Arial", "sans-serif"'
-                    },
-                    ticks: {
-                        max: 500,
-                        min: 0
-                    } 
-                }]
-            },
-            legend: {
-                display: false,
-            },
-            tooltips: {
-                callbacks: {
-                    title: function(tooltipItems, data) {
-                        let tooltipItem = tooltipItems[0]
-
-                        return 'Tempo: ' + tooltipItem.label + 's'
-                    },
-                    label: function(tooltipItem, data) {
-                        let value = Number(tooltipItem.value).toFixed(1)
-    
-                        return 'Velocidade: ' + value + 'm/s'
-                    }
-                },
-                custom: function(tooltip) {
-                    if (!tooltip) return
-                    tooltip.displayColors = false
-                },
-            }
-        },
-    })
-}
-
 // Criar o loop da Simulação
-let ultimoTempo
+let ultimoTempo, graficos
 
 function loopSimula(tempo) {
     if (ultimoTempo === undefined) {
         ultimoTempo = tempo
         fixDPI()
+        if (!graficos) graficos = window.graficos([], F12_AL12.divCurva)
         requestAnimationFrame(loopSimula)
         return
     }
@@ -234,8 +176,8 @@ function loopSimula(tempo) {
     for (let i = 0; i < RESOLUCAO; i++) {
         dados = simula.update(deltaTempo)
     }
-    if (dados) {
-        curva(dados.t, dados.v)
+    if (dados && recolherDados) {
+        graficos = window.graficos(dados, F12_AL12.divCurva)
     }
 
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)

@@ -62,8 +62,33 @@
     </div>
 </div>
 
+<div class="m15">
+    <p class="m5-bot">Legenda dos Vetores:</p>
+    <ul class="m0">
+        <li>Azul &rarr; Força Aplicada</li>
+        <li>Preto &rarr; Força de Atrito</li>
+        <li>Verde &rarr; Velocidade</li>
+        <li>Laranja &rarr; Aceleração</li>
+    </ul>
+</div>
+
 <div class="graf-overflow m5-bot">
     <div class="graf-container">
         <canvas id="canvasSim" class="simulacao" style="width: calc(100% - 4px);"></canvas>
+    </div>
+</div>
+
+<div>
+    <p>Sistema de aquisição de dados: <button id="interruptor" class="submit">Ligar</button></p>
+    
+    <div class="graf-overflow">
+        <div class="graf-container">
+            <div id="curva-ft" class="graf"></div>
+        </div>
+    </div>
+    <div class="graf-overflow">
+        <div class="graf-container">
+            <div id="curva-ct" class="graf"></div>
+        </div>
     </div>
 </div>
