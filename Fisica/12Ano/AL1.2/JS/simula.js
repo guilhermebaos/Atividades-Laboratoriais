@@ -112,6 +112,7 @@ window.Simula = class Simula {
         return {
             g: 9.81,                                                // Aceleração Gravítica
             m: massaBloco.value / 1000,                             // Massa do Bloco em kg
+            mMax: massaBloco.max / 1000,                            // Massa Máxima do Bloco
             cae: coefAtritoEstatico.value / 100,                          // Coeficiente de Atrito Estático
             cac: coefAtritoEstatico.value * coefAtritoCinetico.value / 10000    // Coeficiente de Atrito Cinético
         }

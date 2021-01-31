@@ -22,6 +22,8 @@ let intForca
 let massaAreia
 
 let massaBlocoResp
+let coefAtritoEstaticoResp
+let coefAtritoCineticoResp
 let intForcaResp
 let massaAreiaResp
 
@@ -47,6 +49,10 @@ function prepararResultados() {
     massaBlocoResp = document.getElementById('massaBlocoValue')
     intForcaResp = document.getElementById('intForcaValue')
     massaAreiaResp = document.getElementById('massaAreiaValue')
+
+    // Selecionar os Spans com os Resultados da Tabela
+    coefAtritoEstaticoResp = document.getElementById('coefAtritoEstaticoValue')
+    coefAtritoCineticoResp = document.getElementById('coefAtritoCineticoValue')
 
     // Selecionar a div que vai ter a Curva
     F12_AL12.divCurva.push(document.getElementById('curva-ft'))
@@ -156,6 +162,12 @@ function fixDPI() {
 // Reiniciar a Simulação
 function reiniciar() {
     simula.reiniciar(montagemEscolhida)
+
+    let cae = coefAtritoEstatico.value / 100
+    let cac = coefAtritoCinetico.value / 100 * cae
+
+    coefAtritoEstaticoResp.innerText = cae.toFixed(2)
+    coefAtritoCineticoResp.innerText = cac.toFixed(2)
 }
 
 

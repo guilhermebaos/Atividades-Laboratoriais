@@ -7,8 +7,8 @@ export default class Montagem2 {
         // Definições do Bloco
         this.bloco = {
             posXi: 10,
-            largura: 150 * (this.simula.inputs.m / 2) ** (1/3),
-            altura: 75 * (this.simula.inputs.m / 2) ** (1/3),
+            largura: 150 * (this.simula.inputs.m / this.simula.inputs.mMax) ** (1/3),
+            altura: 75 * (this.simula.inputs.m / this.simula.inputs.mMax) ** (1/3),
             cor: 'rgb(255, 130, 35)'
         }
 
@@ -41,7 +41,7 @@ export default class Montagem2 {
             corBorder: 'black',
             corBackground: 'rgba(0, 0, 0, 0.05)',
             corAreia: 'yellow',
-            areiaMax: 10
+            areiaMax: this.simula.inputVariavel.massaAreia.max / 1000
         }
 
         // Cores dos vetores
@@ -175,6 +175,7 @@ export default class Montagem2 {
         ctx.fillStyle = this.recipiente.corBackground
         ctx.fillRect(x0Recipiente - 1, yFimFio, this.recipiente.largura + this.recipiente.larguraBorder * 2 + 1, this.recipiente.altura)
         
+        // Areia no Recipiente
         ctx.fillStyle = this.recipiente.corAreia
         ctx.fillRect(x0Recipiente + this.recipiente.larguraBorder / 2, yFimRecipiente - this.recipiente.altura * (this.massaAreia / this.recipiente.areiaMax) - this.recipiente.larguraBorder / 2, this.recipiente.largura + this.recipiente.larguraBorder, this.recipiente.altura * (this.massaAreia / this.recipiente.areiaMax))
 
