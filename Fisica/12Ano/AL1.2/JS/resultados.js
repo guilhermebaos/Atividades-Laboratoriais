@@ -15,17 +15,11 @@ let F12_AL12 = {
     processandoAnim: false
 }
 
-let massaBloco
-let coefAtritoEstatico
-let coefAtritoCinetico
-let intForca
-let massaAreia
-
-let massaBlocoResp
-let coefAtritoEstaticoResp
-let coefAtritoCineticoResp
-let intForcaResp
-let massaAreiaResp
+let massaBloco, massaBlocoResp
+let coefAtritoEstatico, coefAtritoEstaticoResp
+let coefAtritoCinetico, coefAtritoCineticoResp
+let intForca, intForcaResp
+let massaAreia, massaAreiaResp
 
 let montagemBtns
 let dadosBtn
@@ -79,22 +73,23 @@ function prepararResultados() {
     }
 
     // Atualizar os Sliders
-    massaBloco.oninput = function atualizarMassaBloco() {
+    massaBloco.oninput = () => {
         let massaBlocoValue = massaBloco.value / 1
     
         massaBlocoResp.innerText = `${massaBlocoValue.toFixed(0)}`
     }
-    intForca.oninput = function atualizarIntForca() {
+    intForca.oninput = () => {
         let intForcaValue = intForca.value / 100
     
         intForcaResp.innerText = `${intForcaValue.toFixed(2)}`
     }
-    massaAreia.oninput = function atualizarMassaAreia() {
+    massaAreia.oninput = () => {
         let massaAreiaValue = massaAreia.value / 1
     
         massaAreiaResp.innerText = `${massaAreiaValue.toFixed(0)}`
     }
     
+
     // SIMULAÇÂO
     
     // Selecionar o Canvas e o seu context
