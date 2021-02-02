@@ -135,7 +135,6 @@ function valoresTabela(alturas) {
         pontos.push([Number(hQ[pos]), Number(hR[pos])])
     }
 
-    console.log(pontos)
     let declive
     if (pontos.length > 1) {
         let retaMelhorAjuste = regression.linear(pontos)
