@@ -15,10 +15,6 @@ export default class Dados {
         // Apaga os dados gravados
         this.contador = 0
         this.tempo = 0
-
-        for (let key in this.dadosObtidos) {
-            this.dadosObtidos[key] = []
-        }
     }
 
     update(deltaTempo) {
