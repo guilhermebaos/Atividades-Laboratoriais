@@ -235,22 +235,24 @@ h1.disciplina {
 }
 
 
+h2 {
+    text-decoration: underline solid var(--simulaFQ-laranja-escuro);
+}
+
+
 h2.contactos {
     margin: 40px 0px 10px 0px;
     font-size: 1.3em;
 }
 
-
 h2.topico {
     text-align: center;
     font-size: 1.25em;
     margin-top: 50px;
-    text-decoration: underline solid var(--simulaFQ-laranja-escuro);
 }
 
 h2.ano {
     margin-top: 0px;
-    text-decoration: underline solid var(--simulaFQ-laranja-escuro);
 }
 
 
