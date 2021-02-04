@@ -259,6 +259,7 @@ h2.ano {
 h3.sub-topico {
     font-size: 1.08em;
     margin: 35px 0px 10px 0px;
+    text-decoration: underline solid var(--simulaFQ-azul-claro-tr);
 }
 
 h3.unidade {
@@ -818,12 +819,16 @@ ol.procedimento li {
     margin-top: 10px;
 }
 
-dl dt {
-    display: inline;
+dl > dt {
+    font-weight: bold;
+    text-indent: 15px;
+    margin-top: 15px;
 }
-dl dd {
-    display: inline;
-    margin-inline-start: 0px;
+dl > dt:first-of-type {
+    margin-top: 0px;
+}
+dt > dd {
+    margin-top: 5px;
 }
 
 
