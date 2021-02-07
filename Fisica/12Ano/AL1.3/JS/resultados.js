@@ -15,11 +15,10 @@ let F12_AL12 = {
     processandoAnim: false
 }
 
-let massaBloco, massaBlocoResp
-let coefAtritoEstatico, coefAtritoEstaticoResp
-let coefAtritoCinetico, coefAtritoCineticoResp
-let intForca, intForcaResp
-let massaAreia, massaAreiaResp
+let massaCarrinho, massaCarrinhoResp
+let velocidadeInicial, velocidadeInicialResp
+let massaOutroCarrinho, massaOutroCarrinhoResp
+let coefRestituicao, coefRestituicaoResp
 
 let montagemBtns
 let dadosBtn
@@ -33,20 +32,17 @@ function prepararResultados() {
     }
 
     // Selecionar Sliders
-    massaBloco = document.getElementById('massaBloco')
-    coefAtritoEstatico = document.getElementById('coefAtritoEstatico')
-    coefAtritoCinetico = document.getElementById('coefAtritoCinetico')
-    intForca = document.getElementById('intForca')
-    massaAreia = document.getElementById('massaAreia')
+    massaCarrinho = document.getElementById('massaCarrinho')
+    velocidadeInicial = document.getElementById('velocidadeInicial')
+    massaOutroCarrinho = document.getElementById('massaOutroCarrinho')
+    coefRestituicao = document.getElementById('coefRestituicao')
 
     // Selecionar os Spans com os Valores dos Sliders
-    massaBlocoResp = document.getElementById('massaBlocoValue')
-    intForcaResp = document.getElementById('intForcaValue')
-    massaAreiaResp = document.getElementById('massaAreiaValue')
+    massaCarrinhoResp = document.getElementById('massaCarrinhoValue')
+    velocidadeInicialResp = document.getElementById('velocidadeInicialValue')
+    massaOutroCarrinhoResp = document.getElementById('massaOutroCarrinhoValue')
 
     // Selecionar os Spans com os Resultados da Tabela
-    coefAtritoEstaticoResp = document.getElementById('coefAtritoEstaticoValue')
-    coefAtritoCineticoResp = document.getElementById('coefAtritoCineticoValue')
 
     // Selecionar a div que vai ter a Curva
     F12_AL12.divCurva.push(document.getElementById('curva-ft'))
@@ -74,23 +70,24 @@ function prepararResultados() {
     }
 
     // Atualizar os Sliders
-    massaBloco.oninput = () => {
-        let massaBlocoValue = massaBloco.value / 1
-    
-        massaBlocoResp.innerText = `${massaBlocoValue.toFixed(0)}`
-    }
-    intForca.oninput = () => {
-        let intForcaValue = intForca.value / 100
-    
-        intForcaResp.innerText = `${intForcaValue.toFixed(2)}`
-    }
-    massaAreia.oninput = () => {
-        let massaAreiaValue = massaAreia.value / 1
-    
-        massaAreiaResp.innerText = `${massaAreiaValue.toFixed(0)}`
-    }
-    
+    massaCarrinho.oninput = () => {
+        let massaCarrinhoValue = massaCarrinho.value / 1
 
+        massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(0)}`
+    }
+    velocidadeInicial.oninput = () => {
+        let velocidadeInicialValue = velocidadeInicial.value / 100
+    
+        velocidadeInicialResp.innerText = `${velocidadeInicialValue.toFixed(2)}`
+    }
+    massaOutroCarrinho.oninput = () => {
+        let massaOutroCarrinhoValue = massaOutroCarrinho.value / 10
+    
+        massaOutroCarrinhoResp.innerText = `${massaOutroCarrinhoValue.toFixed(1)}`
+    }
+    
+    
+    /*
     // SIMULAÇÂO
     
     // Selecionar o Canvas e o seu context
@@ -103,7 +100,7 @@ function prepararResultados() {
         intForca: intForca,
         massaAreia: massaAreia
     })
-
+    */
     F12_AL12.preparado = true
     loopSimula()
 }

@@ -409,12 +409,6 @@ div.lista-AL {
     text-align: left;
 }
 
-div.centrada {
-    width: fit-content;
-    margin: auto;
-    justify-content: center;
-}
-
 div.texto-centrado {
     width: 100%;
     justify-content: center;
@@ -539,6 +533,12 @@ div.frac > span {
 }
 div.frac span.denom {
     border-top: thin solid black;
+}
+
+div.centrada {
+    width: fit-content;
+    margin: auto;
+    justify-content: center;
 }
 
 
