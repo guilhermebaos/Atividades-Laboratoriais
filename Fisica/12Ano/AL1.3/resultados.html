@@ -47,14 +47,12 @@
         <div><span id="massaOutroCarrinhoValue">500</span>g<br>
         <input type="range" name="massaOutroCarrinho" id="massaOutroCarrinho" class="slider" min="100" max="5000" value="500"></div>
     </div>
-    <button class="submit" onclick="reiniciar()">Colocar o outro Carrinho à frente do 1º</button>
 </div>
 <div id="Montagem1" class="centrada explicar explicar-no-border">
     <div class="flex-slider">
         <div><label for="coefRestituicao">Coeficiente Restituição</label></div>
         <div><input type="range" name="coefRestituicao" id="coefRestituicao" class="slider" min="10" max="1000" value="300"></div>
     </div>
-    <button class="submit" onclick="reiniciar()">Trocar o alvo</button>
 </div>
 
 <div class="m15">
@@ -63,9 +61,10 @@
         <li>Verde &rarr; Velocidade</li>
         <li>Laranja &rarr; Aceleração</li>
     </ul>
+    
+    <button class="submit" onclick="reiniciar()">Lançar o Carrinho</button>
 </div>
 
-<button class="submit m15-bot" onclick="reiniciar()">Lançar o Carrinho</button>
 <div class="graf-overflow m5-bot">
     <div id="AL13F12" class="graf-container" style="max-height: 200px;">
         <canvas id="canvasSim" class="simulacao" style="height: calc(100% - 4px);"></canvas>

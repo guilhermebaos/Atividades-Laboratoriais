@@ -82,6 +82,8 @@ function prepararResultados() {
     }
     velocidadeInicial.oninput = () => {
         let velocidadeInicialValue = velocidadeInicial.value / 100
+
+        console.log(velocidadeInicialValue)
     
         velocidadeInicialResp.innerText = `${velocidadeInicialValue.toFixed(2)}`
     }
@@ -171,6 +173,9 @@ function reiniciar() {
 
     coefRestituicaoResp.innerText = e.toFixed(2)
     EcConservadaResp.innerText = EcConservada.toFixed(2)
+
+    velocidadeInicial.value = velocidadeInicial.min
+    velocidadeInicialResp.innerText = `${Number(velocidadeInicial.min).toFixed(2)}`
 }
 
 

@@ -131,7 +131,7 @@ function montagem(num) {
         montagemEscolhida = num
     }
 
-    simula.reiniciar(montagemEscolhida)
+    reiniciar()
 }
 
 
@@ -158,6 +158,15 @@ function fixDPI() {
 
 // Reiniciar a Simulação
 function reiniciar() {
+    intForca.value = intForca.min
+    intForcaResp.innerText = `${Number(intForca.min).toFixed(2)}`
+
+    massaAreia.value = massaAreia.min
+    massaAreiaResp.innerText = `${Number(massaAreia.min).toFixed(0)}`
+
+    // Reiniciar os gráficos
+    graficos = window.graficos(F12_AL12.divCurva)
+
     simula.reiniciar(montagemEscolhida)
 
     let cae = coefAtritoEstatico.value / 100

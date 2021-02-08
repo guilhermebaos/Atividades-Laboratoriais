@@ -1,6 +1,6 @@
 import Montagem1 from '../JS/montagem1.js'
-/*import Montagem2 from '../JS/montagem2.js'
-import Dados from '../JS/dados.js'
+import Montagem2 from '../JS/montagem2.js'
+/*import Dados from '../JS/dados.js'
 */
 const MONTAGENS = {
     M1: 0,
@@ -39,13 +39,11 @@ window.Simula = class Simula {
         
         if (this.montagem == MONTAGENS.M1) {
             this.simObjetos.push(new Montagem1(this))
-        }
-        /*} else if (this.montagem == MONTAGENS.M2) {
+        } else if (this.montagem == MONTAGENS.M2) {
             this.simObjetos.push(new Montagem2(this))
         }
 
-        this.dados.reiniciar()
-        */
+        // this.dados.reiniciar()
     }
 
     // Iniciar a Simulação
