@@ -118,7 +118,7 @@ window.Simula = class Simula {
             vi: velocidadeInicial.value / 100,          // Velocidade Inicial do Carrinho
             mOutro: massaOutroCarrinho.value / 1000,    // Massa outro Carrinho
             mOutroMax: massaOutroCarrinho.max / 1000,   // Massa Max outro Carrinho
-            e: coefRestituicaoResp.value / 1000         // Coeficiente de Restituição
+            e: coefRestituicao.value / 1000         // Coeficiente de Restituição
         }
     }
 

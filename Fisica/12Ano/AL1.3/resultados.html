@@ -25,11 +25,6 @@
         <div><span id="massaCarrinhoValue">500</span>g<br>
         <input type="range" name="massaCarrinho" id="massaCarrinho" class="slider" min="100" max="5000" value="500"></div>
     </div>
-    <div class="flex-slider">
-        <div><label for="velocidadeInicial">Velocidade Inicial do Carrinho</label></div>
-        <div><span id="velocidadeInicialValue">0.00</span>m/s<br>
-        <input type="range" name="velocidadeInicial" id="velocidadeInicial" class="slider" min="0" max="20000" value="0"></div>
-    </div>
 
     <button class="submit" onclick="reiniciar()">Novo Carrinho</button>
 </div>
@@ -51,7 +46,7 @@
 <div id="Montagem1" class="centrada explicar explicar-no-border">
     <div class="flex-slider">
         <div><label for="coefRestituicao">Coeficiente Restituição</label></div>
-        <div><input type="range" name="coefRestituicao" id="coefRestituicao" class="slider" min="10" max="1000" value="300"></div>
+        <div><input type="range" name="coefRestituicao" id="coefRestituicao" class="slider" min="0" max="1000" value="300"></div>
     </div>
 </div>
 
@@ -61,8 +56,16 @@
         <li>Verde &rarr; Velocidade</li>
         <li>Laranja &rarr; Aceleração</li>
     </ul>
+</div>
+
+<div class="centrada m15">
+    <div class="flex-slider">
+        <div><label for="velocidadeInicial">Velocidade Inicial do Carrinho</label></div>
+        <div><span id="velocidadeInicialValue">0.00</span>m/s<br>
+        <input type="range" name="velocidadeInicial" id="velocidadeInicial" class="slider" min="0" max="20000" value="0"></div>
+    </div>
     
-    <button class="submit" onclick="reiniciar()">Lançar o Carrinho</button>
+    <button class="submit" onclick="iniciar()">Lançar o Carrinho</button>
 </div>
 
 <div class="graf-overflow m5-bot">

@@ -16,9 +16,9 @@ let F12_AL12 = {
 }
 
 let massaCarrinho, massaCarrinhoResp
-let velocidadeInicial, velocidadeInicialResp
 let massaOutroCarrinho, massaOutroCarrinhoResp
 let coefRestituicao, coefRestituicaoResp
+let velocidadeInicial, velocidadeInicialResp
 
 let EcConservadaResp
 
@@ -36,14 +36,14 @@ function prepararResultados() {
 
     // Selecionar Sliders
     massaCarrinho = document.getElementById('massaCarrinho')
-    velocidadeInicial = document.getElementById('velocidadeInicial')
     massaOutroCarrinho = document.getElementById('massaOutroCarrinho')
     coefRestituicao = document.getElementById('coefRestituicao')
+    velocidadeInicial = document.getElementById('velocidadeInicial')
 
     // Selecionar os Spans com os Valores dos Sliders
     massaCarrinhoResp = document.getElementById('massaCarrinhoValue')
-    velocidadeInicialResp = document.getElementById('velocidadeInicialValue')
     massaOutroCarrinhoResp = document.getElementById('massaOutroCarrinhoValue')
+    velocidadeInicialResp = document.getElementById('velocidadeInicialValue')
 
     // Selecionar os Spans com os Resultados da Tabela
     EcConservadaResp = document.getElementById('EcConservadaValue')
@@ -82,8 +82,6 @@ function prepararResultados() {
     }
     velocidadeInicial.oninput = () => {
         let velocidadeInicialValue = velocidadeInicial.value / 100
-
-        console.log(velocidadeInicialValue)
     
         velocidadeInicialResp.innerText = `${velocidadeInicialValue.toFixed(2)}`
     }
@@ -132,7 +130,7 @@ function montagem(num) {
         montagemEscolhida = num
     }
 
-    simula.reiniciar(montagemEscolhida)
+    reiniciar()
 }
 
 
@@ -159,6 +157,15 @@ function fixDPI() {
 
 // Reiniciar a Simulação
 function reiniciar() {
+    velocidadeInicial.value = velocidadeInicial.min
+    velocidadeInicialResp.innerText = `${Number(velocidadeInicial.min).toFixed(2)}`
+
+    iniciar()
+}
+
+
+// Lançar o Carrinho
+function iniciar() {
     simula.reiniciar(montagemEscolhida)
     
     let EcConservada
@@ -173,9 +180,6 @@ function reiniciar() {
 
     coefRestituicaoResp.innerText = e.toFixed(2)
     EcConservadaResp.innerText = EcConservada.toFixed(2)
-
-    velocidadeInicial.value = velocidadeInicial.min
-    velocidadeInicialResp.innerText = `${Number(velocidadeInicial.min).toFixed(2)}`
 }
 
 
