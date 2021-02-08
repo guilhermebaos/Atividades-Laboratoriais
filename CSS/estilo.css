@@ -393,6 +393,14 @@ div.graf-container {
     max-width: 1000px;
     max-height: 500px;
 }
+div.graf-container#AL13F12 {
+    margin: auto;
+    padding: 0px;
+    min-width: 400px;
+    min-height: 200px;
+    max-width: 1000px;
+    max-height: 200px;
+}
 
 div.header {
     width: 100%;

@@ -20,12 +20,15 @@ let velocidadeInicial, velocidadeInicialResp
 let massaOutroCarrinho, massaOutroCarrinhoResp
 let coefRestituicao, coefRestituicaoResp
 
+let EcConservadaResp
+
 let montagemBtns
 let dadosBtn
 
 // Ligar ou desligar a aquisição de dados
 let recolherDados = false
 
+let simula, ctx
 function prepararResultados() {
     if (F12_AL12.preparado) {
         return
@@ -43,6 +46,8 @@ function prepararResultados() {
     massaOutroCarrinhoResp = document.getElementById('massaOutroCarrinhoValue')
 
     // Selecionar os Spans com os Resultados da Tabela
+    EcConservadaResp = document.getElementById('EcConservadaValue')
+    coefRestituicaoResp = document.getElementById('coefRestituicaoValue')
 
     // Selecionar a div que vai ter a Curva
     F12_AL12.divCurva.push(document.getElementById('curva-ft'))
@@ -59,7 +64,7 @@ function prepararResultados() {
         if (dadosBtn.estado == '0') {
             dadosBtn.estado = '1'
             dadosBtn.innerText = 'Desligar'
-            this.simula.dados.reiniciar()
+            // simula.dados.reiniciar()
             graficos = window.graficos(F12_AL12.divCurva)
             recolherDados = true
         } else {
@@ -81,13 +86,12 @@ function prepararResultados() {
         velocidadeInicialResp.innerText = `${velocidadeInicialValue.toFixed(2)}`
     }
     massaOutroCarrinho.oninput = () => {
-        let massaOutroCarrinhoValue = massaOutroCarrinho.value / 10
+        let massaOutroCarrinhoValue = massaOutroCarrinho.value / 1
     
-        massaOutroCarrinhoResp.innerText = `${massaOutroCarrinhoValue.toFixed(1)}`
+        massaOutroCarrinhoResp.innerText = `${massaOutroCarrinhoValue.toFixed(0)}`
     }
     
     
-    /*
     // SIMULAÇÂO
     
     // Selecionar o Canvas e o seu context
@@ -97,10 +101,9 @@ function prepararResultados() {
 
     // Criar o Objeto Simula
     simula = new window.Simula(canvasSim, RESOLUCAO, {
-        intForca: intForca,
-        massaAreia: massaAreia
+        mOutroCarrinho: massaOutroCarrinho,
+        coefRestituicao: coefRestituicao
     })
-    */
     F12_AL12.preparado = true
     loopSimula()
 }
@@ -140,9 +143,9 @@ function fixDPI() {
     let DPI = window.devicePixelRatio
 
     // Altura do CSS
-    let altura_css = +getComputedStyle(canvasSim).getPropertyValue('height').slice(0, -2)
+    let altura_css = +getComputedStyle(canvasSim.parentElement).getPropertyValue('height').slice(0, -2) - 4
     // Larura do CSS
-    let largura_css = +getComputedStyle(canvasSim).getPropertyValue('width').slice(0, -2)
+    let largura_css = +getComputedStyle(canvasSim.parentElement).getPropertyValue('width').slice(0, -2)
 
     // Altera o tamanho do canvas
     canvasSim.width = largura_css * DPI
@@ -155,12 +158,19 @@ function fixDPI() {
 // Reiniciar a Simulação
 function reiniciar() {
     simula.reiniciar(montagemEscolhida)
+    
+    let EcConservada
+    let e
+    if (montagemEscolhida == 0) {
+        e = 0
+        EcConservada = massaCarrinho.value / (massaCarrinho.value / 1 + massaOutroCarrinho.value / 1) * 100
+    } else {
+        e = coefRestituicao.value / 1000
+        EcConservada = e**2 * 100
+    }
 
-    let cae = coefAtritoEstatico.value / 100
-    let cac = coefAtritoCinetico.value / 100 * cae
-
-    coefAtritoEstaticoResp.innerText = cae.toFixed(2)
-    coefAtritoCineticoResp.innerText = cac.toFixed(2)
+    coefRestituicaoResp.innerText = e.toFixed(2)
+    EcConservadaResp.innerText = EcConservada.toFixed(2)
 }
 
 
@@ -173,6 +183,7 @@ function loopSimula(tempo) {
         fixDPI()
         if (!graficos) graficos = window.graficos(F12_AL12.divCurva)
         requestAnimationFrame(loopSimula)
+        reiniciar()
         return
     }
 

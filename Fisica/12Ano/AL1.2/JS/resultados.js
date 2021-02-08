@@ -27,6 +27,7 @@ let dadosBtn
 // Ligar ou desligar a aquisição de dados
 let recolherDados = false
 
+let simula, ctx
 function prepararResultados() {
     if (F12_AL12.preparado) {
         return
@@ -63,7 +64,7 @@ function prepararResultados() {
         if (dadosBtn.estado == '0') {
             dadosBtn.estado = '1'
             dadosBtn.innerText = 'Desligar'
-            this.simula.dados.reiniciar()
+            simula.dados.reiniciar()
             graficos = window.graficos(F12_AL12.divCurva)
             recolherDados = true
         } else {
