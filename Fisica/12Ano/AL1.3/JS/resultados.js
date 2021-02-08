@@ -50,8 +50,7 @@ function prepararResultados() {
     coefRestituicaoResp = document.getElementById('coefRestituicaoValue')
 
     // Selecionar a div que vai ter a Curva
-    F12_AL12.divCurva.push(document.getElementById('curva-ft'))
-    F12_AL12.divCurva.push(document.getElementById('curva-ct'))
+    F12_AL12.divCurva[0] = document.getElementById('curva-ct')
 
     // Selecionar os Butões que permitem escolher o Procedimento
     montagemBtns = document.getElementsByName('montagens')
