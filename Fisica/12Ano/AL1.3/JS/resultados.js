@@ -9,9 +9,9 @@ const RESOLUCAO = 15                        // Tamanho do deltaT em cada update
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
-let F12_AL12 = {
+let F12_AL13 = {
     preparado: false,
-    divCurva: [],
+    divCurva: '',
     processandoAnim: false
 }
 
@@ -30,7 +30,7 @@ let recolherDados = false
 
 let simula, ctx
 function prepararResultados() {
-    if (F12_AL12.preparado) {
+    if (F12_AL13.preparado) {
         return
     }
 
@@ -50,7 +50,7 @@ function prepararResultados() {
     coefRestituicaoResp = document.getElementById('coefRestituicaoValue')
 
     // Selecionar a div que vai ter a Curva
-    F12_AL12.divCurva[0] = document.getElementById('curva-ct')
+    F12_AL13.divCurva = document.getElementById('curva-ct')
 
     // Selecionar os Butões que permitem escolher o Procedimento
     montagemBtns = document.getElementsByName('montagens')
@@ -64,7 +64,7 @@ function prepararResultados() {
             dadosBtn.estado = '1'
             dadosBtn.innerText = 'Desligar'
             // simula.dados.reiniciar()
-            graficos = window.graficos(F12_AL12.divCurva)
+            graficos = window.graficos(F12_AL13.divCurva)
             recolherDados = true
         } else {
             dadosBtn.estado = '0'
@@ -80,7 +80,7 @@ function prepararResultados() {
         massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(0)}`
     }
     velocidadeInicial.oninput = () => {
-        let velocidadeInicialValue = velocidadeInicial.value / 100
+        let velocidadeInicialValue = velocidadeInicial.value / 10
     
         velocidadeInicialResp.innerText = `${velocidadeInicialValue.toFixed(2)}`
     }
@@ -103,7 +103,7 @@ function prepararResultados() {
         mOutroCarrinho: massaOutroCarrinho,
         coefRestituicao: coefRestituicao
     })
-    F12_AL12.preparado = true
+    F12_AL13.preparado = true
     loopSimula()
 }
 
@@ -113,8 +113,8 @@ let montagemEscolhida = 0
 function montagem(num) {
     if (num == montagemEscolhida) return
     else {
-        if (F12_AL12.processandoAnim) return
-        F12_AL12.processandoAnim = true
+        if (F12_AL13.processandoAnim) return
+        F12_AL13.processandoAnim = true
 
         montagemBtns[montagemEscolhida].className = 'escolha'
         montagemBtns[num].className = 'escolha-atual'
@@ -123,7 +123,7 @@ function montagem(num) {
         mostrarExtra(`Montagem${montagemEscolhida}`)
         window.setTimeout(mostrarExtra, mostrarExtraTempo, `Montagem${num}`)
         window.setTimeout(function() {
-            F12_AL12.processandoAnim = false
+            F12_AL13.processandoAnim = false
         }, mostrarExtraTempo * 2)
 
         montagemEscolhida = num
@@ -166,6 +166,8 @@ function reiniciar() {
 // Lançar o Carrinho
 function iniciar() {
     simula.reiniciar(montagemEscolhida)
+
+    graficos = window.graficos(F12_AL13.divCurva)
     
     let EcConservada
     let e
@@ -189,7 +191,7 @@ function loopSimula(tempo) {
     if (ultimoTempo === undefined) {
         ultimoTempo = tempo
         fixDPI()
-        if (!graficos) graficos = window.graficos(F12_AL12.divCurva)
+        if (!graficos) graficos = window.graficos(F12_AL13.divCurva)
         requestAnimationFrame(loopSimula)
         reiniciar()
         return

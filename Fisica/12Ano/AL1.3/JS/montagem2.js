@@ -58,9 +58,6 @@ export default class Montagem2 {
             this.velocidade *= -this.e
         }
 
-        console.log(this.posicao)
-        console.log(this.velocidade)
-
         this.posicao += this.velocidade * deltaTempo
     }
 

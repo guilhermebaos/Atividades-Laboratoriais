@@ -1,7 +1,7 @@
 import Montagem1 from '../JS/montagem1.js'
 import Montagem2 from '../JS/montagem2.js'
-/*import Dados from '../JS/dados.js'
-*/
+import Dados from '../JS/dados.js'
+
 const MONTAGENS = {
     M1: 0,
     M2: 1
@@ -9,7 +9,7 @@ const MONTAGENS = {
 
 // Classe que vai executar a Simulação
 window.Simula = class Simula {
-    constructor(canvas, resolucao, inputVariavel) {
+    constructor(canvas, resolucao) {
         // Guardar o canvas
         this.canvas = canvas
 
@@ -22,7 +22,7 @@ window.Simula = class Simula {
         // Tamanho da Simulação
         this.novoTamanho()
 
-        // this.dados = new Dados(this)
+        this.dados = new Dados(this)
 
         this.reiniciar(this.montagem)
     }
@@ -43,12 +43,7 @@ window.Simula = class Simula {
             this.simObjetos.push(new Montagem2(this))
         }
 
-        // this.dados.reiniciar()
-    }
-
-    // Iniciar a Simulação
-    iniciar() {
-        this.simObjetos.forEach((objeto) => objeto.iniciar())
+        this.dados.reiniciar()
     }
 
     // Atualizar o tamanho do canvas
@@ -115,7 +110,7 @@ window.Simula = class Simula {
         return {
             m: massaCarrinho.value / 1000,              // Massa do Carrinho, em kg
             mMax: massaCarrinho.max / 1000,             // Massa Máxima do Carrinho
-            vi: velocidadeInicial.value / 100,          // Velocidade Inicial do Carrinho
+            vi: velocidadeInicial.value / 10,           // Velocidade Inicial do Carrinho
             mOutro: massaOutroCarrinho.value / 1000,    // Massa outro Carrinho
             mOutroMax: massaOutroCarrinho.max / 1000,   // Massa Max outro Carrinho
             e: coefRestituicao.value / 1000         // Coeficiente de Restituição
@@ -126,17 +121,15 @@ window.Simula = class Simula {
         deltaTempo /= 1000
         deltaTempo /= this.resolucao
 
-        // let dados = this.dados.update(deltaTempo)
+        let dados = this.dados.update(deltaTempo)
 
         this.simObjetos.forEach((objeto) => objeto.update(deltaTempo))
-        /*
+        
         if (dados) {
             return this.dados.dadosObtidos
         } else {
             return false
         }
-        */
-       return false
     }
 
     desenhar(ctx) {

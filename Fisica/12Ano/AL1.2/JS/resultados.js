@@ -29,7 +29,7 @@ let recolherDados = false
 
 let simula, ctx
 function prepararResultados() {
-    if (F12_AL12.preparado) {
+    if (F12_AL13.preparado) {
         return
     }
 
@@ -50,8 +50,8 @@ function prepararResultados() {
     coefAtritoCineticoResp = document.getElementById('coefAtritoCineticoValue')
 
     // Selecionar a div que vai ter a Curva
-    F12_AL12.divCurva[0] = document.getElementById('curva-ft')
-    F12_AL12.divCurva[1] = document.getElementById('curva-ct')
+    F12_AL13.divCurva[0] = document.getElementById('curva-ft')
+    F12_AL13.divCurva[1] = document.getElementById('curva-ct')
 
     // Selecionar os Butões que permitem escolher o Procedimento
     montagemBtns = document.getElementsByName('montagens')
@@ -65,7 +65,7 @@ function prepararResultados() {
             dadosBtn.estado = '1'
             dadosBtn.innerText = 'Desligar'
             simula.dados.reiniciar()
-            graficos = window.graficos(F12_AL12.divCurva)
+            graficos = window.graficos(F12_AL13.divCurva)
             recolherDados = true
         } else {
             dadosBtn.estado = '0'
@@ -105,7 +105,7 @@ function prepararResultados() {
         massaAreia: massaAreia
     })
 
-    F12_AL12.preparado = true
+    F12_AL13.preparado = true
     loopSimula()
 }
 
@@ -115,8 +115,8 @@ let montagemEscolhida = 0
 function montagem(num) {
     if (num == montagemEscolhida) return
     else {
-        if (F12_AL12.processandoAnim) return
-        F12_AL12.processandoAnim = true
+        if (F12_AL13.processandoAnim) return
+        F12_AL13.processandoAnim = true
 
         montagemBtns[montagemEscolhida].className = 'escolha'
         montagemBtns[num].className = 'escolha-atual'
@@ -125,7 +125,7 @@ function montagem(num) {
         mostrarExtra(`Montagem${montagemEscolhida}`)
         window.setTimeout(mostrarExtra, mostrarExtraTempo, `Montagem${num}`)
         window.setTimeout(function() {
-            F12_AL12.processandoAnim = false
+            F12_AL13.processandoAnim = false
         }, mostrarExtraTempo * 2)
 
         montagemEscolhida = num
@@ -165,7 +165,7 @@ function reiniciar() {
     massaAreiaResp.innerText = `${Number(massaAreia.min).toFixed(0)}`
 
     // Reiniciar os gráficos
-    graficos = window.graficos(F12_AL12.divCurva)
+    graficos = window.graficos(F12_AL13.divCurva)
 
     simula.reiniciar(montagemEscolhida)
 
@@ -184,7 +184,7 @@ function loopSimula(tempo) {
     if (ultimoTempo === undefined) {
         ultimoTempo = tempo
         fixDPI()
-        if (!graficos) graficos = window.graficos(F12_AL12.divCurva)
+        if (!graficos) graficos = window.graficos(F12_AL13.divCurva)
         requestAnimationFrame(loopSimula)
         return
     }
