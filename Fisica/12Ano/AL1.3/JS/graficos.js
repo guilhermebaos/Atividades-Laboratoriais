@@ -56,7 +56,7 @@ window.graficos = (divCurva) => {
                     },
                     ticks: {
                         max: 600,
-                        min: 0
+                        min: -600
                     }
                 }]
             },
@@ -68,9 +68,9 @@ window.graficos = (divCurva) => {
                         return 'Tempo: ' + tooltipItem.label + 's'
                     },
                     label: function(tooltipItem, data) {
-                        let value = Number(tooltipItem.value).toFixed(3)
+                        let value = Number(tooltipItem.value).toFixed(2)
     
-                        return 'Velocidade: ' + value + 'm/s'
+                        return 'Velocidade: ' + value + 'cm/s'
                     }
                 },
                 custom: function(tooltip) {

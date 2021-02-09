@@ -82,7 +82,7 @@ function prepararResultados() {
     velocidadeInicial.oninput = () => {
         let velocidadeInicialValue = velocidadeInicial.value / 10
     
-        velocidadeInicialResp.innerText = `${velocidadeInicialValue.toFixed(2)}`
+        velocidadeInicialResp.innerText = `${velocidadeInicialValue.toFixed(1)}`
     }
     massaOutroCarrinho.oninput = () => {
         let massaOutroCarrinhoValue = massaOutroCarrinho.value / 1
@@ -157,7 +157,7 @@ function fixDPI() {
 // Reiniciar a Simulação
 function reiniciar() {
     velocidadeInicial.value = velocidadeInicial.min
-    velocidadeInicialResp.innerText = `${Number(velocidadeInicial.min).toFixed(2)}`
+    velocidadeInicialResp.innerText = `${Number(velocidadeInicial.min).toFixed(1)}`
 
     iniciar()
 }
