@@ -868,10 +868,20 @@ img#Ar-Vidro-F11-AL31 {
     min-width: 200px;
     margin: 20px 0px 15px 0px;
 }
-img#Difração-F11-AL32 img#Comprimento-de-Onda-F11-AL32{
+img#Difração-F11-AL32 img#Comprimento-de-Onda-F11-AL32 {
     display: block;
     margin: auto;
     min-width: 250px;
+}
+img#Montagem1-F12-AL122{
+    display: block;
+    margin: auto;
+    min-width: 300px;
+}
+img#Montagem2-F12-AL122{
+    display: block;
+    margin: auto;
+    min-width: 400px;
 }
 img#TP-Exame {
     display: block;
