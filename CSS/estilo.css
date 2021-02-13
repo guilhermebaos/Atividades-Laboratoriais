@@ -300,6 +300,9 @@ span.contas {
     font-family: serif;
 }
 
+span.pre-sqrt {
+    font-size: 110%;
+}
 span.sqrt {
     border-top: 1px solid black;
     padding-top: 1.5px;
