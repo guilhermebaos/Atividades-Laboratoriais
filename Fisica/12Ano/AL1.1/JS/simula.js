@@ -24,10 +24,12 @@ window.Simula = class Simula {
 
     // Atualizar o tamanho do canvas
     novoTamanho() {
+        if (this.largura == this.canvas.width) return
+
         this.largura = this.canvas.width
         this.altura = this.canvas.height
 
-        this.montagem.reiniciar()
+        this.reiniciar()
     }
 
     // Juntar os valores para serem usados pela Simulação
@@ -45,7 +47,7 @@ window.Simula = class Simula {
         deltaTempo /= 1000
         deltaTempo /= this.resolucao
 
-        this.montagem.update(deltaTempo)
+        return this.montagem.update(deltaTempo)
     }
 
     desenhar(ctx) {

@@ -100,7 +100,7 @@ function reiniciar() {
 
 
 // Criar o loop da Simulação
-let ultimoTempo, graficos
+let ultimoTempo, graficos, resultadosSim
 
 function loopSimula(tempo) {
     if (ultimoTempo === undefined) {
@@ -115,7 +115,15 @@ function loopSimula(tempo) {
     ultimoTempo = tempo
     
     for (let i = 0; i < RESOLUCAO; i++) {
-        simula.update(deltaTempo)
+        resultadosSim = simula.update(deltaTempo)
+        if (resultadosSim){
+            if (resultadosSim[0]) {
+                tempoPassagemResp.innerText = (dEsfera.value / 10 / resultadosSim[0] * 1000).toFixed(2)
+            }
+            else if (resultadosSim[1]) {
+                alcanceResp.innerText = (resultadosSim[1] / 100).toFixed(2)
+            }
+        }
     }
 
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)

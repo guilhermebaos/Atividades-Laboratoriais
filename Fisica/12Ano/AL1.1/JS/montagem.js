@@ -4,23 +4,35 @@ export default class Montagem {
         // Simulação
         this.simula = simula
 
+        // Altura Real da Simulação, em cm
+        this.hSimCm = 350
+
+        // Várias escalas da Simulação
+        this.escala = 100                   // De metros para cm
+        this.cmToPx = this.simula.altura / this.hSimCm
+        this.pxToCm = this.hSimCm / this.simula.altura
+
         // Definições do Bloco
         this.esfera = {
             raio: 10 * (this.simula.inputs.d / this.simula.inputs.dMax) ** (1/3),
             cor: 'rgb(255, 130, 35)'
         }
+        this.esfera.raioCm = this.esfera.raio * this.pxToCm
 
         // Definições do Plano Horizontal
         this.rampa = {
             largura: 2,
             fim: this.simula.largura / 3,
+            fimCm: this.simula.largura / 3 * this.pxToCm,
             raio: this.simula.largura / 3,
+            raioCm: this.simula.largura / 3 * this.pxToCm,
             cor: 'rgb(10, 100, 230)',
         }
 
         // Definições da mesa
         this.mesa = {
             largura: 12,
+            larguraCm: 12 * this.pxToCm,
             perna1: 0.15,           // Posição das pernas 1 e 2, em relação ao
             perna2: 0.85,           // comprimento da mesa
             cor: 'gray'
@@ -28,11 +40,14 @@ export default class Montagem {
 
         // Definições da caixa de areia
         this.caixa = {
-            corAreia: 'yellow',
-            corBorda: 'black'
+            larguraBordaCm: 10,
+            alturaBorda: this.simula.altura - 40,
+            corBorda: 'black',
+            alturaAreiaCm: 20,
+            corAreia: 'yellow'
         }
-
-        this.hSimMetros = 3.5
+        this.caixa.larguraBorda = this.caixa.larguraBordaCm * this.cmToPx
+        this.caixa.alturaAreia = this.caixa.alturaAreiaCm * this.cmToPx
         
         this.reiniciar()
     }
@@ -40,24 +55,63 @@ export default class Montagem {
     // Reiniciar a Bola
     reiniciar() {
         // Inputs
-        this.g = this.simula.inputs.g
-        this.hi = this.simula.inputs.hi
-        this.hl = this.simula.inputs.hl
+        this.g = this.simula.inputs.g * this.escala
+        this.hi = this.simula.inputs.hi * this.escala
+        this.hl = this.simula.inputs.hl * this.escala
 
         this.hiRampa = this.hi - this.hl
 
+        this.yMaxEsfera = this.hSimCm - this.caixa.larguraBordaCm / 2 - this.caixa.alturaAreiaCm
+
         // Definições do desenho
-        this.alturaMesa = (this.hSimMetros - this.hl) / this.hSimMetros * this.simula.altura
+        this.alturaMesa = (this.hSimCm - this.hl) / this.hSimCm * this.simula.altura
+        this.alturaMesaCm = this.alturaMesa * this.pxToCm
 
         // Cinética
-        this.posicao = {x: this.rampa.fim, y: this.alturaMesa,
-            rampa: Math.asin((this.rampa.raio - this.hiRampa * 100) / this.rampa.raio) * this.rampa.raio
+        this.posicao = {
+            x: this.rampa.fimCm + this.esfera.raioCm,
+            y: this.alturaMesaCm - this.mesa.larguraCm,
+            rampa: Math.asin((this.rampa.raioCm - this.hiRampa) / this.rampa.raioCm) * this.rampa.raioCm,
+            rampaMax: Math.PI * this.rampa.raioCm  / 2
         }
         this.velocidade = {x: 0, y: 0, rampa: 0}
-        this.aceleração = {x: 0, y: -this.g, rampa: 0}
+        this.aceleracao = {x: 0, y: this.g, rampa: 0}
+
+        console.log(Math.asin((this.rampa.raioCm - this.hiRampa) / this.rampa.raioCm) * 180 / Math.PI)
+
+        // .rampa refere-se ao eixo tangencial à rampa em cada ponto
     }
 
     update(deltaTempo) {
+        // Cinética enquanto a bola está na rampa
+        if (this.posicao.rampa < this.posicao.rampaMax) {
+            // Ângulo já percorrido da rampa
+            this.posicao.ang = this.posicao.rampa / this.rampa.raioCm
+    
+            this.aceleracao.rampa = Math.cos(this.posicao.ang) * this.g
+    
+            this.posicao.rampa += this.velocidade.rampa * deltaTempo + 0.5 * this.aceleracao.rampa * deltaTempo ** 2
+    
+            this.velocidade.rampa += this.aceleracao.rampa * deltaTempo
+        }
+
+        // Atingiu o chão
+        else if (this.posicao.y >= this.yMaxEsfera) {
+            this.velocidade.x = 0
+            this.posicao.y = this.yMaxEsfera
+            return [undefined, this.posicao.x - this.rampa.fimCm]
+        }
+         
+        // Cinética quando a bola está em lançamento horizontal
+        else {
+            this.posicao.x += this.velocidade.x * deltaTempo
+            this.posicao.y += this.velocidade.y * deltaTempo
+
+            this.velocidade.x = this.velocidade.rampa
+            this.velocidade.y += this.aceleracao.y * deltaTempo
+
+            return [this.velocidade.rampa, undefined]
+        }
     }
 
     desenhar(ctx) {
@@ -74,7 +128,10 @@ export default class Montagem {
         ctx.stroke()
 
         // Desenhar a rampa
-        let centroRampa = {x: this.rampa.raio, y: this.alturaMesa - this.rampa.fim - this.mesa.largura / 2}
+        let centroRampa = {
+            x: this.rampa.raio,
+            y: this.alturaMesa - this.rampa.fim - this.mesa.largura / 2
+        }
 
         ctx.lineWidth = this.rampa.largura
         ctx.strokeStyle = this.rampa.cor
@@ -86,16 +143,45 @@ export default class Montagem {
         )
         ctx.stroke()
 
-        // Desenhar a esfera
-        let angulo = this.posicao.rampa / this.rampa.raio
+        // Desenhar a caixa
+        let xCaixa = {
+            i: this.rampa.fim - this.caixa.larguraBorda / 2,
+            f: this.simula.largura - this.caixa.larguraBorda / 2
+        }
 
+        ctx.lineWidth = this.caixa.larguraBorda
+        ctx.strokeStyle = this.caixa.corBorda
+        ctx.beginPath()
+        ctx.moveTo(xCaixa.i, this.caixa.alturaBorda)
+        ctx.lineTo(xCaixa.i, this.simula.altura)
+        ctx.lineTo(xCaixa.f, this.simula.altura)
+        ctx.lineTo(xCaixa.f, this.caixa.alturaBorda)
+        ctx.stroke()
+
+        // Desenhar a areia
+        ctx.fillStyle = this.caixa.corAreia
+        ctx.fillRect(xCaixa.i + this.caixa.larguraBorda / 2, this.simula.altura - this.caixa.larguraBorda / 2 - this.caixa.alturaAreia, xCaixa.f - xCaixa.i - this.caixa.larguraBorda, this.caixa.alturaAreia)
+
+        // Desenhar a esfera
+        
+        // Desenhar a esfera quando está na rampa
         ctx.fillStyle = this.esfera.cor
         ctx.beginPath()
-        ctx.arc(
-            centroRampa.x - Math.cos(angulo) * this.rampa.raio + this.esfera.raio - 1,
-            centroRampa.y + Math.sin(angulo) * this.rampa.raio - this.esfera.raio + 1,
-            this.esfera.raio, 0, 2 * Math.PI
-        )
+        if (this.posicao.rampa < this.posicao.rampaMax) {
+            ctx.arc(
+                centroRampa.x - Math.cos(this.posicao.ang) * this.rampa.raio + this.esfera.raio - 1,
+                centroRampa.y + Math.sin(this.posicao.ang) * this.rampa.raio - this.esfera.raio + 1,
+                this.esfera.raio, 0, 2 * Math.PI
+            )
+        }
+
+        // Desenhar a esfera quando está em lançamento horizontal
+        else {
+            ctx.arc(
+                this.posicao.x * this.cmToPx, this.posicao.y * this.cmToPx,
+                this.esfera.raio, 0, 2 * Math.PI
+            )
+        }
         ctx.fill()
     }
 }
