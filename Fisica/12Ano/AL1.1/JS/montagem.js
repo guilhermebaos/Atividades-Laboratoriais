@@ -9,30 +9,21 @@ export default class Montagem {
 
         // Várias escalas da Simulação
         this.escala = 100                   // De metros para cm
-        this.cmToPx = this.simula.altura / this.hSimCm
-        this.pxToCm = this.hSimCm / this.simula.altura
 
         // Definições do Bloco
         this.esfera = {
-            raio: 10 * (this.simula.inputs.d / this.simula.inputs.dMax) ** (1/3),
             cor: 'rgb(255, 130, 35)'
         }
-        this.esfera.raioCm = this.esfera.raio * this.pxToCm
 
         // Definições do Plano Horizontal
         this.rampa = {
             largura: 2,
-            fim: this.simula.largura / 3,
-            fimCm: this.simula.largura / 3 * this.pxToCm,
-            raio: this.simula.largura / 3,
-            raioCm: this.simula.largura / 3 * this.pxToCm,
             cor: 'rgb(10, 100, 230)',
         }
 
         // Definições da mesa
         this.mesa = {
-            largura: 12,
-            larguraCm: 12 * this.pxToCm,
+            larguraCm: 10,
             perna1: 0.15,           // Posição das pernas 1 e 2, em relação ao
             perna2: 0.85,           // comprimento da mesa
             cor: 'gray'
@@ -46,14 +37,33 @@ export default class Montagem {
             alturaAreiaCm: 20,
             corAreia: 'yellow'
         }
-        this.caixa.larguraBorda = this.caixa.larguraBordaCm * this.cmToPx
-        this.caixa.alturaAreia = this.caixa.alturaAreiaCm * this.cmToPx
         
         this.reiniciar()
     }
 
     // Reiniciar a Bola
     reiniciar() {
+        // Conversões de Unidades
+        this.cmToPx = this.simula.altura / this.hSimCm
+        this.pxToCm = this.hSimCm / this.simula.altura
+
+        // Esfera
+        this.esfera.raio = 10 * (this.simula.inputs.d / this.simula.inputs.dMax) ** (1/3)
+        this.esfera.raioCm = this.esfera.raio * this.pxToCm
+
+        // Rampa
+        this.rampa.fim = this.simula.largura / 3,
+        this.rampa.fimCm = this.rampa.fim * this.pxToCm,
+        this.rampa.raio = this.simula.largura / 3,
+        this.rampa.raioCm = this.rampa.raio * this.pxToCm,
+
+        // Mesa
+        this.mesa.largura = this.mesa.larguraCm * this.cmToPx
+
+        // Caixa
+        this.caixa.larguraBorda = this.caixa.larguraBordaCm * this.cmToPx
+        this.caixa.alturaAreia = this.caixa.alturaAreiaCm * this.cmToPx
+
         // Inputs
         this.g = this.simula.inputs.g * this.escala
         this.hi = this.simula.inputs.hi * this.escala
@@ -76,8 +86,6 @@ export default class Montagem {
         }
         this.velocidade = {x: 0, y: 0, rampa: 0}
         this.aceleracao = {x: 0, y: this.g, rampa: 0}
-
-        console.log(Math.asin((this.rampa.raioCm - this.hiRampa) / this.rampa.raioCm) * 180 / Math.PI)
 
         // .rampa refere-se ao eixo tangencial à rampa em cada ponto
     }
