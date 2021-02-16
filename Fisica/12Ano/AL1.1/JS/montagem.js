@@ -34,7 +34,7 @@ export default class Montagem {
             larguraBordaCm: 10,
             alturaBorda: this.simula.altura - 40,
             corBorda: 'black',
-            alturaAreiaCm: 20,
+            alturaAreiaCm: 10,
             corAreia: 'yellow'
         }
         
@@ -48,7 +48,7 @@ export default class Montagem {
         this.pxToCm = this.hSimCm / this.simula.altura
 
         // Esfera
-        this.esfera.raio = 10 * (this.simula.inputs.d / this.simula.inputs.dMax) ** (1/3)
+        this.esfera.raio = 10 * (this.simula.inputs.d / this.simula.inputs.dMax / 2) ** (1/3)
         this.esfera.raioCm = this.esfera.raio * this.pxToCm
 
         // Rampa
@@ -69,9 +69,15 @@ export default class Montagem {
         this.hi = this.simula.inputs.hi * this.escala
         this.hl = this.simula.inputs.hl * this.escala
 
+        // Ajustar as alturas com base no nível de areia da caixa
+        this.hi += this.caixa.alturaAreiaCm + this.caixa.larguraBordaCm / 2
+        this.hl += this.caixa.alturaAreiaCm + this.caixa.larguraBordaCm / 2
+
+        // Calcular a altura da bola na rampa
         this.hiRampa = this.hi - this.hl
 
-        this.yMaxEsfera = this.hSimCm - this.caixa.larguraBordaCm / 2 - this.caixa.alturaAreiaCm
+        // Quando é que a bola bate na areia
+        this.yMaxEsfera = this.hSimCm - this.caixa.larguraBordaCm / 2 - this.caixa.alturaAreiaCm - this.mesa.larguraCm
 
         // Definições do desenho
         this.alturaMesa = (this.hSimCm - this.hl) / this.hSimCm * this.simula.altura
@@ -79,13 +85,14 @@ export default class Montagem {
 
         // Cinética
         this.posicao = {
-            x: this.rampa.fimCm + this.esfera.raioCm,
+            x: this.rampa.fimCm,
             y: this.alturaMesaCm - this.mesa.larguraCm,
             rampa: Math.asin((this.rampa.raioCm - this.hiRampa) / this.rampa.raioCm) * this.rampa.raioCm,
             rampaMax: Math.PI * this.rampa.raioCm  / 2
         }
         this.velocidade = {x: 0, y: 0, rampa: 0}
         this.aceleracao = {x: 0, y: this.g, rampa: 0}
+
 
         // .rampa refere-se ao eixo tangencial à rampa em cada ponto
     }
@@ -105,7 +112,6 @@ export default class Montagem {
 
         // Atingiu o chão
         else if (this.posicao.y >= this.yMaxEsfera) {
-            this.velocidade.x = 0
             this.posicao.y = this.yMaxEsfera
             return [undefined, this.posicao.x - this.rampa.fimCm]
         }
@@ -168,7 +174,12 @@ export default class Montagem {
 
         // Desenhar a areia
         ctx.fillStyle = this.caixa.corAreia
-        ctx.fillRect(xCaixa.i + this.caixa.larguraBorda / 2, this.simula.altura - this.caixa.larguraBorda / 2 - this.caixa.alturaAreia, xCaixa.f - xCaixa.i - this.caixa.larguraBorda, this.caixa.alturaAreia)
+        ctx.fillRect(
+            xCaixa.i + this.caixa.larguraBorda / 2,
+            this.simula.altura - this.caixa.larguraBorda / 2 - this.caixa.alturaAreia - this.mesa.largura,
+            xCaixa.f - xCaixa.i - this.caixa.larguraBorda,
+            this.caixa.alturaAreia + this.mesa.largura
+        )
 
         // Desenhar a esfera
         
@@ -186,7 +197,8 @@ export default class Montagem {
         // Desenhar a esfera quando está em lançamento horizontal
         else {
             ctx.arc(
-                this.posicao.x * this.cmToPx, this.posicao.y * this.cmToPx,
+                this.posicao.x * this.cmToPx + this.esfera.raio,
+                this.posicao.y * this.cmToPx,
                 this.esfera.raio, 0, 2 * Math.PI
             )
         }
