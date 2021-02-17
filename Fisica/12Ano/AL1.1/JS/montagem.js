@@ -36,7 +36,7 @@ export default class Montagem {
             alturaBorda: this.simula.altura - 40,
             corBorda: 'black',
             alturaAreiaCm: 10,
-            corAreia: 'yellow'
+            corAreia: 'rgb(247, 229, 167)'
         }
         
         // Definições do Bloco
