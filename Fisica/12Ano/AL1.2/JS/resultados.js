@@ -29,6 +29,9 @@ let materialArray, materialEscolhidoPos = 0
 let montagemBtns
 let dadosBtn
 
+// Variável para ver se a Simulação precisa de atualizar o bloco
+let blocoAlterado = false
+
 // Ligar ou desligar a aquisição de dados
 let recolherDados = false
 
@@ -87,16 +90,35 @@ function prepararResultados() {
         let massaBlocoValue = massaBloco.value / 1
     
         massaBlocoResp.innerText = `${massaBlocoValue.toFixed(0)}`
+
+        if (intForca.value != intForca.min || massaAreia.value != massaAreia.min) {
+            reiniciar()
+        } else blocoAlterado = true
     }
+    coefAtritoEstatico.oninput = () => {
+        if (intForca.value != intForca.min || massaAreia.value != massaAreia.min) {
+            reiniciar()
+        } else blocoAlterado = true
+    }
+    coefAtritoCinetico.oninput = () => {
+        if (intForca.value != intForca.min || massaAreia.value != massaAreia.min) {
+            reiniciar()
+        } else blocoAlterado = true
+    }
+
     intForca.oninput = () => {
         let intForcaValue = intForca.value / 100
     
         intForcaResp.innerText = `${intForcaValue.toFixed(2)}`
+
+        if (blocoAlterado) novoBloco()
     }
     massaAreia.oninput = () => {
         let massaAreiaValue = massaAreia.value / 1
     
         massaAreiaResp.innerText = `${massaAreiaValue.toFixed(0)}`
+
+        if (blocoAlterado) novoBloco()
     }
     
 
@@ -118,6 +140,7 @@ function prepararResultados() {
     F12_AL12.preparado = true
     loopSimula()
 }
+
 
 let montagemEscolhida = 0
 
@@ -202,6 +225,21 @@ function reiniciar() {
 
     coefAtritoEstaticoResp.innerText = cae.toFixed(2)
     coefAtritoCineticoResp.innerText = cac.toFixed(2)
+
+    blocoAlterado = false
+}
+
+
+// Novo Bloco inesperado
+function novoBloco() {
+    mostrarExtra('Novo-Bloco')
+    window.setTimeout(() => {
+        mostrarExtra('Novo-Bloco')
+    }, 5000)
+
+    reiniciar()
+
+    console.log('Pog')
 }
 
 
