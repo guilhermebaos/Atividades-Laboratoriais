@@ -232,14 +232,20 @@ function reiniciar() {
 
 // Novo Bloco inesperado
 function novoBloco() {
-    mostrarExtra('Novo-Bloco')
-    window.setTimeout(() => {
-        mostrarExtra('Novo-Bloco')
-    }, 5000)
-
     reiniciar()
-
+    
     console.log('Pog')
+
+    if (F12_AL12.processandoAnim) return
+
+    F12_AL12.processandoAnim = true
+
+    mostrarExtra('Novo-Bloco')
+    
+    window.setTimeout(mostrarExtra, 5000, 'Novo-Bloco')
+    window.setTimeout(() => {
+        F12_AL12.processandoAnim = false
+    }, mostrarExtraTempo + 5000)
 }
 
 
