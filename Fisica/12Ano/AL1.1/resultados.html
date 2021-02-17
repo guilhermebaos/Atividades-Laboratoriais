@@ -35,15 +35,18 @@
         <div><span id="hLancValue">1.00</span>m<br>
         <input type="range" name="hLanc" id="hLanc" class="slider" min="50" max="125" value="100"></div>
     </div>
+    <p class="nota">Todos os atritos foram desprezados</p>
 </div>
 
 <button class="submit" onclick="reiniciar()">Reiniciar a Simulação</button>
-
 <div class="graf-overflow m15">
     <div class="graf-container">
         <canvas id="canvasSim" class="simulacao" style="width: calc(100% - 4px);"></canvas>
     </div>
 </div>
+<p class="nota">
+    O ponto vermelho representa o feixe laser da célula fotoelétrica, indicando onde deve estar posicionada.
+</p>
 
 <div class="overflow" style="max-width: 72vw; margin: auto;">
     <table class="resultados">

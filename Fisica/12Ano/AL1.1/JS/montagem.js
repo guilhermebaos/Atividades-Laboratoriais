@@ -10,23 +10,24 @@ export default class Montagem {
         // Várias escalas da Simulação
         this.escala = 100                   // De metros para cm
 
-        // Definições do Bloco
-        this.esfera = {
-            cor: 'rgb(255, 130, 35)'
-        }
-
-        // Definições do Plano Horizontal
-        this.rampa = {
-            largura: 2,
-            cor: 'rgb(10, 100, 230)',
-        }
-
         // Definições da mesa
         this.mesa = {
             larguraCm: 10,
             perna1: 0.15,           // Posição das pernas 1 e 2, em relação ao
             perna2: 0.85,           // comprimento da mesa
             cor: 'gray'
+        }
+
+        // Definições da Rampa
+        this.rampa = {
+            largura: 2,
+            cor: 'rgb(10, 100, 230)',
+        }
+
+        // Feixe laser da célula fotoelétrica
+        this.laser = {
+            raio: 2,
+            cor: 'red'
         }
 
         // Definições da caixa de areia
@@ -38,6 +39,12 @@ export default class Montagem {
             corAreia: 'yellow'
         }
         
+        // Definições do Bloco
+        this.esfera = {
+            cor: 'rgb(255, 130, 35)'
+        }
+        
+        
         this.reiniciar()
     }
 
@@ -47,18 +54,19 @@ export default class Montagem {
         this.cmToPx = this.simula.altura / this.hSimCm
         this.pxToCm = this.hSimCm / this.simula.altura
 
-        // Esfera
-        this.esfera.raio = 10 * (this.simula.inputs.d / this.simula.inputs.dMax / 2) ** (1/3)
-        this.esfera.raioCm = this.esfera.raio * this.pxToCm
-
+        
+        // Mesa
+        this.mesa.largura = this.mesa.larguraCm * this.cmToPx
+        
         // Rampa
         this.rampa.fim = this.simula.largura / 3,
         this.rampa.fimCm = this.rampa.fim * this.pxToCm,
         this.rampa.raio = this.simula.largura / 3,
         this.rampa.raioCm = this.rampa.raio * this.pxToCm,
 
-        // Mesa
-        this.mesa.largura = this.mesa.larguraCm * this.cmToPx
+        // Esfera
+        this.esfera.raio = 10 * (this.simula.inputs.d / this.simula.inputs.dMax / 2) ** (1/3)
+        this.esfera.raioCm = this.esfera.raio * this.pxToCm
 
         // Caixa
         this.caixa.larguraBorda = this.caixa.larguraBordaCm * this.cmToPx
@@ -156,6 +164,12 @@ export default class Montagem {
             this.rampa.raio, 0.5 * Math.PI, Math.PI
         )
         ctx.stroke()
+
+        // Desenhar o feixe laser da célula fotoelétrica
+        ctx.fillStyle = this.laser.cor
+        ctx.beginPath()
+        ctx.arc(this.rampa.fim, this.alturaMesa - this.mesa.largura / 2 - this.esfera.raio, this.laser.raio, 0, 2 * Math.PI)
+        ctx.fill()
 
         // Desenhar a caixa
         let xCaixa = {
