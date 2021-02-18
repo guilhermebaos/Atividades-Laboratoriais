@@ -7,7 +7,7 @@ export default class Montagem {
         // Altura Real da Simulação, em cm
         this.hSimCm = 350
 
-        // Várias escalas da Simulação
+        // Escala da Simulação
         this.escala = 100                   // De metros para cm
 
         // Definições da mesa
@@ -33,7 +33,6 @@ export default class Montagem {
         // Definições da caixa de areia
         this.caixa = {
             larguraBordaCm: 10,
-            alturaBorda: this.simula.altura - 40,
             corBorda: 'black',
             alturaAreiaCm: 10,
             corAreia: 'rgb(247, 229, 167)'
@@ -43,7 +42,6 @@ export default class Montagem {
         this.esfera = {
             cor: 'rgb(255, 130, 35)'
         }
-        
         
         this.reiniciar()
     }
@@ -71,6 +69,7 @@ export default class Montagem {
         // Caixa
         this.caixa.larguraBorda = this.caixa.larguraBordaCm * this.cmToPx
         this.caixa.alturaAreia = this.caixa.alturaAreiaCm * this.cmToPx
+        this.caixa.alturaBorda = this.simula.altura - 40
 
         // Inputs
         this.g = this.simula.inputs.g * this.escala

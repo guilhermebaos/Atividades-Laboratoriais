@@ -4,7 +4,6 @@ const g = 9.80665   // Aceleração Gravitaconal
 // Obter o DPR do ecrã
 const DPR = window.devicePixelRatio
 
-
 // Constantes para a Simulação
 const RESOLUCAO = 15                        // Tamanho do deltaT em cada update
 
@@ -77,7 +76,7 @@ function prepararResultados() {
 }
 
 
-// Corrige o tamanho do Canvas e corrige o DPI
+// Corrige o tamanho do Canvas e corrige o DPR
 function fixDPR() {
     // Usar variável global
     if (simulaFQmenu.aberto !== 'resultados.html') return
@@ -111,7 +110,7 @@ function loopSimula(tempo) {
         ultimoTempo = tempo
         fixDPR()
         requestAnimationFrame(loopSimula)
-        reiniciar() // Fix
+        reiniciar()
         return
     }
 

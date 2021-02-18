@@ -168,7 +168,7 @@ function montagem(num) {
 }
 
 
-// Corrige o tamanho do Canvas e corrige o DPI
+// Corrige o tamanho do Canvas e corrige o DPR
 function fixDPR() {
     // Usar variável global
     if (simulaFQmenu.aberto !== 'resultados.html') return

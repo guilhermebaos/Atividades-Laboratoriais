@@ -9,17 +9,18 @@ window.Simula = class Simula {
         // Resolução (Tamanho do deltaT) e Updates por Frame
         this.resolucao = resolucao
 
-        this.reiniciar()
-
         // Tamanho da Simulação
         this.novoTamanho()
+        
+        this.reiniciar()
     }
 
     // Reiniciar a Simulação
     reiniciar() {
         this.inputs = this.juntarValores()
 
-        this.montagem = new Montagem(this)
+        if (this.montagem) this.montagem.reiniciar()
+        else this.montagem = new Montagem(this)
     }
 
     // Atualizar o tamanho do canvas
