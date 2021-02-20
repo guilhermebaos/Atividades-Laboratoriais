@@ -43,7 +43,7 @@ function prepararResultados() {
     massaCarrinhoResp = document.getElementById('massaCarrinhoValue')
     posCarrinhoResp = document.getElementById('posCarrinhoValue')
     angPlanoInclinadoResp = document.getElementById('angPlanoInclinadoValue')
-    forcaAtritoResp = document.getElementById('forçaAtritoValue')
+    forcaAtritoResp = document.getElementById('forcaAtritoValue')
     larguraTiraResp = document.getElementById('larguraTiraValue')
     tempoPassagemResp = document.getElementById('tempoPassagemValue')
     
@@ -69,11 +69,6 @@ function prepararResultados() {
         angPlanoInclinadoResp.innerText = `${angPlanoInclinadoValue.toFixed(1)}`
 
         atualizarAtritoMax()
-    }
-    forcaAtrito.oninput = () => {
-        let forçaAtritoValue = forcaAtrito.value / 1000
-    
-        forcaAtritoResp.innerText = `${forçaAtritoValue.toFixed(3)}`
     }
     larguraTira.oninput = () => {
         let larguraTiraValue = larguraTira.value / 10
@@ -128,10 +123,6 @@ function atualizarAtritoMax() {
     let FaMax = cac * Fnormal
     let FaMaxConvertido = Math.floor(FaMax * 1000)
 
-    if (forcaAtrito.value > FaMaxConvertido) {
-        forcaAtritoResp.innerText = `${(FaMaxConvertido / 1000).toFixed(3)}`
-    }
-
     forcaAtrito.max = FaMaxConvertido
 }
 
@@ -160,8 +151,8 @@ function loopSimula(tempo) {
     for (let i = 0; i < RESOLUCAO; i++) {
         resultadosSim = simula.update(deltaTempo)
         if (resultadosSim){
-            console.log(resultadosSim)
             tempoPassagemResp.innerText = `${(larguraTira.value / 10 / resultadosSim * 1000).toFixed(2)}`
+            forcaAtritoResp.innerText = `${(forcaAtrito.value / 1000).toFixed(3)}`
         }
     }
 

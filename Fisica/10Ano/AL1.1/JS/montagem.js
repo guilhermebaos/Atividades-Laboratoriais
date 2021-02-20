@@ -71,7 +71,7 @@ export default class Montagem {
         this.d = this.simula.inputs.d
         this.dMax = this.simula.inputs.dMax
         this.a = this.simula.inputs.a
-        this.fa = this.simula.inputs.fa
+        this.fa = this.simula.inputs.fa * this.escala
         this.l = this.simula.inputs.l
 
         // Razões trignométricas do ângulo
@@ -155,7 +155,7 @@ export default class Montagem {
             this.posicao += this.velocidade * deltaTempo + 0.5 * this.aceleracao * deltaTempo ** 2
             this.velocidade += this.aceleracao * deltaTempo
 
-            if (this.posicao <= this.OxPx && !this.devolveu) {
+            if (this.posicao <= this.OxCm && !this.devolveu) {
                 this.devolveu = true
                 return Math.abs(this.velocidade)
             }

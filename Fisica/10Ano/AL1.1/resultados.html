@@ -9,14 +9,14 @@
     <button class="fechar" onclick="mostrarExtra('Sugestões-de-Exercícios')">X</button>
     <h4 class="explicar">Sugestões de Exercícios</h4>
     <p class="m5-bot">
-        Após alterares os valores, mas antes de veres o gráfico:
+        Antes de veres a tabela com a Intensidade da Força de Atrito:
     </p>
     <ul>
         <li>
-            Calcula a Energia Cinética que o Carrinho terá após percorrer 60cm.
+            Através de uma regressão linear utilizando os dados de 5 Simulações, determina a Intensidade da Força de Atrito, suposta constante, que está a atuar sobre o carrinho.
         </li>
         <li>
-            Determina o declive da Energia Cinética em função da distância percorrida.
+            Compara o valor obtido com o da Tabela abaixo e calcula o erro relativo.
         </li>
     </ul>
 </div>
@@ -30,7 +30,7 @@
     <div class="flex-slider">
         <div><label for="posCarrinho">Posição do Carrinho</label></div>
         <div><span id="posCarrinhoValue">50.0</span>cm<br>
-        <input type="range" name="posCarrinho" id="posCarrinho" class="slider" min="000" max="2000" value="500"></div>
+        <input type="range" name="posCarrinho" id="posCarrinho" class="slider" min="100" max="2000" value="500"></div>
     </div>
     <div class="flex-slider">
         <div><label for="angPlanoInclinado">Ângulo do Plano Inclinado</label></div>
@@ -38,14 +38,13 @@
         <input type="range" name="angPlanoInclinado" id="angPlanoInclinado" class="slider" min="100" max="450" value="200"></div>
     </div>
     <div class="flex-slider">
-        <div><label for="forçaAtrito">Força de Atrito</label></div>
-        <div><span id="forçaAtritoValue">0.200</span>N<br>
-        <input type="range" name="forçaAtrito" id="forçaAtrito" class="slider" min="0" max="460" value="200"></div>
-    </div>
-    <div class="flex-slider">
         <div><label for="larguraTira">Largura da Tira</label></div>
         <div><span id="larguraTiraValue">2.0</span>cm<br>
         <input type="range" name="larguraTira" id="larguraTira" class="slider" min="15" max="60" value="20"></div>
+    </div>
+    <div class="flex-slider m15-top">
+        <div><label for="forçaAtrito">Força de Atrito</label></div>
+        <div><input type="range" name="forçaAtrito" id="forçaAtrito" class="slider" min="0" max="460" value="200"></div>
     </div>
 
     <button class="submit" onclick="reiniciar()">Largar o Carrinho</button>
@@ -67,6 +66,16 @@
         </tr>
         <tr>
             <td><span id="tempoPassagemValue">25.65</span></td>
+        </tr>
+    </table>
+</div>
+<div class="overflow m45" style="max-width: 72vw;">
+    <table class="resultados">
+        <tr class="vars">
+            <th scope="col">Intensidade da Força de Atrito/ N</th>
+        </tr>
+        <tr>
+            <td><span id="forcaAtritoValue">0.200</span></td>
         </tr>
     </table>
 </div>
