@@ -45,7 +45,7 @@
     <div class="flex-slider">
         <div><label for="larguraTira">Largura da Tira</label></div>
         <div><span id="larguraTiraValue">2.0</span>cm<br>
-        <input type="range" name="larguraTira" id="larguraTira" class="slider" min="15" max="40" value="20"></div>
+        <input type="range" name="larguraTira" id="larguraTira" class="slider" min="15" max="60" value="20"></div>
     </div>
 
     <button class="submit" onclick="reiniciar()">Largar o Carrinho</button>
@@ -55,6 +55,20 @@
     <div class="graf-container">
         <canvas id="canvasSim" class="simulacao" style="width: calc(100% - 4px);"></canvas>
     </div>
+</div>
+<p class="nota">
+    O ponto vermelho representa o feixe laser da célula fotoelétrica, indicando onde deve estar posicionada.
+</p>
+
+<div class="overflow m45" style="max-width: 72vw;">
+    <table class="resultados">
+        <tr class="vars">
+            <th scope="col">Tempo de Passagem pela Célula Fotoelétrica/ ms</th>
+        </tr>
+        <tr>
+            <td><span id="tempoPassagemValue">25.65</span></td>
+        </tr>
+    </table>
 </div>
 
 <div>

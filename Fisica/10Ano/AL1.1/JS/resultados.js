@@ -23,6 +23,8 @@ let angPlanoInclinado, angPlanoInclinadoResp
 let forcaAtrito, forcaAtritoResp
 let larguraTira, larguraTiraResp
 
+let tempoPassagemResp
+
 
 let simula, ctx
 function prepararResultados() {
@@ -43,6 +45,7 @@ function prepararResultados() {
     angPlanoInclinadoResp = document.getElementById('angPlanoInclinadoValue')
     forcaAtritoResp = document.getElementById('forçaAtritoValue')
     larguraTiraResp = document.getElementById('larguraTiraValue')
+    tempoPassagemResp = document.getElementById('tempoPassagemValue')
     
     // Selecionar a div onde vai parar a curva
     F10_AL11.divCurva = document.getElementById('curva-Ec')
@@ -157,12 +160,8 @@ function loopSimula(tempo) {
     for (let i = 0; i < RESOLUCAO; i++) {
         resultadosSim = simula.update(deltaTempo)
         if (resultadosSim){
-            if (resultadosSim[0]) {
-                tempoPassagemResp.innerText = (dEsfera.value / 10 / resultadosSim[0] * 1000).toFixed(2)
-            }
-            else if (resultadosSim[1]) {
-                alcanceResp.innerText = (resultadosSim[1] / 100).toFixed(2)
-            }
+            console.log(resultadosSim)
+            tempoPassagemResp.innerText = `${(larguraTira.value / 10 / resultadosSim * 1000).toFixed(2)}`
         }
     }
 
