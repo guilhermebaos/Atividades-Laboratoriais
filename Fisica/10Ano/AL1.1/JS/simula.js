@@ -37,6 +37,7 @@ window.Simula = class Simula {
         return {
             g: 9.81,                            // Aceleração Gravítica
             m: massaCarrinho.value / 1000,      // Massa do Carrinho
+            mMax: massaCarrinho.max / 1000,
             d: posCarrinho.value / 10,          // Posição do Carrinho na Rampa em cm
             dMax: posCarrinho.max / 10,          // Tamanho da Rampa em cm
             a: angPlanoInclinado.value / 10 * (Math.PI / 180),         // Inclinação em Radianos
