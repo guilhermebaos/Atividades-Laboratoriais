@@ -4,7 +4,6 @@ export default class Bola {
         this.simula = simula
 
         // Definições da Bola
-        this.raio = 30
         this.cor = 'rgb(255, 130, 35)'
 
         // Escala (agora, de cm para metros)
@@ -31,12 +30,19 @@ export default class Bola {
 
         this.velocidade = {x: 0, y: 0, abs: 0}
         this.aceleracao = {x: 0, y: -this.g, abs: this.g}
+
+        this.novoTamanho()
     }
 
     // Novo tamanho do Canvas
     novoTamanho() {
         // Posição Inicial da Bola
         this.posicao.x = this.simula.largura / (2 * this.escala)
+
+        // Raio da bola
+        this.raioMax = this.simula.inputs.rMax / this.simula.hiMax * this.simula.altura
+
+        this.raio = this.raioMax * (this.simula.inputs.r / this.simula.inputs.rMax)
     }
 
     update(deltaTempo) {

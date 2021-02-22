@@ -57,24 +57,24 @@
     <button id="fazer-curva-Esfera" class="submit" onclick="curva()">Atualizar a Tabela dos Resultados Experimentais</button>
 </div>
 
-
-<div class="flex" style="align-items: flex-start;">
+<div class="centrada">
     <div id="canvas-container" class="canvas-container">
-        <canvas id="canvasBola" class="simulacao"></canvas>
-    </div>
-    <div class="overflow m45-top">
-        <table class="resultados">
-            <tr class="vars">
-                <th scope="col">&Delta;t <sub>passagem pela 2ª Célula</sub>/ ms</th>
-                <th scope="col">&Delta;t <sub>queda entre as Células</sub>/ ms</th>
-            </tr>
-            <tr>
-                <td><span id="deltaT-celula2"></span></td>
-                <td><span id="deltaT-queda"></span></td>
-            </tr>
-        </table>
+        <canvas id="canvasSim" class="simulacao"></canvas>
     </div>
 </div>
+<div class="overflow m45-bot">
+    <table class="resultados">
+        <tr class="vars">
+            <th scope="col">&Delta;t <sub>passagem pela 2ª Célula</sub>/ ms</th>
+            <th scope="col">&Delta;t <sub>queda entre as Células</sub>/ ms</th>
+        </tr>
+        <tr>
+            <td><span id="deltaT-celula2"></span></td>
+            <td><span id="deltaT-queda"></span></td>
+        </tr>
+    </table>
+</div>
+
 <div>
     <div class="overflow m45-top">
         <table class="resultados">

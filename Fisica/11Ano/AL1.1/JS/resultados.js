@@ -6,6 +6,13 @@ const CRar = 0.5    // Coeficiente de Resistência do ar para uma esfera, aproxi
                     // Razões para a aproximação ser razoável -> https://www.grc.nasa.gov/www/K-12/airplane/dragsphere.html e https://aerotoolbox.com/reynolds-number-calculator/
 
 
+// Obter o DPR do ecrã
+const DPR = window.devicePixelRatio
+
+// Tamanho do deltaT em cada update (maior resolução, menor deltaT)
+const RESOLUCAO = 15        
+
+
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
@@ -30,6 +37,7 @@ let distCelulas, distCelulasResp
 let deltaT_celula2Resp, deltaT_quedaResp
 let gravidadeExperimentalResp, erroGravidadeExperimentalResp
 
+let canvasSim, ctx, simula
 
 function prepararResultados() {
     if (F11_AL11.preparado) {
@@ -79,8 +87,39 @@ function prepararResultados() {
         distCelulasResp.innerText = `${distCelulasValue.toFixed(0)}`
     }
 
+
+    // SIMULAÇÂO
+    
+    // Selecionar o Canvas e o seu context
+    canvasSim = document.getElementById('canvasSim')
+
+    ctx = canvasSim.getContext('2d')
+
+    ctx.scale(DPR, DPR)
+
+    // Criar o Objeto Simula
+    simula = new window.Simula(canvasSim, RESOLUCAO)
+
     F11_AL11.preparado = true
     curva()
+}
+
+
+// Corrige o tamanho do Canvas e corrige o DPR
+function fixDPR() {
+    // Usar variável global
+    if (simulaFQmenu.aberto !== 'resultados.html') return
+
+    // Altura do CSS
+    let altura_css = +getComputedStyle(canvasSim.parentElement.parentElement).getPropertyValue('height').slice(0, -2)
+    // Larura do CSS
+    let largura_css = +getComputedStyle(canvasSim).getPropertyValue('width').slice(0, -2)
+
+    // Altera o tamanho do canvas
+    canvasSim.width = largura_css * DPR
+    canvasSim.height = altura_css * DPR
+
+    simula.novoTamanho()
 }
 
 
@@ -466,3 +505,5 @@ function curvaExtra() {
         },
     })
 }
+
+window.onresize = fixDPR
