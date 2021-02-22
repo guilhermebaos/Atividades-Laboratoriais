@@ -28,7 +28,6 @@ let raioEsfera, raioEsferaResp
 let distCelulas, distCelulasResp
 
 let deltaT_celula2Resp, deltaT_quedaResp
-let velocidadeCelula2Resp
 let gravidadeExperimentalResp, erroGravidadeExperimentalResp
 
 
@@ -60,7 +59,6 @@ function prepararResultados() {
     // Selecionar os Spans com os Resultados da Tabela
     deltaT_celula2Resp = document.getElementById('deltaT-celula2')
     deltaT_quedaResp = document.getElementById('deltaT-queda')
-    velocidadeCelula2Resp = document.getElementById('velocidade-celula2')
     gravidadeExperimentalResp = document.getElementById('gravidade-experimental')
     erroGravidadeExperimentalResp = document.getElementById('erro-gravidade-experimental')
 
@@ -203,7 +201,6 @@ function curva() {
 
     deltaT_celula2Resp.innerText = `${deltaT_celula2Value.toFixed(2)}`
     deltaT_quedaResp.innerText = `${t_f.toFixed(1)}`
-    velocidadeCelula2Resp.innerText = `${vm.toFixed(3)}`
     gravidadeExperimentalResp.innerText = `${gExperimental.toFixed(2)}`
     erroGravidadeExperimentalResp.innerText = `${errogExperimental.toFixed(1)}`
 
