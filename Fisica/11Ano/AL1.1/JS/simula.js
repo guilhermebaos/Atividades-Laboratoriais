@@ -1,14 +1,16 @@
 import Bola from '../JS/bola.js'
-import Dados from '../JS/dados.js'
 
 // Classe que vai executar a Simulação
 window.Simula = class Simula {
-    constructor(canvas, resolucao) {
+    constructor(canvas, resolucao, constantes) {
         // Guardar o canvas
         this.canvas = canvas
 
         // Resolução (Tamanho do deltaT) e Updates por Frame
         this.resolucao = resolucao
+
+        // Constantes
+        this.constantes = constantes
 
         // Inputs usados para a Simulação
         this.inputs = this.juntarValores()
@@ -16,18 +18,17 @@ window.Simula = class Simula {
         // Objetos da Simulação
         this.bola = new Bola(this)
 
-        // Dados da Simulação
-        this.dados = new Dados(this)
+        // Calcular a Resistência do Ar
+        this.calcularRar = true
 
         // Tamanho da Simulação
         this.novoTamanho()
     }
 
     // Reiniciar a Simulação
-    reiniciar() {
+    reiniciar(start=false) {
         this.inputs = this.juntarValores()
-        this.bola.reiniciar()
-        this.dados.reiniciar()
+        this.bola.reiniciar(start)
     }
 
     // Atualizar o tamanho do canvas
@@ -46,7 +47,6 @@ window.Simula = class Simula {
             rMax: raioEsfera.max / 10,      // Raio Máximo da Esfera, cm
             d: distCelulas.value / 1,       // Distância entre as Células
             hSimCm: (distCelulas.max / 1 + raioEsfera.max / 10) * 1.1, // Altura da Simulação
-            g: 9.81                         // Aceleração Gravítica
         }
     }
 
@@ -56,15 +56,7 @@ window.Simula = class Simula {
         deltaTempo /= 1000
         deltaTempo /= this.resolucao
 
-        let dados = this.dados.update(deltaTempo)
-
-        this.bola.update()
-
-        if (dados) {
-            return this.dados.dadosObtidos
-        } else {
-            return false
-        }
+        return this.bola.update(deltaTempo)
     }
 
     desenhar(ctx) {

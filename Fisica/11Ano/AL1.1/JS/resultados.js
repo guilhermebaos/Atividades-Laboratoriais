@@ -4,7 +4,13 @@ const g = 9.81      // Aceleração Gravitaconal
 const densidadeAr = 1.225 // kg/m^3
 const CRar = 0.5    // Coeficiente de Resistência do ar para uma esfera, aproximado para Reynolds entre 2*10^3 e 2*10^5
                     // Razões para a aproximação ser razoável -> https://www.grc.nasa.gov/www/K-12/airplane/dragsphere.html e https://aerotoolbox.com/reynolds-number-calculator/
-
+                    
+// Constantes a passar para a Simulação
+const CONSTANTES = {
+    g: g,
+    densidadeAr: densidadeAr,
+    CRar: CRar
+}
 
 // Obter o DPR do ecrã
 const DPR = window.devicePixelRatio
@@ -74,16 +80,22 @@ function prepararResultados() {
         let massaEsferaValue = massaEsfera.value / 1
     
         massaEsferaResp.innerText = `${massaEsferaValue.toFixed(0)}`
+        
+        reiniciar()
     }
     raioEsfera.oninput = () => {
         let raioEsferaValue = raioEsfera.value / 10
     
         raioEsferaResp.innerText = `${raioEsferaValue.toFixed(1)}`
+        
+        reiniciar()
     }
     distCelulas.oninput = () => {
         let distCelulasValue = distCelulas.value / 1
     
         distCelulasResp.innerText = `${distCelulasValue.toFixed(0)}`
+        
+        reiniciar()
     }
 
 
@@ -97,7 +109,7 @@ function prepararResultados() {
     ctx.scale(DPR, DPR)
 
     // Criar o Objeto Simula
-    simula = new window.Simula(canvasSim, RESOLUCAO)
+    simula = new window.Simula(canvasSim, RESOLUCAO, CONSTANTES)
 
     F11_AL11.preparado = true
     loopSimula()
@@ -136,12 +148,14 @@ function mudarCalcularRAr(paraCalcular) {
         btnCalcularRAr.className = 'escolha'
         btnDesprezarRAr.className = 'escolha-atual'
     }
+    simula.calcularRar = paraCalcular
+    reiniciar()
 }
 
 
 // Reiniciar a Simulação
-function reiniciar() {
-    simula.reiniciar()
+function reiniciar(start=false) {
+    simula.reiniciar(start)
 }
 
 
@@ -162,9 +176,10 @@ function loopSimula(tempo) {
     let dados
     for (let i = 0; i < RESOLUCAO; i++) {
         dados = simula.update(deltaTempo)
-    }
-    if (dados) {
-        console.log(dados)
+        if (dados) {
+            deltaT_celula2Resp.innerText = `${(dados[0] * 1000).toFixed(2)}`
+            deltaT_quedaResp.innerText = `${(dados[1] * 1000).toFixed(1)}`
+        }
     }
 
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
@@ -174,29 +189,6 @@ function loopSimula(tempo) {
 }
 
 /*
-// Calcular a Área de Superfície da Esfera
-function calcularAreaEsfera() {
-    raio = raioEsfera.value / 1000  // m
-    areaEsfera = PI * raio ** 2     // m^2
-}
-
-
-// Função para calcular a Intensidade da Resistência do Ar
-function intensidadeResistAr(velocidade) {
-    return 0.5 * densidadeAr * CRar * areaEsfera * velocidade ** 2
-}
-
-
-// Lei v(t)
-function leiVelocidade(v0, a0, tempo) {
-    return v0 + a0 * tempo
-}
-
-
-// Lei x(t)
-function leiPosicao(x0, v0, a0, tempo){
-    return x0 + v0 * tempo + 0.5 * a0 * (tempo ** 2)
-}
 
 // Calcular os Pontos dos vários gráficos, xt, vt, at e jt
 function pontos() {
@@ -275,8 +267,6 @@ function curva() {
 
     let errogExperimental = (gExperimental - g) / g * 100
 
-    deltaT_celula2Resp.innerText = `${deltaT_celula2Value.toFixed(2)}`
-    deltaT_quedaResp.innerText = `${t_f.toFixed(1)}`
     gravidadeExperimentalResp.innerText = `${gExperimental.toFixed(2)}`
     erroGravidadeExperimentalResp.innerText = `${errogExperimental.toFixed(1)}`
 

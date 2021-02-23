@@ -21,7 +21,7 @@ export default class Bola {
     }
 
     // Reiniciar a Bola
-    reiniciar() {
+    reiniciar(start=false) {
         this.hSimCm = this.simula.inputs.hSimCm
 
         // Conversões de Unidades
@@ -29,19 +29,32 @@ export default class Bola {
         this.pxToCm = this.hSimCm / this.simula.altura
 
 
-        // Constantes
+        // Inputs
         this.m = this.simula.inputs.m
         this.r = this.simula.inputs.r
         this.rMax = this.simula.inputs.rMax
         this.d = this.simula.inputs.d
-        this.g = this.simula.inputs.g
+        
+        // Constantes
+        this.g = this.simula.constantes.g
+        this.densidadeAr = this.simula.constantes.densidadeAr
+        this.CRar = this.simula.constantes.CRar
 
         // Bola
         this.bola.raio = this.r * this.cmToPx
+        this.bola.area = Math.PI * (this.r / 100) ** 2
 
         // Lasers
-        this.lasers.pos1 = this.rMax * 2 * this.cmToPx
-        this.lasers.pos2 = this.lasers.pos1 + this.d * this.cmToPx 
+        this.lasers.pos1cm = this.rMax * 2
+        this.lasers.pos2cm = this.lasers.pos1cm + this.d
+
+        this.lasers.pos1 = this.lasers.pos1cm * this.cmToPx
+        this.lasers.pos2 = this.lasers.pos2cm * this.cmToPx 
+
+        // Forças
+        this.peso = this.g * this.m
+        this.Rar = 0
+        this.fr = this.peso
 
         // Cinética
         this.posicao = {
@@ -49,10 +62,40 @@ export default class Bola {
             y: this.rMax * 2 - this.r
         }
         this.velocidade = 0
-        this.aceleracao = this.g * this.escala
+        this.aceleracao = (this.fr / this.m) * this.escala
+
+        this.tempo = 0
+
+        // Largar a bola
+        this.start = start
+
+        // Os valores já foram devolvidos
+        this.devolvidos = false
     }
 
     update(deltaTempo) {
+        if (!this.start) return
+
+        if (this.simula.calcularRar) {
+            this.Rar = 0.5 * this.densidadeAr * this.CRar * this.bola.area * (this.velocidade / 100) ** 2
+        } else {
+            this.Rar = 0
+        }
+        
+        this.fr = this.peso - this.Rar
+
+        this.aceleracao = (this.fr / this.m) * this.escala
+
+        this.posicao.y += this.velocidade * deltaTempo + 0.5 * this.aceleracao * deltaTempo ** 2
+
+        this.velocidade += this.aceleracao * deltaTempo
+
+        this.tempo += deltaTempo
+
+        if (this.posicao.y + this.r >= this.lasers.pos2cm && !this.devolvidos) {
+            this.devolvidos = true
+            return [this.r / this.velocidade, this.tempo]
+        }
     }
 
     desenhar(ctx) {
