@@ -179,6 +179,13 @@ function loopSimula(tempo) {
         if (dados) {
             deltaT_celula2Resp.innerText = `${(dados[0] * 1000).toFixed(2)}`
             deltaT_quedaResp.innerText = `${(dados[1] * 1000).toFixed(1)}`
+
+            let gExperimental = (raioEsfera.value / 1000 * 2 / dados[0]) / dados[1]
+        
+            let errogExperimental = Math.abs(gExperimental - g) / g * 100
+        
+            gravidadeExperimentalResp.innerText = `${gExperimental.toFixed(2)}`
+            erroGravidadeExperimentalResp.innerText = `${errogExperimental.toFixed(1)}`
         }
     }
 
@@ -262,13 +269,7 @@ function curva() {
 
     // Fórmula Quadrática com a lei x(t) para determinar o delta t de passagem, com RAr suposta constante
     let deltaT_celula2Value = (-1 * v_f + (v_f ** 2 + 2 * a_f * d) ** 0.5) / a_f * 1000 // ms
-    let vm = d / deltaT_celula2Value * 1000
-    let gExperimental = vm / t_f * 1000
-
-    let errogExperimental = (gExperimental - g) / g * 100
-
-    gravidadeExperimentalResp.innerText = `${gExperimental.toFixed(2)}`
-    erroGravidadeExperimentalResp.innerText = `${errogExperimental.toFixed(1)}`
+    let vm = d / deltaT_celula2Value * 1000`
 
     curvaExtra()
 }

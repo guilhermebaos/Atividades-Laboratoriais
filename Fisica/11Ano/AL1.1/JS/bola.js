@@ -94,7 +94,7 @@ export default class Bola {
 
         if (this.posicao.y + this.r >= this.lasers.pos2cm && !this.devolvidos) {
             this.devolvidos = true
-            return [this.r / this.velocidade, this.tempo]
+            return [this.r * 2 / this.velocidade, this.tempo]
         }
     }
 
