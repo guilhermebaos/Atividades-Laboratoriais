@@ -177,10 +177,13 @@ function loopSimula(tempo) {
     for (let i = 0; i < RESOLUCAO; i++) {
         dados = simula.update(deltaTempo)
         if (dados) {
-            deltaT_celula2Resp.innerText = `${(dados[0] * 1000).toFixed(2)}`
-            deltaT_quedaResp.innerText = `${(dados[1] * 1000).toFixed(1)}`
+            let dT2 = (dados[0] * 1000).toFixed(2)
+            let dTq = (dados[1] * 1000).toFixed(1)
+            
+            deltaT_celula2Resp.innerText = `${dT2}`
+            deltaT_quedaResp.innerText = `${dTq}`
 
-            let gExperimental = (raioEsfera.value / 1000 * 2 / dados[0]) / dados[1]
+            let gExperimental = (raioEsfera.value / 1000 * 2 / (dT2 / 1000)) / (dTq / 1000)
         
             let errogExperimental = Math.abs(gExperimental - g) / g * 100
         
