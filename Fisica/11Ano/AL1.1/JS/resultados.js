@@ -25,7 +25,6 @@ let F11_AL11 = {
     divCurva_jt: '',
 }
 
-let areaEsfera = PI * 0.02 ** 2    // m^2
 let calcularRAr = true
 
 let btnCalcularRAr, btnDesprezarRAr
@@ -101,17 +100,21 @@ function prepararResultados() {
     simula = new window.Simula(canvasSim, RESOLUCAO)
 
     F11_AL11.preparado = true
-    curva()
+    loopSimula()
 }
 
 
 // Corrige o tamanho do Canvas e corrige o DPR
 function fixDPR() {
+    let minAltura = 225
+
     // Usar variável global
     if (simulaFQmenu.aberto !== 'resultados.html') return
 
     // Altura do CSS
-    let altura_css = +getComputedStyle(canvasSim.parentElement.parentElement).getPropertyValue('height').slice(0, -2)
+    let altura_css = +getComputedStyle(canvasSim).getPropertyValue('height').slice(0, -2)
+    if (altura_css < minAltura) altura_css = minAltura
+
     // Larura do CSS
     let largura_css = +getComputedStyle(canvasSim).getPropertyValue('width').slice(0, -2)
 
@@ -136,6 +139,41 @@ function mudarCalcularRAr(paraCalcular) {
 }
 
 
+// Reiniciar a Simulação
+function reiniciar() {
+    simula.reiniciar()
+}
+
+
+// Criar o loop da Simulação
+let ultimoTempo
+
+function loopSimula(tempo) {
+    if (ultimoTempo === undefined) {
+        ultimoTempo = tempo
+        fixDPR()
+        requestAnimationFrame(loopSimula)
+        return
+    }
+
+    let deltaTempo = tempo - ultimoTempo
+    ultimoTempo = tempo
+    
+    let dados
+    for (let i = 0; i < RESOLUCAO; i++) {
+        dados = simula.update(deltaTempo)
+    }
+    if (dados) {
+        console.log(dados)
+    }
+
+    ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
+    simula.desenhar(ctx)
+
+    requestAnimationFrame(loopSimula)
+}
+
+/*
 // Calcular a Área de Superfície da Esfera
 function calcularAreaEsfera() {
     raio = raioEsfera.value / 1000  // m
@@ -159,7 +197,6 @@ function leiVelocidade(v0, a0, tempo) {
 function leiPosicao(x0, v0, a0, tempo){
     return x0 + v0 * tempo + 0.5 * a0 * (tempo ** 2)
 }
-
 
 // Calcular os Pontos dos vários gráficos, xt, vt, at e jt
 function pontos() {
@@ -505,5 +542,6 @@ function curvaExtra() {
         },
     })
 }
+*/
 
 window.onresize = fixDPR

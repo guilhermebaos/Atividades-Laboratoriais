@@ -4,70 +4,71 @@ export default class Bola {
         this.simula = simula
 
         // Definições da Bola
-        this.raio = 30
-        this.cor = 'rgb(255, 130, 35)'
+        this.bola = {
+            cor: 'rgb(255, 130, 35)'
+        }
+
+        // Lasers
+        this.lasers = {
+            largura: 2,
+            cor:'red'
+        }
 
         // Escala (agora, de cm para metros)
         this.escala = 100
-
-        // Ponto de fixação do fio
-        this.fioPos = {x: this.simula.largura / (2 * this.escala), y: 0}
         
         this.reiniciar()
     }
 
     // Reiniciar a Bola
     reiniciar() {
+        this.hSimCm = this.simula.inputs.hSimCm
+
+        // Conversões de Unidades
+        this.cmToPx = this.simula.altura / this.hSimCm
+        this.pxToCm = this.hSimCm / this.simula.altura
+
+
         // Constantes
-        this.hi = this.simula.inputs.hi
-        this.e = this.simula.inputs.e
+        this.m = this.simula.inputs.m
+        this.r = this.simula.inputs.r
+        this.rMax = this.simula.inputs.rMax
+        this.d = this.simula.inputs.d
         this.g = this.simula.inputs.g
 
-        // Posição Inicial da Bola
+        // Bola
+        this.bola.raio = this.r * this.cmToPx
+
+        // Lasers
+        this.lasers.pos1 = this.rMax * 2 * this.cmToPx
+        this.lasers.pos2 = this.lasers.pos1 + this.d * this.cmToPx 
+
+        // Cinética
         this.posicao = {
-            x: this.simula.largura / (2 * this.escala),
-            altura: this.hi
+            x: this.simula.largura / 2,
+            y: this.rMax * 2 - this.r
         }
-
-        this.velocidade = {x: 0, y: 0, abs: 0}
-        this.aceleracao = {x: 0, y: -this.g, abs: this.g}
-    }
-
-    // Novo tamanho do Canvas
-    novoTamanho() {
-        // Posição Inicial da Bola
-        this.posicao.x = this.simula.largura / (2 * this.escala)
+        this.velocidade = 0
+        this.aceleracao = this.g * this.escala
     }
 
     update(deltaTempo) {
-        // Colisão com o chão
-        if (this.posicao.altura < 0 && this.velocidade.y < 0) {
-            this.velocidade.y *= -this.e
-        }
-        
-        // Posição da Bola
-        this.posicao.altura += this.velocidade.y * deltaTempo + 0.5 * this.aceleracao.y * deltaTempo ** 2
-
-
-        // Velocidade da Bola
-        this.velocidade.y += this.aceleracao.y * deltaTempo
-
-        this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2) ** 0.5
     }
 
     desenhar(ctx) {
-        // Fazer a altura em proporção ao tamanho do Canvas
-        this.alturaCanvas = (this.posicao.altura * this.escala) * this.simula.altura / this.simula.hiMax
+        // Desenhar os lasers
+        ctx.fillStyle = this.lasers.cor
+        ctx.fillRect(0, this.lasers.pos1, this.simula.largura, this.lasers.largura)
+        ctx.fillRect(0, this.lasers.pos2, this.simula.largura, this.lasers.largura)
 
-        // Desenhar o Círculo no Ponto indicado pela posição
-        ctx.fillStyle = this.cor
+        // Desenhar a Esfera
+        ctx.fillStyle = this.bola.cor
         ctx.beginPath()
         ctx.arc(
-            this.posicao.x * this.escala,
-            this.simula.altura - this.alturaCanvas - this.raio,
-            this.raio,
-            0,
-            2 * Math.PI
+            this.posicao.x,
+            this.posicao.y * this.cmToPx,
+            this.bola.raio,
+            0, 2 * Math.PI
         )
         ctx.fill()
     }

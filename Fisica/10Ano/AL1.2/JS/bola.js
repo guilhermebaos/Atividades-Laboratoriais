@@ -40,9 +40,7 @@ export default class Bola {
         this.posicao.x = this.simula.largura / (2 * this.escala)
 
         // Raio da bola
-        this.raioMax = this.simula.inputs.rMax / this.simula.hiMax * this.simula.altura
-
-        this.raio = this.raioMax * (this.simula.inputs.r / this.simula.inputs.rMax)
+        this.raio = this.simula.inputs.r / this.simula.hiMax * this.simula.altura
     }
 
     update(deltaTempo) {

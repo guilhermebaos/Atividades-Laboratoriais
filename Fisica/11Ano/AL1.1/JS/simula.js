@@ -10,33 +10,23 @@ window.Simula = class Simula {
         // Resolução (Tamanho do deltaT) e Updates por Frame
         this.resolucao = resolucao
 
-        // Tamanho da Simulação
-        this.novoTamanho()
-
-        /*
         // Inputs usados para a Simulação
         this.inputs = this.juntarValores()
 
         // Objetos da Simulação
         this.bola = new Bola(this)
 
-        this.simObjetos = [
-            this.bola
-        ]
-
+        // Dados da Simulação
         this.dados = new Dados(this)
 
-        this.acabou = false
-        */
+        // Tamanho da Simulação
+        this.novoTamanho()
     }
 
     // Reiniciar a Simulação
     reiniciar() {
-        // Simulação já acabou
-        this.acabou = false
-
         this.inputs = this.juntarValores()
-        this.simObjetos.forEach((objeto) => objeto.reiniciar())
+        this.bola.reiniciar()
         this.dados.reiniciar()
     }
 
@@ -44,15 +34,19 @@ window.Simula = class Simula {
     novoTamanho() {
         this.largura = this.canvas.width
         this.altura = this.canvas.height
+
+        this.reiniciar()
     }
 
     // Juntar os valores para serem usados pela Simulação
     juntarValores() {
         return {
-            hi: alturaInicial.value / 100,          // Altura Inicial em Metros
-            hf : 0.03,                              // Altura 'Final'
-            e: (elasticidade.value / 100) ** 0.5,   // Elasticidade em %
-            g: 9.80665                              // Aceleração Gravítica
+            m: massaEsfera.value / 1000,    // Massa da bola, kg
+            r: raioEsfera.value / 10,       // Raio da Esfera, cm
+            rMax: raioEsfera.max / 10,      // Raio Máximo da Esfera, cm
+            d: distCelulas.value / 1,       // Distância entre as Células
+            hSimCm: (distCelulas.max / 1 + raioEsfera.max / 10) * 1.1, // Altura da Simulação
+            g: 9.81                         // Aceleração Gravítica
         }
     }
 
@@ -64,7 +58,7 @@ window.Simula = class Simula {
 
         let dados = this.dados.update(deltaTempo)
 
-        this.simObjetos.forEach((objeto) => objeto.update(deltaTempo))
+        this.bola.update()
 
         if (dados) {
             return this.dados.dadosObtidos
@@ -74,6 +68,6 @@ window.Simula = class Simula {
     }
 
     desenhar(ctx) {
-        this.simObjetos.forEach((objeto) => objeto.desenhar(ctx))
+        this.bola.desenhar(ctx)
     }
 }

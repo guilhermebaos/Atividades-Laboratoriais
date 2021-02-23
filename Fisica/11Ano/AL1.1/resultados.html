@@ -38,13 +38,13 @@
     </div>
     <div class="flex-slider">
         <div><label for="raioEsfera">Raio da Esfera</label></div>
-        <div><span id="raioEsferaValue">2.0</span>cm<br>
-        <input type="range" name="raioEsfera" id="raioEsfera" class="slider" min="15" max="50" value="20"></div>
+        <div><span id="raioEsferaValue">3.0</span>cm<br>
+        <input type="range" name="raioEsfera" id="raioEsfera" class="slider" min="15" max="50" value="30"></div>
     </div>
     <div class="flex-slider">
         <div><label for="distCelulas">Distância entre as Células</label></div>
-        <div><span id="distCelulasValue">60</span>cm<br>
-        <input type="range" name="distCelulas" id="distCelulas" class="slider" min="40" max="120" value="60"></div>
+        <div><span id="distCelulasValue">40</span>cm<br>
+        <input type="range" name="distCelulas" id="distCelulas" class="slider" min="20" max="80" value="40"></div>
     </div>
     <div class="flex-slider">
         <div>Resistência do Ar</div>
@@ -54,11 +54,11 @@
         </div>
     </div>
 
-    <button id="fazer-curva-Esfera" class="submit" onclick="curva()">Atualizar a Tabela dos Resultados Experimentais</button>
+    <button class="submit" onclick="reiniciar()">Largar a Esfera</button>
 </div>
 
-<div class="centrada">
-    <div id="canvas-container" class="canvas-container">
+<div class="centrada m30">
+    <div id="canvas-container" class="canvas-container" style="max-width: 150px;">
         <canvas id="canvasSim" class="simulacao"></canvas>
     </div>
 </div>
