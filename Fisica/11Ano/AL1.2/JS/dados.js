@@ -18,6 +18,7 @@ export default class Dados {
     }
 
     update(deltaTempo) {
+        return
         // Gravar apenas uma parte dos dados, para evitar ficar com muitos pontos
         this.contador++
 

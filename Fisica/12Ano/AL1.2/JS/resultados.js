@@ -206,7 +206,6 @@ function escolherMaterial(pos) {
 }
 
 
-
 // Reiniciar a Simulação
 function reiniciar() {
     intForca.value = intForca.min

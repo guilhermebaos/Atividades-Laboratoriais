@@ -62,6 +62,7 @@ function prepararResultados() {
         massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(2)}`
 
         atualizarAtritoMax()
+        reiniciar()
     }
     massaCorpoSuspenso.oninput = () => {
         let massaCorpoSuspensoValue = massaCorpoSuspenso.value / 100
@@ -69,16 +70,19 @@ function prepararResultados() {
         massaCorpoSuspensoResp.innerText = `${massaCorpoSuspensoValue.toFixed(2)}`
 
         atualizarAtritoMax()
+        reiniciar()
     }
     alturaCorpoSuspenso.oninput = () => {
         let alturaCorpoSuspensoValue = alturaCorpoSuspenso.value / 100
     
         alturaCorpoSuspensoResp.innerText = `${alturaCorpoSuspensoValue.toFixed(2)}`
+        reiniciar()
     }
     forcaAtrito.oninput = () => {
         let forçaAtritoValue = forcaAtrito.value / 1000
     
         forcaAtritoResp.innerText = `${forçaAtritoValue.toFixed(3)}`
+        reiniciar()
     }
     
 
@@ -95,6 +99,8 @@ function prepararResultados() {
     simula = new window.Simula(canvasSim, RESOLUCAO, CONSTANTES)
 
     F11_AL12.preparado = true
+    loopSimula()
+    reiniciar()
 }
 
 
@@ -131,6 +137,42 @@ function fixDPR() {
     canvasSim.height = altura_css * DPR
 
     simula.novoTamanho()
+}
+
+
+// Reiniciar a Simulação
+function reiniciar() {
+    simula.reiniciar()
+}
+
+
+// Criar o loop da Simulação
+let ultimoTempo, graficos
+
+function loopSimula(tempo) {
+    if (ultimoTempo === undefined) {
+        ultimoTempo = tempo
+        fixDPR()
+        if (!graficos) graficos = window.graficos(F11_AL12.divCurva)
+        requestAnimationFrame(loopSimula)
+        return
+    }
+
+    let deltaTempo = tempo - ultimoTempo
+    ultimoTempo = tempo
+    
+    let dados
+    for (let i = 0; i < RESOLUCAO; i++) {
+        dados = simula.update(deltaTempo)
+    }
+    if (dados) {
+        window.atualizarGraficos(graficos, dados[0], dados.slice(1, dados.lenght))
+    }
+
+    ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
+    simula.desenhar(ctx)
+
+    requestAnimationFrame(loopSimula)
 }
 
 window.onresize = fixDPR

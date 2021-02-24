@@ -95,13 +95,13 @@ window.Simula = class Simula {
     // Juntar os valores para serem usados pela Simulação
     juntarValores() {
         return {
-            g: this.constantes.g,                   // Aceleração Gravítica
+            g: this.constantes.g* 100,              // Aceleração Gravítica
             m: massaCarrinho.value / 100,           // Massa do carrinho em kg
             mMax: massaCarrinho.max / 100,          // Massa Máxima do carrinho
             mSusp: massaCorpoSuspenso.value / 100,  // Massa do Corpo Suspenso
             mSuspMax: massaCorpoSuspenso.max / 100, // Massa Máx Corpo Suspenso
-            hSusp: alturaCorpoSuspenso.value,   // Altura do Corpo Suspenso em cm
-            hSuspMax: alturaCorpoSuspenso.max,  // Altura Máx Corpo Suspenso
+            hSusp: alturaCorpoSuspenso.value / 1,// Altura do Corpo Suspenso, cm
+            hSuspMax: alturaCorpoSuspenso.max / 1,  // Altura Máx Corpo Suspenso
             fa: forcaAtrito.value / 1000        // Força de Atrito em N
         }
     }

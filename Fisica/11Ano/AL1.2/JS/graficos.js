@@ -105,7 +105,7 @@ window.graficos = (divCurva) => {
         },
     })
 
-    return [graCurvaForca, graCurvaCin]
+    return [graCurvaCin]
 }
 
 
