@@ -1,6 +1,15 @@
 // Definir Constantes
 const g = 9.81      // Aceleração Gravitaconal
 const CAM = 0.1     // Razão máxima entre a Resultante das Forças de Atrito e o Peso do Corpo Suspenso
+                 
+// Obter o DPR do ecrã
+const DPR = window.devicePixelRatio
+   
+// Constantes a passar para a Simulação
+const RESOLUCAO = 15   
+const CONSTANTES = {
+    g: g
+}
 
 
 // Inicializar Variáveis Globais
@@ -20,8 +29,7 @@ let aZona1Resp
 let corpoAtingiuSoloTResp
 let aZona2Resp
 
-
-
+let canvasSim, ctx, simula
 function prepararResultados() {
     if (F11_AL12.preparado) {
         return
@@ -72,9 +80,21 @@ function prepararResultados() {
     
         forcaAtritoResp.innerText = `${forçaAtritoValue.toFixed(3)}`
     }
+    
+
+    // SIMULAÇÂO
+    
+    // Selecionar o Canvas e o seu context
+    canvasSim = document.getElementById('canvasSim')
+
+    ctx = canvasSim.getContext('2d')
+
+    ctx.scale(DPR, DPR)
+
+    // Criar o Objeto Simula
+    simula = new window.Simula(canvasSim, RESOLUCAO, CONSTANTES)
 
     F11_AL12.preparado = true
-    curva()
 }
 
 
@@ -96,18 +116,26 @@ function atualizarAtritoMax() {
 }
 
 
-// Lei v(t)
-function leiVelocidade(v0, a0, tempo) {
-    return v0 + a0 * tempo
+// Corrige o tamanho do Canvas e corrige o DPR
+function fixDPR() {
+    // Usar variável global
+    if (simulaFQmenu.aberto !== 'resultados.html') return
+
+    // Altura do CSS
+    let altura_css = +getComputedStyle(canvasSim).getPropertyValue('height').slice(0, -2)
+    // Larura do CSS
+    let largura_css = +getComputedStyle(canvasSim).getPropertyValue('width').slice(0, -2)
+
+    // Altera o tamanho do canvas
+    canvasSim.width = largura_css * DPR
+    canvasSim.height = altura_css * DPR
+
+    simula.novoTamanho()
 }
 
+window.onresize = fixDPR
 
-// Lei x(t)
-function leiPosicao(x0, v0, a0, tempo){
-    return x0 + v0 * tempo + 0.5 * a0 * (tempo ** 2)
-}
-
-
+/*
 // Calcular os Pontos dos Gráfico vt e valores Tabela Resultados
 function pontos() {
     // Declarar variáveis e valores iniciais
@@ -241,5 +269,5 @@ function curva() {
         },
     })
 }
-
+*/
 // Ideia: Mostrar os Gráficos x-t e a-t

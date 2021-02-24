@@ -27,7 +27,6 @@ let razaoResp
 let EmDissipadaResp
 
 let canvasSim, ctx, simula
-
 function prepararResultados() {
     if (F10_AL12.preparado) {
         return
