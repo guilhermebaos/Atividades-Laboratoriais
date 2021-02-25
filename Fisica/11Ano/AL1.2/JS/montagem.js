@@ -15,7 +15,12 @@ export default class Montagem {
         this.carrinho = {
             larguraMax: 150,
             alturaMax: 75,
-            cor: 'rgb(255, 130, 35)'
+            cor: 'rgb(255, 130, 35)',
+            corRodas: 'black',
+
+            // Em função da largura do Carrinho
+            distRodas: 0.4,
+            raioRodas: 0.12
         }
 
         // Definições da Roldana
@@ -50,17 +55,17 @@ export default class Montagem {
         this.hSuspMax = this.simula.inputs.hSuspMax
 
         // Altura da Simulação
-        this.hSimCm = this.hSuspMax * 1.5
+        this.hSimCm = this.hSuspMax * 1.75
 
 
         // Multiplicador do tamanho dos vetores
-        this.tamanhoVetor = 10
+        this.tamanhoVetor = 0.2
         
         this.reiniciar()
     }
 
     // Reiniciar a Bola
-    reiniciar() {
+    reiniciar(start=false) {
         // Conversões de Unidades
         this.cmToPx = this.simula.altura / this.hSimCm
         this.pxToCm = this.hSimCm / this.simula.altura
@@ -76,9 +81,16 @@ export default class Montagem {
         // Plano
         this.plano.posY = this.simula.altura * (1 - (this.hSuspMax + this.corpoSuspenso.alturaMax * this.pxToCm * 2) / this.hSimCm)
 
+        this.plano.fimPx = this.simula.largura * this.plano.largura
+
         // Carrinho
         this.carrinho.largura = this.carrinho.larguraMax * (this.m / this.mMax) ** (1/3)
         this.carrinho.altura = this.carrinho.alturaMax * (this.m / this.mMax) ** (1/3)
+
+        this.carrinho.fimCm = this.plano.fimPx * this.pxToCm -this.carrinho.largura * this.pxToCm
+
+        // Raio das Rodas
+        this.carrinho.raioRodasPx = this.carrinho.largura * this.carrinho.raioRodas
 
         // Corpo Suspenso
         this.corpoSuspenso.largura = this.corpoSuspenso.larguraMax * (this.mSusp / this.mSuspMax) ** (1/3)
@@ -86,16 +98,42 @@ export default class Montagem {
 
         this.corpoSuspenso.yInicial = this.simula.altura - this.hSusp * this.cmToPx - this.corpoSuspenso.altura
 
-        // Valores Constantes
-        this.xFimPlano = this.simula.largura * this.plano.largura
-
         // Cinemática inicial
         this.posicao = 0
         this.velocidade = 0
-        this.aceleracao = 0
+
+        if (start) {
+            this.aceleracao = (this.mSusp * this.g - this.fa) / (this.m + this.mSusp)
+        } else {
+            this.aceleracao = 0
+        }
+
+        // Abandonar o carro
+        this.start = start
     }
 
     update(deltaTempo) {
+        if (!this.start) return
+
+        if (this.posicao >= this.carrinho.fimCm) {
+            this.velocidade = 0
+            this.aceleracao = 0
+            return
+        }
+
+        if (this.posicao >= this.hSusp) {
+            this.aceleracao = -this.fa / this.m
+
+            if (this.velocidade <= 0) {
+                this.velocidade = 0
+                this.aceleracao = 0
+                return
+            }
+        }
+
+        this.posicao += this.velocidade * deltaTempo + 0.5 * this.aceleracao * deltaTempo ** 2
+        
+        this.velocidade += this.aceleracao * deltaTempo
     }
 
     desenhar(ctx) {
@@ -104,18 +142,30 @@ export default class Montagem {
         ctx.fillRect(0, this.plano.posY, this.simula.largura * 0.85, this.plano.altura)
 
         // Desenhar o Carrinho no local indicado pela posição
-        let xCarrinho = this.posicao
-        let yCarrinho = this.plano.posY - this.carrinho.altura
+        let xCarrinho = this.posicao * this.cmToPx
+        let yCarrinho = this.plano.posY - this.carrinho.altura - this.carrinho.raioRodasPx
 
         ctx.fillStyle = this.carrinho.cor
         ctx.fillRect(xCarrinho, yCarrinho, this.carrinho.largura, this.carrinho.altura)
 
-        // Valores para o resto do Canvas
+        // Ajustar para o topo centro do carrinho
         xCarrinho += this.carrinho.largura / 2
+
+        // Desenhar as rodas do carrinho
+        ctx.fillStyle = this.carrinho.corRodas
+        ctx.beginPath()
+        ctx.arc(xCarrinho - this.carrinho.largura * this.carrinho.distRodas + this.carrinho.raioRodasPx, yCarrinho + this.carrinho.altura, this.carrinho.raioRodasPx, 0, 2 * Math.PI)
+        ctx.fill()
+        ctx.beginPath()
+        ctx.arc(xCarrinho + this.carrinho.largura * this.carrinho.distRodas - this.carrinho.raioRodasPx, yCarrinho + this.carrinho.altura, this.carrinho.raioRodasPx, 0, 2 * Math.PI)
+        ctx.fill()
+
+        // Valores para o resto do Canvas
         yCarrinho += this.carrinho.altura / 2
 
-        let xRoldana = this.xFimPlano + this.roldana.raio
+        let xRoldana = this.plano.fimPx + this.roldana.raio
         let yRoldana = yCarrinho + this.roldana.raio
+
 
         // Desenhar a Roldana
         ctx.fillStyle = this.roldana.cor
@@ -128,7 +178,7 @@ export default class Montagem {
         ctx.lineWidth = this.fio.largura
         ctx.beginPath()
         ctx.moveTo(xRoldana, yRoldana)
-        ctx.lineTo(xRoldana - this.roldana.raio - 1, yRoldana - this.roldana.raio + this.carrinho.altura / 2 + 1)
+        ctx.lineTo(xRoldana - this.roldana.raio - 1, yRoldana - this.roldana.raio + this.carrinho.altura / 2 + this.carrinho.raioRodasPx + 1)
         ctx.stroke()
 
         // Desenhar o Fio
@@ -141,19 +191,18 @@ export default class Montagem {
         ctx.moveTo(xCarrinho, yCarrinho)
         ctx.lineTo(xRoldana, yCarrinho)
         ctx.arc(xRoldana, yRoldana, this.roldana.raio, -0.5 * Math.PI, 0)
-        ctx.moveTo(this.xFimPlano + 2 * this.roldana.raio, yRoldana)
+        ctx.moveTo(this.plano.fimPx + 2 * this.roldana.raio, yRoldana)
         ctx.lineTo(xFimFio, yFimFio)
         ctx.stroke()
 
         // Desenhar o Corpo Suspenso
         let xCorpoSuspenso = xFimFio - this.corpoSuspenso.largura / 2
-        let yCorpoSuspenso = yFimFio
+        let yCorpoSuspenso = Math.min(yFimFio, this.simula.altura - this.corpoSuspenso.altura)
 
         ctx.fillStyle = this.corpoSuspenso.cor
         ctx.fillRect(xCorpoSuspenso, yCorpoSuspenso, this.corpoSuspenso.largura, this.corpoSuspenso.altura)
 
 
-        /*
         // Desenhar os vetores Velocidade e Aceleração
 
         if (this.velocidade != 0) {
@@ -162,6 +211,5 @@ export default class Montagem {
         if (this.aceleracao != 0) {
             this.simula.desenharVetor(xCarrinho, yCarrinho - this.carrinho.altura, xCarrinho + this.aceleracao * this.tamanhoVetor, yCarrinho - this.carrinho.altura, this.corVetores.aceleracao)
         }
-        */
     }
 }

@@ -18,7 +18,6 @@ export default class Dados {
     }
 
     update(deltaTempo) {
-        return
         // Gravar apenas uma parte dos dados, para evitar ficar com muitos pontos
         this.contador++
 
@@ -31,8 +30,8 @@ export default class Dados {
         this.tempo += deltaTempo * this.ignorar * this.simula.resolucao
         
         this.dadosObtidos.push(this.tempo.toFixed(3))
-        this.dadosObtidos.push(this.simula.montagem.velocidade)
-        this.dadosObtidos.push(this.simula.montagem.aceleracao)
+        this.dadosObtidos.push(this.simula.montagem.velocidade / 100)
+        this.dadosObtidos.push(this.simula.montagem.aceleracao / 100)
 
         return this.dadosObtidos
     }

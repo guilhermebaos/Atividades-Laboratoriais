@@ -27,9 +27,9 @@ window.Simula = class Simula {
     }
 
     // Reiniciar a Simulação
-    reiniciar() {
+    reiniciar(start=false) {
         this.inputs = this.juntarValores()
-        this.montagem.reiniciar()
+        this.montagem.reiniciar(start)
         this.dados.reiniciar()
     }
 
@@ -95,7 +95,7 @@ window.Simula = class Simula {
     // Juntar os valores para serem usados pela Simulação
     juntarValores() {
         return {
-            g: this.constantes.g* 100,              // Aceleração Gravítica
+            g: this.constantes.g * 100,             // Aceleração Gravítica
             m: massaCarrinho.value / 100,           // Massa do carrinho em kg
             mMax: massaCarrinho.max / 100,          // Massa Máxima do carrinho
             mSusp: massaCorpoSuspenso.value / 100,  // Massa do Corpo Suspenso

@@ -61,8 +61,8 @@ window.graficos = (divCurva) => {
                         fontFamily: '"Arial", "sans-serif"'
                     },
                     ticks: {
-                        max: 600,
-                        min: 0
+                        max: 10,
+                        min: -10
                     }
                 },{
                     id: 'A',
@@ -75,8 +75,8 @@ window.graficos = (divCurva) => {
                         fontFamily: '"Arial", "sans-serif"'
                     },
                     ticks: {
-                        max: 300,
-                        min: 0
+                        max: 10,
+                        min: -10
                     }
                 }]
             },
