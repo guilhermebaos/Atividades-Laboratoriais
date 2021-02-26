@@ -69,6 +69,9 @@ export default class Bola {
         // Largar a bola
         this.start = start
 
+        // Tempo no qual a bola começou a intersetar o feixe inferior
+        this.inicioDeltaT2 = undefined
+
         // Os valores já foram devolvidos
         this.devolvidos = false
     }
@@ -94,7 +97,13 @@ export default class Bola {
 
         if (this.posicao.y + this.r >= this.lasers.pos2cm && !this.devolvidos) {
             this.devolvidos = true
-            return [this.r * 2 / this.velocidade, this.tempo]
+            this.inicioDeltaT2 = this.tempo
+            return [undefined, this.tempo]
+        }
+        if  (this.posicao.y - this.r >= this.lasers.pos2cm && this.inicioDeltaT2) {
+            this.deltaT2 = this.tempo - this.inicioDeltaT2
+            this.inicioDeltaT2 = undefined
+            return [this.deltaT2, undefined]
         }
     }
 

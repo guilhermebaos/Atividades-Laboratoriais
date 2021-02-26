@@ -16,7 +16,7 @@ const CONSTANTES = {
 const DPR = window.devicePixelRatio
 
 // Tamanho do deltaT em cada update (maior resolução, menor deltaT)
-const RESOLUCAO = 15        
+const RESOLUCAO = 50
 
 
 // Inicializar Variáveis Globais
@@ -152,9 +152,12 @@ function mudarCalcularRAr(paraCalcular) {
     reiniciar()
 }
 
+let dT2, dTq
 
 // Reiniciar a Simulação
 function reiniciar(start=false) {
+    dT2 = undefined
+    dTq = undefined
     simula.reiniciar(start)
 }
 
@@ -177,18 +180,20 @@ function loopSimula(tempo) {
     for (let i = 0; i < RESOLUCAO; i++) {
         dados = simula.update(deltaTempo)
         if (dados) {
-            let dT2 = (dados[0] * 1000).toFixed(2)
-            let dTq = (dados[1] * 1000).toFixed(1)
-            
-            deltaT_celula2Resp.innerText = `${dT2}`
-            deltaT_quedaResp.innerText = `${dTq}`
+            if (dados[0]) dT2 = (dados[0] * 1000).toFixed(2)
+            if (dados[1]) dTq = (dados[1] * 1000).toFixed(1)
 
-            let gExperimental = (raioEsfera.value / 1000 * 2 / (dT2 / 1000)) / (dTq / 1000)
-        
-            let errogExperimental = Math.abs(gExperimental - g) / g * 100
-        
-            gravidadeExperimentalResp.innerText = `${gExperimental.toFixed(2)}`
-            erroGravidadeExperimentalResp.innerText = `${errogExperimental.toFixed(1)}`
+            if (dT2 && dTq) {
+                deltaT_celula2Resp.innerText = `${dT2}`
+                deltaT_quedaResp.innerText = `${dTq}`
+    
+                let gExperimental = (raioEsfera.value / 1000 * 2 / (dT2 / 1000)) / (dTq / 1000)
+            
+                let errogExperimental = Math.abs(gExperimental - g) / g * 100
+            
+                gravidadeExperimentalResp.innerText = `${gExperimental.toFixed(2)}`
+                erroGravidadeExperimentalResp.innerText = `${errogExperimental.toFixed(1)}`
+            }
         }
     }
 
