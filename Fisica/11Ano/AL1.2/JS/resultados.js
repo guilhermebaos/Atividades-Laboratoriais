@@ -177,6 +177,8 @@ function reiniciar(start=false) {
     corpoAtingiuSoloTResp.innerText = `${t.toFixed(2)}`
     aZona2Resp.innerText = `${a2.toFixed(2)}`
 
+    if (start && recolherDados) graficos = window.graficos(F11_AL12.divCurva)
+
     simula.reiniciar(start)
 }
 

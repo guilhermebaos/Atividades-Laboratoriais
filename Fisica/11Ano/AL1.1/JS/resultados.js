@@ -158,6 +158,7 @@ let dT2, dTq
 function reiniciar(start=false) {
     dT2 = undefined
     dTq = undefined
+
     simula.reiniciar(start)
 }
 
