@@ -102,7 +102,7 @@ window.Simula = class Simula {
             mSuspMax: massaCorpoSuspenso.max / 100, // Massa Máx Corpo Suspenso
             hSusp: alturaCorpoSuspenso.value / 1,// Altura do Corpo Suspenso, cm
             hSuspMax: alturaCorpoSuspenso.max / 1,  // Altura Máx Corpo Suspenso
-            fa: forcaAtrito.value / 1000        // Força de Atrito em N
+            fa: forcaAtrito.value / 10              // Força de Atrito em cN
         }
     }
 

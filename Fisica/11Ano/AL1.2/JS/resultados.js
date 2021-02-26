@@ -1,6 +1,6 @@
 // Definir Constantes
 const g = 9.81      // Aceleração Gravitaconal
-const CAM = 0.5     // Razão máxima entre a Resultante das Forças de Atrito e o Peso do Corpo Suspenso
+const CAM = 0.3     // Razão máxima entre a Resultante das Forças de Atrito e o Peso do Corpo Suspenso
                  
 // Obter o DPR do ecrã
 const DPR = window.devicePixelRatio
