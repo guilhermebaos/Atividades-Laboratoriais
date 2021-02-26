@@ -5,7 +5,7 @@ export default class Dados {
 
         // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
         this.contador = 0
-        this.ignorar = 4        // Apenas grava 1 valor em cada this.ignorar
+        this.ignorar = 3        // Apenas grava 1 valor em cada this.ignorar
 
         // Tempo atual
         this.tempo = 0
