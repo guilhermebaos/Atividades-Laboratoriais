@@ -44,8 +44,8 @@ window.Simula = class Simula {
             d: posCarrinho.value / 10,          // Posição do Carrinho na Rampa em cm
             dMax: posCarrinho.max / 10,          // Tamanho da Rampa em cm
             a: angPlanoInclinado.value / 10 * (Math.PI / 180),         // Inclinação em Radianos
-            fa: forcaAtrito.value / 1000,   // Força de Atrito
             l: larguraTira.value / 10,      // Largura da tira em cm
+            fa: forcaAtrito.value / 1000,   // Força de Atrito
         }
     }
 

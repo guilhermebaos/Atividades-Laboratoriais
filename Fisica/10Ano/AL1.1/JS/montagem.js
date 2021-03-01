@@ -251,15 +251,5 @@ export default class Montagem {
         ctx.moveTo(this.parede.x, this.parede.y)
         ctx.lineTo(this.parede.x + this.parede.delta.x, this.parede.y + this.parede.delta.y)
         ctx.stroke()
-
-        /*
-
-        // Desenhar o Vetor Velocidade do Carrinho
-        if (this.velocidade != 0) {
-            let posVetor = 0.8
-
-            this.simula.desenharVetor(xCarrinho, yCarrinho * posVetor, xCarrinho + this.velocidade * this.tamanhoVetor, yCarrinho * posVetor, this.corVetores.velocidade)
-        }
-        */
     }
 }
