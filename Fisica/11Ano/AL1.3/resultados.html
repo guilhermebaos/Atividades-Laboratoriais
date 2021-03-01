@@ -30,56 +30,20 @@
 <div class="centrada m30-top">
     <div class="flex-slider">
         <div><label for="massaCarrinho">Massa do Carrinho</label></div>
-        <div><span id="massaCarrinhoValue">500</span>g<br>
-        <input type="range" name="massaCarrinho" id="massaCarrinho" class="slider" min="100" max="5000" value="500"></div>
+        <div><span id="massaCarrinhoValue">0.500</span>kg<br>
+        <input type="range" name="massaCarrinho" id="massaCarrinho" class="slider" min="300" max="3000" value="500"></div>
     </div>
     <div class="flex-slider">
-        <div><label for="posCarrinho">Posição do Carrinho</label></div>
-        <div><span id="posCarrinhoValue">50.0</span>cm<br>
-        <input type="range" name="posCarrinho" id="posCarrinho" class="slider" min="100" max="2000" value="500"></div>
-    </div>
-    <div class="flex-slider">
-        <div><label for="angPlanoInclinado">Ângulo do Plano Inclinado</label></div>
-        <div><span id="angPlanoInclinadoValue">20.0</span>º<br>
-        <input type="range" name="angPlanoInclinado" id="angPlanoInclinado" class="slider" min="100" max="300" value="200"></div>
-    </div>
-    <div class="flex-slider">
-        <div><label for="larguraTira">Largura da Tira</label></div>
-        <div><span id="larguraTiraValue">2.0</span>cm<br>
-        <input type="range" name="larguraTira" id="larguraTira" class="slider" min="15" max="60" value="20"></div>
-    </div>
-    <div class="flex-slider m15-top">
-        <div><label for="forcaAtrito">Força de Atrito</label></div>
-        <div><input type="range" name="forcaAtrito" id="forcaAtrito" class="slider" min="100" max="50000" value="10000"></div>
+        <div><label for="fAtrito">Força de Atrito</label></div>
+        <div><input type="range" name="fAtrito" id="fAtrito" class="slider" min="10" max="50" value="30"></div>
     </div>
 
-    <button class="submit" onclick="reiniciar(true)">Largar o Carrinho</button>
+    <button id="fazer-curva-Velocidade-Deslocamento" class="submit" onclick="curva()">Traçar o Gráfico <span class="serif">v<sub>0</sub><sup>2</sup> &equals; f(&Delta;x)</span></button>
 </div>
 
-<div class="m15">
-    <p class="m5-bot">Legenda dos Vetores:</p>
-    <ul class="m0">
-        <li>Verde &rarr; Velocidade</li>
-        <li>Laranja &rarr; Aceleração</li>
-    </ul>
-</div>
-
-<div id="canvas-container" class="canvas-container">
-    <canvas id="canvasSim" class="simulacao"></canvas>
-</div>
-
-<div class="centrada m30-top">
-    <div class="overflow" style="max-width: 72vw;">
-        <table class="resultados">
-            <tr class="vars">
-                <th scope="col">Tempo de passagem pela célula fotoelétrica/ ms</th>
-                <th scope="col">&Delta;x<sub>travagem</sub>/ m</th>
-            </tr>
-            <tr>
-                <td><span id="aTravagemValue"></span></td>
-                <td><span id="forcaAtritoTravagemValue"></span></td>
-            </tr>
-        </table>
+<div class="graf-overflow m30-top">
+    <div class="graf-container">
+        <div id="curva-v2x"></div>
     </div>
 </div>
 
@@ -92,7 +56,7 @@
             </tr>
             <tr>
                 <td><span id="aTravagemValue"></span></td>
-                <td><span id="forcaAtritoTravagemValue"></span></td>
+                <td><span id="fAtritoTravagemValue"></span></td>
             </tr>
         </table>
     </div>

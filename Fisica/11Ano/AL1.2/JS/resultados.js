@@ -1,7 +1,7 @@
 // Definir Constantes
 const g = 9.81      // Aceleração Gravitaconal
-const faP = 0.3     // Razão máxima entre a Resultante das Forças de Atrito e o Peso do Corpo Suspenso (Força de Atrito / Peso)
-
+const CAM = 0.3     // Razão máxima entre a Resultante das Forças de Atrito e o Peso do Corpo Suspenso
+                 
 // Obter o DPR do ecrã
 const DPR = window.devicePixelRatio
    
@@ -131,14 +131,16 @@ function atualizarAtritoMax() {
     let mCS = massaCorpoSuspenso.value / 100
 
     // Limitar o Atrito para que a Força Resultante realize trabalho Positivo sobre o Carrinho (para isso, P >> Fa, caso contrário o Carrinho poderia ficar parado)
-    let fr = mCS * g               // Força Resultante do Sistema Ideal = Peso do Corpo Suspenso
-    let faMax = Math.floor(faP * fr * 1000)          // A Força de Atrito não poderá ser maior do que CAM * o Peso do Corpo Suspenso
+    let Fresultante = mCS * g               // Força Resultante do Sistema Ideal = Peso do Corpo Suspenso
+    let FaMax = CAM * Fresultante           // A Força de Atrito não poderá ser maior do que CAM * o Peso do Corpo Suspenso
 
-    if (forcaAtrito.value > faMax) {
-        forcaAtritoResp.innerText = `${(faMax / 1000).toFixed(3)}`
+    let FaMaxConvertido = Math.floor(FaMax * 1000)
+
+    if (forcaAtrito.value > FaMaxConvertido) {
+        forcaAtritoResp.innerText = `${(FaMaxConvertido / 1000).toFixed(3)}`
     }
 
-    forcaAtrito.max = faMax
+    forcaAtrito.max = FaMaxConvertido
 }
 
 

@@ -20,8 +20,8 @@ let F10_AL11 = {
 let massaCarrinho, massaCarrinhoResp
 let posCarrinho, posCarrinhoResp
 let angPlanoInclinado, angPlanoInclinadoResp
-let larguraTira, larguraTiraResp
 let forcaAtrito, forcaAtritoResp
+let larguraTira, larguraTiraResp
 
 let tempoPassagemResp
 
@@ -36,15 +36,15 @@ function prepararResultados() {
     massaCarrinho = document.getElementById('massaCarrinho')
     posCarrinho = document.getElementById('posCarrinho')
     angPlanoInclinado = document.getElementById('angPlanoInclinado')
+    forcaAtrito = document.getElementById('forçaAtrito')
     larguraTira = document.getElementById('larguraTira')
-    forcaAtrito = document.getElementById('forcaAtrito')
     
     // Selecionar os Spans com os valores dos Sliders
     massaCarrinhoResp = document.getElementById('massaCarrinhoValue')
     posCarrinhoResp = document.getElementById('posCarrinhoValue')
     angPlanoInclinadoResp = document.getElementById('angPlanoInclinadoValue')
-    larguraTiraResp = document.getElementById('larguraTiraValue')
     forcaAtritoResp = document.getElementById('forcaAtritoValue')
+    larguraTiraResp = document.getElementById('larguraTiraValue')
     tempoPassagemResp = document.getElementById('tempoPassagemValue')
 
     // Atualizar os Sliders

@@ -1,33 +1,21 @@
 // Definir Constantes
 const g = 9.81      // Aceleração Gravitaconal
 
-                 
-// Obter o DPR do ecrã
-const DPR = window.devicePixelRatio
-   
-// Constantes a passar para a Simulação
-const RESOLUCAO = 15   
-const CONSTANTES = {
-    g: g
-}
-
 
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
 let F11_AL13 = {
-    preparado: false
+    preparado: false,
+    divCurva: ''
 }
 
 let massaCarrinho, massaCarrinhoResp
-let posCarrinho, posCarrinhoResp
-let angPlanoInclinado, angPlanoInclinadoResp
-let larguraTira, larguraTiraResp
-let forcaAtrito
+let fAtrito
 
-let aTravagemResp, forcaAtritoTravagemResp
+let aTravagemResp, fAtritoTravagemResp
 
-let canvasSim, ctx, simula
+
 function prepararResultados() {
     if (F11_AL13.preparado) {
         return
@@ -35,121 +23,138 @@ function prepararResultados() {
     
     // Selecionar Sliders
     massaCarrinho = document.getElementById('massaCarrinho')
-    posCarrinho = document.getElementById('posCarrinho')
-    angPlanoInclinado = document.getElementById('angPlanoInclinado')
-    larguraTira = document.getElementById('larguraTira')
-    forcaAtrito = document.getElementById('forcaAtrito')
+    fAtrito = document.getElementById('fAtrito')
 
     // Selecionar os Spans com os Valores dos Sliders
     massaCarrinhoResp = document.getElementById('massaCarrinhoValue')
-    posCarrinhoResp = document.getElementById('posCarrinhoValue')
-    angPlanoInclinadoResp = document.getElementById('angPlanoInclinadoValue')
-    larguraTiraResp = document.getElementById('larguraTiraValue')
+
+    // Selecionar a div que vai ter a Curva
+    F11_AL13.divCurva = document.getElementById('curva-v2x')
 
     // Selecionar os Spans com os Resultados da Tabela
     aTravagemResp = document.getElementById('aTravagemValue')
-    forcaAtritoTravagemResp = document.getElementById('forcaAtritoTravagemValue')
+    fAtritoTravagemResp = document.getElementById('fAtritoTravagemValue')
 
     // Atualizar os Sliders
     massaCarrinho.oninput = () => {
-        let massaCarrinhoValue = massaCarrinho.value / 1
+        let massaCarrinhoValue = massaCarrinho.value / 1000
     
-        massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(0)}`
-
-        reiniciar()
+        massaCarrinhoResp.innerText = `${massaCarrinhoValue.toFixed(3)}`
     }
-    posCarrinho.oninput = () => {
-        let posCarrinhoValue = posCarrinho.value / 10
-    
-        posCarrinhoResp.innerText = `${posCarrinhoValue.toFixed(1)}`
-
-        reiniciar()
-    }
-    angPlanoInclinado.oninput = () => {
-        let angPlanoInclinadoValue = angPlanoInclinado.value / 10
-    
-        angPlanoInclinadoResp.innerText = `${angPlanoInclinadoValue.toFixed(1)}`
-
-        reiniciar()
-    }
-    larguraTira.oninput = () => {
-        let larguraTiraValue = larguraTira.value / 10
-    
-        larguraTiraResp.innerText = `${larguraTiraValue.toFixed(1)}`
-
-        reiniciar()
-    }
-    
-
-    // SIMULAÇÂO
-    
-    // Selecionar o Canvas e o seu context
-    canvasSim = document.getElementById('canvasSim')
-
-    ctx = canvasSim.getContext('2d')
-
-    ctx.scale(DPR, DPR)
-
-    // Criar o Objeto Simula
-    simula = new window.Simula(canvasSim, RESOLUCAO, CONSTANTES)
 
     F11_AL13.preparado = true
-    loopSimula()
+    curva()
 }
 
 
-// Corrige o tamanho do Canvas e corrige o DPR
-function fixDPR() {
-    // Usar variável global
-    if (simulaFQmenu.aberto !== 'resultados.html') return
+// Traçar o gráfico v^2-x
+function pontos() {
+    // Declarar variáveis e valores iniciais
+    let m = massaCarrinhoValue = massaCarrinho.value / 1000
+    let fa = fAtrito.value / 10
 
-    // Altura do CSS
-    let altura_css = +getComputedStyle(canvasSim).getPropertyValue('height').slice(0, -2)
-    // Larura do CSS
-    let largura_css = +getComputedStyle(canvasSim).getPropertyValue('width').slice(0, -2)
-    
-    // Altera o tamanho do canvas
-    canvasSim.width = largura_css * DPR
-    canvasSim.height = altura_css * DPR
+    let a = fa / m
 
-    canvasSim.style.height = altura_css + 'px'
+    let dx = 0
+    let v2 = 0
 
-    simula.novoTamanho()
-}
+    let des = [dx.toFixed(2)]
+    let vel = [v2]
 
+    aTravagemResp.innerText = `${a.toFixed(2)}`
+    fAtritoTravagemResp.innerText = `${fa.toFixed(1)}`
 
-// Reiniciar a Simulação
-function reiniciar(start=false) {
-    simula.reiniciar(start)
-}
+    // Para cada deslocamento, calcular o v0^2 inicial
+    while (true) {
+        dx += 0.02
 
+        v2 = 2 * a * dx
 
-// Criar o loop da Simulação
-let ultimoTempo, resultadosSim
+        des.push(dx.toFixed(2))
+        vel.push(v2)
 
-function loopSimula(tempo) {
-    if (ultimoTempo === undefined) {
-        ultimoTempo = tempo
-        fixDPR()
-        requestAnimationFrame(loopSimula)
-        reiniciar()
-        return
-    }
-
-    let deltaTempo = (tempo - ultimoTempo) / 1000 / RESOLUCAO
-    ultimoTempo = tempo
-    
-    for (let i = 0; i < RESOLUCAO; i++) {
-        resultadosSim = simula.update(deltaTempo)
-        if (resultadosSim){
-            console.log(resultadosSim)
+        if (dx > 1) {
+            break
         }
     }
-
-    ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
-    simula.desenhar(ctx)
-
-    requestAnimationFrame(loopSimula)
+    
+    return [des, vel]
 }
 
-window.onresize = fixDPR
+
+// Mostrar o gráfico
+function curva() {
+    // Remover o Canvas antigo
+    F11_AL13.divCurva.innerHTML = ''
+
+    // Obter e guardar os resultados
+    let resultados = pontos()
+    let dx = resultados[0]
+    let v2 = resultados[1]
+
+    // Criar o canvas onde vai estar a curva
+    canvasCurva = document.createElement('canvas')
+    canvasCurva.setAttribute('id', 'canvasCurva')
+    F11_AL13.divCurva.appendChild(canvasCurva)
+
+    // Criar o Chart Object
+    let graCurva = new Chart(canvasCurva, {
+        type: 'line',
+        data: {
+            labels: dx,
+            datasets: [{
+                data: v2,
+                label: 'Deslocamento do Carrinho',
+                borderColor: 'blue',
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Deslocamento do Carrinho/ m',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Módulo do Quadrado da Velocidade/ m²/s²',
+                        fontColor: 'black',
+                        fontSize: 13,
+                        fontFamily: '"Arial", "sans-serif"'
+                    },
+                    ticks: {
+                        max: 35,
+                        min: 0
+                    }
+                }]
+            },
+            legend: {
+                display: false,
+            },
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        let tooltipItem = tooltipItems[0]
+
+                        return 'Deslocamento: ' + tooltipItem.label + 'm'
+                    },
+                    label: function(tooltipItem, data) {
+                        let value = Number(tooltipItem.value).toFixed(3)
+    
+                        return 'Quadrado da Velocidade: ' + value + 'm²/s²'
+                    }
+                },
+                custom: function(tooltip) {
+                    if (!tooltip) return
+                    tooltip.displayColors = false
+                },
+            }
+        },
+    })
+}
