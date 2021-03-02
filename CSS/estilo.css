@@ -270,6 +270,10 @@ h3.unidade {
     margin-bottom: 15px;
 }
 
+h3.notas {
+    margin-bottom: 10px;
+}
+
 h4.explicar {
     text-indent: 10px;
     margin: 0px 0px 15px 0px;
