@@ -63,11 +63,15 @@
 <p>
     Ecrã do Osciloscópio:
 </p>
+
 <div class="graf-overflow">
     <div class="graf-container">
-        <div id="curva-oscilos" class="graf-background" style="background-image: url('Imagens/Osci-background.png')"></div>
+        <div id="curva-oscilos" class="graf-background" style="background-image: url('Imagens/Osci-background.png')">
+            <canvas id="canvasSim" class="simulacao" style="border: none;"></canvas>
+        </div>
     </div>
 </div>
+
 <!--Permitir ouvir Sons de 1Hz a 20kHz, talvez um slider diferente-->
 <p class="m0 m30-top">
     Podemos também ouvir o Som correspondente ao Sinal elétrico produzido pelo Gerador de Sinais:
