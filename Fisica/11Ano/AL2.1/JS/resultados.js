@@ -220,16 +220,12 @@ let largura = 3
 
 let larguraEixos = 2            // Largura dos eixos do Osciloscópio
 function desenharSom() {
-
     let resultados = pontos()
     let tArr = resultados[0]
     let vArr = resultados[1]
 
     let maxT = divsT * 2 * segundosDivNum
     let maxV = divsV * 2 * voltsDivNum
-
-    console.log(maxT)
-    console.log(maxV)
 
     let tToPx = canvasSim.width / maxT
     let vToPx = canvasSim.height / maxV
