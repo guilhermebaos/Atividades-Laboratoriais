@@ -5,6 +5,11 @@ const divsV = 2.04      // Número de Divisões do Osciloscópio no eixo dos Vol
 // Obter o DPR do ecrã
 const DPR = window.devicePixelRatio
 
+// Definições do gráfico
+const cor = 'rgb(160, 230, 200)'
+const largura = 3
+const larguraEixos = 2            // Largura dos eixos do Osciloscópio
+
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
@@ -140,7 +145,6 @@ function prepararResultados() {
     
     F11_AL21.preparado = true
     fixDPR()
-    desenharSom()
 }
 
 
@@ -167,6 +171,7 @@ function somSinudoidal(sampleFreq, sampleNumber) {
     return Math.sin(sampleNumber / (sampleFreq / (Math.PI * 2)))
 }
 
+// Toca o som com a frequência e amplitude desejadas
 function tocarSom() {
     let somArr = [],
     volume = amplitudeSinal.value / 1000 * 0.1,
@@ -200,6 +205,7 @@ function pontos() {
 
     let v
 
+    // Arrays com os valores do t e V
     let tArr = []
     let vArr = []
     while (t < divsT * segundosDivNum) {
@@ -214,22 +220,22 @@ function pontos() {
     return [tArr, vArr]
 }
 
-
-let cor = 'rgb(160, 230, 200)'
-let largura = 3
-
-let larguraEixos = 2            // Largura dos eixos do Osciloscópio
+// Desenhar a onda Sinusoidal que representa o Som criado
 function desenharSom() {
+    // Valores de t e de V
     let resultados = pontos()
     let tArr = resultados[0]
     let vArr = resultados[1]
 
+    // Valores máximos para o t e para o V
     let maxT = divsT * 2 * segundosDivNum
     let maxV = divsV * 2 * voltsDivNum
 
+    // Converções das coordenadas para Pixeis
     let tToPx = canvasSim.width / maxT
     let vToPx = canvasSim.height / maxV
 
+    // Converter cada valor para pixeis
     tArr = tArr.map(t => (t + maxT / 2) * tToPx)
     vArr = vArr.map(v => (maxV / 2 - v) * vToPx + larguraEixos)
 
@@ -238,10 +244,13 @@ function desenharSom() {
     t = tArr[0]
     v = vArr[0]
 
+    // Limpar a imagem anterior
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
 
+    // Desenhar a onda
     ctx.strokeStyle = cor
     ctx.lineWidth = largura
+
     ctx.beginPath()
     ctx.moveTo(t, v)
     ctx.lineTo(t, v)

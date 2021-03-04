@@ -6,6 +6,11 @@ const A0 = 1            // Intensidade do Assobio
 // Obter o DPR do ecrã
 const DPR = window.devicePixelRatio
 
+// Definições do gráfico
+const cor = 'rgb(160, 230, 200)'
+const largura = 3
+const larguraEixos = 2            // Largura dos eixos do Osciloscópio
+
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
@@ -350,16 +355,13 @@ function pontos(A=0) {
     }
 }
 
-
-let cor = 'rgb(160, 230, 200)'
-let largura = 3
-
-let larguraEixos = 2            // Largura dos eixos do Osciloscópio
-
 let primeiroTempo, tMax, vSom
 function desenharSom() {
+    // Executar o procedimento certo
     if (procedimentoEscolhido == 1) {
         if (F11_AL22.processandoSom) return
+
+        // Definir os valores para o Procedimento 1
         primeiroTempo = undefined
         vSom = vSomTemp(temperaturaAr.value / 10)
         tMax = mangueira.value / 1 / vSom
@@ -382,8 +384,10 @@ function desenharSom1(tempo) {
         return
     }
     
+    // Tempo passado desde que o bip foi emitido
     let tPassou = (tempo - primeiroTempo) / 1000
 
+    // O som já percorreu a mangueira?
     if (tPassou > tMax && !segundoBip) {
         segundoBip = true
         tocarSom()
@@ -395,22 +399,27 @@ function desenharSom1(tempo) {
     // Velocidade do Som
     let r = (vSom * tPassou) / 100
 
+    // Intensidade a variar com a distância percorrida pelo som (APROXIMAÇÃO)
     let A = A0 / (1 + 4 * Math.PI * r ** 2)
 
     if (A < 5e-03 * voltsDivNum) {
         A = 0
     }
 
+    // Valores de t e de V
     let resultados = pontos(A)
     let tArr = resultados[0]
     let vArr = resultados[1]
 
+    // Valores máximos para o t e para o V
     let maxT = divsT * 2 * segundosDivNum
     let maxV = divsV * 2 * voltsDivNum
 
+    // Converções das coordenadas para Pixeis
     let tToPx = canvasSim.width / maxT
     let vToPx = canvasSim.height / maxV
 
+    // Converter cada valor para pixeis
     tArr = tArr.map(t => (t + maxT / 2) * tToPx)
     vArr = vArr.map(v => (maxV / 2 - v) * vToPx + larguraEixos)
 
@@ -419,10 +428,13 @@ function desenharSom1(tempo) {
     t = tArr[0]
     v = vArr[0]
 
+    // Limpar a imagem anterior
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
 
+    // Desenhar a onda
     ctx.strokeStyle = cor
     ctx.lineWidth = largura
+
     ctx.beginPath()
     ctx.moveTo(t, v)
     ctx.lineTo(t, v)
@@ -433,6 +445,7 @@ function desenharSom1(tempo) {
     }
     ctx.stroke()
 
+    // O Segundo Bip já acabou -> Mostrar o Intervalo de tempo entre os bips
     if (A < 1e-04 && segundoBip) {
         F11_AL22.processandoSom = false
         intervaloTempoResp.innerText = `O intervalo de tempo entre os Sinais no Osciloscópio é: ${tMax.toFixed(3)}s`
@@ -443,17 +456,21 @@ function desenharSom1(tempo) {
 }
 
 function desenharSom2() {
+    // Valores de t e de V
     let resultados = pontos()
     let tArr = resultados[0]
     let vArr = resultados[1]
     let microVArr = resultados[2]
 
+    // Valores máximos para o t e para o V
     let maxT = divsT * 2 * segundosDivNum
     let maxV = divsV * 2 * voltsDivNum
 
+    // Converções das coordenadas para Pixeis
     let tToPx = canvasSim.width / maxT
     let vToPx = canvasSim.height / maxV
 
+    // Converter cada valor para pixeis
     tArr = tArr.map(t => (t + maxT / 2) * tToPx)
     vArr = vArr.map(v => (maxV / 2 - v) * vToPx + larguraEixos)
 
@@ -462,6 +479,7 @@ function desenharSom2() {
     t = tArr[0]
     v = vArr[0]
 
+    // Limpar a imagem anterior
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
 
     ctx.strokeStyle = cor
@@ -481,6 +499,7 @@ function desenharSom2() {
     t = tArr[0]
     v = microVArr[0]
 
+    // Desenhar a onda
     ctx.beginPath()
     ctx.moveTo(t, v)
     ctx.lineTo(t, v)
