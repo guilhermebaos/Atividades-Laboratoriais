@@ -1,6 +1,4 @@
 :root {
-    --background-color: rgba(50, 139, 255, 0.7);
-
     --simulaFQ-azul-claro-tr: rgba(0, 120, 255, 0.5);
     --simulaFQ-azul-claro: rgb(0, 120, 255);
     --simulaFQ-azul-escuro: rgb(10, 100, 230);
@@ -21,7 +19,7 @@ html {
 }
 
 body {
-    background: var(--background-color);
+    background: var(--simulaFQ-azul-claro);
     font-size: 13.2pt;
     font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;
     /*font-family: "Comic Sans MS", cursive, sans-serif;*/
@@ -364,6 +362,10 @@ canvas {
 canvas.simulacao {
     border: 1px solid black;
     width: 100%;
+}
+canvas.redondo {
+    border: none;
+    border-radius: 2px;
 }
 
 
