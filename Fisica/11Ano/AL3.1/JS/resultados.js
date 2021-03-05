@@ -23,7 +23,7 @@ const raioFenom1 = 0.4
 // Inicializar Variáveis Globais
 
 // Usar um Objeto para proteger as variáveis com nomes comuns
-let F11_AL32 = {
+let F11_AL31 = {
     preparado: false,
     divCurva: '',
     processandoAnim: false
@@ -43,7 +43,7 @@ let fenomBtns, fenomEscolhido = 0
 
 let canvasSim, ctx
 function prepararResultados() {
-    if (F11_AL32.preparado) {
+    if (F11_AL31.preparado) {
         return
     }
     
@@ -64,10 +64,7 @@ function prepararResultados() {
     // Selecionar os Spans com os Resultados da Tabela
     angRefResp = document.getElementById('angRefValue')
     angCritResp = document.getElementById('angCritValue')
-    nAcrResp = document.getElementById('nAcrValue')
-
-    // Selecionar a div que vai ter a Curva
-    F11_AL32.divCurva = document.getElementById('curva-laser')
+    nAcrResp = document.getElementById('nAcrValue') 
 
     // Selecionar os Butões que permitem escolher o Procedimento
     fenomBtns = document.getElementsByName('Fenómenos')
@@ -122,16 +119,16 @@ function prepararResultados() {
     ctx.scale(DPR, DPR)
 
 
-    F11_AL32.preparado = true
+    F11_AL31.preparado = true
     fixDPR()
 }
 
 
 // Esolher o fenómeno a estudar
 function fenomeno(num) {
-    if (num == fenomEscolhido || F11_AL32.processandoAnim) return
+    if (num == fenomEscolhido || F11_AL31.processandoAnim) return
 
-    F11_AL32.processandoAnim = true
+    F11_AL31.processandoAnim = true
 
     fenomBtns[fenomEscolhido].className = 'escolha'
     fenomBtns[num].className = 'escolha-atual'
@@ -145,7 +142,7 @@ function fenomeno(num) {
     mostrarExtra(`Fenómeno${fenomEscolhido}`)
     window.setTimeout(mostrarExtra, mostrarExtraTempo, `Fenómeno${num}`)
     window.setTimeout(function() {
-        F11_AL32.processandoAnim = false
+        F11_AL31.processandoAnim = false
     }, mostrarExtraTempo * 2)
 
     // Mostrar a Tabela das Respostas
@@ -248,6 +245,7 @@ function pontos() {
                 decliveFinal = decliveR
                 ySaida = 0
             }
+            nAcrResp.innerText = `${nAcr.toFixed(2)}`
             angCritResp.innerText = graus(Math.asin(nAr / nAcr)).toFixed(2)
     
             // Deslocar X, como se o referencial onde as retas vão ser traçadas tivesse origem no centro do canvas
