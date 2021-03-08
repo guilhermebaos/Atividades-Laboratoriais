@@ -60,6 +60,10 @@ header {
     }
 }
 
+section.resumo {
+    display: flex;
+}
+
 
 .maxw-fc {
     max-width: fit-content;
@@ -565,10 +569,8 @@ div.centrada {
 }
 
 div.resumos-index {
-    position: relative;
-    float: right;
-    width: 30%;
-    margin: 0px 0px 100% 10px;
+    min-width: 150px;
+    margin: 0px 0px 0px 5px;
     padding: 0px;
 }
 
@@ -650,9 +652,6 @@ table.resumos tr {
     border: 1px solid lightgray;
     font-size: large;
 }
-div.resumos-index table.resumos tr {
-    font-size: 90%;
-}
 table.resumos tr:nth-child(2n+0) {
     background-color: rgba(0, 0, 0, 0.01);
 }
@@ -668,6 +667,15 @@ table.resumos a {
 }
 table.resumos a:hover {
     color: var(--simulaFQ-laranja-escuro);
+}
+
+div.resumos-index table.resumos tr {
+    font-size: 90%;
+    background-color: unset;
+    border: none;
+}
+div.resumos-index table.resumos tr th {
+    font-size: 110%;
 }
 
 
