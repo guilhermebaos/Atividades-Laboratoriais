@@ -195,6 +195,10 @@ p.exp-contas, div.exp-contas {
     padding: 10px 0px 5px 5px;
 }
 
+p.para-tras {
+    margin: 30px 10px 0px 0px;
+}
+
 div.exp-contas {
     border-left: 2px solid var(--simulaFQ-laranja-escuro);
     border-radius: 5px;
@@ -560,6 +564,14 @@ div.centrada {
     justify-content: center;
 }
 
+div.resumos-index {
+    position: relative;
+    float: right;
+    width: 30%;
+    margin: 0px 0px 100% 10px;
+    padding: 0px;
+}
+
 
 
 form {
@@ -627,6 +639,36 @@ table.resultados tr td:last-child, table.resultados tr th:last-child{
     border-right: 0px;
 }
 
+table.resumos {
+    margin: auto;
+    margin-top: 30px;
+    width: 90%;
+}
+table.resumos tr {
+    width: 100%;
+    margin: auto;
+    border: 1px solid lightgray;
+    font-size: large;
+}
+div.resumos-index table.resumos tr {
+    font-size: 90%;
+}
+table.resumos tr:nth-child(2n+0) {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+table.resumos tr:nth-child(2n+1) {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+table.resumos tr td {
+    padding: 10px 0px 10px 10px;
+}
+table.resumos a {
+    color: var(--simulaFQ-azul-escuro);
+    text-decoration: none;
+}
+table.resumos a:hover {
+    color: var(--simulaFQ-laranja-escuro);
+}
 
 
 tr.menu td {
