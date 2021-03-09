@@ -200,7 +200,7 @@ p.exp-contas, div.exp-contas {
 }
 
 p.para-tras {
-    margin: 30px 10px 0px 0px;
+    margin: 0px 10px 0px 0px;
 }
 
 div.exp-contas {
@@ -572,6 +572,7 @@ div.resumos-index {
     min-width: 150px;
     margin: 0px 0px 0px 5px;
     padding: 0px;
+    border-left: 1px solid lightgray;
 }
 
 
@@ -644,6 +645,7 @@ table.resultados tr td:last-child, table.resultados tr th:last-child{
 table.resumos {
     margin: auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     width: 90%;
 }
 table.resumos tr {
@@ -676,6 +678,9 @@ div.resumos-index table.resumos tr {
 }
 div.resumos-index table.resumos tr th {
     font-size: 110%;
+}
+div.resumos-index table.resumos tr th a {
+    color: var(--simulaFQ-laranja-escuro);
 }
 
 

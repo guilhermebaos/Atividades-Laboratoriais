@@ -28,9 +28,91 @@
         
         <section class="resumo">
             <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque autem error reiciendis, voluptatem, inventore deleniti minima dolores fugiat sequi laboriosam eligendi repellat magni temporibus sapiente! Sed incidunt voluptatem deserunt ab!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque autem error reiciendis, voluptatem, inventore deleniti minima dolores fugiat sequi laboriosam eligendi repellat magni temporibus sapiente! Sed incidunt voluptatem deserunt ab!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque autem error reiciendis, voluptatem, inventore deleniti minima dolores fugiat sequi laboriosam eligendi repellat magni temporibus sapiente! Sed incidunt voluptatem deserunt ab!</p>
+                <h2 class="topico">Lei da Conservação da Energia</h2>
+                <p>
+                    A Lei da Conservação da Energia, enunciada por James Joule, afirma que a energia não pode ser criada nem destruída, apenas transferida e transformada.
+                </p>
+                <p>A unidade de Energia no SI é o Joule (J).</p>
+
+                <h2 class="topico">Tipo Fundamentais de Energia</h2>
+                <h3 class="sub-topico">Energia Cinética</h3>
+                <p>
+                    A Energia Cinética está associada ao movimento. Pode ser calculada por:
+                </p>
+                <div class="contas">
+                    <span class="invi">&hArr;</span> E<sub>c</sub> &equals; <div class="frac"><span>1</span><span class="denom">2</span></div> &times; m &times; v<sup>2</sup>
+                </div>
+                <table class="explicar">
+                    <tr>
+                        <td>E<sub>c</sub></td>
+                        <td>&rarr;</td>
+                        <td>Energia cinética</td>
+                    </tr>
+                    <tr>
+                        <td>m</td>
+                        <td>&rarr;</td>
+                        <td>Massa do corpo</td>
+                    </tr>
+                    <tr>
+                        <td>v</td>
+                        <td>&rarr;</td>
+                        <td>Módulo da velocidade do corpo</td>
+                    </tr>
+                </table>
+                
+                <h3 class="sub-topico">Energia Potencial</h3>
+                <p>
+                    A energia potencial está associada às interações entre várias partes de um sistema. Há <span class="anchor" onclick="mostrarExtra('vários-tipos-de-energia-potencial')">vários tipos de energia potencial</span>, destacando-se a Energia Potencial Gravítica:
+                </p>
+                <div id="vários-tipos-de-energia-potencial" class="explicar">
+                    <button class="fechar" onclick="mostrarExtra('vários-tipos-de-energia-potencial')">X</button>
+                    <h4 class="explicar">Exemplos de Energias Potencias</h4>
+                    <ul>
+                        <li><strong>Energia Potencial Elétrica</strong> &rarr; Existe quando há forças elétricas entre corpos</li>
+                        <li><strong>Energia Potencial Elástica</strong> &rarr; Existe quando há forças elásticas entre corpos</li>
+                    </ul>
+                </div>
+                <div class="contas">
+                    <span class="invi">&hArr;</span> E<sub>pg</sub> &equals; m &times; g &times; h
+                </div>
+                <table class="explicar">
+                    <tr>
+                        <td>E<sub>pg</sub></td>
+                        <td>&rarr;</td>
+                        <td>Energia cinética</td>
+                    </tr>
+                    <tr>
+                        <td>m</td>
+                        <td>&rarr;</td>
+                        <td>Massa do corpo</td>
+                    </tr>
+                    <tr>
+                        <td>h</td>
+                        <td>&rarr;</td>
+                        <td>Altura do Corpo<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup></td>
+                    </tr>
+                    <tr>
+                        <td>g</td>
+                        <td>&rarr;</td>
+                        <td>Módulo da aceleração gravítica</td>
+                    </tr>
+                </table>
+                <p class="exp-contas" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>A altura do corpo é relativa à altura de referência (<span class="serif">h<sub>ref</sub></span>). A altura de referência é o ponto no qual se considera nula a energia potencial gravítica (<span class="serif">Se h &equals; h<sub>ref</sub> então E<sub>pg</sub> &equals; 0</span>).</p>
+
+                <h2 class="topico">Energia Interna</h2>
+                <p>
+                    A energia Interna de um Sistema é igual à soma da sua energia cinética com a sua energia potencial:
+                </p>
+                <div class="contas">
+                    <span class="invi">&hArr;</span> U<sub>Sist</sub> &equals; E<sub>c</sub> &plus; E<sub>pg</sub>
+                </div>
+                <table class="explicar">
+                    <tr>
+                        <td>U<sub>Sist</sub></td>
+                        <td>&rarr;</td>
+                        <td>Energia Interna do Sistema</td>
+                    </tr>
+                </table>
 
                 <p class="para-tras"><a rel="prev" href="index.html">Voltar atrás</a></p>
             </div>
