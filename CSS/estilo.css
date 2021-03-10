@@ -183,9 +183,16 @@ a {
     text-decoration: underline;
     color: rgb(0, 0, 200);
 }
+
+a.resumos {
+    text-decoration: var(--simulaFQ-laranja-claro) underline;
+    color: black;
+}
+
 a:hover {
     text-decoration: none;
 }
+
 
 
 p {
