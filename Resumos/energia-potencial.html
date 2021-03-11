@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energia Potencial - SimulaFQ</title>
+    
+    <link rel="shortcut icon" href="../../../Favicons/favicon.ico" type="image/x-icon">
+
+    <link rel="icon" href="../../../Favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../../../Favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../Favicons/apple-touch-icon.png">
+    <link rel="manifest" href="../../../Favicons/site.webmanifest">
+
+    <link rel="stylesheet" href="../../../CSS/estilo.css">
+
+    <script src="../../../JS/w3-Html-Includes.js"></script>
+    <script src="../../../JS/explicar.js"></script>
+    <script src="https://kit.fontawesome.com/8b48590a50.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div incluir="../../../Layout/navbar.html" class="header"></div>
+    
+    <main>
+        <header>
+            <h1>Energia Potencial</h1>
+        </header>
+        
+        <section class="resumo">
+            <div>
+                <p>
+                    A energia potencial está associada às interações entre várias partes de um sistema. Há <span class="anchor" onclick="mostrarExtra('vários-tipos-de-energia-potencial')">vários tipos de energia potencial</span>, destacando-se a Energia Potencial Gravítica:
+                </p>
+                <div id="vários-tipos-de-energia-potencial" class="explicar">
+                    <button class="fechar" onclick="mostrarExtra('vários-tipos-de-energia-potencial')">X</button>
+                    <h4 class="explicar">Exemplos de Energias Potencias</h4>
+                    <ul>
+                        <li><strong>Energia Potencial Elétrica</strong> &rarr; Existe quando há forças elétricas entre corpos</li>
+                        <li><strong>Energia Potencial Elástica</strong> &rarr; Existe quando há forças elásticas entre corpos</li>
+                    </ul>
+                </div>
+                <div class="contas">
+                    <span class="invi">&hArr;</span> E<sub>pg</sub> &equals; m &times; g &times; h
+                </div>
+                <table class="explicar">
+                    <tr>
+                        <td>E<sub>pg</sub></td>
+                        <td>&rarr;</td>
+                        <td>Energia cinética</td>
+                    </tr>
+                    <tr>
+                        <td>m</td>
+                        <td>&rarr;</td>
+                        <td>Massa do corpo</td>
+                    </tr>
+                    <tr>
+                        <td>h</td>
+                        <td>&rarr;</td>
+                        <td>Altura do Corpo<sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup></td>
+                    </tr>
+                    <tr>
+                        <td>g</td>
+                        <td>&rarr;</td>
+                        <td>Módulo da aceleração gravítica</td>
+                    </tr>
+                </table>
+                <p class="exp-contas" name="exp-contas" style="display: none;"><sup class="exp-contas" onclick="mostrarExpContas(1)">[1]</sup>A altura do corpo é relativa à altura de referência (<span class="serif">h<sub>ref</sub></span>). A altura de referência é o ponto no qual se considera nula a energia potencial gravítica (<span class="serif">Se h &equals; h<sub>ref</sub> então E<sub>pg</sub> &equals; 0</span>).</p>
+
+                <p class="para-tras"><a rel="prev" href="index.html">Voltar atrás</a></p>
+            </div>
+            
+            <div class="pc-only resumos-index">
+                <table class="resumos">
+                    <tr><th><a rel="prev" href="index.html">Ver também</a></th></tr>
+                </table>
+            </div>
+        </section>
+        
+        <button id="para-o-topo" onclick="paraOTopo()">&uparrow;</button>
+    </main>
+
+    <footer incluir='../../../Layout/footer.html'></footer>
+
+    <script>
+        incluirHTML()
+    </script>
+    <script src="../../../JS/para-o-topo.js"></script>
+    <script src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12454038/0/b1e05410/1/" alt="Web Analytics"></a></div></noscript>
+</body>
+</html>
