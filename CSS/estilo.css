@@ -36,24 +36,24 @@ header {
     main {
         background: white;
         margin: auto;
-        padding: 10px 20px 10px 20px;
+        padding: 10px 20px 30px 20px;
         width: 80%;
         max-width: 1500px;
-        min-height: calc(100vh - 10px - 10px - 40px - var(--footer-min-height));
-    }
-    div.mobile-only {display: none;}
+        min-height: 60vh;
+        }
+    div.mobile-only {display: none !important;}
     div.pc-only {display: initial;}
 }
 @media screen and (max-width: 600px) {
     main {
         background: white;
         margin: auto;
-        padding: 10px 20px 10px 20px;
+        padding: 10px 20px 30px 20px;
         width: 80%;
-        min-height: calc(100vh - 10px - 10px - 40px - var(--footer-min-height));
+        min-height: 60vh;
     }
     div.mobile-only {display: initial;}
-    div.pc-only {display: none;}
+    div.pc-only {display: none !important;}
 
     div.contas {
         overflow-x: scroll !important;
@@ -285,6 +285,12 @@ h3.unidade {
 
 h3.notas {
     margin-bottom: 10px;
+}
+
+h3.letra {
+    font-size: 1.08em;
+    margin: 35px 0px 10px 0px;
+    color: var(--simulaFQ-azul-escuro);
 }
 
 h4.explicar {
@@ -580,6 +586,21 @@ div.resumos-index {
     margin: 0px 0px 0px 5px;
     padding: 0px;
     border-left: 1px solid lightgray;
+}
+
+div.links-letras {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+
+div.links-letras a{
+    color: var(--simulaFQ-azul-escuro);
+    text-decoration: none;
+    padding: 0px 1% 0px 1%;
+}
+div.links-letras a:hover {
+    text-decoration: underline;
 }
 
 
@@ -976,6 +997,7 @@ footer {
     overflow-y: hidden;
     white-space: nowrap;
     background-color: var(--simulaFQ-laranja-claro);
+    box-shadow: 0 100vh 0 100vh rgb(64, 64, 64);
 }
 footer p {
     min-width: fit-content;
