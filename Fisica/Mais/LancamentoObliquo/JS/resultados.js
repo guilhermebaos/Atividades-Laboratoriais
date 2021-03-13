@@ -70,16 +70,12 @@ aGrav.oninput = () => {
 let divCurvaAng = document.getElementById('curvaAng')
 let divCurvaPos = document.getElementById('curvaPos')
 let divCurvaVel = document.getElementById('curvaVel')
-let divCurvaAce = document.getElementById('curvaAce')
-let divCurvaJer = document.getElementById('curvaJer')
 let divCurvaEne = document.getElementById('curvaEne')
 
 const DIVS_CURVAS = [
     divCurvaAng,
     divCurvaPos,
     divCurvaVel,
-    divCurvaAce,
-    divCurvaJer,
     divCurvaEne
 ]
 
@@ -113,7 +109,7 @@ function fixDPR() {
     canvasSim.width = largura_css * DPR
     canvasSim.height = altura_css * DPR
 
-    simula.novoTamanho()
+    reiniciar()
 }
 
 
@@ -148,14 +144,14 @@ function loopSimula(tempo) {
 
 
 // Reiniciar a Simulação
-function reiniciar() {
-    simula.reiniciar()
+function reiniciar(start=false) {
+    simula.reiniciar(start)
 }
 
 
 // Botão de Reiniciar a Simulação
 document.getElementById('reiniciar-Simulação').addEventListener('click', (() => {
-    simula.reiniciar()
+    reiniciar(true)
 }))
 
 // Botão de pausa

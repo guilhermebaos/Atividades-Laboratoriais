@@ -26,17 +26,14 @@ export default class Simula {
         // Objetos da Simulação
         this.esfera = new Esfera(this)
 
-        this.simObjetos = [
-            this.esfera
-        ]
-
         this.dados = new Dados(this)
     }
 
-    reiniciar() {
+    reiniciar(start=false) {
         this.inputs = this.juntarValores()
-        this.esfera.reiniciar()
+        this.esfera.reiniciar(start)
         this.dados.reiniciar()
+        this.novoTamanho()
     }
 
     novoTamanho() {
@@ -57,6 +54,42 @@ export default class Simula {
         }
     }
 
+    // Desenhar os vetores
+    desenharVetor(ctx, x0, y0, xFinal, yFinal, cor){
+        // Variáveis a usar ao criar a seta
+        let largura = 4
+        let compTopo = 10
+
+        let angle = Math.atan2(yFinal - y0, xFinal - x0)
+
+        // Corpo da Seta
+        ctx.beginPath()
+        ctx.moveTo(x0, y0)
+        ctx.lineTo(xFinal, yFinal)
+        ctx.strokeStyle = cor
+        ctx.lineWidth = largura
+        ctx.stroke()
+        
+        // Desenhar um dos traços da cabeça da seta
+        ctx.beginPath()
+        ctx.moveTo(xFinal, yFinal)
+        ctx.lineTo(xFinal - compTopo * Math.cos(angle - Math.PI/7), yFinal - compTopo * Math.sin(angle - Math.PI/7))
+        
+        // Desenhar o outro traço
+        ctx.lineTo(xFinal - compTopo * Math.cos(angle + Math.PI/7), yFinal - compTopo * Math.sin(angle + Math.PI/7))
+        
+        // Caminho de uma ponta para o centro e de novo para a outra ponta da cabeça da seta
+        ctx.lineTo(xFinal, yFinal)
+        ctx.lineTo(xFinal - compTopo * Math.cos(angle - Math.PI/7), yFinal - compTopo * Math.sin(angle - Math.PI/7))
+
+        // Desenhar os caminhos traçados acima
+        ctx.strokeStyle = cor
+        ctx.lineWidth = largura
+        ctx.stroke()
+        ctx.fillStyle = cor
+        ctx.fill()
+    }
+
     pausa() {
         if (this.estado == ESTADOS.PAUSA) {
             this.estado = ESTADOS.EM_PROGRESSO
@@ -68,13 +101,13 @@ export default class Simula {
     update(deltaTempo) {
         if (this.estado !== ESTADOS.EM_PROGRESSO) return
 
-        this.simObjetos.forEach((objeto) => objeto.update(deltaTempo))
+        this.esfera.update(deltaTempo)
 
         return this.dados.update(deltaTempo)
     }
 
     desenhar(ctx) {
-        this.simObjetos.forEach((objeto) => objeto.desenhar(ctx))
+        this.esfera.desenhar(ctx)
 
         if (this.estado == ESTADOS.PAUSA) {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.2)'

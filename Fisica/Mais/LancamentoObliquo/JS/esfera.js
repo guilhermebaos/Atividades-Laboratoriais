@@ -4,14 +4,23 @@ export default class Pendulo {
         this.simula = simula
 
         // Definições da Bola
-        this.raioPx = 10
+        this.raioPxMax = 20
         this.cor = 'rgb(255, 130, 35)'
 
+        // Cores dos vetores
+        this.corVetores = {
+            velocidade: 'rgb(145, 200, 20)',
+        }
+        
+        // Tamanho dos vetores
+        this.tamanhoVetor = 0.1
         
         this.reiniciar()
     }
 
-    reiniciar() {
+    reiniciar(start=false) {
+        this.start = start
+
         // Constantes
         this.m = this.simula.inputs.m
         this.mMax = this.simula.inputs.mMax
@@ -27,19 +36,37 @@ export default class Pendulo {
 
         this.hSim = this.simula.altura * this.pxToM
 
-        // Forças
-        this.peso = this.m * this.g
-
         // Raio da Bola
+        this.raioPx = this.raioPxMax * (this.m / this.mMax) ** (1/3)
         this.raio = this.raioPx * this.pxToM
 
         // Posição da Bola
         this.posicao = {x: this.raio, y: this.hSim - this.h - this.raio}
 
-        this.velocidade = {x: this.v, y: 0, abs: 0}
+        this.altura = this.h
+
+        this.velocidade = {x: this.v * Math.cos(this.a), y: -this.v * Math.sin(this.a)}
+        this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2)**0.5
+
+        this.aceleracao = {x: 0, y: this.g}
     }
 
     update(deltaTempo) {
+        if (!this.start) return
+
+        this.posicao.x += this.velocidade.x * deltaTempo
+        this.posicao.y += this.velocidade.y * deltaTempo + 0.5 * this.aceleracao.y * deltaTempo ** 2
+
+        this.velocidade.y += this.aceleracao.y * deltaTempo
+        this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2)**0.5
+
+        this.altura = this.hSim - this.posicao.y
+
+        if (this.altura < this.raio) {
+            this.posicao.y = this.hSim - this.raio
+            this.velocidade.abs = 0
+            this.start = false
+        }
     }
 
     desenhar(ctx) {
@@ -51,6 +78,13 @@ export default class Pendulo {
         ctx.beginPath()
         ctx.arc(this.posicaoPx.x, this.posicaoPx.y, this.raioPx, 0, 2 * Math.PI)
         ctx.fill()
-        console.log(this.raioPx)
+
+        if (this.velocidade.abs > 1e-03) {
+            this.velocidadePx = {
+                x: this.velocidade.x * this.mToPx * this.tamanhoVetor,
+                y: this.velocidade.y * this.mToPx * this.tamanhoVetor
+            }
+            this.simula.desenharVetor(ctx, this.posicaoPx.x, this.posicaoPx.y - 3 * this.raioPx, this.posicaoPx.x + this.velocidadePx.x, this.posicaoPx.y - 3 * this.raioPx + this.velocidadePx.y, this.corVetores.velocidade)
+        }
     }
 }
