@@ -66,6 +66,7 @@ export default class Pendulo {
             this.posicao.y = this.hSim - this.raio
             this.velocidade.abs = 0
             this.start = false
+            this.simula.start = false
         }
     }
 

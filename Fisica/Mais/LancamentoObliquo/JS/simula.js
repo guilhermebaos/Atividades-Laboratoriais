@@ -30,6 +30,7 @@ export default class Simula {
     }
 
     reiniciar(start=false) {
+        this.start = start
         this.inputs = this.juntarValores()
         this.esfera.reiniciar(start)
         this.dados.reiniciar()
@@ -50,7 +51,7 @@ export default class Simula {
             a: angLanc.value / 10 * (Math.PI / 180),    // Ângulo em Radianos
             h: hLanc.value / 10,                        // Altura em m
             lSim: larguraSim.value / 1,                 // Largura em m
-            g: aGrav.value / 100                        // g em m/s^2
+            g: aGrav.value / 100,                       // g em m/s^2
         }
     }
 
@@ -103,7 +104,9 @@ export default class Simula {
 
         this.esfera.update(deltaTempo)
 
-        return this.dados.update(deltaTempo)
+        if (this.start) {
+            return this.dados.update(deltaTempo)
+        }
     }
 
     desenhar(ctx) {

@@ -193,11 +193,6 @@ function criarGraficos(divsCurvas) {
                 label: 'Posição no eixo dos Y',
                 borderColor: 'green',
                 fill: false
-            },{
-                data: [],
-                label: 'Módulo da Posição',
-                borderColor: 'blue',
-                fill: false
             }]
         },
         options: {

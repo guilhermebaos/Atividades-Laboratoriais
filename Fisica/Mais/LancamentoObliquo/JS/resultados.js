@@ -27,6 +27,10 @@ let larguraSimResp = document.getElementById('larguraSimValue')
 let aGrav = document.getElementById('aGrav')
 let aGravResp = document.getElementById('aGravValue')
 
+let velocidadeSim = document.getElementById('velocidadeSim')
+let velocidadeSimResp = document.getElementById('velocidadeSimValue')
+
+
 // Atualizar os Sliders
 massaEsfera.oninput = () => {
     let massaEsferaValue = massaEsfera.value / 1000
@@ -64,6 +68,12 @@ aGrav.oninput = () => {
     aGravResp.innerText = `${aGravValue.toFixed(2)}`
     reiniciar()
 }
+velocidadeSim.oninput = () => {
+    let velocidadeSimValue = velocidadeSim.value / 1
+
+    velocidadeSimResp.innerText = `${velocidadeSimValue.toFixed(1)}`
+    simula.dados.frames = velocidadeSimValue
+}
 
 
 // Selecionar as divs com os Gráficos
@@ -91,7 +101,7 @@ ctx.scale(DPR, DPR)
 
 
 // Constantes para a Simulação
-const RESOLUCAO = 20                 // Tamanho do deltaT em cada update
+const RESOLUCAO = 15                 // Tamanho do deltaT em cada update
 
 // Criar o Objeto Simula
 let simula = new Simula(canvasSim, RESOLUCAO)
@@ -130,11 +140,13 @@ function loopSimula(tempo) {
 
     
     let dados
-    for (let i = 0; i < RESOLUCAO; i++) {
-        dados = simula.update(deltaTempo)
-    }
-    if (dados) {
-        atualizarGraficos(graficos, dados[0], dados.slice(1, dados.lenght))
+    for (let frames = 0; frames < velocidadeSim.value / 1; frames++) {
+        for (let i = 0; i < RESOLUCAO; i++) {
+            dados = simula.update(deltaTempo)
+            if (dados) {
+                atualizarGraficos(graficos, dados[0], dados.slice(1, dados.lenght))
+            }
+        }
     }
     ctx.clearRect(0, 0, canvasSim.width, canvasSim.height)
     simula.desenhar(ctx)
@@ -146,6 +158,7 @@ function loopSimula(tempo) {
 // Reiniciar a Simulação
 function reiniciar(start=false) {
     simula.reiniciar(start)
+    graficos = criarGraficos(DIVS_CURVAS)
 }
 
 
