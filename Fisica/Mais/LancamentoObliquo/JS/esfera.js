@@ -60,9 +60,9 @@ export default class Pendulo {
         this.velocidade.y += this.aceleracao.y * deltaTempo
         this.velocidade.abs = (this.velocidade.x ** 2 + this.velocidade.y ** 2)**0.5
 
-        this.altura = this.hSim - this.posicao.y
+        this.altura = this.hSim - this.posicao.y - this.raio
 
-        if (this.altura < this.raio) {
+        if (this.altura < 0) {
             this.posicao.y = this.hSim - this.raio
             this.velocidade.abs = 0
             this.start = false

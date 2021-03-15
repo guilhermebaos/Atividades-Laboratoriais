@@ -4,7 +4,7 @@ export default class Dados {
         this.simula = simula
 
         // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
-        this.contador = 0
+        this.contador = -1
         this.ignorarMin = 1
         this.ignorar = this.ignorarMin
 
@@ -19,7 +19,7 @@ export default class Dados {
 
     reiniciar() {
         // Apaga os dados gravados
-        this.contador = 0
+        this.contador = -1
         this.tempo = 0
         this.ignorar = this.ignorarMin + Math.ceil(this.frames)
     }
@@ -32,9 +32,6 @@ export default class Dados {
 
         // Objeto com os dados
         this.dadosObtidos = []
-
-        // Calcular e guardar os valores
-        this.tempo += deltaTempo * this.ignorar * this.simula.resolucao
         
         this.dadosObtidos.push(this.tempo.toFixed(3))
 
@@ -49,13 +46,16 @@ export default class Dados {
         this.dadosObtidos.push(Ec + Epg)
 
         // Posição
-        this.dadosObtidos.push(this.esfera.posicao.x)
+        this.dadosObtidos.push(this.esfera.posicao.x - this.esfera.raio)
         this.dadosObtidos.push(this.esfera.altura)
 
         // Velocidade
         this.dadosObtidos.push(this.esfera.velocidade.x)
         this.dadosObtidos.push(this.esfera.velocidade.y)
         this.dadosObtidos.push(this.esfera.velocidade.abs)
+        
+        // Calcular e guardar os valores
+        this.tempo += deltaTempo * this.ignorar * this.simula.resolucao
 
         return this.dadosObtidos
     }

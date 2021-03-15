@@ -216,7 +216,7 @@ function criarGraficos(divsCurvas) {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Posição/ cm',
+                        labelString: 'Posição/ m',
                         fontColor: 'black',
                         fontSize: 13,
                         fontFamily: '"Arial", "sans-serif"'
