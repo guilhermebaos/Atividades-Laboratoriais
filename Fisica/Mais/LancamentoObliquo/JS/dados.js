@@ -36,7 +36,8 @@ export default class Dados {
         this.dadosObtidos.push(this.tempo.toFixed(3))
 
         // Ângulo entre a Velocidade e a Horizontal
-        this.dadosObtidos.push(-Math.asin(this.esfera.velocidade.y / this.esfera.velocidade.abs) * 180 / Math.PI)
+        let ang = -Math.asin(this.esfera.velocidade.y / this.esfera.velocidade.abs)
+        this.dadosObtidos.push(ang * 180 / Math.PI)
 
         // Energias Cinética, Potencial e Mecânica
         let Ec = 0.5 * this.esfera.m * (this.esfera.velocidade.abs ** 2)
@@ -53,6 +54,11 @@ export default class Dados {
         this.dadosObtidos.push(this.esfera.velocidade.x)
         this.dadosObtidos.push(this.esfera.velocidade.y)
         this.dadosObtidos.push(this.esfera.velocidade.abs)
+        
+        // Aceleração
+        this.dadosObtidos.push(Math.abs(this.esfera.aceleracao.y * Math.sin(ang)))
+        this.dadosObtidos.push(this.esfera.aceleracao.y * Math.cos(ang))
+        this.dadosObtidos.push(this.esfera.aceleracao.y)
         
         // Calcular e guardar os valores
         this.tempo += deltaTempo * this.ignorar * this.simula.resolucao

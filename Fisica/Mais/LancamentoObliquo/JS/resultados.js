@@ -81,12 +81,14 @@ let divCurvaAng = document.getElementById('curvaAng')
 let divCurvaPos = document.getElementById('curvaPos')
 let divCurvaVel = document.getElementById('curvaVel')
 let divCurvaEne = document.getElementById('curvaEne')
+let divCurvaAce = document.getElementById('curvaAce')
 
 const DIVS_CURVAS = [
     divCurvaAng,
+    divCurvaEne,
     divCurvaPos,
     divCurvaVel,
-    divCurvaEne
+    divCurvaAce
 ]
 
 
