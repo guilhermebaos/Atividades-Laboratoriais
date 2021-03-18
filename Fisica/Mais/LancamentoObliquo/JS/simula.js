@@ -1,4 +1,5 @@
 import Esfera from '../JS/esfera.js'
+import Comparacao from '../JS/comparacao.js'
 import Dados from '../JS/dados.js'
 
 const ESTADOS = {
@@ -26,14 +27,19 @@ export default class Simula {
         // Objetos da Simulação
         this.esfera = new Esfera(this)
 
+        this.comparacao = new Comparacao(this)
+
         this.dados = new Dados(this)
     }
 
     reiniciar(start=false) {
         this.start = start
         this.inputs = this.juntarValores()
+
         this.esfera.reiniciar(start)
+        this.comparacao.reiniciar()
         this.dados.reiniciar()
+        
         this.novoTamanho()
     }
 
@@ -112,9 +118,13 @@ export default class Simula {
     desenhar(ctx) {
         this.esfera.desenhar(ctx)
 
+        this.comparacao.desenhar(ctx)
+
         if (this.estado == ESTADOS.PAUSA) {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.2)'
             ctx.fillRect(0, 0, this.largura, this.altura)
+        } else {
+            
         }
     }
 }
