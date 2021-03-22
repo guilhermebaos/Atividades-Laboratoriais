@@ -610,7 +610,7 @@ form {
 }
 
 form select {
-    font-size: 80%;
+    font-size: 90%;
 }
 
 form textarea {
@@ -863,7 +863,7 @@ nav div.menu {
     position: absolute;
     right: 0px;
     margin: 0px;
-    padding: 8px 15px 8px 15px;
+    padding: 7px 15px 7px 15px;
     border: none;
     background-color: transparent;
     -webkit-transition: background-color 0.1s;
@@ -909,27 +909,11 @@ nav div.menu {
 
 .dropdown:hover {
     background-color: white;
+    cursor: pointer;
 }
 .dropdown:hover .dropdown-icon {
     background-color: black;
 }
-.dropdown:hover + .dropdown-items{
-    display: block;
-}
-.dropdown-items:hover {
-    display: block;
-}
-
-.dropdown:focus {
-    background-color: white;
-}
-.dropdown:focus .dropdown-icon {
-    background-color: black;
-}
-.dropdown:focus + .dropdown-items{
-    display: block;
-}
-
 
 
 ul.navbar {

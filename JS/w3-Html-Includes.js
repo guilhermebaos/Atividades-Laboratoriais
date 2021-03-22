@@ -1,3 +1,24 @@
+// Funcionalidade da navbar
+var navbarDropdown
+function dropdown(delay=0) {
+    if (!navbarDropdown) {
+        navbarDropdown = document.getElementById('dropdown-items')
+        navbarDropdown.isOpen = false
+    }
+
+    window.setTimeout(() => {
+      if (navbarDropdown.isOpen) {
+          navbarDropdown.style.display = 'none'
+          navbarDropdown.isOpen = false
+      } else {
+          navbarDropdown.style.display = 'block'
+          navbarDropdown.isOpen = true
+      }
+    }, delay)
+}
+
+
+
 // Retirado de: https://www.w3schools.com/howto/howto_html_include.asp
 
 function incluirHTML() {
