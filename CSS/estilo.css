@@ -603,14 +603,40 @@ div.links-letras a:hover {
     text-decoration: underline;
 }
 
+div.grandeza-container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+div.grandeza {
+    display: flex;
+    min-width: 150px;
+    min-height: 50px;
+    margin: 10px;
+    padding: 0;
+    color: var(--simulaFQ-azul-escuro);
+    box-shadow: 2px 4px 12px 5px rgb(200, 200, 200);
+    border: 1px solid var(--simulaFQ-laranja-escuro);
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, white, rgb(245, 245, 245));
+}
+div.grandeza:hover {
+    cursor: pointer;
+    color: var(--simulaFQ-laranja-escuro);
+    background-image: linear-gradient(to bottom, white, rgb(230, 230, 230));
+}
+
+div.grandeza > div {
+    margin: auto;
+    padding: 0;
+    font-weight: bold;
+}
 
 
 form {
     font-size: 110%;
-}
-
-form select {
-    font-size: 90%;
 }
 
 form textarea {
@@ -619,6 +645,32 @@ form textarea {
     height: 80px;
 }
 
+
+select {
+    font-size: 90%;
+}
+
+
+select.unidades {
+	display: block;
+	width: 40%;
+	margin: 0;
+	padding: 0.6em 1.4em 0.5em 0.8em;
+	font-weight: bold;
+	color: rgb(68, 68, 68);
+	line-height: 1.3;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	box-sizing: border-box;
+	border-radius: 5px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: white;
+	background-image: linear-gradient(to bottom, #ffffff 0%,rgb(220, 220, 220) 100%);
+}
+select.unidades option {
+    font-weight: normal;
+}
 
 
 table {

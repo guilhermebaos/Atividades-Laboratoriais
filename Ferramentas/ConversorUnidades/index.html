@@ -27,7 +27,23 @@
         </header>
         
         <section>
-            
+            <h2 class="topico">Escolhe a Grandeza</h2>
+            <p class="nota">Ordenadas por ordem alfabética.</p>
+            <div class="grandeza-container">
+                <div class="grandeza" onclick="grandeza('area.html')"><div>Área</div></div>
+                <div class="grandeza" onclick="grandeza('comprimento.html')"><div>Comprimento</div></div>
+                <div class="grandeza" onclick="grandeza()"><div>Energia</div></div>
+                <div class="grandeza" onclick="grandeza()"><div>Massa</div></div>
+                <div class="grandeza" onclick="grandeza()"><div>Força</div></div>
+                <div class="grandeza" onclick="grandeza()"><div>Pressão</div></div>
+                <div class="grandeza" onclick="grandeza()"><div>Potência</div></div>
+                <div class="grandeza" onclick="grandeza()"><div>Tempo</div></div>
+                <div class="grandeza" onclick="grandeza()"><div>Volume</div></div>
+            </div>
+
+            <div id="alvo">
+
+            </div>
         </section>
 
         <button id="para-o-topo" onclick="paraOTopo()">&uparrow;</button>
@@ -39,6 +55,7 @@
         incluirHTML()
     </script>
     <script src="../../../JS/para-o-topo.js"></script>
+    <script src="JS/conversor.js"></script>
     <script src="https://www.statcounter.com/counter/counter.js" async></script>
     <noscript><div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12454038/0/b1e05410/1/" alt="Web Analytics"></a></div></noscript>
 </body>
