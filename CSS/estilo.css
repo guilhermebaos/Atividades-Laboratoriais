@@ -634,6 +634,12 @@ div.grandeza > div {
     font-weight: bold;
 }
 
+@media screen and (max-width: 600px) {
+    div.grandeza {
+        width: 100%;
+    }
+}
+
 
 form {
     font-size: 110%;
@@ -649,15 +655,20 @@ form textarea {
 select {
     font-size: 90%;
 }
+select:hover {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
 
 
 select.unidades {
-	display: block;
-	width: 40%;
+    display: inline;
+	width: 50%;
 	margin: 0;
 	padding: 0.6em 1.4em 0.5em 0.8em;
 	font-weight: bold;
-	color: rgb(68, 68, 68);
+    font-size: 1em;
+    color: black;
 	line-height: 1.3;
 	border: 1px solid #aaa;
 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
@@ -668,10 +679,13 @@ select.unidades {
 	background-color: white;
 	background-image: linear-gradient(to bottom, #ffffff 0%,rgb(220, 220, 220) 100%);
 }
+select.unidades:hover {
+    cursor: pointer;
+}
+
 select.unidades option {
     font-weight: normal;
 }
-
 
 table {
     padding: 0px;
@@ -797,11 +811,25 @@ input.slider::-moz-range-thumb {
     cursor: pointer;
 }
 
-
-select:hover {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
+input.converter {
+    display: inline;
+	width: 20%;
+	margin: 0px 2px 0px 0px;
+	padding: 0.4em 1.0em 0.4em 0.6em;
+	font-weight: bold;
+    font-size: 1em;
+    color: black;
+	line-height: 1.3;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	box-sizing: border-box;
+	border-radius: 5px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-color: white;
+	background-image: linear-gradient(to bottom, #ffffff 0%,rgb(220, 220, 220) 100%);
 }
+
 
 
 button {

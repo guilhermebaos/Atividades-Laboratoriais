@@ -1,1 +1,54 @@
-<h2 class="topico">Área</h2>
+<h2 class="topico">Conversor de Unidades de Área</h2>
+<h3 class="sub-topico">Escolhe as Unidades</h3>
+<p>
+    Converter de:
+    <select id="converterDe" name="converterDe" class="unidades">
+        <optgroup label="Múltiplos e Submúltiplos do Metro">
+            <option value="mm">Milímetro quadrado (mm²)</option>
+            <option value="cm">Centímetro quadrado (cm²)</option>
+            <option value="dm">Decímetro quadrado (dm²)</option>
+            <option value="1" selected>Metro quadrado (m²)</option>
+            <option value="dam">Decâmetro quadrado (dam²)</option>
+            <option value="hm">Hectómetro quadrado (hm²)</option>
+            <option value="km">Kilómetro quadrado (km²)</option>
+        </optgroup>
+        <optgroup label="Múltiplos e Submúltiplos do Metro">
+            <option value="in">Polegada quadrada (in²)</option>
+            <option value="ft">Pé quadrado (ft²)</option>
+        </optgroup>
+    </select>
+</p>
+<p>
+    Para:
+    <select id="converterPara" name="converterPara" class="unidades">
+        <optgroup label="Múltiplos e Submúltiplos do Metro">
+            <option value="mm">Milímetro quadrado (mm²)</option>
+            <option value="cm" selected>Centímetro quadrado (cm²)</option>
+            <option value="dm">Decímetro quadrado (dm²)</option>
+            <option value="1">Metro quadrado (m²)</option>
+            <option value="dam">Decâmetro quadrado (dam²)</option>
+            <option value="hm">Hectómetro quadrado (hm²)</option>
+            <option value="km">Kilómetro quadrado (km²)</option>
+        </optgroup>
+        <optgroup label="Sistema Imperial">
+            <option value="in">Polegada quadrada (in²)</option>
+            <option value="ft">Pé quadrado (ft²)</option>
+        </optgroup>
+    </select>
+</p>
+
+<h3 class="sub-topico">Insere o Valor a Converter</h3>
+<p>
+    <input type="number" id="converterNum" name="converterNum" class="converter"><span id="unidadesDe">m</span><sup>2</sup> &equals;
+    <input type="number" id="converterResultado" name="converterResultado" class="converter"></span><span id="unidadesPara">cm</span><sup>2</sup>
+</p>
+
+<h3 class="sub-topico">Vê a Explicação</h3>
+<ol>
+    <li>
+        Converter de <span name="unidadesDeExtenso">Metros</span> para <span name="unidadesParaExtenso">Centímetros</span>: Multiplicar por <span name="razao" class="serif">100</span>
+    </li>
+    <li>
+        Converter de <span name="unidadesDeExtenso">Metros</span> <span name="unidadesDeGenero">Quadrados</span> para <span name="unidadesParaExtenso">Centímetros</span> <span name="unidadesParaGenero">Quadrados</span>: Multiplicar por <span class="serif"><span name="razao" >100</span><sup>2</sup> &equals; <span name="razaoQuadrado">10000</span></span>
+    </li>
+</ol>
