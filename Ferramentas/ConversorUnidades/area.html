@@ -67,8 +67,8 @@
             
             <h2 class="topico">Insere o Valor a Converter</h3>
             <p>
-                <input type="number" id="converterNum" name="converterNum" class="converter" onchange="area()"><span name="unidadesDe">m</span><sup>2</sup> &equals;
-                <input type="number" id="converterResultado" name="converterResultado" class="converter" onchange="area()"><span name="unidadesPara">cm</span><sup>2</sup>
+                <input type="number" id="converterNum" name="converterNum" class="converter" oninput="area()" value=0><span name="unidadesDe">m</span><sup>2</sup> &equals;
+                <input type="number" id="converterResultado" name="converterResultado" class="converter" oninput="area(false, true)" value=0><span name="unidadesPara">cm</span><sup>2</sup>
             </p>
             
             <h2 class="topico">Vê a Explicação</h3>
@@ -92,6 +92,7 @@
     </script>
     <script src="../../../JS/para-o-topo.js"></script>
     <script src="JS/conversor.js"></script>
+    <script>area(true)</script>
     <script src="https://www.statcounter.com/counter/counter.js" async></script>
     <noscript><div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12454038/0/b1e05410/1/" alt="Web Analytics"></a></div></noscript>
 </body>

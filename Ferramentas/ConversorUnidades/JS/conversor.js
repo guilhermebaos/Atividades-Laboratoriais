@@ -55,6 +55,9 @@ const razao1 = document.getElementsByName('razao1')
 const razaoQuadrado1 = document.getElementsByName('razaoQuadrado1')
 
 
+// Razão da Conversão
+let r
+
 
 
 // Selecionar a Grandeza
@@ -71,26 +74,33 @@ function textoArr(arr=[], texto='Erro') {
 
 // Converter base 10 de JS para HTML
 function base10HTML(num=1) {
-    if (!Number.isInteger(num)) num = removerDigitos(num)
+    num = removerDigitos(num)
     if (num > 1e3 || num < 1e-03) {
         let base = String(num.toExponential()).split(/e/)
         base[1] = base[1].replace('+', '')
         base[1] = base[1].replace('-', '&minus;')
+
+        if (base[0].length > 6) base[0] = String(Number(base[0]).toFixed(4))
+
         return `${base[0]} &times; 10<sup>${base[1]}</sup>`
     }
-    return String(num)
+    num = String(num)
+    if (num.length > 6) num = String(Number(num).toFixed(4))
+
+    return num
 }
 
 // Remover digitos a mais, criados por imprecisões
 function removerDigitos(num=1) {
+    if (Number.isInteger(num)) return num
     let numStr = String(num)
     let erros = ['0000', '9999']
     for (let i in erros) {
         let teste = erros[i]
         let fimPrecisao = numStr.indexOf(teste)
         if (fimPrecisao != -1) {
-            num = Number(numStr).toPrecision(fimPrecisao - 2)
-            return num
+            num = Number(numStr).toPrecision(fimPrecisao - 1)
+            return Number(num)
         }
     }
     return num
@@ -98,7 +108,7 @@ function removerDigitos(num=1) {
 
 
 // Converter Áreas
-function area(novasUnidades=false) {
+function area(novasUnidades=false, inverterConversao=false) {
     if (novasUnidades) {
         // Obter as Unidades
         let uDe = converterDe.value
@@ -123,11 +133,15 @@ function area(novasUnidades=false) {
         let valorDe = comprimentos[uDe]
         let valorPara = comprimentos[uPara]
 
-        let r = valorDe / valorPara
+        r = valorDe / valorPara
 
         textoArr(razao1, base10HTML(r))
         textoArr(razaoQuadrado1, base10HTML(r**2))
     }
 
-    
+    if (inverterConversao) {
+        converterNum.value = removerDigitos(converterResultado.value * (1/r))
+        return
+    }
+    converterResultado.value = removerDigitos(converterNum.value * r)
 }
