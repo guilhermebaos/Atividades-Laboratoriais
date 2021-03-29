@@ -55,10 +55,6 @@ const razao1 = document.getElementsByName('razao1')
 const razaoQuadrado1 = document.getElementsByName('razaoQuadrado1')
 
 
-// Razão da Conversão
-let r
-
-
 
 // Selecionar a Grandeza
 function grandeza(nomeFicheiro='') {
@@ -72,9 +68,26 @@ function textoArr(arr=[], texto='Erro') {
     arr.forEach(e => e.innerHTML = texto)
 }
 
-// Converter base 10 de JS para HTML
+
+// Converter de Exponencial para Decimal
+function expToDec(num) {
+    let numStr = String(num)
+    let numArr = numStr.split('e')
+    let numDp = !!(Number(numArr[0]) % 1) ? (numArr[0].length - numStr.indexOf('.') - 1) : 0
+    if (numArr.length == 2) {
+        if (numArr[1] < 0) {
+            numStr = num.toFixed(Math.abs(numArr[1]) + numDp)
+            return numStr
+        }
+        numStr = num.toFixed(numDp)
+        return numStr
+    }
+    return numStr
+}
+
+// Converter para notação científica em HTML
 function base10HTML(num=1) {
-    num = removerDigitos(num)
+    num = Number(num)
     if (num > 1e3 || num < 1e-03) {
         let base = String(num.toExponential()).split(/e/)
         base[1] = base[1].replace('+', '')
@@ -88,60 +101,4 @@ function base10HTML(num=1) {
     if (num.length > 6) num = String(Number(num).toFixed(4))
 
     return num
-}
-
-// Remover digitos a mais, criados por imprecisões
-function removerDigitos(num=1) {
-    if (Number.isInteger(num)) return num
-    let numStr = String(num)
-    let erros = ['0000', '9999']
-    for (let i in erros) {
-        let teste = erros[i]
-        let fimPrecisao = numStr.indexOf(teste)
-        if (fimPrecisao != -1) {
-            num = Number(numStr).toPrecision(fimPrecisao - 1)
-            return Number(num)
-        }
-    }
-    return num
-}
-
-
-// Converter Áreas
-function area(novasUnidades=false, inverterConversao=false) {
-    if (novasUnidades) {
-        // Obter as Unidades
-        let uDe = converterDe.value
-        let uPara = converterPara.value
-
-        // Escrever o símbolo das unidades
-        textoArr(unidadesDe, uDe)
-        textoArr(unidadesPara, uPara)
-        
-        // Escrever o nome das unidades por extenso
-        textoArr(unidadesDeExtenso, comprimentosNomes[uDe])
-        textoArr(unidadesParaExtenso, comprimentosNomes[uPara])
-        
-        // Escrever quadrad@, dependendo se é feminino ou masculino
-        let letra = uDe == 'in' ? 'a' :  'o'
-        textoArr(unidadesDeGenero, letra)
-        
-        letra = uPara == 'in' ? 'a' :  'o'
-        textoArr(unidadesParaGenero, letra)
-
-        // Escrever as razões
-        let valorDe = comprimentos[uDe]
-        let valorPara = comprimentos[uPara]
-
-        r = valorDe / valorPara
-
-        textoArr(razao1, base10HTML(r))
-        textoArr(razaoQuadrado1, base10HTML(r**2))
-    }
-
-    if (inverterConversao) {
-        converterNum.value = removerDigitos(converterResultado.value * (1/r))
-        return
-    }
-    converterResultado.value = removerDigitos(converterNum.value * r)
 }
