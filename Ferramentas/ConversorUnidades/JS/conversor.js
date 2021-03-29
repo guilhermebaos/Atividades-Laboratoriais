@@ -34,6 +34,45 @@ const comprimentosNomes = {
     'ft': 'Pé'
 }
 
+const energias = {
+  'mJ': 0.001,
+  'J': 1,
+  'kJ': 1000,
+  'MJ': 1e06,
+  'GJ': 1e09,
+  'TJ': 1e12,
+  'Ws': 1,
+  'kWh': 3.6e06
+}
+const energiasNomes = {
+  'mJ': 'Milijoule',
+  'J': 'Joule',
+  'kJ': 'Kilojoule',
+  'MJ': 'Megajoule',
+  'GJ': 'Gigajoule',
+  'TJ': 'Terajoule',
+  'Ws': 'Watt segundo',
+  'kWh': 'Kilowatt hora'
+}
+
+const potencias = {
+  'W': 1,
+  'kW': 1000
+}
+const potenciasNomes = {
+  'W': 'Watt',
+  'kW': 'kilowatt'
+}
+
+const tempos = {
+  's': 1,
+  'h': 3600
+}
+const temposNomes = {
+  's': 'Segundo',
+  'h': 'Hora'
+}
+
 
 // HTML Constante
 const converterDe = document.getElementById('converterDe')
