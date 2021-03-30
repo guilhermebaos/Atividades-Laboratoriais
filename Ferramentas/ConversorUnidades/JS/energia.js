@@ -53,7 +53,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
             textoArr(razaoPot, base10HTML(rPot))
             textoArr(razaoTempo, base10HTML(rTempo))
 
-            explicacao[1].style.display = 'initial'
+            explicacao[1].style.display = 'block'
 
         } else if (potDe) {
             potPara = new BigNumber(1)
@@ -65,7 +65,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
             textoArr(razaoPot, base10HTML(rPot))
             textoArr(razaoTempo, base10HTML(rTempo))
 
-            explicacao[3].style.display = 'initial'
+            explicacao[3].style.display = 'block'
 
         } else if (potPara) {
             potDe = new BigNumber(1)
@@ -77,10 +77,10 @@ function energia(novasUnidades=false, inverterConversao=false) {
             textoArr(razaoPot, base10HTML(rPot))
             textoArr(razaoTempo, base10HTML(rTempo))
 
-            explicacao[2].style.display = 'initial'
+            explicacao[2].style.display = 'block'
 
         } else {
-            explicacao[0].style.display = 'initial'
+            explicacao[0].style.display = 'block'
         }
 
 

@@ -42,7 +42,9 @@ const energias = {
   'GJ': 1e09,
   'TJ': 1e12,
   'Ws': 1,
-  'kWh': 3.6e06
+  'kWh': 3.6e06,
+  'cal': 4.184,
+  'kcal': 4184
 }
 const energiasNomes = {
   'mJ': 'Milijoule',
@@ -52,7 +54,9 @@ const energiasNomes = {
   'GJ': 'Gigajoule',
   'TJ': 'Terajoule',
   'Ws': 'Watt segundo',
-  'kWh': 'Kilowatt hora'
+  'kWh': 'Kilowatt hora',
+  'cal': 'Caloria',
+  'kcal': 'Kilocaloria'
 }
 
 const potencias = {
@@ -127,7 +131,7 @@ function expToDec(num) {
 // Converter para notação científica em HTML
 function base10HTML(num=1) {
     num = Number(num)
-    if (num > 1e3 || num < 1e-03) {
+    if (num > 4e3 || num < 4e-03) {
         let base = String(num.toExponential()).split(/e/)
         base[1] = base[1].replace('+', '')
         base[1] = base[1].replace('-', '&minus;')
