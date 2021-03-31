@@ -65,7 +65,7 @@ const potencias = {
 }
 const potenciasNomes = {
   'W': 'Watt',
-  'kW': 'kilowatt'
+  'kW': 'Kilowatt'
 }
 
 const tempos = {
@@ -131,7 +131,7 @@ function expToDec(num) {
 // Converter para notação científica em HTML
 function base10HTML(num=1) {
     num = Number(num)
-    if (num > 4e3 || num < 4e-03) {
+    if (num > 4e3 || num < 4e-04) {
         let base = String(num.toExponential()).split(/e/)
         base[1] = base[1].replace('+', '')
         base[1] = base[1].replace('-', '&minus;')

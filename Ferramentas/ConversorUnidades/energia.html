@@ -33,7 +33,7 @@
                 <select id="converterDe" name="converterDe" class="unidades" onchange="energia(true)">
                     <optgroup label="Múltiplos e Submúltiplos do Joule">
                         <option value="mJ">Milijoule (mJ)</option>
-                        <option value="J" selected>Joule (J)</option>
+                        <option value="J">Joule (J)</option>
                         <option value="kJ">Kilojoule (kJ)</option>
                         <option value="MJ">Megajoule (MJ)</option>
                         <option value="GJ">Gigajoule (GJ)</option>
@@ -41,11 +41,11 @@
                     </optgroup>
                     <optgroup label="Potência X Energia">
                         <option value="Ws">Watt segundo (Ws)</option>
-                        <option value="kWh">Kilowatt hora (kWh)</option>
+                        <option value="kWh" selected>Kilowatt hora (kWh)</option>
                     </optgroup>
                     <optgroup label="Múltiplos da Caloria">
-                        <option value="cal">Caloria</option>
-                        <option value="kcal">Kilocaloria</option>
+                        <option value="cal">Caloria (cal)</option>
+                        <option value="kcal">Kilocaloria (kcal)</option>
                     </optgroup>
                 </select>
             </p>
@@ -55,18 +55,18 @@
                     <optgroup label="Múltiplos e Submúltiplos do Joule">
                         <option value="mJ">Milijoule (mJ)</option>
                         <option value="J">Joule (J)</option>
-                        <option value="kJ">Kilojoule (kJ)</option>
+                        <option value="kJ" selected>Kilojoule (kJ)</option>
                         <option value="MJ">Megajoule (MJ)</option>
                         <option value="GJ">Gigajoule (GJ)</option>
                         <option value="TJ">Terajoule (TJ)</option>
                     </optgroup>
                     <optgroup label="Potência X Energia">
-                        <option value="Ws" selected>Watt segundo (Ws)</option>
+                        <option value="Ws">Watt segundo (Ws)</option>
                         <option value="kWh">Kilowatt hora (kWh)</option>
                     </optgroup>
                     <optgroup label="Múltiplos da Caloria">
-                        <option value="cal">Caloria</option>
-                        <option value="kcal">Kilocaloria</option>
+                        <option value="cal">Caloria (cal)</option>
+                        <option value="kcal">Kilocaloria (kcal)</option>
                     </optgroup>
                 </select>
             </p>
@@ -78,12 +78,12 @@
             </p>
             
             <h2 class="topico">Vê a Explicação</h3>
-            <ol name='explicação'>
+            <ol name="explicação" class="explicar">
                 <li>
                     Converter de <span name="unidadesDeExtenso">Joule</span> para <span name="unidadesParaExtenso">Kilojoule</span>: Multiplicar por <span name="razao1" class="serif">0.001</span>
                 </li>
             </ol>
-            <ol name='explicação'>
+            <ol name="explicação" class="explicar">
                 <li>
                     Converter de <span name="unidadesDeExtensoPot">Watt</span> para <span name="unidadesParaExtensoPot">Kilowatt</span>: Multiplicar por <span name="razaoPot" class="serif">0.001</span>
                 </li>
@@ -91,10 +91,10 @@
                     Converter de <span name="unidadesDeExtensoTempo">Segundo</span> para <span name="unidadesParaExtensoPot">Hora</span>: Multiplicar por <span name="razaoTempo" class="serif">3600</span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Watt segundo</span> para <span name="unidadesParaExtenso">Kilowatt Hora</span>: Multiplicar por <span class="serif"><span name="razaoParaJoule"></span> &times; <span name="razaoPot"></span> &div; <span name="razaoTempo"></span> &equals; <span name='razao1'></span></span>
+                    Converter de <span name="unidadesDeExtenso">Watt segundo</span> para <span name="unidadesParaExtenso">Kilowatt Hora</span>: Multiplicar por <span class="serif-grande"><span name="razaoParaJoule"></span> &times; <span name="razaoPot"></span> &times; <span name="razaoTempo"></span> &equals; <span name='razao1'></span></span>
                 </li>
             </ol>
-            <ol name='explicação'>
+            <ol name="explicação" class="explicar">
                 <li>
                     Converter de <span name="unidadesDeExtenso">Joule</span> para Joule: Multiplicar por <span name="razaoEnergia" class="serif">1</span>
                 </li>
@@ -106,10 +106,10 @@
                     Converter de Segundo para <span name="unidadesParaExtensoTempo">Hora</span>: Multiplicar por <span name="razaoTempo" class="serif">3600</span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Joule</span> para <span name="unidadesParaExtenso">Kilowatt Hora</span>: Multiplicar por <span class="serif"><span name="razaoEnergia">1</span> &times; <span name="razaoPot">0.001</span> &div; <span name="razaoTempo">3600</span> &equals; <span name='razao1'></span></span>
+                    Converter de <span name="unidadesDeExtenso">Joule</span> para <span name="unidadesParaExtenso">Kilowatt Hora</span>: Multiplicar por <span class="serif-grande"><span name="razaoEnergia">1</span> &times; <span name="razaoPot">0.001</span> &times; <span name="razaoTempo">3600</span> &equals; <span name='razao1'></span></span>
                 </li>
             </ol>
-            <ol name='explicação'>
+            <ol name="explicação" class="explicar">
                 <li>
                     Converter de <span name="unidadesDeExtensoPot">Kilowatt</span> para Watt: Multiplicar por <span name="razaoPot" class="serif">1000</span>
                 </li>
@@ -121,13 +121,13 @@
                     Converter de Joule para <span name="unidadesParaExtenso">Joule</span>: Multiplicar por <span name="razaoEnergia" class="serif">1</span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Killowatt hora</span> para <span name="unidadesParaExtenso">Joule</span>: Multiplicar por <span class="serif"><span name="razaoPot">1000</span> &times; <span name="razaoTempo">3600</span> &times; <span name="razaoEnergia">1</span> &equals; <span name='razao1'></span></span>
+                    Converter de <span name="unidadesDeExtenso">Killowatt hora</span> para <span name="unidadesParaExtenso">Joule</span>: Multiplicar por <span class="serif-grande"><span name="razaoPot">1000</span> &times; <span name="razaoTempo">3600</span> &times; <span name="razaoEnergia">1</span> &equals; <span name='razao1'></span></span>
                 </li>
             </ol>
             <h3 class="sub-topico">Igualdades Importantes</h3>
-            <ul>
-                <li><span class="serif">J &equals; Ws</span></li>
-                <li><span class="serif">1Kwh &equals; 3.6 &times; 10<sup>6</sup></span>J</li>
+            <ul class="teoria explicar">
+                <li><span class="serif">1 J &equals; 1 Ws</span></li>
+                <li><span class="serif">1kWh &equals; 3.6 &times; 10<sup class="sem-altura">6</sup>J</span></li>
                 <li><span class="serif">1cal &equals; 4.184J</span></li>
             </ul>
         </section>

@@ -43,6 +43,11 @@ header {
         }
     .mobile-only {display: none !important;}
     .pc-only {display: inherit;}
+    .serif-grande {
+        font-family: serif;
+        font-size: 110%;
+        white-space: nowrap;
+    }
 }
 @media screen and (max-width: 600px) {
     main {
@@ -57,6 +62,11 @@ header {
 
     div.contas {
         overflow-x: scroll !important;
+    }
+    .serif-grande {
+        font-family: serif;
+        font-size: 110%;
+        white-space: wrap;
     }
 }
 
@@ -1069,6 +1079,14 @@ ol.procedimento {
 }
 ol.procedimento li {
     margin-top: 10px;
+}
+
+ol.explicar li {
+    margin-top: 7px;
+}
+
+.explicar li sup {
+    line-height: 0;
 }
 
 dl > dt {

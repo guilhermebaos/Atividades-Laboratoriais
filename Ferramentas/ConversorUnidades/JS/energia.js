@@ -20,7 +20,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
         let uDe = converterDe.value
         let uPara = converterPara.value
 
-        let uDePot, uDeTempo, potDe, tempoDe
+        let uDePot, uDeTempo, potDe, tempoDe, energiaDe
         let uDeDividido = uDe.split('W')
         if (uDeDividido.length == 2) {
             uDePot = uDeDividido[0] + 'W'
@@ -33,7 +33,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
             textoArr(unidadesDeExtensoTempo, temposNomes[uDeTempo])
         }
 
-        let uParaPot, uParaTempo, potPara, tempoPara
+        let uParaPot, uParaTempo, potPara, tempoPara, energiaPara
         let uParaDividido = uPara.split('W')
         if (uParaDividido.length == 2) {
             uParaPot = uParaDividido[0] + 'W'
@@ -56,26 +56,36 @@ function energia(novasUnidades=false, inverterConversao=false) {
             explicacao[1].style.display = 'block'
 
         } else if (potDe) {
+            energiaPara = new BigNumber(energias[uPara])
+
             potPara = new BigNumber(1)
             tempoPara = new BigNumber(1)
+            energiaDe = new BigNumber(1)
 
             let rPot = potDe.dividedBy(potPara)
             let rTempo = tempoDe.dividedBy(tempoPara)
+            let rEnergia = energiaDe.dividedBy(energiaPara)
 
             textoArr(razaoPot, base10HTML(rPot))
             textoArr(razaoTempo, base10HTML(rTempo))
+            textoArr(razaoEnergia, base10HTML(rEnergia))
 
             explicacao[3].style.display = 'block'
 
         } else if (potPara) {
+            energiaDe = new BigNumber(energias[uDe])
+
             potDe = new BigNumber(1)
             tempoDe = new BigNumber(1)
+            energiaPara = new BigNumber(1)
 
             let rPot = potDe.dividedBy(potPara)
             let rTempo = tempoDe.dividedBy(tempoPara)
+            let rEnergia = energiaDe.dividedBy(energiaPara)
 
             textoArr(razaoPot, base10HTML(rPot))
             textoArr(razaoTempo, base10HTML(rTempo))
+            textoArr(razaoEnergia, base10HTML(rEnergia))
 
             explicacao[2].style.display = 'block'
 
