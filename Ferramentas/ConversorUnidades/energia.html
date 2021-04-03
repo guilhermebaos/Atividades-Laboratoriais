@@ -124,9 +124,27 @@
                     Converter de <span name="unidadesDeExtenso">Killowatt hora</span> para <span name="unidadesParaExtenso">Joule</span>: Multiplicar por <span class="serif-grande"><span name="razaoPot">1000</span> &times; <span name="razaoTempo">3600</span> &times; <span name="razaoEnergia">1</span> &equals; <span name='razao1'></span></span>
                 </li>
             </ol>
+            <ol name="explicação" class="explicar">
+                <li>Joule &equals; Watt segundo</li>
+            </ol>
             <h3 class="sub-topico">Igualdades Importantes</h3>
             <ul class="teoria explicar">
-                <li><span class="serif">1 J &equals; 1 Ws</span></li>
+                <li>
+                    <span class="serif">1 J &equals; 1 Ws</span> (<span class="anchor" onclick="mostrarExtra('Porquê?')">Porquê?</span>)
+                </li>
+                <div id="Porquê?" class="explicar"><button class="fechar" onclick="mostrarExtra('Porquê?')">X</button>
+                    <h4 class="explicar">Porquê?</h4>
+                    <p>Pela fórmula da Potência:</p>
+                    <div class="contas">
+                        <span class="invi">&hArr;</span> P &equals; <div class="frac"><span>E</span><span class="denom">&Delta;t</span></div> &hArr; <br>
+                        &hArr; P &times; &Delta;t &equals; E
+                    </div>
+                    <p>Logo, substituindo pelas unidades do SI:</p>
+                    <div class="contas">
+                        <span class="invi">&hArr;</span> W &times; s &equals; J
+                    </div>
+                    <p>Ou seja, Watt segundo é exatamente igual a Joule.</p>
+                </div>
                 <li><span class="serif">1kWh &equals; 3.6 &times; 10<sup class="sem-altura">6</sup>J</span></li>
                 <li><span class="serif">1cal &equals; 4.184J</span></li>
             </ul>

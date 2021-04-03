@@ -46,7 +46,9 @@ function energia(novasUnidades=false, inverterConversao=false) {
             textoArr(unidadesParaExtensoTempo, temposNomes[uParaTempo])
         }
 
-        if (potDe && potPara) {
+        if ((uDe == 'J' && uPara == 'Ws') || (uDe == 'Ws' && uPara == 'J')) {
+            explicacao[4].style.display = 'block'
+        } else if (potDe && potPara) {
             let rPot = potDe.dividedBy(potPara)
             let rTempo = tempoDe.dividedBy(tempoPara)
 
