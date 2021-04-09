@@ -12,7 +12,7 @@ const razaoTempo = document.getElementsByName('razaoTempo')
 
 let r, rInv
 // Converter Energias
-function energia(novasUnidades=false, inverterConversao=false) {
+function potencia(novasUnidades=false, inverterConversao=false) {
     if (novasUnidades) {
         explicacao.forEach(e => e.style.display = 'none')
 
@@ -20,6 +20,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
         let uDe = converterDe.value
         let uPara = converterPara.value
 
+        /*
         let uDePot, uDeTempo, potDe, tempoDe, energiaDe
         let uDeDividido = uDe.split('W')
         if (uDeDividido.length == 2) {
@@ -58,7 +59,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
             explicacao[1].style.display = 'block'
 
         } else if (potDe) {
-            energiaPara = new BigNumber(energias[uPara])
+            energiaPara = new BigNumber(potencias[uPara])
 
             potPara = new BigNumber(1)
             tempoPara = new BigNumber(1)
@@ -75,7 +76,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
             explicacao[3].style.display = 'block'
 
         } else if (potPara) {
-            energiaDe = new BigNumber(energias[uDe])
+            energiaDe = new BigNumber(potencias[uDe])
 
             potDe = new BigNumber(1)
             tempoDe = new BigNumber(1)
@@ -94,6 +95,7 @@ function energia(novasUnidades=false, inverterConversao=false) {
         } else {
             explicacao[0].style.display = 'block'
         }
+        */
 
 
         // Escrever o símbolo das unidades
@@ -101,15 +103,15 @@ function energia(novasUnidades=false, inverterConversao=false) {
         textoArr(unidadesPara, uPara)
         
         // Escrever o nome das unidades por extenso
-        textoArr(unidadesDeExtenso, energiasNomes[uDe])
-        textoArr(unidadesParaExtenso, energiasNomes[uPara])
+        textoArr(unidadesDeExtenso, potenciasNomes[uDe])
+        textoArr(unidadesParaExtenso, potenciasNomes[uPara])
 
         // Escrever as razões
-        let valorDe = new BigNumber(energias[uDe])
-        let valorPara = new BigNumber(energias[uPara])
+        let valorDe = new BigNumber(potencias[uDe])
+        let valorPara = new BigNumber(potencias[uPara])
 
-        r = valorDe.dividedBy(valorPara) * 1
-        rInv = valorPara.dividedBy(valorDe) * 1
+        r = valorDe.dividedBy(valorPara)
+        rInv = valorPara.dividedBy(valorDe)
 
         textoArr(razao1, base10HTML(r))
     }

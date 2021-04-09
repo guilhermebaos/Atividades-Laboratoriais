@@ -60,12 +60,28 @@ const energiasNomes = {
 }
 
 const potencias = {
+  'mW': 0.001,
   'W': 1,
-  'kW': 1000
+  'kW': 1000,
+  'MW': 1e06,
+  'GW': 1e09,
+  'TW': 1e12,
+  'J/s': 1,
+  'J/h': new BigNumber(1).dividedBy(new BigNumber(3600)),
+  'kJ/s': 1000,
+  'kJ/h': new BigNumber(1000).dividedBy(new BigNumber(3600)),
 }
 const potenciasNomes = {
+  'mW': 'Miliwatt',
   'W': 'Watt',
-  'kW': 'Kilowatt'
+  'kW': 'Kilowatt',
+  'MW': 'Megawatt',
+  'GW': 'Gigawatt',
+  'TW': 'Terawatt',
+  'J/s': 'Joule por segundo',
+  'J/h': 'Joule por hora',
+  'kJ/s': 'Kilojoule por segundo',
+  'kJ/h': 'Kilojould por hora',
 }
 
 const tempos = {

@@ -37,8 +37,8 @@ function area(novasUnidades=false, inverterConversao=false) {
     }
 
     if (inverterConversao) {
-        converterNum.value = expToDec(new BigNumber(converterResultado.value).times(rInv))
+        converterNum.value = expToDec(new BigNumber(converterResultado.value).times(rInv)) * 1
         return
     }
-    converterResultado.value = expToDec(new BigNumber(converterNum.value).times(r))
+    converterResultado.value = expToDec(new BigNumber(converterNum.value).times(r)) * 1
 }

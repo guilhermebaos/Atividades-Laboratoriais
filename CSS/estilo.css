@@ -650,6 +650,11 @@ div.grandeza > div {
     }
 }
 
+div.grandeza a {
+    color: var(--simulaFQ-azul-escuro);
+    text-decoration: none;
+}
+
 
 form {
     font-size: 110%;
