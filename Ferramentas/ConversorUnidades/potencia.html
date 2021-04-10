@@ -42,8 +42,8 @@
                     <optgroup label="Energia / Tempo">
                         <option value="J/s">Joule por segundo (J/s)</option>
                         <option value="J/h">Joule por hora (J/h)</option>
-                        <option value="kJ/s">Killojoule por segundo (kJ/s)</option>
-                        <option value="kJ/h">Killojoule por hora (kJ/h)</option>
+                        <option value="kJ/s">Kilojoule por segundo (kJ/s)</option>
+                        <option value="kJ/h">Kilojoule por hora (kJ/h)</option>
                     </optgroup>
                 </select>
             </p>
@@ -61,8 +61,8 @@
                     <optgroup label="Energia / Tempo">
                         <option value="J/s">Joule por segundo (J/s)</option>
                         <option value="J/h">Joule por hora (J/h)</option>
-                        <option value="kJ/s">Killojoule por segundo (kJ/s)</option>
-                        <option value="kJ/h">Killojoule por hora (kJ/h)</option>
+                        <option value="kJ/s">Kilojoule por segundo (kJ/s)</option>
+                        <option value="kJ/h">Kilojoule por hora (kJ/h)</option>
                     </optgroup>
                 </select>
                 </select>
@@ -77,52 +77,52 @@
             <h2 class="topico">Vê a Explicação</h3>
             <ol name="explicação" class="explicar">
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Joule</span> para <span name="unidadesParaExtenso">Kilojoule</span>: Multiplicar por <span name="razao1" class="serif">0.001</span>
+                    Converter de <span name="unidadesDeExtenso">Kilowatt</span> para <span name="unidadesParaExtenso">Watt</span>: Multiplicar por <span name="razao1" class="serif">1000</span>
                 </li>
             </ol>
             <ol name="explicação" class="explicar">
                 <li>
-                    Converter de <span name="unidadesDeExtensoPot">Watt</span> para <span name="unidadesParaExtensoPot">Kilowatt</span>: Multiplicar por <span name="razaoPot" class="serif">0.001</span>
+                    Converter de <span name="unidadesDeExtensoEne">Kilojoule</span> para <span name="unidadesParaExtensoEne">Joule</span>: Multiplicar por <span name="razaoEne" class="serif">1000</span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtensoTempo">Segundo</span> para <span name="unidadesParaExtensoPot">Hora</span>: Multiplicar por <span name="razaoTempo" class="serif">3600</span>
+                    Converter de <span name="unidadesDeExtensoTempo">Hora</span><sup>&minus;1</sup> para <span name="unidadesParaExtensoTempo">Segundo</span><sup>&minus;1</sup>: Multiplicar por <span name="razaoTempo" class="serif">2.778 &times; 10<sup>4</sup></span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Watt segundo</span> para <span name="unidadesParaExtenso">Kilowatt Hora</span>: Multiplicar por <span class="serif-grande"><span name="razaoParaJoule"></span> &times; <span name="razaoPot"></span> &times; <span name="razaoTempo"></span> &equals; <span name='razao1'></span></span>
+                    Converter de <span name="unidadesDeExtenso">Kilojoule por hora</span> para <span name="unidadesParaExtenso">Joule por segundo</span>: Multiplicar por <span class="serif-grande"><span name="razaoEne">1000</span> &times; <span name="razaoTempo">2.778 &times; 10<sup>4</sup></span> &equals; <span name='razao1'></span></span>
                 </li>
             </ol>
             <ol name="explicação" class="explicar">
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Joule</span> para Joule: Multiplicar por <span name="razaoEnergia" class="serif">1</span>
+                    Converter de <span name="unidadesDeExtenso">Kilowatt</span> para Watt: Multiplicar por <span name="razaoPotencia" class="serif">1000</span>
                 </li>
-                <li>Joule &equals; Watt segundo</li>
+                <li>Watt &equals; Joule por segundo</li>
                 <li>
-                    Converter de Watt para <span name="unidadesParaExtensoPot">Kilowatt</span>: Multiplicar por <span name="razaoPot" class="serif">0.001</span>
-                </li>
-                <li>
-                    Converter de Segundo para <span name="unidadesParaExtensoTempo">Hora</span>: Multiplicar por <span name="razaoTempo" class="serif">3600</span>
+                    Converter de Joule para <span name="unidadesParaExtensoEne">Kilojoule</span>: Multiplicar por <span name="razaoEne" class="serif">0.001</span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Joule</span> para <span name="unidadesParaExtenso">Kilowatt Hora</span>: Multiplicar por <span class="serif-grande"><span name="razaoEnergia">1</span> &times; <span name="razaoPot">0.001</span> &times; <span name="razaoTempo">3600</span> &equals; <span name='razao1'></span></span>
+                    Converter de Segundo<sup>&minus;1</sup> para <span name="unidadesParaExtensoTempo">Hora</span><sup>&minus;1</sup>: Multiplicar por <span name="razaoTempo" class="serif">3600</span>
+                </li>
+                <li>
+                    Converter de <span name="unidadesDeExtenso">Kilowatt</span> para <span name="unidadesParaExtenso">Kilojoule por hora</span>: Multiplicar por <span class="serif-grande"><span name="razaoPotencia">1000</span> &times; <span name="razaoEne">0.001</span> &times; <span name="razaoTempo">3600</span> &equals; <span name='razao1'>3600</span></span>
                 </li>
             </ol>
             <ol name="explicação" class="explicar">
                 <li>
-                    Converter de <span name="unidadesDeExtensoPot">Kilowatt</span> para Watt: Multiplicar por <span name="razaoPot" class="serif">1000</span>
+                    Converter de <span name="unidadesDeExtensoEne">Kilojoule</span> para Joule: Multiplicar por <span name="razaoEne" class="serif">1000</span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtensoTempo">Hora</span> para Segundo: Multiplicar por <span name="razaoTempo" class="serif">3600</span>
+                    Converter de <span name="unidadesDeExtensoTempo">Hora</span><sup>&minus;1</sup> para Segundo<sup>&minus;1</sup>: Multiplicar por <span name="razaoTempo" class="serif">2.778 &times; 10<sup>-4</sup></span>
                 </li>
-                <li>Joule &equals; Watt segundo</li>
+                <li>Joule por segundo &equals; Watt</li>
                 <li>
-                    Converter de Joule para <span name="unidadesParaExtenso">Joule</span>: Multiplicar por <span name="razaoEnergia" class="serif">1</span>
+                    Converter de Watt para <span name="unidadesParaExtenso">Kilowatt</span>: Multiplicar por <span name="razaoPotencia" class="serif">0.001</span>
                 </li>
                 <li>
-                    Converter de <span name="unidadesDeExtenso">Killowatt hora</span> para <span name="unidadesParaExtenso">Joule</span>: Multiplicar por <span class="serif-grande"><span name="razaoPot">1000</span> &times; <span name="razaoTempo">3600</span> &times; <span name="razaoEnergia">1</span> &equals; <span name='razao1'></span></span>
+                    Converter de <span name="unidadesDeExtenso">Kilojoule por hora</span> para <span name="unidadesParaExtenso">Kilowatt</span>: Multiplicar por <span class="serif-grande"><span name="razaoEne">1000</span> &times; <span name="razaoTempo">2.778 &times; 10<sup>-4</sup></span> &times; <span name="razaoPotencia">0.001</span> &equals; <span name='razao1'>2.778 &times; 10<sup>-4</sup></span></span>
                 </li>
             </ol>
             <ol name="explicação" class="explicar">
-                <li>Joule &equals; Watt segundo</li>
+                <li>Watt &equals; Joule por segundo</li>
             </ol>
             <h3 class="sub-topico">Igualdades Importantes</h3>
             <ul class="teoria explicar">

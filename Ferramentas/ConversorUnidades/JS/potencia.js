@@ -1,12 +1,12 @@
 const explicacao = document.getElementsByName('explicação')
 
-const unidadesDeExtensoPot = document.getElementsByName('unidadesDeExtensoPot')
+const unidadesDeExtensoEne = document.getElementsByName('unidadesDeExtensoEne')
 const unidadesDeExtensoTempo = document.getElementsByName('unidadesDeExtensoTempo')
-const unidadesParaExtensoPot = document.getElementsByName('unidadesParaExtensoPot')
+const unidadesParaExtensoEne = document.getElementsByName('unidadesParaExtensoEne')
 const unidadesParaExtensoTempo = document.getElementsByName('unidadesParaExtensoTempo')
 
-const razaoEnergia = document.getElementsByName('razaoEnergia')
-const razaoPot = document.getElementsByName('razaoPot')
+const razaoPotencia = document.getElementsByName('razaoPotencia')
+const razaoEne = document.getElementsByName('razaoEne')
 const razaoTempo = document.getElementsByName('razaoTempo')
 
 
@@ -20,82 +20,80 @@ function potencia(novasUnidades=false, inverterConversao=false) {
         let uDe = converterDe.value
         let uPara = converterPara.value
 
-        /*
-        let uDePot, uDeTempo, potDe, tempoDe, energiaDe
-        let uDeDividido = uDe.split('W')
+        let uDeEne, uDeTempo, eneDe, tempoDe, potenciaDe
+        let uDeDividido = uDe.split('/')
         if (uDeDividido.length == 2) {
-            uDePot = uDeDividido[0] + 'W'
+            uDeEne = uDeDividido[0]
             uDeTempo = uDeDividido[1]
 
-            potDe = new BigNumber(potencias[uDePot])
+            eneDe = new BigNumber(energias[uDeEne])
             tempoDe = new BigNumber(tempos[uDeTempo])
 
-            textoArr(unidadesDeExtensoPot, potenciasNomes[uDePot])
+            textoArr(unidadesDeExtensoEne, energiasNomes[uDeEne])
             textoArr(unidadesDeExtensoTempo, temposNomes[uDeTempo])
         }
 
-        let uParaPot, uParaTempo, potPara, tempoPara, energiaPara
-        let uParaDividido = uPara.split('W')
+        let uParaEne, uParaTempo, enePara, tempoPara, potenciaPara
+        let uParaDividido = uPara.split('/')
         if (uParaDividido.length == 2) {
-            uParaPot = uParaDividido[0] + 'W'
+            uParaEne = uParaDividido[0]
             uParaTempo = uParaDividido[1]
 
-            potPara = new BigNumber(potencias[uParaPot])
+            enePara = new BigNumber(energias[uParaEne])
             tempoPara = new BigNumber(tempos[uParaTempo])
 
-            textoArr(unidadesParaExtensoPot, potenciasNomes[uParaPot])
+            textoArr(unidadesParaExtensoEne, energiasNomes[uParaEne])
             textoArr(unidadesParaExtensoTempo, temposNomes[uParaTempo])
         }
 
-        if ((uDe == 'J' && uPara == 'Ws') || (uDe == 'Ws' && uPara == 'J')) {
+        if ((uDe == 'W' && uPara == 'J/s') || (uDe == 'J/s' && uPara == 'W')) {
             explicacao[4].style.display = 'block'
-        } else if (potDe && potPara) {
-            let rPot = potDe.dividedBy(potPara)
-            let rTempo = tempoDe.dividedBy(tempoPara)
 
-            textoArr(razaoPot, base10HTML(rPot))
+        } else if(eneDe && enePara) {
+            let rEne = eneDe.dividedBy(enePara)
+            let rTempo = tempoDe.dividedBy(tempoPara) ** -1
+
+            textoArr(razaoEne, base10HTML(rEne))
             textoArr(razaoTempo, base10HTML(rTempo))
 
             explicacao[1].style.display = 'block'
 
-        } else if (potDe) {
-            energiaPara = new BigNumber(potencias[uPara])
+        } else if (eneDe) {
+            potenciaPara = new BigNumber(potencias[uPara])
 
-            potPara = new BigNumber(1)
+            enePara = new BigNumber(1)
             tempoPara = new BigNumber(1)
-            energiaDe = new BigNumber(1)
+            potenciaDe = new BigNumber(1)
 
-            let rPot = potDe.dividedBy(potPara)
-            let rTempo = tempoDe.dividedBy(tempoPara)
-            let rEnergia = energiaDe.dividedBy(energiaPara)
+            let rEne = eneDe.dividedBy(enePara)
+            let rTempo = tempoDe.dividedBy(tempoPara) ** -1
+            let rPotencia = potenciaDe.dividedBy(potenciaPara)
 
-            textoArr(razaoPot, base10HTML(rPot))
+            textoArr(razaoEne, base10HTML(rEne))
             textoArr(razaoTempo, base10HTML(rTempo))
-            textoArr(razaoEnergia, base10HTML(rEnergia))
+            textoArr(razaoPotencia, base10HTML(rPotencia))
 
             explicacao[3].style.display = 'block'
+        } else if (enePara) {
+            potenciaDe = new BigNumber(potencias[uDe])
 
-        } else if (potPara) {
-            energiaDe = new BigNumber(potencias[uDe])
-
-            potDe = new BigNumber(1)
+            eneDe = new BigNumber(1)
             tempoDe = new BigNumber(1)
-            energiaPara = new BigNumber(1)
+            potenciaPara = new BigNumber(1)
 
-            let rPot = potDe.dividedBy(potPara)
-            let rTempo = tempoDe.dividedBy(tempoPara)
-            let rEnergia = energiaDe.dividedBy(energiaPara)
+            let rEne = eneDe.dividedBy(enePara)
+            let rTempo = tempoDe.dividedBy(tempoPara) ** -1
+            let rPotencia = potenciaDe.dividedBy(potenciaPara)
 
-            textoArr(razaoPot, base10HTML(rPot))
+            textoArr(razaoEne, base10HTML(rEne))
             textoArr(razaoTempo, base10HTML(rTempo))
-            textoArr(razaoEnergia, base10HTML(rEnergia))
+            textoArr(razaoPotencia, base10HTML(rPotencia))
 
             explicacao[2].style.display = 'block'
 
         } else {
             explicacao[0].style.display = 'block'
         }
-        */
 
 
         // Escrever o símbolo das unidades
