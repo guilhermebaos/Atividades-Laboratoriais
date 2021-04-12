@@ -1,3 +1,5 @@
+const razaoComprimento = document.getElementsByName('razaoComprimento')
+
 let r, rInv
 // Converter Áreas
 function area(novasUnidades=false, inverterConversao=false) {
@@ -28,17 +30,17 @@ function area(novasUnidades=false, inverterConversao=false) {
         r = valorDe.dividedBy(valorPara)
         rInv = valorPara.dividedBy(valorDe)
 
-        textoArr(razao1, base10HTML(r))
+        textoArr(razaoComprimento, base10HTML(r))
 
         r = r.times(r)
         rInv = rInv.times(rInv)
 
-        textoArr(razaoQuadrado1, base10HTML(r))
+        textoArr(razao, base10HTML(r))
     }
 
     if (inverterConversao) {
-        converterNum.value = expToDec(new BigNumber(converterResultado.value).times(rInv)) * 1
+        converterNum.value = expToDec(new BigNumber(converterResultado.value).times(rInv) * 1)
         return
     }
-    converterResultado.value = expToDec(new BigNumber(converterNum.value).times(r)) * 1
+    converterResultado.value = expToDec(new BigNumber(converterNum.value).times(r) * 1)
 }

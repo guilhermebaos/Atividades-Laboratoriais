@@ -1,4 +1,7 @@
 // Constantes Físicas
+const PI = Math.PI
+
+// Base: 1m
 const comprimentos = {
     'pm': 1e-12,
     'nm': 1e-09,
@@ -14,7 +17,9 @@ const comprimentos = {
     'Gm': 1e09,
     'Tm': 1e12,
     'in': 0.0254,
-    'ft': 0.3048
+    'ft': 0.3048,
+    'UA': 149597870700,
+    'Segundo-Luz': 299792458,
 }
 const comprimentosNomes = {
     'pm': 'Picómetro',
@@ -31,9 +36,12 @@ const comprimentosNomes = {
     'Gm': 'Gigametro',
     'Tm': 'Terametro',
     'in': 'Polegada',
-    'ft': 'Pé'
+    'ft': 'Pé',
+    'UA': 'Unidade Astronómica',
+    'Segundo-Luz': 'Segundo-Luz',
 }
 
+// Base: 1J
 const energias = {
   'mJ': 0.001,
   'J': 1,
@@ -59,6 +67,7 @@ const energiasNomes = {
   'kcal': 'Kilocaloria'
 }
 
+// Base: 1W
 const potencias = {
   'mW': 0.001,
   'W': 1,
@@ -84,6 +93,7 @@ const potenciasNomes = {
   'kJ/h': 'Kilojould por hora',
 }
 
+// Base: 1s
 const tempos = {
   's': 1,
   'h': 3600
@@ -91,6 +101,28 @@ const tempos = {
 const temposNomes = {
   's': 'Segundo',
   'h': 'Hora'
+}
+
+// Base: m^3
+const volumes = {
+  'mL': 1e-06,
+  'cL': 1e-05,
+  'dL': 1e-04,
+  'L': 1e-03,
+  'kL': 1,
+  'ML': 1e03,
+  'GL': 1e06,
+  'TL': 1e09,
+}
+const volumesNomes = {
+  'mL': 'Mililitro',
+  'cL': 'Centilitro',
+  'dL': 'Decilitro',
+  'L': 'Litro',
+  'kL': 'Kilolitro',
+  'ML': 'Megalitro',
+  'GL': 'Gigalitro',
+  'TL': 'Teralitro',
 }
 
 
@@ -110,8 +142,9 @@ const unidadesParaExtenso = document.getElementsByName('unidadesParaExtenso')
 const unidadesDeGenero = document.getElementsByName('unidadesDeGenero')
 const unidadesParaGenero = document.getElementsByName('unidadesParaGenero')
 
-const razao1 = document.getElementsByName('razao1')
-const razaoQuadrado1 = document.getElementsByName('razaoQuadrado1')
+const razao = document.getElementsByName('razao')
+
+const explicacao = document.getElementsByName('explicação')
 
 
 
@@ -133,8 +166,9 @@ function expToDec(num) {
     let numStr = String(num)
     let numArr = numStr.split('e')
     let numDp = !!(Number(numArr[0]) % 1) ? (numArr[0].length - numStr.indexOf('.') - 1) : 0
+    
     if (numArr.length == 2) {
-        if (numArr[1] < 0) {
+        if (Number(numArr[1]) < 0) {
             numStr = num.toFixed(Math.abs(numArr[1]) + numDp)
             return numStr
         }

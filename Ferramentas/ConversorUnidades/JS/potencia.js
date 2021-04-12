@@ -1,5 +1,3 @@
-const explicacao = document.getElementsByName('explicação')
-
 const unidadesDeExtensoEne = document.getElementsByName('unidadesDeExtensoEne')
 const unidadesDeExtensoTempo = document.getElementsByName('unidadesDeExtensoTempo')
 const unidadesParaExtensoEne = document.getElementsByName('unidadesParaExtensoEne')
@@ -20,6 +18,7 @@ function potencia(novasUnidades=false, inverterConversao=false) {
         let uDe = converterDe.value
         let uPara = converterPara.value
 
+        // Escolher a Explicação a mostrar
         let uDeEne, uDeTempo, eneDe, tempoDe, potenciaDe
         let uDeDividido = uDe.split('/')
         if (uDeDividido.length == 2) {
@@ -111,12 +110,12 @@ function potencia(novasUnidades=false, inverterConversao=false) {
         r = valorDe.dividedBy(valorPara)
         rInv = valorPara.dividedBy(valorDe)
 
-        textoArr(razao1, base10HTML(r))
+        textoArr(razao, base10HTML(r))
     }
 
     if (inverterConversao) {
-        converterNum.value = expToDec(new BigNumber(converterResultado.value).times(rInv)) * 1
+        converterNum.value = expToDec(new BigNumber(converterResultado.value).times(rInv) * 1)
         return
     }
-    converterResultado.value = expToDec(new BigNumber(converterNum.value).times(r)) * 1
+    converterResultado.value = expToDec(new BigNumber(converterNum.value).times(r) * 1)
 }
