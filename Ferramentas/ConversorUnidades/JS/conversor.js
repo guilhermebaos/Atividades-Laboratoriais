@@ -204,11 +204,15 @@ const quantidadesNomes = {
 // Base: 1s
 const tempos = {
   's': 1,
-  'h': 3600
+  'min': 60,
+  'h': 3600,
+  'd': 86400,
 }
 const temposNomes = {
   's': 'Segundo',
-  'h': 'Hora'
+  'min': 'Minuto',
+  'h': 'Hora',
+  'd': 'Dia',
 }
 
 // Base: m^3
