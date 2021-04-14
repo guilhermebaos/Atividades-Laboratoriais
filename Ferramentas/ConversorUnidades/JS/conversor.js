@@ -93,6 +93,20 @@ const potenciasNomes = {
   'kJ/h': 'Kilojould por hora',
 }
 
+// Base: 1Pa
+const pressoes = {
+  'Pa': 1,
+  'mmHg': new BigNumber('133.322387415'),
+  'bar': 100000,
+  'atm': 101325,
+}
+const pressoesNomes = {
+  'Pa': 'Pascal',
+  'mmHg': 'Milímetros de Mercúrio',
+  'bar': 'bar',
+  'atm': 'Pressão Atmosférica Normal',
+}
+
 // Base: 1unidade
 const quantidades = {
   'unidades': 1,
