@@ -1,11 +1,25 @@
 // Constantes Físicas
 const PI = Math.PI
 
+// Base: 1º
+const amplitudes = {
+  '°': 1,
+  "'": new BigNumber(1).div(new BigNumber(60)),
+  "''": new BigNumber(1).div(new BigNumber(3600)),
+  'rad': new BigNumber(PI).div(new BigNumber(180)),
+}
+const amplitudesNomes = {
+  '°': 'Grau',
+  "'": 'Minuto',
+  "''": 'Segundo',
+  'rad': 'Radiano',
+}
+
 // Base: 1m
 const comprimentos = {
     'pm': 1e-12,
     'nm': 1e-09,
-    '&mu;m': 1e-06,
+    'μm': 1e-06,
     'mm': 1e-03,
     'cm': 1e-02,
     'dm': 1e-01,
@@ -24,7 +38,7 @@ const comprimentos = {
 const comprimentosNomes = {
     'pm': 'Picómetro',
     'nm': 'Nanómetro',
-    '&mu;m': 'Micrómetro',
+    'μm': 'Micrómetro',
     'mm': 'Milímetro',
     'cm': 'Centímetro',
     'dm': 'Decímetro',
@@ -76,9 +90,9 @@ const potencias = {
   'GW': 1e09,
   'TW': 1e12,
   'J/s': 1,
-  'J/h': new BigNumber(1).dividedBy(new BigNumber(3600)),
+  'J/h': new BigNumber(1).div(new BigNumber(3600)),
   'kJ/s': 1000,
-  'kJ/h': new BigNumber(1000).dividedBy(new BigNumber(3600)),
+  'kJ/h': new BigNumber(1000).div(new BigNumber(3600)),
 }
 const potenciasNomes = {
   'mW': 'Miliwatt',

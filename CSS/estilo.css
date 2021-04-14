@@ -704,6 +704,12 @@ select.unidades option {
     font-weight: normal;
 }
 
+optgroup {
+    font-weight: normal;
+}
+
+
+
 table {
     padding: 0px;
     border-collapse: collapse;
