@@ -81,6 +81,38 @@ const energiasNomes = {
   'kcal': 'Kilocaloria'
 }
 
+// Base: 1N
+const forcas = {
+  'pN': 1e-12,
+  'nN': 1e-09,
+  'μN': 1e-06,
+  'mN': 1e-03,
+  'cN': 1e-02,
+  'dN': 1e-01,
+  'N': 1,
+  'daN': 1e01,
+  'hN': 1e02,
+  'kN': 1e03,
+  'MN': 1e06,
+  'GN': 1e09,
+  'TN': 1e12,
+}
+const forcasNomes = {
+  'pN': 'Piconewton',
+  'nN': 'Nanonewton',
+  'μN': 'Micronewton',
+  'mN': 'Milinewton',
+  'cN': 'Centinewton',
+  'dN': 'Decinewton',
+  'N': 'Newton',
+  'daN': 'Decanewton',
+  'hN': 'Hectonewton',
+  'kN': 'Kilonewton',
+  'MN': 'Meganewton',
+  'GN': 'Giganewton',
+  'TN': 'Teranewton',
+}
+
 // Base: 1g
 const massas = {
   'μg': 1e-06,
