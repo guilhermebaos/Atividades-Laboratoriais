@@ -98,10 +98,6 @@ section.resumo {
     margin: 0px;
 }
 
-.m0-bot {
-    margin-bottom: 0px !important;
-}
-
 .m5 {
     margin-top: 5px !important;
     margin-bottom: 5px !important;
@@ -119,6 +115,9 @@ section.resumo {
     margin-bottom: 45px !important;
 }
 
+.m0-top {
+    margin-top: 0px !important;
+}
 .m5-top {
     margin-top: 5px !important;
 }
@@ -132,6 +131,9 @@ section.resumo {
     margin-top: 45px !important;
 }
 
+.m0-bot {
+    margin-bottom: 0px !important;
+}
 .m5-bot {
     margin-bottom: 5px !important;
 }

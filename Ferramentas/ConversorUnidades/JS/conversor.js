@@ -93,6 +93,26 @@ const potenciasNomes = {
   'kJ/h': 'Kilojould por hora',
 }
 
+// Base: 1unidade
+const quantidades = {
+  'unidades': 1,
+  'dúzias': 12,
+  'quarteirões': 25,
+  'centenas': 100,
+  'milhares': 1000,
+  'milhões': 1e06,
+  'mol': '6.02214076e23',
+}
+const quantidadesNomes = {
+  'unidades': 'Unidades',
+  'dúzias': 'Dúzias',
+  'quarteirões': 'Quarteirões',
+  'centenas': 'Centenas',
+  'milhares': 'Milhares',
+  'milhões': 'Milhões',
+  'mol': 'Moles',
+}
+
 // Base: 1s
 const tempos = {
   's': 1,
