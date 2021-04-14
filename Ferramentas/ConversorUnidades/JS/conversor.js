@@ -81,6 +81,34 @@ const energiasNomes = {
   'kcal': 'Kilocaloria'
 }
 
+// Base: 1g
+const massas = {
+  'μg': 1e-06,
+  'mg': 1e-03,
+  'cg': 1e-02,
+  'dg': 1e-01,
+  'g': 1,
+  'dag': 1e01,
+  'hg': 1e02,
+  'kg': 1e03,
+  'Mg': 1e06,
+  'oz': new BigNumber('28.349523125'),
+  'lb': new BigNumber('453.59237'),
+}
+const massasNomes = {
+  'μg': 'Micrograma',
+  'mg': 'Miligrama',
+  'cg': 'Centigrama',
+  'dg': 'Decigrama',
+  'g': 'Grama',
+  'dag': 'Decagrama',
+  'hg': 'Hectograma',
+  'kg': 'Kilograma',
+  'Mg': 'Megagrama',
+  'oz': 'Onça',
+  'lb': 'Libra',
+}
+
 // Base: 1W
 const potencias = {
   'mW': 0.001,
