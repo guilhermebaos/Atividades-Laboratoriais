@@ -215,6 +215,20 @@ const temposNomes = {
   'd': 'Dia',
 }
 
+// Base: 1m/s
+const velocidades = {
+  'cm/s': 0.01,
+  'km/h': new BigNumber(1000).div(new BigNumber(3600)),
+  'm/s': 1,
+  'km/s': 1000,
+}
+const velocidadesNomes = {
+  'cm/s': 'Centímetro por segundo',
+  'km/h': 'Kilómetro por hora',
+  'm/s': 'Metro por segundo',
+  'km/s': 'Kilómetro por segundo',
+}
+
 // Base: m^3
 const volumes = {
   'mL': 1e-06,
