@@ -617,7 +617,7 @@ div.links-letras a:hover {
 
 div.grandeza-container {
     display: flex;
-    width: 90%;
+    width: 95%;
     margin: auto;
     flex-direction: row;
     flex-wrap: wrap;
