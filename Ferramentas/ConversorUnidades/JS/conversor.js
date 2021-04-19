@@ -6,7 +6,7 @@ const amplitudes = {
   '°': 1,
   "'": new BigNumber(1).div(new BigNumber(60)),
   "''": new BigNumber(1).div(new BigNumber(3600)),
-  'rad': new BigNumber(PI).div(new BigNumber(180)),
+  'rad': new BigNumber(180).div(new BigNumber(PI)),
 }
 const amplitudesNomes = {
   '°': 'Grau',
