@@ -189,7 +189,7 @@ const quantidades = {
   'centenas': 100,
   'milhares': 1000,
   'milhões': 1e06,
-  'mol': '6.02214076e23',
+  'mol': new BigNumber('6.02214076e23'),
 }
 const quantidadesNomes = {
   'unidades': 'Unidades',
