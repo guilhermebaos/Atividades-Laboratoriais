@@ -65,6 +65,9 @@ export default class Simula {
     }
 
     update(deltaTempo) {
+        // Evitar que o intervalo de tempo seja superior a 100ms
+        if (deltaTempo > 50) deltaTempo = 50
+
         if (this.estado !== ESTADOS.EM_PROGRESSO) return
 
         deltaTempo /= 1000
