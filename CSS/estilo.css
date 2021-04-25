@@ -680,7 +680,7 @@ select:hover {
 
 select.unidades {
     display: inline;
-	width: 50%;
+	width: 40%;
 	margin: 0;
 	padding: 0.6em 1.4em 0.5em 0.8em;
 	font-weight: bold;
@@ -695,6 +695,12 @@ select.unidades {
 	-webkit-appearance: none;
 	background-color: white;
 	background-image: linear-gradient(to bottom, #ffffff 0%,rgb(220, 220, 220) 100%);
+}
+@media screen and (max-width: 600px) {
+    select.unidades {
+        width: 100%;
+        margin: 0 0 15px 0;
+    }
 }
 select.unidades:hover {
     cursor: pointer;
@@ -836,7 +842,7 @@ input.slider::-moz-range-thumb {
 
 input.converter {
     display: inline;
-	width: 30%;
+	width: 35%;
 	margin: 0px 2px 0px 0px;
 	padding: 0.4em 1.0em 0.4em 0.6em;
 	font-weight: bold;
@@ -851,6 +857,12 @@ input.converter {
 	-webkit-appearance: none;
 	background-color: white;
 	background-image: linear-gradient(to bottom, #ffffff 0%,rgb(220, 220, 220) 100%);
+}
+@media screen and (max-width: 600px) {
+    input.converter {
+        width: 88%;
+        margin: 0 0 15px 0;
+    }
 }
 
 
