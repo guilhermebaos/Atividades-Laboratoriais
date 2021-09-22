@@ -330,7 +330,7 @@ function criarGraficos(divsCurvas) {
     })
 
 
-    // GRÁFICO DA POSIÇÃO
+    // GRÁFICO DA ACELERAÇÃO
 
     // Remover o Canvas antigo
     divCurvaAce.innerHTML = ''
