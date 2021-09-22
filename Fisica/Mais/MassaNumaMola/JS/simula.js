@@ -1,4 +1,6 @@
+import Esfera from '../JS/massa.js'
 import Dados from '../JS/dados.js'
+import Massa from '../JS/massa.js'
 
 const ESTADOS = {
     EM_PROGRESSO: 0,
@@ -23,6 +25,8 @@ export default class Simula {
         this.estado = ESTADOS.EM_PROGRESSO
 
         // Objetos da Simulação
+        this.massa = new Massa(this)
+
         this.dados = new Dados(this)
     }
 
@@ -30,6 +34,7 @@ export default class Simula {
         this.start = start
         this.inputs = this.juntarValores()
 
+        this.massa.reiniciar(start)
         this.dados.reiniciar()
         
         this.novoTamanho()
@@ -45,10 +50,11 @@ export default class Simula {
         return {
             m: valorMassa.value / 1000,         // Massa em kg
             mMax: valorMassa.max / 1000,        // Massa máxima
+            k: constanteElastica.value / 100,   // Const Elástica da Mola em N/m
             l: comprimentoMola.value / 100,     // Comprimento da Mola em m    
             xInicial: posInicial.value / 100,   // Possição Inicial em m
             xInicialMax: posInicial.max / 100,  // Possição Inicial Max em m 
-            g: aGravitica.value / 100,          // Aceleração Grav. em m/s^2
+            g: aGravitica.value / 100           // Aceleração Grav. em m/s^2
         }
     }
 
@@ -99,17 +105,19 @@ export default class Simula {
     update(deltaTempo) {
         if (this.estado !== ESTADOS.EM_PROGRESSO) return
 
-        if (this.start) {
+        this.massa.update(deltaTempo)
+
+        if (this.start && false) {
             return this.dados.update(deltaTempo)
         }
     }
 
     desenhar(ctx) {
+        this.massa.desenhar(ctx)
+
         if (this.estado == ESTADOS.PAUSA) {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.2)'
             ctx.fillRect(0, 0, this.largura, this.altura)
-        } else {
-            
         }
     }
 }

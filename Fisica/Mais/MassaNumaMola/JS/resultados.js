@@ -9,12 +9,14 @@ const DPR = window.devicePixelRatio
 
 // Selecionar os Sliders
 let valorMassa = document.getElementById('valorMassa')
+let constanteElastica = document.getElementById('constanteElastica')
 let comprimentoMola = document.getElementById('comprimentoMola')
 let posInicial = document.getElementById('posInicial')
 let aGravitica = document.getElementById('aGravitica')
 
 // Selecionar os Spans com os valores dos Sliders
 let valorMassaResp = document.getElementById('valorMassaValue')
+let constanteElasticaResp = document.getElementById('constanteElasticaValue')
 let comprimentoMolaResp = document.getElementById('comprimentoMolaValue')
 let posInicialResp = document.getElementById('posInicialValue')
 let aGraviticaResp = document.getElementById('aGraviticaValue')
@@ -24,6 +26,11 @@ valorMassa.oninput = function atualizarvalorMassa() {
     let valorMassaValue = valorMassa.value / 1000
 
     valorMassaResp.innerText = `${valorMassaValue.toFixed(3)}`
+}
+constanteElastica.oninput = function atualizarcomprimentoMola() {
+    let constanteElasticaValue = constanteElastica.value / 100
+
+    constanteElasticaResp.innerText = `${constanteElasticaValue.toFixed(2)}`
 }
 comprimentoMola.oninput = function atualizarcomprimentoMola() {
     let comprimentoMolaValue = comprimentoMola.value / 100
@@ -42,18 +49,18 @@ aGravitica.oninput = function atualizaraGravitica() {
 }
 
 // Selecionar as divs com os Gráficos
+let divCurvaEne = document.getElementById('curvaEne')
 let divCurvaPos = document.getElementById('curvaPos')
 let divCurvaVel = document.getElementById('curvaVel')
 let divCurvaAce = document.getElementById('curvaAce')
 let divCurvaJer = document.getElementById('curvaJer')
-let divCurvaEne = document.getElementById('curvaEne')
 
 const DIVS_CURVAS = [
+    divCurvaEne,
     divCurvaPos,
     divCurvaVel,
     divCurvaAce,
-    divCurvaJer,
-    divCurvaEne
+    divCurvaJer
 ]
 
 
@@ -106,7 +113,6 @@ function loopSimula(tempo) {
 
     let deltaTempo = (tempo - ultimoTempo) / 1000 / RESOLUCAO
     ultimoTempo = tempo
-
     
     let dados
     // UNCOMMENT PARA ADICIONAR VELOCIDADES À SIMULAÇÃO!
