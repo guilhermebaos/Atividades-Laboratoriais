@@ -15,7 +15,7 @@ export default class Dados {
         this.tempo = 0
 
         // Selecionar a esfera
-        this.esfera = this.simula.esfera
+        this.massa = this.simula.massa
     }
 
     reiniciar() {
@@ -34,7 +34,28 @@ export default class Dados {
         // Objeto com os dados
         this.dadosObtidos = []
         
+        // Tempo da Simulação
         this.dadosObtidos.push(this.tempo.toFixed(3))
+
+        // Energias Cinética, Potencial e Mecânica
+        let Ec = 0.5 * this.massa.m * (this.massa.velocidade ** 2)
+        let Epg = this.massa.m * this.massa.g * this.massa.altura
+        this.dadosObtidos.push(Ec)
+        this.dadosObtidos.push(Epg)
+        this.dadosObtidos.push(Ec + Epg)
+
+        // Posição
+        this.dadosObtidos.push(this.massa.posicao)
+
+        // Velocidade
+        this.dadosObtidos.push(this.massa.velocidade)
+        
+        // Aceleração
+        this.dadosObtidos.push(this.massa.aceleracao)
+
+        // Jerk
+        this.dadosObtidos.push((this.massa.aceleracao - this.ultimaAceleracao) / deltaTempo)
+        this.ultimaAceleracao = this.massa.aceleracao
         
         // Calcular e guardar os valores
         this.tempo += deltaTempo * this.ignorar * this.simula.resolucao

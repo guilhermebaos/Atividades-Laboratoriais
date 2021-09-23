@@ -13,7 +13,7 @@ function criarGraficos(divsCurvas) {
     divCurvaEne.innerHTML = ''
 
     // Criar o canvas on de vai estar a curva
-    canvasCurva = document.createElement('canvas')
+    let canvasCurva = document.createElement('canvas')
     canvasCurva.setAttribute('id', 'canvasCurvaEne')
     divCurvaEne.appendChild(canvasCurva)
 
@@ -180,7 +180,7 @@ function criarGraficos(divsCurvas) {
             labels: [],
             datasets: [{
                 data: [],
-                label: 'Módulo da Velocidade',
+                label: 'Componente escalar da Velocidade',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -253,7 +253,7 @@ function criarGraficos(divsCurvas) {
             labels: [],
             datasets: [{
                 data: [],
-                label: 'Módulo da Aceleração',
+                label: 'Componente escalar da Aceleração',
                 borderColor: 'blue',
                 fill: false
             }]
@@ -326,7 +326,7 @@ function criarGraficos(divsCurvas) {
             labels: [],
             datasets: [{
                 data: [],
-                label: 'Módulo do Jerk',
+                label: 'Componente escalar do Jerk',
                 borderColor: 'blue',
                 fill: false
             }]

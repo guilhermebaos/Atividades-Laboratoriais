@@ -15,10 +15,10 @@ export default class Massa {
         }
 
         // Escala do ecrã, em relação ao tamanho máximo da mola
-        this.escala = 6
+        this.escala = 7
         
         // Tamanho dos vetores
-        this.tamanhoVetor = 0.1
+        this.tamanhoVetor = 0.75
 
         this.reiniciar()
     }
@@ -50,19 +50,22 @@ export default class Massa {
         this.aceleracao = (this.g + this.fe) / this.m
 
         this.posicaoEquilibrio = this.xI + this.g / this.k
+
+        this.alturaMinima = this.xI + (this.posicaoEquilibrio - this.xI) * 2
+        this.altura = this.alturaMinima - this.posicao
     }
 
     update(deltaTempo) {
         if (!this.start) return
 
         this.posicao += this.velocidade * deltaTempo + 0.5 * this.aceleracao * deltaTempo ** 2
-        this.velocidade += this.aceleracao * deltaTempo
+        this.velocidade += -this.k * (this.posicao - this.posicaoEquilibrio) / this.m * deltaTempo
+        // this.velocidade += this.aceleracao * deltaTempo
 
         this.fe = - this.k *(this.posicao - this.l)
         this.aceleracao = (this.g + this.fe) / this.m
-
-        // Passar para:
-        // this.velocidade += -this.k * (this.posicao - this.posicaoEquilibrio) / this.m * deltaTempo
+        
+        this.altura = this.alturaMinima - this.posicao
     }
 
     desenhar(ctx) {
@@ -76,14 +79,19 @@ export default class Massa {
             this.alturaPx
             )
         
-        /*
-        if (this.velocidade.abs > 1e-03) {
-            this.velocidadePx = {
-                x: this.velocidade.x * this.mToPx * this.tamanhoVetor,
-                y: this.velocidade.y * this.mToPx * this.tamanhoVetor
-            }
-            this.simula.desenharVetor(ctx, this.posicaoPx.x, this.posicaoPx.y - 3 * this.raioPx, this.posicaoPx.x + this.velocidadePx.x, this.posicaoPx.y - 3 * this.raioPx + this.velocidadePx.y, this.corVetores.velocidade)
+        this.posicaoVetores = {
+            esquerda: 0.5 * this.simula.largura - this.larguraPx,
+            direita: 0.5 * this.simula.largura + this.larguraPx
         }
-        */
+        if (Math.abs(this.velocidade) > 1e-03) {
+            this.velocidadePx = this.velocidade * this.mToPx * this.tamanhoVetor
+
+            this.simula.desenharVetor(ctx, this.posicaoVetores.esquerda, this.posicaoPx, this.posicaoVetores.esquerda, this.posicaoPx + this.velocidadePx, this.corVetores.velocidade)
+        }
+        if (Math.abs(this.aceleracao) > 1e-03 && this.start) {
+            this.aceleracaoPx = this.aceleracao * this.mToPx * this.tamanhoVetor
+
+            this.simula.desenharVetor(ctx, this.posicaoVetores.direita, this.posicaoPx, this.posicaoVetores.direita, this.posicaoPx + this.aceleracaoPx, this.corVetores.aceleracao)
+        }
     }
 }

@@ -1,4 +1,3 @@
-import Esfera from '../JS/massa.js'
 import Dados from '../JS/dados.js'
 import Massa from '../JS/massa.js'
 
@@ -107,7 +106,7 @@ export default class Simula {
 
         this.massa.update(deltaTempo)
 
-        if (this.start && false) {
+        if (this.start) {
             return this.dados.update(deltaTempo)
         }
     }

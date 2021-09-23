@@ -105,8 +105,7 @@ function loopSimula(tempo) {
     if (ultimoTempo === undefined) {
         ultimoTempo = tempo
         fixDPR()
-        // UNCOMMENT PARA VER OS GRÁFICOS!
-        // if (!graficos) graficos = criarGraficos(DIVS_CURVAS)
+        if (!graficos) graficos = criarGraficos(DIVS_CURVAS)
         requestAnimationFrame(loopSimula)
         return
     }
@@ -115,7 +114,8 @@ function loopSimula(tempo) {
     ultimoTempo = tempo
     
     let dados
-    // UNCOMMENT PARA ADICIONAR VELOCIDADES À SIMULAÇÃO!
+    
+    // UNCOMMENT PARA ALTERAR A VELOCIDADE DA SIMULAÇÃO
     // for (let frames = 0; frames < velocidadeSim.value / 1; frames++) {}
     for (let i = 0; i < RESOLUCAO; i++) {
         dados = simula.update(deltaTempo)
@@ -133,8 +133,7 @@ function loopSimula(tempo) {
 // Reiniciar a Simulação
 function reiniciar(start=false) {
     simula.reiniciar(start)
-    // UNCOMMENT PARA VER OS GRÁFICOS!
-    // graficos = criarGraficos(DIVS_CURVAS)
+    graficos = criarGraficos(DIVS_CURVAS)
 }
 
 
