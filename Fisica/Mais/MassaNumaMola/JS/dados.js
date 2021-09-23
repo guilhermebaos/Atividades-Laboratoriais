@@ -5,6 +5,7 @@ export default class Dados {
 
         // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
         this.contador = -1
+        this.contadorMax = 2e05
         this.ignorarMin = 1
         this.ignorar = this.ignorarMin
 
@@ -29,7 +30,8 @@ export default class Dados {
         // Gravar apenas uma parte dos dados, para evitar ficar com muitos pontos
         this.contador++
 
-        if (this.contador % (this.ignorar * this.simula.resolucao) != 0) return false
+        if ((this.contador % (this.ignorar * this.simula.resolucao) != 0) || 
+        this.contador > this.contadorMax) return false
 
         // Objeto com os dados
         this.dadosObtidos = []

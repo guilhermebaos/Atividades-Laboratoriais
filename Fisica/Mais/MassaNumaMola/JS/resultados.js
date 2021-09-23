@@ -138,8 +138,10 @@ function reiniciar(start=false) {
 
 
 // Botão de Reiniciar a Simulação
-document.getElementById('reiniciar-Simulação').addEventListener('click', (() => {
+let btnReiniciar = document.getElementById('reiniciar-Simulação')
+btnReiniciar.addEventListener('click', (() => {
     reiniciar(true)
+    btnReiniciar.innerText = 'Reiniciar a Simulação'
 }))
 
 // Botão de pausa
