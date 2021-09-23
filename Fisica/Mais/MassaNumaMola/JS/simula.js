@@ -1,5 +1,6 @@
 import Dados from '../JS/dados.js'
 import Massa from '../JS/massa.js'
+import Mola from '../JS/mola.js'
 
 const ESTADOS = {
     EM_PROGRESSO: 0,
@@ -25,6 +26,8 @@ export default class Simula {
 
         // Objetos da Simulação
         this.massa = new Massa(this)
+
+        this.mola = new Mola(this)
 
         this.dados = new Dados(this)
     }
@@ -93,6 +96,70 @@ export default class Simula {
         ctx.fill()
     }
 
+    // Adaptado de StackOverflow: https://stackoverflow.com/questions/41613191/how-to-draw-a-curved-spring-in-a-html5-canvas
+    desenharMola(ctx, x0, y0, xFinal, yFinal, espirais, largura, offset, cor1, cor2, larguraLinha){
+        let x = xFinal - x0,
+            y = yFinal - y0,
+            dist = Math.sqrt(x * x + y * y)
+        
+        let nx = x / dist,
+            ny = y / dist
+        ctx.strokeStyle = cor1
+        ctx.lineWidth = larguraLinha
+        ctx.lineJoin = "round"
+        ctx.lineCap = "round"
+        ctx.beginPath()
+        ctx.moveTo(x0,y0)
+        x0 += nx * offset
+        y0 += ny * offset
+        xFinal -= nx * offset
+        yFinal -= ny * offset
+        x = xFinal - x0
+        y = yFinal - y0
+        let step = 1 / espirais
+
+        // Para cada espiral
+        for (let i = 0; i <= 1-step; i += step) {
+            for (let j = 0; j < 1; j += 0.05) {
+                let xx = x0 + x * (i + j * step),
+                    yy = y0 + y * (i + j * step)
+                xx -= Math.sin(j * Math.PI * 2) * ny * largura
+                yy += Math.sin(j * Math.PI * 2) * nx * largura
+                ctx.lineTo(xx,yy)
+            }
+        }
+
+        ctx.lineTo(xFinal, yFinal)
+        ctx.lineTo(xFinal + nx * offset, yFinal + ny * offset)
+        ctx.stroke()
+        ctx.strokeStyle = cor2
+        ctx.lineWidth = larguraLinha - 4
+        step = 1 / espirais
+
+        ctx.beginPath()
+        ctx.moveTo(x0 - nx * offset, y0 - ny * offset)
+        ctx.lineTo(x0, y0)
+        ctx.moveTo(xFinal, yFinal)
+        ctx.lineTo(xFinal + nx * offset, yFinal + ny * offset)
+
+        // Para cada espiral
+        for (let i = 0; i <= 1-step; i += step) {
+            for (let j = 0.25; j <= 0.76; j += 0.05) {
+                let xx = x0 + x * (i + j * step),
+                    yy = y0 + y * (i + j * step)
+                xx -= Math.sin(j * Math.PI * 2) * ny * largura
+                yy += Math.sin(j * Math.PI * 2) * nx * largura
+                if (j === 0.25) {
+                    ctx.moveTo(xx,yy)
+                
+                } else {
+                    ctx.lineTo(xx,yy)
+                }
+            }
+        }
+        ctx.stroke();
+    }
+
     pausa() {
         if (this.estado == ESTADOS.PAUSA) {
             this.estado = ESTADOS.EM_PROGRESSO
@@ -113,6 +180,7 @@ export default class Simula {
 
     desenhar(ctx) {
         this.massa.desenhar(ctx)
+        this.mola.desenhar(ctx)
 
         if (this.estado == ESTADOS.PAUSA) {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.2)'

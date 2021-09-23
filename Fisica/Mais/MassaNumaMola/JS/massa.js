@@ -53,6 +53,8 @@ export default class Massa {
 
         this.alturaMinima = this.xI + (this.posicaoEquilibrio - this.xI) * 2
         this.altura = this.alturaMinima - this.posicao
+        
+        this.posicaoPx = this.posicao * this.mToPx
     }
 
     update(deltaTempo) {
