@@ -401,6 +401,12 @@ canvas.redondo {
     border-radius: 2px;
 }
 
+canvas.layer-canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
 
 div {
     padding: 5px;
@@ -430,6 +436,7 @@ div.graf-background {
 }
 
 div.graf-container {
+    position: relative;
     margin: auto;
     padding: 0px;
     min-width: 600px;
