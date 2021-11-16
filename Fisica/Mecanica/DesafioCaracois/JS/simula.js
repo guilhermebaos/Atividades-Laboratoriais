@@ -19,8 +19,8 @@ export default class Simula {
         // Parâmetros dos Caracóis
         this.cores = ['red', 'rgb(10, 100, 230)', 'rgb(145, 200, 20)', 'black']
         this.start = {
-            x: 50,
-            y: 50
+            x: (this.largura - this.inputs.d) / 2,
+            y: 10
         }
         
         // Criar os Caracóis

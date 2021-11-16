@@ -29,7 +29,7 @@
         <section>
             <div id="div-teoria">
                 <p class="m0">
-                    Esta é uma simulação do desafio dos caracóis. Este desafio consiste em analisar o movimento de 4 caracóis colocados nos vértices de um quadrado, que se movem com velocidade de módulo constante para o caracol no vértice a seguir ao seu.
+                    Esta é uma simulação do desafio dos caracóis. Este desafio consiste em analisar o movimento de 4 caracóis colocados nos vértices de um quadrado, que se movem com velocidade de módulo constante no sentido do caracol no vértice a seguir ao seu.
                 </p>
             </div>
             <div id="div-resultados">
@@ -41,15 +41,15 @@
                     </div>
                     <div class="flex-slider">
                         <div><label for="distInicial">Distância Inicial</label></div>
-                        <div><span id="distInicialValue">500.0</span>m<br>
-                        <input type="range" name="distInicial" id="distInicial" class="slider" min="10" max="1500" value="500"></div>
+                        <div><span id="distInicialValue">300.0</span>m<br>
+                        <input type="range" name="distInicial" id="distInicial" class="slider" min="10" max="750" value="300"></div>
                     </div>
 
                     <button id="reiniciar-Simulação" class="submit">Colocar os Caracóis em Movimento</button>
                 </div>
                 <div class="graf-overflow m5-bot">
-                    <div class="graf-container layer-canvas-container">
-                        <canvas id="canvasSimTop" class="simulacao layer-canvas" style="width: calc(100% - 4px);"></canvas>
+                    <div class="graf-container">
+                        <canvas id="canvasSimTop" class="simulacao" style="width: calc(100% - 4px);"></canvas>
                         <canvas id="canvasSimBot" class="simulacao layer-canvas" style="width: calc(100% - 4px);"></canvas>
                     </div>
                 </div>
