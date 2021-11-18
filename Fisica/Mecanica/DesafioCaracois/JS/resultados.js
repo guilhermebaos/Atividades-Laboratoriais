@@ -8,6 +8,8 @@ const DPR = window.devicePixelRatio
 let rapidez, rapidezResp
 let distInicial, distInicialResp
 
+let desenharQuadrado, apagarQuadrado
+
 // Selecionar os Sliders
 rapidez = document.getElementById('rapidez')
 distInicial = document.getElementById('distInicial')

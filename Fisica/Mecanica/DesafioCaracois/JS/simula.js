@@ -68,8 +68,8 @@ export default class Simula {
         return {
             v: rapidez.value / 1,           // Módulo da velocidade dos caracóis
             d: distInicial.value / 1,       // Distância entre os caracóis
-            desenharQuadrado: true,         // Desenhar o Quadrado
-            apagarQuadrado: true            // Apagar Quadrado
+            desenharQuadrado: desenharQuadrado.checked,         // Desenhar o Quadrado
+            apagarQuadrado: apagarQuadrado.checked            // Apagar Quadrado
         }
     }
 
