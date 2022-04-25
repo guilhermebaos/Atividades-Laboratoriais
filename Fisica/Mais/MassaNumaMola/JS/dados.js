@@ -5,7 +5,7 @@ export default class Dados {
 
         // Contador, para apenas guardar uma parte dos dados, para evitar sobrecarregar os gráficos
         this.contador = -1
-        this.contadorMax = 2e05
+        this.contadorMax = 6e4
         this.ignorarMin = 1
         this.ignorar = this.ignorarMin
 
